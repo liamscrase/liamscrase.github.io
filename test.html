@@ -1,0 +1,74 @@
+<div id="banner">
+    <h1 id="banner-header"></h1>
+</div>
+<div id="banner">
+    <h1 id="banner-header"></h1>
+</div>
+
+<script>
+const roles = ["Designer", "Web Developer", "Problem Solver"];
+const bannerHeader = document.getElementById("banner-header");
+
+// Create the cursor once and attach immediately
+const cursor = document.createElement("span");
+cursor.id = "cursor";
+cursor.textContent = "|";
+cursor.style.fontSize = "2rem";
+cursor.style.color = "var(--accent-color)";
+cursor.style.fontFamily = "'Chivo Mono', monospace";
+cursor.style.opacity = "1"; // visible from the start
+
+// We'll start blinking only after all text is typed
+let blinkInterval;
+
+function typeRole(role, container, cb) {
+    let i = 0;
+
+    // Always append cursor to the current line
+    container.appendChild(cursor);
+
+    function type() {
+        if (i < role.length) {
+            container.insertBefore(document.createTextNode(role[i]), cursor);
+            i++;
+            setTimeout(type, 100);
+        } else {
+            cb();
+        }
+    }
+
+    type();
+}
+
+function showRoles() {
+    let index = 0;
+
+    function next() {
+        if (index < roles.length) {
+            const line = document.createElement("div");
+            line.style.margin = "12px 0";
+            line.style.fontFamily = "'Chivo Mono', monospace";
+            line.style.color = "var(--accent-color)";
+            line.style.fontWeight = "500";
+            line.style.fontSize = "2rem";
+            line.style.textAlign = "center";
+
+            bannerHeader.appendChild(line);
+
+            typeRole(roles[index], line, () => {
+                index++;
+                next();
+            });
+        } else {
+            // All roles typed — start blinking the cursor
+            blinkInterval = setInterval(() => {
+                cursor.style.opacity = cursor.style.opacity === "0" ? "1" : "0";
+            }, 500);
+        }
+    }
+
+    next();
+}
+
+showRoles();
+</script>

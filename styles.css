@@ -12,8 +12,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Zalando Sans;
   text-decoration: none;
+}
+
+body {
+  font-family: Zalando Sans;
 }
 
 body {
@@ -208,26 +211,7 @@ header {
   text-align: center;
   margin: 40px 20px 20px 20px;
 }
-#banner h1 #typed-text {
-  font-weight: 500;
-  color: var(--accent-color);
-  font-family: "Chivo Mono", monospace;
-}
-#banner h1 #cursor {
-  font-weight: 500;
-  color: var(--accent-color);
-  opacity: 1;
-  transition: opacity 0.2s;
-}
 
-@keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
 @media (min-width: 1200px) {
   .mobile-navbar {
     display: none;
@@ -235,4 +219,6 @@ header {
   .desktop-navbar {
     display: flex;
   }
-}/*# sourceMappingURL=styles.css.map */
+}
+
+/*# sourceMappingURL=styles.css.map */

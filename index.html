@@ -61,59 +61,140 @@
 
 </html>
 
+<style>
+    :root {
+        --accent-color: #ffffff;
+    }
+
+    /* Each line that holds text */
+    #banner-header .line {
+        margin: 12px 0;
+        font-family: 'Chivo Mono', monospace !important;
+        color: var(--accent-color);
+        font-weight: 500;
+        font-size: 2rem;
+        text-align: center;
+        /* center the whole line */
+        position: relative;
+        /* important: line is the positioning context for the absolute cursor */
+        display: block;
+    }
+
+    /* The content span that actually receives the characters */
+    #banner-header .content {
+        display: inline-block;
+        /* measured precisely */
+        white-space: pre;
+        /* preserve spaces if needed */
+        font-family: 'Chivo Mono', monospace !important;
+    }
+
+    /* Single cursor element (absolute, so it doesn't affect layout) */
+    .cursor {
+        position: absolute;
+        top: 0;
+        /* adjusted in JS for pixel-perfect placement */
+        transform: translateY(0);
+        /* minor adjustments can be made here */
+        pointer-events: none;
+        font-family: 'Chivo Mono', monospace !important;
+        font-size: 2rem;
+        line-height: 1;
+        color: var(--accent-color);
+        user-select: none;
+        /* blinking via CSS animation */
+        animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+
+        0%,
+        50% {
+            opacity: 1;
+        }
+
+        50.01%,
+        100% {
+            opacity: 0;
+        }
+    }
+</style>
+
 <script>
-const roles = ["Web Developer", "Designer", "Problem Solver"];
+/* ======= Config ======= */
+const roles = ["Designer", "Web Developer", "Problem Solver"];
+const typingSpeed = 100; // ms per character
+/* ====================== */
+
 const bannerHeader = document.getElementById("banner-header");
 
-// Create the cursor once
+/* Create one cursor element and reuse it */
 const cursor = document.createElement("span");
-cursor.id = "cursor";
+cursor.className = "cursor";
+// Remove blinking for now; it will start later
+cursor.style.animation = "none";
 cursor.textContent = "|";
-cursor.style.fontSize = "2rem";
-cursor.style.color = "var(--accent-color)";
-cursor.style.fontFamily = "'Chivo Mono', monospace";
 
-// Blinking cursor
-setInterval(() => {
-    cursor.style.opacity = cursor.style.opacity === "0" ? "1" : "0";
-}, 500);
-
-function typeRole(role, container, cb) {
-    let i = 0;
-    // Always append cursor to the current line
-    container.appendChild(cursor);
-    function type() {
-        if (i < role.length) {
-            container.insertBefore(document.createTextNode(role[i]), cursor);
-            i++;
-            setTimeout(type, 100);
-        } else {
-            cb();
-        }
-    }
-    type();
+/* Utility: position the cursor at the end of the content inside a line */
+function updateCursorPosition(lineEl, contentEl) {
+  const contentRect = contentEl.getBoundingClientRect();
+  const lineRect = lineEl.getBoundingClientRect();
+  const left = contentRect.right - lineRect.left;
+  const top = contentRect.top - lineRect.top;
+  cursor.style.left = Math.round(left) + "px";
+  cursor.style.top = Math.round(top) + "px";
 }
 
-function showRoles() {
-    let index = 0;
-    function next() {
-        if (index < roles.length) {
-            const line = document.createElement("div");
-            line.style.margin = "12px 0";
-            line.style.fontFamily = "'Chivo Mono', monospace";
-            line.style.color = "var(--accent-color)";
-            line.style.fontWeight = "500";
-            line.style.fontSize = "2rem";
-            line.style.textAlign = "center";
-            bannerHeader.appendChild(line);
-            typeRole(roles[index], line, () => {
-                index++;
-                next();
-            });
-        }
+/* Type a single role into `lineEl` (the line container). When done, call cb(). */
+function typeRole(role, lineEl, cb) {
+  lineEl.style.position = lineEl.style.position || "relative";
+
+  const content = document.createElement("span");
+  content.className = "content";
+  lineEl.appendChild(content);
+
+  // Attach cursor (always visible)
+  lineEl.appendChild(cursor);
+  updateCursorPosition(lineEl, content);
+
+  let i = 0;
+  function step() {
+    if (i < role.length) {
+      content.textContent += role[i];
+      i++;
+      updateCursorPosition(lineEl, content);
+      setTimeout(step, typingSpeed);
+    } else {
+      cb();
     }
-    next();
+  }
+
+  step();
+}
+
+/* Loop through roles and type them one after another */
+function showRoles() {
+  let index = 0;
+
+  function next() {
+    if (index < roles.length) {
+      const line = document.createElement("div");
+      line.className = "line";
+      bannerHeader.appendChild(line);
+
+      typeRole(roles[index], line, () => {
+        index++;
+        setTimeout(next, 200);
+      });
+    } else {
+      // All roles typed — start blinking cursor
+      cursor.style.animation = "blink 1s steps(1) infinite";
+    }
+  }
+
+  next();
 }
 
 showRoles();
+
 </script>

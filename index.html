@@ -12,6 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -52,149 +53,226 @@
             </div>
             <label for="menu-toggle" class="offcanvas-backdrop"></label>
         </nav>
+
+        <section id="banner">
+            <h1 id="banner-header"></h1>
+        </section>
+
     </header>
-    <div id="banner">
-        <h1 id="banner-header"></h1>
-    </div>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <section id="project-list">
+            <div class="project-card">
+                <a class="project-image" href="https://staging.acmecars.co.nz/"><img src="images/acme5/acme5.webp"
+                        alt=""></a>
+                <div class="text">
+                    <h3>Acme Cars</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.
+
+                    </p>
+                    <a class="button" href="https://staging.acmecars.co.nz/">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <a class="project-image" href="https://staging.acmecars.co.nz/"><img src="images/acme5/acme5.webp"
+                        alt=""></a>
+                <div class="text">
+                    <h3>Acme Cars</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.
+
+                    </p>
+                    <a class="button" href="https://staging.acmecars.co.nz/">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <a class="project-image" href="https://staging.acmecars.co.nz/"><img src="images/acme5/acme5.webp"
+                        alt=""></a>
+                <div class="text">
+                    <h3>Acme Cars</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.
+
+                    </p>
+                    <a class="button" href="https://staging.acmecars.co.nz/">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <a class="project-image" href="https://staging.acmecars.co.nz/"><img src="images/acme5/acme5.webp"
+                        alt=""></a>
+                <div class="text">
+                    <h3>Acme Cars</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.
+
+                    </p>
+                    <a class="button" href="https://staging.acmecars.co.nz/">View Project</a>
+                </div>
+            </div>
+        </section>
+    </section>
 
 </body>
 
 </html>
 
-<style>
-    :root {
-        --accent-color: #ffffff;
-    }
-
-    /* Each line that holds text */
-    #banner-header .line {
-        margin: 12px 0;
-        font-family: 'Chivo Mono', monospace !important;
-        color: var(--accent-color);
-        font-weight: 500;
-        font-size: 2rem;
-        text-align: center;
-        /* center the whole line */
-        position: relative;
-        /* important: line is the positioning context for the absolute cursor */
-        display: block;
-    }
-
-    /* The content span that actually receives the characters */
-    #banner-header .content {
-        display: inline-block;
-        /* measured precisely */
-        white-space: pre;
-        /* preserve spaces if needed */
-        font-family: 'Chivo Mono', monospace !important;
-    }
-
-    /* Single cursor element (absolute, so it doesn't affect layout) */
-    .cursor {
-        position: absolute;
-        top: 0;
-        /* adjusted in JS for pixel-perfect placement */
-        transform: translateY(0);
-        /* minor adjustments can be made here */
-        pointer-events: none;
-        font-family: 'Chivo Mono', monospace !important;
-        font-size: 2rem;
-        line-height: 1;
-        color: var(--accent-color);
-        user-select: none;
-        /* blinking via CSS animation */
-        animation: blink 1s steps(1) infinite;
-    }
-
-    @keyframes blink {
-
-        0%,
-        50% {
-            opacity: 1;
-        }
-
-        50.01%,
-        100% {
-            opacity: 0;
-        }
-    }
-</style>
 
 <script>
-/* ======= Config ======= */
-const roles = ["Designer", "Web Developer", "Problem Solver"];
-const typingSpeed = 100; // ms per character
-/* ====================== */
+    /* ======= Config ======= */
+    const roles = ["Designer", "Web Developer", "Problem Solver"];
+    const typingSpeed = 100; // ms per character
+    /* ====================== */
 
-const bannerHeader = document.getElementById("banner-header");
+    const bannerHeader = document.getElementById("banner-header");
 
-/* Create one cursor element and reuse it */
-const cursor = document.createElement("span");
-cursor.className = "cursor";
-// Remove blinking for now; it will start later
-cursor.style.animation = "none";
-cursor.textContent = "|";
+    /* Create one cursor element and reuse it */
+    const cursor = document.createElement("span");
+    cursor.className = "cursor";
+    // Remove blinking for now; it will start later
+    cursor.style.animation = "none";
+    cursor.textContent = "|";
 
-/* Utility: position the cursor at the end of the content inside a line */
-function updateCursorPosition(lineEl, contentEl) {
-  const contentRect = contentEl.getBoundingClientRect();
-  const lineRect = lineEl.getBoundingClientRect();
-  const left = contentRect.right - lineRect.left;
-  const top = contentRect.top - lineRect.top;
-  cursor.style.left = Math.round(left) + "px";
-  cursor.style.top = Math.round(top) + "px";
-}
-
-/* Type a single role into `lineEl` (the line container). When done, call cb(). */
-function typeRole(role, lineEl, cb) {
-  lineEl.style.position = lineEl.style.position || "relative";
-
-  const content = document.createElement("span");
-  content.className = "content";
-  lineEl.appendChild(content);
-
-  // Attach cursor (always visible)
-  lineEl.appendChild(cursor);
-  updateCursorPosition(lineEl, content);
-
-  let i = 0;
-  function step() {
-    if (i < role.length) {
-      content.textContent += role[i];
-      i++;
-      updateCursorPosition(lineEl, content);
-      setTimeout(step, typingSpeed);
-    } else {
-      cb();
+    /* Utility: position the cursor at the end of the content inside a line */
+    function updateCursorPosition(lineEl, contentEl) {
+        const contentRect = contentEl.getBoundingClientRect();
+        const lineRect = lineEl.getBoundingClientRect();
+        const left = contentRect.right - lineRect.left;
+        const top = contentRect.top - lineRect.top;
+        cursor.style.left = Math.round(left) + "px";
+        cursor.style.top = Math.round(top) + "px";
     }
-  }
 
-  step();
-}
+    /* Type a single role into `lineEl` (the line container). When done, call cb(). */
+    function typeRole(role, lineEl, cb, isLastRole = false) {
+        lineEl.style.position = lineEl.style.position || "relative";
 
-/* Loop through roles and type them one after another */
-function showRoles() {
-  let index = 0;
+        const content = document.createElement("span");
+        content.className = "content";
+        lineEl.appendChild(content);
 
-  function next() {
-    if (index < roles.length) {
-      const line = document.createElement("div");
-      line.className = "line";
-      bannerHeader.appendChild(line);
+        // Attach cursor (always visible)
+        lineEl.appendChild(cursor);
+        updateCursorPosition(lineEl, content);
 
-      typeRole(roles[index], line, () => {
-        index++;
-        setTimeout(next, 200);
-      });
-    } else {
-      // All roles typed — start blinking cursor
-      cursor.style.animation = "blink 1s steps(1) infinite";
+        let i = 0;
+        function step() {
+            if (i < role.length) {
+                content.textContent += role[i];
+                i++;
+
+                // Start blinking about 0.2 seconds before the last role finishes
+                if (isLastRole && i >= role.length - 2) {
+                    cursor.style.animation = "blink 0.8s steps(1) infinite";
+                }
+
+                updateCursorPosition(lineEl, content);
+                setTimeout(step, typingSpeed);
+            } else {
+                cb();
+            }
+        }
+
+        step();
     }
-  }
 
-  next();
-}
+    /* Loop through roles and type them one after another */
+    function showRoles() {
+        let index = 0;
 
-showRoles();
+        function next() {
+            if (index < roles.length) {
+                const line = document.createElement("div");
+                line.className = "line";
+                bannerHeader.appendChild(line);
+
+                const isLastRole = index === roles.length - 1;
+                typeRole(roles[index], line, () => {
+                    index++;
+                    setTimeout(next, 200);
+                }, isLastRole);
+            } else {
+                // All roles typed — cursor should already be blinking
+            }
+        }
+
+        next();
+    }
+
+    showRoles();
+
+    // Update cursor position when window resizes (for responsive font size changes)
+    let currentContentEl = null;
+    let currentLineEl = null;
+
+    // Store references to current content and line elements
+    function storeCurrentElements() {
+        const lines = document.querySelectorAll('#banner-header .line');
+        if (lines.length > 0) {
+            currentLineEl = lines[lines.length - 1]; // Get the last line
+            currentContentEl = currentLineEl.querySelector('.content');
+        }
+    }
+
+    // Update cursor position on resize
+    window.addEventListener('resize', function() {
+        if (currentContentEl && currentLineEl && cursor.parentNode) {
+            updateCursorPosition(currentLineEl, currentContentEl);
+        }
+    });
+
+    // Update the typeRole function to store current elements
+    const originalTypeRole = typeRole;
+    typeRole = function(role, lineEl, cb, isLastRole = false) {
+        currentLineEl = lineEl;
+        return originalTypeRole(role, lineEl, function() {
+            currentContentEl = lineEl.querySelector('.content');
+            storeCurrentElements();
+            cb();
+        }, isLastRole);
+    };
+
+    var stickyNav = $('header').outerHeight();
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > stickyNav) {
+            $('nav').addClass('scrolled');
+        }
+        else {
+            $('nav').removeClass('scrolled');
+        }
+    });
+
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            $('#projects .text').each(function (i) {
+                var bottom_of_object = $(this).offset().top + $(this).outerHeight() - 100;
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+                if (bottom_of_window > bottom_of_object) {
+                    $(this).addClass('text-reveal');
+                }
+            });
+        });
+    });
 
 </script>

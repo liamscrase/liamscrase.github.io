@@ -1,11 +1,11 @@
 :root {
-  --background-color: #0b0b0b;
-  --hover-color: #1a1a1a;
-  --hover-color-alt: #333333;
+  --background-color: #0f0a1c;
+  --hover-color: #1a152e;
+  --hover-color-alt: #251f37;
   --accent-color: #ffffff;
-  --text-color: #aaaaaa;
-  --text-color-alt: #dfdfdf;
-  --border-color: #1f1f1f;
+  --text-color: #c5b8d1;
+  --text-color-alt: #e8e1f0;
+  --border-color: #231a32;
 }
 
 * {
@@ -17,24 +17,43 @@
 
 body {
   font-family: Zalando Sans;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
-body {
-  background-color: var(--background-color);
+h1, h2, h3 {
+  margin-bottom: 24px;
+}
+
+.button {
+  display: inline-flex;
+  padding: 15px 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  background: #377EDE;
 }
 
 header {
-  position: sticky;
+  background: linear-gradient(135deg, #251a32 0%, #2a1f3c 50%, #2f2445 100%);
+}
+
+nav {
+  position: fixed;
   top: 0;
   z-index: 100;
-  background: var(--background-color);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+nav.scrolled {
+  background: rgba(37, 26, 50, 0.85);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .desktop-navbar {
   width: 100%;
   display: none;
-  background-color: var(--background-color);
 }
 .desktop-navbar .desktop-navbar-container {
   margin: auto;
@@ -76,14 +95,12 @@ header {
 }
 
 .mobile-navbar {
-  background: var(--background-color);
   z-index: 1000;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 20px 8px 8px;
-  position: sticky;
 }
 .mobile-navbar a {
   color: var(--text-color);
@@ -200,16 +217,130 @@ header {
   opacity: 1;
   pointer-events: auto;
 }
-
 .menu-toggle:checked ~ .offcanvas-menu {
   right: 0;
 }
 
+#banner {
+  height: calc(100vh - 32px);
+  padding: 107px 0 32px 0;
+  display: flex;
+  align-items: center;
+}
 #banner h1 {
   color: var(--text-color);
   font-size: 48px;
   text-align: center;
-  margin: 40px 20px 20px 20px;
+  margin: auto;
+  padding-bottom: 100px;
+}
+#banner #banner-header .line {
+  margin: 12px 0;
+  font-family: "Chivo Mono", monospace !important;
+  color: var(--accent-color);
+  font-weight: 500;
+  font-size: 32px;
+  text-align: center;
+  position: relative;
+  display: block;
+}
+#banner #banner-header .line .content {
+  display: inline-block;
+  white-space: pre;
+  font-family: "Chivo Mono", monospace !important;
+}
+
+.cursor {
+  position: absolute;
+  top: 0;
+  transform: translateY(0);
+  pointer-events: none;
+  font-family: "Chivo Mono", monospace !important;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--accent-color);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  animation: blink 0.8s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  50.01%, 100% {
+    opacity: 0;
+  }
+}
+#projects {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+#projects h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+}
+#projects #project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  align-items: center;
+}
+#projects #project-list .project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  max-width: 500px;
+}
+#projects #project-list .project-card .project-image {
+  width: 100%;
+}
+#projects #project-list .project-card .project-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#projects #project-list .project-card .text {
+  width: 100%;
+}
+#projects #project-list .project-card .text h3 {
+  color: var(--text-color-alt);
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+#projects #project-list .project-card .text p {
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+#projects #project-list .project-card .text h3,
+#projects #project-list .project-card .text p,
+#projects #project-list .project-card .text .button {
+  position: relative;
+  left: -2rem;
+  opacity: 0;
+  transition: linear 0.3s;
+}
+#projects #project-list .project-card .text.text-reveal h3,
+#projects #project-list .project-card .text.text-reveal p,
+#projects #project-list .project-card .text.text-reveal .button {
+  opacity: 1;
+  left: 0;
+}
+#projects #project-list .project-card .text.text-reveal p {
+  transition-delay: 0.3s;
+}
+#projects #project-list .project-card .text.text-reveal .button {
+  transition-delay: 0.6s;
 }
 
 @media (min-width: 1200px) {
@@ -219,6 +350,24 @@ header {
   .desktop-navbar {
     display: flex;
   }
-}
-
-/*# sourceMappingURL=styles.css.map */
+  #banner {
+    height: calc(100vh - 32px);
+  }
+  #banner #banner-header .line {
+    font-size: 48px;
+  }
+  .cursor {
+    font-size: 48px;
+  }
+  #projects #project-list .project-card {
+    justify-content: center;
+    text-align: left;
+    gap: 80px;
+    flex-direction: row-reverse;
+    max-width: 100%;
+  }
+  #projects #project-list .project-card .project-image,
+  #projects #project-list .project-card .text {
+    width: 50%;
+  }
+}/*# sourceMappingURL=styles.css.map */

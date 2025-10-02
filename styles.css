@@ -1,11 +1,11 @@
 :root {
-  --background-color: #0f0a1c;
-  --hover-color: #1a152e;
-  --hover-color-alt: #251f37;
+  --background-color: #ffffff;
+  --hover-color: #e8e8e8;
+  --hover-color-alt: #e9e9e9;
   --accent-color: #ffffff;
-  --text-color: #c5b8d1;
-  --text-color-alt: #e8e1f0;
-  --border-color: #231a32;
+  --text-color: #131313;
+  --text-color-alt: #000000;
+  --border-color: #09090a;
 }
 
 * {
@@ -19,6 +19,10 @@ body {
   font-family: Zalando Sans;
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+.top-padding {
+  padding-top: 75px;
 }
 
 h1, h2, h3 {
@@ -35,20 +39,49 @@ h1, h2, h3 {
 }
 
 header {
-  background: linear-gradient(135deg, #251a32 0%, #2a1f3c 50%, #2f2445 100%);
+  background: linear-gradient(135deg, hsl(320, 67%, 96%) 0%, hsl(281, 37%, 90%) 25%, hsl(240, 53%, 94%) 50%, hsl(201, 59%, 93%) 75%, hsl(159, 47%, 94%) 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease-in-out infinite;
+  transition: background-color 1.5s ease;
+}
+header.bg-role-0 {
+  background: rgba(139, 92, 246, 0.12);
+}
+header.bg-role-1 {
+  background: rgba(59, 130, 246, 0.12);
+}
+header.bg-role-2 {
+  background: rgba(16, 185, 129, 0.12);
 }
 
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 nav {
   position: fixed;
   top: 0;
   z-index: 100;
-  transition: background 0.3s ease;
+  transition: 0.3s ease;
 }
 nav.scrolled {
-  background: rgba(37, 26, 50, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+nav.scrolled a {
+  color: #333 !important;
+}
+nav.scrolled .hamburger span {
+  background: #333 !important;
 }
 
 .desktop-navbar {
@@ -59,10 +92,9 @@ nav.scrolled {
   margin: auto;
   display: flex;
   align-items: center;
-  padding: 8px;
+  padding: 8px 20px;
   flex-direction: row;
   justify-content: space-between;
-  max-width: 1380px;
   width: 100%;
   gap: 32px;
 }
@@ -222,32 +254,55 @@ nav.scrolled {
 }
 
 #banner {
-  height: calc(100vh - 32px);
-  padding: 107px 0 32px 0;
+  height: 600px;
+  padding: 32px 20px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  margin: auto;
+  max-width: 1160px;
 }
 #banner h1 {
   color: var(--text-color);
   font-size: 48px;
-  text-align: center;
-  margin: auto;
-  padding-bottom: 100px;
+  text-align: left;
+  margin: 0;
+  width: 100%;
 }
 #banner #banner-header .line {
-  margin: 12px 0;
   font-family: "Chivo Mono", monospace !important;
-  color: var(--accent-color);
   font-weight: 500;
   font-size: 32px;
-  text-align: center;
+  text-align: left;
   position: relative;
   display: block;
+  line-height: 1.2;
 }
-#banner #banner-header .line .content {
-  display: inline-block;
-  white-space: pre;
+#banner #banner-header .line.static-line {
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+#banner #banner-header .line.dynamic-line {
+  color: var(--text-color);
+}
+#banner #banner-header .line.dynamic-line .prefix {
+  color: var(--text-color);
+}
+#banner #banner-header .line.dynamic-line .content {
+  display: inline;
+  white-space: nowrap;
   font-family: "Chivo Mono", monospace !important;
+  color: #8B5CF6;
+  transition: color 0.3s ease;
+}
+#banner #banner-header .line.dynamic-line .content.role-0 {
+  color: #8B5CF6;
+}
+#banner #banner-header .line.dynamic-line .content.role-1 {
+  color: #3B82F6;
+}
+#banner #banner-header .line.dynamic-line .content.role-2 {
+  color: #10B981;
 }
 
 .cursor {
@@ -257,8 +312,8 @@ nav.scrolled {
   pointer-events: none;
   font-family: "Chivo Mono", monospace !important;
   font-size: 32px;
-  line-height: 1;
-  color: var(--accent-color);
+  line-height: 1.2;
+  color: var(--text-color) !important;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -351,7 +406,8 @@ nav.scrolled {
     display: flex;
   }
   #banner {
-    height: calc(100vh - 32px);
+    height: 50vh;
+    min-height: 500px;
   }
   #banner #banner-header .line {
     font-size: 48px;

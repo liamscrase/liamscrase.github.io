@@ -53,11 +53,10 @@
             </div>
             <label for="menu-toggle" class="offcanvas-backdrop"></label>
         </nav>
-
-        <section id="banner">
-            <h1 id="banner-header"></h1>
-        </section>
-
+            <section id="banner">
+                <h1 id="banner-header"></h1>
+            </section>
+        
     </header>
 
     <section id="projects">
@@ -141,8 +140,8 @@
 
 <script>
     /* ======= Config ======= */
-    const roles = ["Designer", "Web Developer", "Problem Solver"];
-    const typingSpeed = 100; // ms per character
+    const roles = ["digital designer", "front-end developer", "problem-solver"];
+    const typingSpeed = 80; // ms per character
     /* ====================== */
 
     const bannerHeader = document.getElementById("banner-header");
@@ -197,30 +196,114 @@
         step();
     }
 
-    /* Loop through roles and type them one after another */
-    function showRoles() {
-        let index = 0;
-
-        function next() {
-            if (index < roles.length) {
-                const line = document.createElement("div");
-                line.className = "line";
-                bannerHeader.appendChild(line);
-
-                const isLastRole = index === roles.length - 1;
-                typeRole(roles[index], line, () => {
-                    index++;
-                    setTimeout(next, 200);
-                }, isLastRole);
-            } else {
-                // All roles typed — cursor should already be blinking
-            }
-        }
-
-        next();
+    /* Create the new banner structure */
+    function createBannerContent() {
+        // Clear existing content
+        bannerHeader.innerHTML = '';
+        cursor.style.animation = "none";
+        
+        // Create first line: "Hey! I'm Liam"
+        const line1 = document.createElement("div");
+        line1.className = "line static-line";
+        line1.textContent = "Hey! I'm Liam";
+        bannerHeader.appendChild(line1);
+        
+        // Create second line with dynamic content
+        const line2 = document.createElement("div");
+        line2.className = "line dynamic-line";
+        bannerHeader.appendChild(line2);
+        
+        // Create "a " prefix
+        const prefix = document.createElement("span");
+        prefix.textContent = "a ";
+        prefix.className = "prefix";
+        line2.appendChild(prefix);
+        
+        // Create dynamic content container
+        const content = document.createElement("span");
+        content.className = "content";
+        line2.appendChild(content);
+        
+        // Attach cursor to the dynamic line
+        line2.appendChild(cursor);
+        line2.style.position = "relative";
+        
+        return { line2, content };
     }
 
-    showRoles();
+    /* Animate cycling through roles */
+    function animateRoles() {
+        const { line2, content } = createBannerContent();
+        let currentRoleIndex = 0;
+        
+        function typeCurrentRole() {
+            const role = roles[currentRoleIndex];
+            content.textContent = "";
+            
+            // Apply color class for current role
+            content.className = `content role-${currentRoleIndex}`;
+            cursor.className = `cursor role-${currentRoleIndex}`;
+            
+            updateCursorPosition(line2, content);
+            
+            let i = 0;
+            function step() {
+                if (i < role.length) {
+                    content.textContent += role[i];
+                    i++;
+                    
+                    // Apply background color when first character appears
+                    if (i === 1) {
+                        const header = document.querySelector('header');
+                        header.className = `bg-role-${currentRoleIndex}`;
+                    }
+                    
+                    updateCursorPosition(line2, content);
+                    setTimeout(step, typingSpeed);
+                } else {
+                    // Role fully typed, wait then erase
+                    setTimeout(() => {
+                        eraseCurrentRole();
+                    }, 2000);
+                }
+            }
+            step();
+        }
+        
+        function eraseCurrentRole() {
+            const currentText = content.textContent;
+            let i = currentText.length;
+            
+            function eraseStep() {
+                if (i > 0) {
+                    content.textContent = currentText.substring(0, i - 1);
+                    i--;
+                    updateCursorPosition(line2, content);
+                    setTimeout(eraseStep, typingSpeed / 2);
+                } else {
+                    // Move to next role
+                    currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+                    setTimeout(typeCurrentRole, 500);
+                }
+            }
+            eraseStep();
+        }
+        
+        // Start the animation
+        typeCurrentRole();
+        
+        // Start cursor blinking
+        setTimeout(() => {
+            cursor.style.animation = "blink 0.8s steps(1) infinite";
+        }, 1000);
+    }
+
+    /* Initialize the banner */
+    function initBanner() {
+        animateRoles();
+    }
+
+    initBanner();
 
     // Update cursor position when window resizes (for responsive font size changes)
     let currentContentEl = null;
@@ -235,10 +318,12 @@
         }
     }
 
-    // Update cursor position on resize
+    // Handle resize - update cursor position
     window.addEventListener('resize', function() {
-        if (currentContentEl && currentLineEl && cursor.parentNode) {
-            updateCursorPosition(currentLineEl, currentContentEl);
+        const dynamicLine = document.querySelector('.dynamic-line');
+        const content = document.querySelector('.content');
+        if (dynamicLine && content && cursor.parentNode) {
+            updateCursorPosition(dynamicLine, content);
         }
     });
 

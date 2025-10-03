@@ -119,10 +119,17 @@ nav.scrolled .hamburger span {
 .desktop-navbar .desktop-navbar-container .nav-links ul li {
   display: flex;
   align-items: center;
+}
+.desktop-navbar .desktop-navbar-container .nav-links ul li a {
   text-decoration: none;
   color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: color 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
 }
-.desktop-navbar .desktop-navbar-container .nav-links ul li:hover {
+.desktop-navbar .desktop-navbar-container .nav-links ul li a:hover {
   color: var(--accent-color);
 }
 

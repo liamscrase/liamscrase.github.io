@@ -9,6 +9,16 @@
   --text-color: #131313;
   --text-color-alt: #000000;
   --border-color: #09090a;
+  
+  // Role colors
+  --role-purple: #8B5CF6;
+  --role-blue: #3B82F6;
+  --role-green: #10B981;
+  
+  // Role background colors (very light versions)
+  --role-purple-bg: rgba(139, 92, 246, 0.12);
+  --role-blue-bg: rgba(59, 130, 246, 0.12);
+  --role-green-bg: rgba(16, 185, 129, 0.12);
 }
 
 // ====================
@@ -51,39 +61,18 @@ h1, h2, h3 {
 // Header & Navigation
 // ====================
 header {
-  background: linear-gradient(135deg, 
-    hsl(320, 67%, 96%) 0%, 
-    hsl(281, 37%, 90%) 25%, 
-    hsl(240, 53%, 94%) 50%, 
-    hsl(201, 59%, 93%) 75%, 
-    hsl(159, 47%, 94%) 100%
-  );
-  background-size: 400% 400%;
-  animation: gradientShift 8s ease-in-out infinite;
   transition: background-color 1.5s ease;
   
   &.bg-role-0 {
-    background: rgba(139, 92, 246, 0.12); // Very light purple for "digital designer"
+    background: var(--role-purple-bg); // Very light purple for "digital designer"
   }
   
   &.bg-role-1 {
-    background: rgba(59, 130, 246, 0.12); // Very light blue for "front-end developer"
+    background: var(--role-blue-bg); // Very light blue for "front-end developer"
   }
   
   &.bg-role-2 {
-    background: rgba(16, 185, 129, 0.12); // Very light green for "problem-solver"
-  }
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+    background: var(--role-green-bg); // Very light green for "problem-solver"
   }
 }
 
@@ -362,19 +351,19 @@ nav {
           display: inline;
           white-space: nowrap;
           font-family: 'Chivo Mono', monospace !important;
-          color: #8B5CF6; // Default purple
+          color: var(--role-purple); // Default purple
           transition: color 0.3s ease;
           
           &.role-0 {
-            color: #8B5CF6; // Purple - digital designer
+            color: var(--role-purple); // Purple - digital designer
           }
           
           &.role-1 {
-            color: #3B82F6; // Blue - front-end developer
+            color: var(--role-blue); // Blue - front-end developer
           }
           
           &.role-2 {
-            color: #10B981; // Green - problem-solver
+            color: var(--role-green); // Green - problem-solver
           }
         }
       }
@@ -430,23 +419,27 @@ nav {
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      gap: 32px;
       max-width: 500px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 
       .project-image {
+        display: block;;
         width: 100%;
+        height: 100%;
 
         img {
           width: 100%;
-          height: auto;
-          border-radius: 8px;
+          height: 100%;
+          border-radius: 8px 8px 0px 0px;
           object-fit: cover;
+          padding: 48px;
+          background: var(--role-blue-bg);
         }
       }
 
       .text {
         width: 100%;
+        padding: 32px;
 
         h3 {
           color: var(--text-color-alt);
@@ -533,13 +526,16 @@ nav {
       .project-card {
         justify-content: center;
         text-align: left;
-        gap: 80px;
         flex-direction: row-reverse;
         max-width: 100%;
+        height: 400px;
 
-        .project-image,
-        .text {
-          width: 50%;
+        .project-image {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         }
       }
     }

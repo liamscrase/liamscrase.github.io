@@ -1,5 +1,5 @@
 ---
-const siteTitle = "My Astro Site";
+const siteTitle = "Liam Scrase";
 ---
 		<nav class="desktop-navbar">
 			<div class="desktop-navbar-container">
@@ -34,3 +34,45 @@ const siteTitle = "My Astro Site";
 			</div>
 			<label for="menu-toggle" class="offcanvas-backdrop"></label>
 		</nav>
+<script>
+	// @ts-nocheck
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector("header");
+  const nav = document.querySelector("nav");
+  const texts = document.querySelectorAll("#projects .text");
+
+  // Set scroll threshold based on whether header exists
+  const stickyNav = header ? header.offsetHeight : 50; // Use small threshold (50px) if no header
+
+  window.addEventListener("scroll", () => {
+    // Sticky navigation - different logic for pages with/without header
+    if (header) {
+      // Pages with header (like home page) - scroll after header height
+      if (window.scrollY > stickyNav) {
+        nav.classList.add("scrolled");
+      } else {
+        nav.classList.remove("scrolled");
+      }
+    } else {
+      // Inner pages without header - apply styles immediately on scroll
+      if (window.scrollY > 10) { // Very small threshold for immediate effect
+        nav.classList.add("scrolled");
+      } else {
+        nav.classList.remove("scrolled");
+      }
+    }
+
+    // Text reveal animation
+    const windowBottom = window.scrollY + window.innerHeight;
+    texts.forEach(text => {
+      const rect = text.getBoundingClientRect();
+      const top = rect.top + window.scrollY;
+      const bottomOfObject = top + rect.height - 100;
+
+      if (windowBottom > bottomOfObject) {
+        text.classList.add("text-reveal");
+      }
+    });
+  });
+});
+</script>

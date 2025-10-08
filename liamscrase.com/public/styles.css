@@ -6,6 +6,12 @@
   --text-color: #131313;
   --text-color-alt: #000000;
   --border-color: #09090a;
+  --role-purple: #8B5CF6;
+  --role-blue: #3B82F6;
+  --role-green: #10B981;
+  --role-purple-bg: rgba(139, 92, 246, 0.12);
+  --role-blue-bg: rgba(59, 130, 246, 0.12);
+  --role-green-bg: rgba(16, 185, 129, 0.12);
 }
 
 * {
@@ -39,32 +45,18 @@ h1, h2, h3 {
 }
 
 header {
-  background: linear-gradient(135deg, hsl(320, 67%, 96%) 0%, hsl(281, 37%, 90%) 25%, hsl(240, 53%, 94%) 50%, hsl(201, 59%, 93%) 75%, hsl(159, 47%, 94%) 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 8s ease-in-out infinite;
   transition: background-color 1.5s ease;
 }
 header.bg-role-0 {
-  background: rgba(139, 92, 246, 0.12);
+  background: var(--role-purple-bg);
 }
 header.bg-role-1 {
-  background: rgba(59, 130, 246, 0.12);
+  background: var(--role-blue-bg);
 }
 header.bg-role-2 {
-  background: rgba(16, 185, 129, 0.12);
+  background: var(--role-green-bg);
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 nav {
   position: fixed;
   top: 0;
@@ -299,17 +291,17 @@ nav.scrolled .hamburger span {
   display: inline;
   white-space: nowrap;
   font-family: "Chivo Mono", monospace !important;
-  color: #8B5CF6;
+  color: var(--role-purple);
   transition: color 0.3s ease;
 }
 #banner #banner-header .line.dynamic-line .content.role-0 {
-  color: #8B5CF6;
+  color: var(--role-purple);
 }
 #banner #banner-header .line.dynamic-line .content.role-1 {
-  color: #3B82F6;
+  color: var(--role-blue);
 }
 #banner #banner-header .line.dynamic-line .content.role-2 {
-  color: #10B981;
+  color: var(--role-green);
 }
 
 .cursor {
@@ -355,22 +347,26 @@ nav.scrolled .hamburger span {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 32px;
   max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 #projects #project-list .project-card .project-image {
+  display: block;
   width: 100%;
+  height: 100%;
 }
 #projects #project-list .project-card .project-image img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 100%;
+  border-radius: 8px 8px 0px 0px;
   -o-object-fit: cover;
      object-fit: cover;
+  padding: 48px;
+  background: var(--role-blue-bg);
 }
 #projects #project-list .project-card .text {
   width: 100%;
+  padding: 32px;
 }
 #projects #project-list .project-card .text h3 {
   color: var(--text-color-alt);
@@ -425,12 +421,15 @@ nav.scrolled .hamburger span {
   #projects #project-list .project-card {
     justify-content: center;
     text-align: left;
-    gap: 80px;
     flex-direction: row-reverse;
     max-width: 100%;
+    height: 400px;
   }
-  #projects #project-list .project-card .project-image,
-  #projects #project-list .project-card .text {
-    width: 50%;
+  #projects #project-list .project-card .project-image {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }/*# sourceMappingURL=styles.css.map */

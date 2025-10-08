@@ -1,5 +1,5 @@
 ---
-import Header from "../components/Header.astro";
+import Header from "../components/header.astro";
 ---
 
 <html lang="en">
@@ -8,7 +8,7 @@ import Header from "../components/Header.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="stylesheet" href="src/styles/styles.css" />
+		<link rel="stylesheet" href="/styles.css" />
 		<title>Astro</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -129,36 +129,9 @@ import Header from "../components/Header.astro";
 	</body>
 </html>
 
-          
-<script>
-
-	$(document).ready(function () {
-		var stickyNav = $("header").outerHeight();
-		
-		$(window).scroll(function () {
-			// Sticky navigation
-			if ($(window).scrollTop() > stickyNav) {
-				$("nav").addClass("scrolled");
-			} else {
-				$("nav").removeClass("scrolled");
-			}
-			
-			// Text reveal animation
-			$("#projects .text").each(function (i) {
-				var bottom_of_object =
-					$(this).offset().top + $(this).outerHeight() - 100;
-				var bottom_of_window =
-					$(window).scrollTop() + $(window).height();
-				if (bottom_of_window > bottom_of_object) {
-					$(this).addClass("text-reveal");
-				}
-			});
-		});
-	});
-</script>
-
 
 <script>
+// @ts-nocheck
 
 	/* ======= Config ======= */
 	const roles = ["digital designer", "front-end developer", "problem-solver"];
@@ -330,14 +303,7 @@ import Header from "../components/Header.astro";
 	let currentContentEl = null;
 	let currentLineEl = null;
 
-	// Store references to current content and line elements
-	function storeCurrentElements() {
-		const lines = document.querySelectorAll("#banner-header .line");
-		if (lines.length > 0) {
-			currentLineEl = lines[lines.length - 1]; // Get the last line
-			currentContentEl = currentLineEl.querySelector(".content");
-		}
-	}
+
 
 	// Handle resize - update cursor position
 	window.addEventListener("resize", function () {
@@ -348,20 +314,13 @@ import Header from "../components/Header.astro";
 		}
 	});
 
-	// Update the typeRole function to store current elements
-	const originalTypeRole = typeRole;
-	typeRole = function (role, lineEl, cb, isLastRole = false) {
-		currentLineEl = lineEl;
-		return originalTypeRole(
-			role,
-			lineEl,
-			function () {
-				currentContentEl = lineEl.querySelector(".content");
-				storeCurrentElements();
-				cb();
-			},
-			isLastRole,
-		);
-	};
+	// Store references to current content and line elements
+	function storeCurrentElements() {
+		const lines = document.querySelectorAll("#banner-header .line");
+		if (lines.length > 0) {
+			currentLineEl = lines[lines.length - 1]; // Get the last line
+			currentContentEl = currentLineEl.querySelector(".content");
+		}
+	}
 
 	</script>

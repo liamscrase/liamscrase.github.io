@@ -1,5 +1,5 @@
 ---
-
+import Header from "../components/Header.astro";
 ---
 
 <html lang="en">
@@ -16,52 +16,15 @@
 			href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
 			rel="stylesheet"
 		/>
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"
-		></script>
 	</head>
+<body>
+<Header />
 
-	<body>
-		<header>
-			<nav class="desktop-navbar">
-				<div class="desktop-navbar-container">
-					<a href="/">Liam Scrase</a>
-					<div class="nav-links">
-						<ul>
-							<li><a href="/about/">About</a></li>
-							<li><a href="/contact/">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-
-			<nav class="mobile-navbar">
-				<input type="checkbox" id="menu-toggle" class="menu-toggle" />
-				<div class="mobile-navbar-container">
-					<a href="/">Liam Scrase</a>
-					<label for="menu-toggle" class="hamburger">
-						<span></span>
-						<span></span>
-						<span></span>
-					</label>
-				</div>
-				<div class="offcanvas-menu">
-					<div class="menu-items">
-						<ul>
-							<li><a href="/">Home</a></li>
-							<li><a href="/about/">About</a></li>
-							<li><a href="/contact/">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-				<label for="menu-toggle" class="offcanvas-backdrop"></label>
-			</nav>
-
-			<section id="banner">
-				<h1 id="banner-header"></h1>
-			</section>
-		</header>
-
+<header>
+	<section id="banner">
+		<h1 id="banner-header"></h1>
+	</section>
+</header>
 		<section id="projects">
 			<h2>Projects</h2>
 			<section id="project-list">
@@ -166,10 +129,36 @@
 	</body>
 </html>
 
+          
 <script>
-	// @ts-nocheck
-	// Declare jQuery for TypeScript
-	declare var $: any;
+
+	$(document).ready(function () {
+		var stickyNav = $("header").outerHeight();
+		
+		$(window).scroll(function () {
+			// Sticky navigation
+			if ($(window).scrollTop() > stickyNav) {
+				$("nav").addClass("scrolled");
+			} else {
+				$("nav").removeClass("scrolled");
+			}
+			
+			// Text reveal animation
+			$("#projects .text").each(function (i) {
+				var bottom_of_object =
+					$(this).offset().top + $(this).outerHeight() - 100;
+				var bottom_of_window =
+					$(window).scrollTop() + $(window).height();
+				if (bottom_of_window > bottom_of_object) {
+					$(this).addClass("text-reveal");
+				}
+			});
+		});
+	});
+</script>
+
+
+<script>
 
 	/* ======= Config ======= */
 	const roles = ["digital designer", "front-end developer", "problem-solver"];
@@ -375,27 +364,4 @@
 		);
 	};
 
-	$(document).ready(function () {
-		var stickyNav = $("header").outerHeight();
-		
-		$(window).scroll(function () {
-			// Sticky navigation
-			if ($(window).scrollTop() > stickyNav) {
-				$("nav").addClass("scrolled");
-			} else {
-				$("nav").removeClass("scrolled");
-			}
-			
-			// Text reveal animation
-			$("#projects .text").each(function (i) {
-				var bottom_of_object =
-					$(this).offset().top + $(this).outerHeight() - 100;
-				var bottom_of_window =
-					$(window).scrollTop() + $(window).height();
-				if (bottom_of_window > bottom_of_object) {
-					$(this).addClass("text-reveal");
-				}
-			});
-		});
-	});
-</script>
+	</script>

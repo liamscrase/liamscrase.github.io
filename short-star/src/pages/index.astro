@@ -17,14 +17,14 @@ import Header from "../components/header.astro";
 			rel="stylesheet"
 		/>
 	</head>
-<body>
-<Header />
+	<body>
+		<Header />
 
-<header>
-	<section id="banner">
-		<h1 id="banner-header"></h1>
-	</section>
-</header>
+		<header>
+			<section id="banner">
+				<h1 id="banner-header"></h1>
+			</section>
+		</header>
 		<section id="projects">
 			<h2>Projects</h2>
 			<section id="project-list">
@@ -42,6 +42,15 @@ import Header from "../components/header.astro";
 							dolore magna aliqua. Ut enim ad minim veniam, quis
 							nostrud exercitation ullamco laboris nisi ut aliquip
 							ex ea commodo consequat. Duis aute irure dolor in
+							reprehenderit in voluptate velit esse cillum dolore
+							eu fugiat nulla pariatur. Excepteur sint occaecat
+							cupidatat non proident, sunt in culpa qui officia
+							deserunt mollit anim id est laborum. Lorem ipsum
+							dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna
+							aliqua. Ut enim ad minim veniam, quis nostrud
+							exercitation ullamco laboris nisi ut aliquip ex ea
+							commodo consequat. Duis aute irure dolor in
 							reprehenderit in voluptate velit esse cillum dolore
 							eu fugiat nulla pariatur. Excepteur sint occaecat
 							cupidatat non proident, sunt in culpa qui officia
@@ -129,9 +138,8 @@ import Header from "../components/header.astro";
 	</body>
 </html>
 
-
 <script>
-// @ts-nocheck
+	// @ts-nocheck
 
 	/* ======= Config ======= */
 	const roles = ["digital designer", "front-end developer", "problem-solver"];
@@ -234,10 +242,6 @@ import Header from "../components/header.astro";
 			const role = roles[currentRoleIndex];
 			content.textContent = "";
 
-			// Apply color class for current role
-			content.className = `content role-${currentRoleIndex}`;
-			cursor.className = `cursor role-${currentRoleIndex}`;
-
 			updateCursorPosition(line2, content);
 
 			let i = 0;
@@ -245,12 +249,6 @@ import Header from "../components/header.astro";
 				if (i < role.length) {
 					content.textContent += role[i];
 					i++;
-
-					// Apply background color when first character appears
-					if (i === 1) {
-						const header = document.querySelector("header");
-						header.className = `bg-role-${currentRoleIndex}`;
-					}
 
 					updateCursorPosition(line2, content);
 					setTimeout(step, typingSpeed);
@@ -303,8 +301,6 @@ import Header from "../components/header.astro";
 	let currentContentEl = null;
 	let currentLineEl = null;
 
-
-
 	// Handle resize - update cursor position
 	window.addEventListener("resize", function () {
 		const dynamicLine = document.querySelector(".dynamic-line");
@@ -322,5 +318,4 @@ import Header from "../components/header.astro";
 			currentContentEl = currentLineEl.querySelector(".content");
 		}
 	}
-
-	</script>
+</script>

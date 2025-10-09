@@ -45,34 +45,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const stickyNav = header ? header.offsetHeight : 50; // Use small threshold (50px) if no header
 
   window.addEventListener("scroll", () => {
-    // Sticky navigation - different logic for pages with/without header
-    if (header) {
-      // Pages with header (like home page) - scroll after header height
-      if (window.scrollY > stickyNav) {
-        nav.classList.add("scrolled");
-      } else {
-        nav.classList.remove("scrolled");
-      }
+    // Apply styles immediately on scroll for all pages
+    if (window.scrollY > 10) { // Very small threshold for immediate effect
+      nav.classList.add("scrolled");
     } else {
-      // Inner pages without header - apply styles immediately on scroll
-      if (window.scrollY > 10) { // Very small threshold for immediate effect
-        nav.classList.add("scrolled");
-      } else {
-        nav.classList.remove("scrolled");
-      }
+      nav.classList.remove("scrolled");
     }
 
-    // Text reveal animation
-    const windowBottom = window.scrollY + window.innerHeight;
-    texts.forEach(text => {
-      const rect = text.getBoundingClientRect();
-      const top = rect.top + window.scrollY;
-      const bottomOfObject = top + rect.height - 100;
+    // // Text reveal animation
+    // const windowBottom = window.scrollY + window.innerHeight;
+    // texts.forEach(text => {
+    //   const rect = text.getBoundingClientRect();
+    //   const top = rect.top + window.scrollY;
+    //   const bottomOfObject = top + rect.height - 100;
 
-      if (windowBottom > bottomOfObject) {
-        text.classList.add("text-reveal");
-      }
-    });
+    //   if (windowBottom > bottomOfObject) {
+    //     text.classList.add("text-reveal");
+    //   }
+    // });
   });
 });
 </script>

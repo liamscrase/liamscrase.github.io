@@ -38,8 +38,14 @@ h3 {
   padding: 15px 24px;
   justify-content: center;
   align-items: center;
-  border-radius: 6px;
-  background: #377EDE;
+  border-radius: 8px;
+  background: var(--primary-blue);
+  color: var(--background-color);
+  transition: background 0.3s ease;
+}
+.button:hover {
+  filter: brightness(85%);
+  cursor: pointer;
 }
 
 header {
@@ -348,25 +354,23 @@ nav.scrolled .hamburger span {
   margin-bottom: 60px;
 }
 #projects #project-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  justify-items: center;
+  -moz-column-count: 1;
+  column-count: 1;
+  -moz-column-gap: 24px;
+  column-gap: 24px;
 }
 #projects #project-list .project-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: inline-block;
   width: 100%;
   background: var(--primary-blue-bg);
   border-radius: 24px;
   padding: 40px;
-  gap: 32px;
+  margin-bottom: 32px;
 }
 #projects #project-list .project-card .project-image {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 300px;
 }
 #projects #project-list .project-card .project-image img {
   width: 100%;
@@ -410,6 +414,9 @@ nav.scrolled .hamburger span {
     font-size: 48px;
   }
   #projects #project-list {
-    grid-template-columns: 1fr 1fr;
+    -moz-column-count: 2;
+    column-count: 2;
+    -moz-column-gap: 24px;
+    column-gap: 24px;
   }
 }/*# sourceMappingURL=styles.css.map */

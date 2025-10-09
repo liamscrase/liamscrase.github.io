@@ -38,7 +38,7 @@ const siteTitle = "Liam Scrase";
 	// @ts-nocheck
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");
-  const nav = document.querySelector("nav");
+  const navs = document.querySelectorAll("nav"); // Select ALL nav elements
   const texts = document.querySelectorAll("#projects .text");
 
   // Set scroll threshold based on whether header exists
@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", () => {
     // Apply styles immediately on scroll for all pages
     if (window.scrollY > 10) { // Very small threshold for immediate effect
-      nav.classList.add("scrolled");
+      navs.forEach(nav => nav.classList.add("scrolled")); // Apply to all navs
     } else {
-      nav.classList.remove("scrolled");
+      navs.forEach(nav => nav.classList.remove("scrolled")); // Remove from all navs
     }
 
     // // Text reveal animation

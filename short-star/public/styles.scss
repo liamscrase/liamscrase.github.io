@@ -49,8 +49,15 @@ h3 {
   padding: 15px 24px;
   justify-content: center;
   align-items: center;
-  border-radius: 6px;
-  background: #377EDE;
+  border-radius: 8px;
+  background: var(--primary-blue);
+  color: var(--background-color);
+  transition: background 0.3s ease;
+
+  &:hover {
+    filter: brightness(85%);
+    cursor: pointer;
+  }
 }
 
 // ====================

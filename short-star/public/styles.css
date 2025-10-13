@@ -6,7 +6,8 @@
   --text-color: #ffffff;
   --text-color-alt: #dbdbdb;
   --border-color: #1f1f1f;
-  --primary-blue: #4627df;
+  --primary-blue: #2105aa;
+  --blue-deep: #200936;
 }
 
 * {
@@ -51,7 +52,10 @@ nav {
   position: fixed;
   top: 0;
   z-index: 100;
-  transition: 0.3s ease;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 300ms ease, border-bottom-color 300ms ease, -webkit-backdrop-filter 300ms ease;
+  transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease;
+  transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease;
 }
 nav.scrolled {
   background: color-mix(in srgb, var(--background-color) 85%, transparent);
@@ -252,7 +256,13 @@ nav.scrolled {
   margin: 0;
   width: 100%;
 }
-#banner #banner-header .line {
+
+header {
+  position: relative;
+  background-color: var(--background-color);
+}
+
+#banner-header .line {
   font-family: "Chivo Mono", monospace !important;
   font-weight: 500;
   font-size: 32px;
@@ -261,17 +271,17 @@ nav.scrolled {
   display: block;
   line-height: 1.2;
 }
-#banner #banner-header .line.static-line {
+#banner-header .line.static-line {
   color: var(--text-color);
   margin-bottom: 8px;
 }
-#banner #banner-header .line.dynamic-line {
+#banner-header .line.dynamic-line {
   color: var(--text-color);
 }
-#banner #banner-header .line.dynamic-line .prefix {
+#banner-header .line.dynamic-line .prefix {
   color: var(--text-color);
 }
-#banner #banner-header .line.dynamic-line .content {
+#banner-header .line.dynamic-line .content {
   display: inline;
   white-space: nowrap;
   font-family: "Chivo Mono", monospace !important;
@@ -329,12 +339,38 @@ nav.scrolled {
   border-radius: 24px;
   padding: 40px 40px 0 40px;
   margin-bottom: 32px;
-  background: linear-gradient(-180deg, rgba(255, 255, 255, 0.08) 0%, var(--background-color) 100%);
-  background: linear-gradient(-180deg, color-mix(in oklch, white 8%, var(--background-color)) 0%, var(--background-color) 100%);
+  position: relative;
+  overflow: hidden;
+  /* Base gradient (stays visible) */
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, var(--background-color) 100%);
+  background: linear-gradient(180deg, color-mix(in oklch, white 8%, var(--background-color)) 0%, var(--background-color) 100%);
   border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
-  transition: background 250ms ease, border-color 250ms ease;
+  transition: border-color 250ms ease;
+  /* Hover gradient overlay that fades in */
+}
+#projects #project-list .project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, color-mix(in oklch, var(--primary-blue) 35%, var(--background-color)) 0%, var(--background-color) 100%);
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+#projects #project-list .project-card:hover::after {
+  opacity: 1;
+}
+#projects #project-list .project-card:hover {
+  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+}
+#projects #project-list .project-card .text,
+#projects #project-list .project-card img {
+  position: relative;
+  z-index: 1;
 }
 #projects #project-list .project-card img {
+  display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: contain;

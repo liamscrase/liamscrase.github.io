@@ -11,7 +11,9 @@
   --border-color: #1f1f1f;
 
   // Single blue color scheme
-  --primary-blue: #4627df;
+  --primary-blue: #2105aa;
+    --blue-deep: #200936; // deeper, slightly more purple
+
 }
 
 // ====================
@@ -68,7 +70,10 @@ nav {
   position: fixed;
   top: 0;
   z-index: 100;
-  transition: 0.3s ease;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 300ms ease,
+    border-bottom-color 300ms ease,
+    backdrop-filter 300ms ease;
 
   &.scrolled {
     background: color-mix(in srgb, var(--background-color) 85%, transparent);
@@ -302,37 +307,43 @@ nav {
     margin: 0;
     width: 100%;
   }
+}
 
-  // Banner text styles
-  #banner-header {
-    .line {
-      font-family: 'Chivo Mono', monospace !important;
-      font-weight: 500;
-      font-size: 32px;
-      text-align: left;
-      position: relative;
-      display: block;
-      line-height: 1.2;
+header {
+  position: relative;
+  background-color: var(--background-color);
+}
 
-      &.static-line {
+
+// Banner text styles
+#banner-header {
+  .line {
+    font-family: 'Chivo Mono', monospace !important;
+    font-weight: 500;
+    font-size: 32px;
+    text-align: left;
+    position: relative;
+    display: block;
+    line-height: 1.2;
+
+    &.static-line {
+      color: var(--text-color);
+      margin-bottom: 8px;
+    }
+
+    &.dynamic-line {
+      color: var(--text-color);
+
+      .prefix {
         color: var(--text-color);
-        margin-bottom: 8px;
       }
 
-      &.dynamic-line {
-        color: var(--text-color);
-
-        .prefix {
-          color: var(--text-color);
-        }
-
-        .content {
-          display: inline;
-          white-space: nowrap;
-          font-family: 'Chivo Mono', monospace !important;
-          color: var(--primary-blue);
-          transition: color 0.3s ease;
-        }
+      .content {
+        display: inline;
+        white-space: nowrap;
+        font-family: 'Chivo Mono', monospace !important;
+        color: var(--primary-blue);
+        transition: color 0.3s ease;
       }
     }
   }
@@ -402,17 +413,47 @@ nav {
       padding: 40px 40px 0 40px;
       margin-bottom: 32px;
 
-      background: linear-gradient(-180deg, rgba(255, 255, 255, 0.08) 0%, var(--background-color) 100%);
-      // Modern (reduces banding)
-      background: linear-gradient(
-        -180deg,
-        color-mix(in oklch, white 8%, var(--background-color)) 0%,
-        var(--background-color) 100%
-      );
+      position: relative; // for overlay
+      overflow: hidden; // clip to radius
+
+      /* Base gradient (stays visible) */
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, var(--background-color) 100%);
+      background: linear-gradient(180deg,
+          color-mix(in oklch, white 8%, var(--background-color)) 0%,
+          var(--background-color) 100%);
       border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
-      transition: background 250ms ease, border-color 250ms ease;
+      transition: border-color 250ms ease; // background animates via ::after
+
+      /* Hover gradient overlay that fades in */
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none; // don't block clicks on the image link
+        background: linear-gradient(180deg,
+            color-mix(in oklch, var(--primary-blue) 35%, var(--background-color)) 0%,
+            var(--background-color) 100%);
+        opacity: 0;
+        transition: opacity 250ms ease;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
+
+      &:hover {
+        border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+      }
+
+      .text,
+      img {
+        position: relative; // above the ::after overlay
+        z-index: 1;
+      }
 
       img {
+        display: block;
         width: 100%;
         height: 100%;
         object-fit: contain;

@@ -1,13 +1,12 @@
 :root {
-  --background-color: #ffffff;
-  --hover-color: #e8e8e8;
-  --hover-color-alt: #e9e9e9;
+  --background-color: #181818;
+  --hover-color: #111111;
+  --hover-color-alt: #202020;
   --accent-color: #ffffff;
-  --text-color: #131313;
-  --text-color-alt: #000000;
-  --border-color: #09090a;
-  --primary-blue: #3B82F6;
-  --primary-blue-bg: rgba(59, 130, 246, 0.06);
+  --text-color: #ffffff;
+  --text-color-alt: #dbdbdb;
+  --border-color: #1f1f1f;
+  --primary-blue: #4627df;
 }
 
 * {
@@ -48,40 +47,6 @@ h3 {
   cursor: pointer;
 }
 
-header {
-  position: relative;
-  background: #ffffff;
-  overflow: hidden;
-  z-index: 1;
-}
-header::before {
-  content: "";
-  position: absolute;
-  top: -350px;
-  left: -100px;
-  width: 1000px;
-  height: 700px;
-  rotate: 30deg;
-  background: linear-gradient(90deg, rgba(59, 130, 246, 0.7) 0%, rgba(37, 99, 235, 0.5) 20%, rgba(29, 78, 216, 0.3) 40%, rgba(29, 78, 216, 0.2) 60%, transparent 100%);
-  border-radius: 60px;
-  filter: blur(70px);
-  transform: scaleX() skewX(-25deg);
-  z-index: 0;
-}
-header::after {
-  content: "";
-  position: absolute;
-  top: -80px;
-  left: 600px;
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(135deg, rgba(58, 235, 123, 0.25) 0%, rgba(37, 220, 104, 0.15) 30%, rgba(21, 128, 61, 0.08) 60%, transparent 100%);
-  border-radius: 60px;
-  filter: blur(60px);
-  rotate: 30deg;
-  z-index: 0;
-}
-
 nav {
   position: fixed;
   top: 0;
@@ -89,16 +54,10 @@ nav {
   transition: 0.3s ease;
 }
 nav.scrolled {
-  background: rgba(255, 255, 255, 0.9);
+  background: color-mix(in srgb, var(--background-color) 85%, transparent);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
-}
-nav.scrolled a {
-  color: #333 !important;
-}
-nav.scrolled .hamburger span {
-  background: #333 !important;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .desktop-navbar {
@@ -147,7 +106,7 @@ nav.scrolled .hamburger span {
   font-weight: 500;
 }
 .desktop-navbar .desktop-navbar-container .nav-links ul li a:hover {
-  color: var(--accent-color);
+  color: var(--hover-color);
 }
 
 .mobile-navbar {
@@ -349,9 +308,14 @@ nav.scrolled .hamburger span {
   margin: auto;
 }
 #projects h2 {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 60px;
+  color: var(--text-color);
+  font-family: "Chivo Mono";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
 }
 #projects #project-list {
   -moz-column-count: 1;
@@ -362,17 +326,15 @@ nav.scrolled .hamburger span {
 #projects #project-list .project-card {
   display: inline-block;
   width: 100%;
-  background: var(--primary-blue-bg);
   border-radius: 24px;
-  padding: 40px;
+  padding: 40px 40px 0 40px;
   margin-bottom: 32px;
+  background: linear-gradient(-180deg, rgba(255, 255, 255, 0.08) 0%, var(--background-color) 100%);
+  background: linear-gradient(-180deg, color-mix(in oklch, white 8%, var(--background-color)) 0%, var(--background-color) 100%);
+  border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
+  transition: background 250ms ease, border-color 250ms ease;
 }
-#projects #project-list .project-card .project-image {
-  display: block;
-  width: 100%;
-  height: 300px;
-}
-#projects #project-list .project-card .project-image img {
+#projects #project-list .project-card img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
@@ -385,15 +347,19 @@ nav.scrolled .hamburger span {
 }
 #projects #project-list .project-card .text h3 {
   color: var(--text-color-alt);
-  font-size: 1.5rem;
-  margin-bottom: 12px;
-  font-weight: 600;
+  font-family: "Chivo Mono";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 #projects #project-list .project-card .text p {
   color: var(--text-color);
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  font-family: "Zalando Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 @media (min-width: 1200px) {

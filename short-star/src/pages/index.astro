@@ -19,214 +19,100 @@ import Header from "../components/header.astro";
 	</head>
 	<body>
 		<Header />
-
-		<header>
-			<section id="banner">
-				<h1 id="banner-header"></h1>
-			</section>
+		<header class="hero-header">
+			<p id="greeting">Hello, I'm</p>
+			<h1 id="main-title">Liam Scrase</h1>
+			<p id="intro-pitch">
+				A creative professional blending aesthetics with modern
+				technology to build engaging digital experiences.
+			</p>
 		</header>
+		<div id="circular-wrapper">
+			<div class="circle" id="circle">
+				<!-- Texto circular inyectado por JS -->
+			</div>
+
+			<a href="#projects" id="projects-button">My Projects</a>
+		</div>
 		<section id="projects">
 			<h2>Projects</h2>
 			<section id="project-list">
-					<div class="project-card">
-						<div class="text">
-							<h3>Acme Cars Website</h3>
-							<p>
-									Elevating the standards for car dealer websites in New Zealand with a modern design and cutting-edge helpful AI features 
-							</p>
-							<a
-								class="button"
-								href="https://staging.acmecars.co.nz/"
-								>View Project</a
-							>
-						</div>
-						<a class="project-link" href="https://staging.acmecars.co.nz/" aria-label="Open Acme Cars project">
-							<img src="/images/acme5/acme5.webp" alt="Acme Cars website preview" />
-						</a>
+				<div class="project-card">
+					<div class="text">
+						<h3>Acme Cars Website</h3>
+						<p>
+							Elevating the standards for car dealer websites in
+							New Zealand with a modern design and cutting-edge
+							helpful AI features
+						</p>
+						<a class="button" href="https://staging.acmecars.co.nz/"
+							>View Project</a
+						>
 					</div>
+					<a
+						class="project-link"
+						href="https://staging.acmecars.co.nz/"
+						aria-label="Open Acme Cars project"
+					>
+						<img
+							src="/images/acme5/acme5.webp"
+							alt="Acme Cars website preview"
+						/>
+					</a>
+				</div>
 			</section>
 		</section>
 	</body>
 </html>
 
 <script>
-	// @ts-nocheck
+	function setupCircularText() {
+		const circle = document.getElementById("circle");
+		const wrapper = document.getElementById("circular-wrapper");
 
-	/* ======= Config ======= */
-	const roles = ["digital designer", "front-end developer", "problem-solver"];
-	const typingSpeed = 80; // ms per character
-	/* ====================== */
+		const text = " UX/UI DESIGNER ◆ FRONT END DEVELOPER ◆ ";
+		const charCount = text.length;
 
-	const bannerHeader = document.getElementById("banner-header");
-
-	/* Create one cursor element and reuse it */
-	const cursor = document.createElement("span");
-	cursor.className = "cursor";
-	// Remove blinking for now; it will start later
-	cursor.style.animation = "none";
-	cursor.textContent = "|";
-
-	/* Utility: position the cursor at the end of the content inside a line */
-	function updateCursorPosition(lineEl, contentEl) {
-		const contentRect = contentEl.getBoundingClientRect();
-		const lineRect = lineEl.getBoundingClientRect();
-		const left = contentRect.right - lineRect.left;
-		const top = contentRect.top - lineRect.top;
-		cursor.style.left = Math.round(left) + "px";
-		cursor.style.top = Math.round(top) + "px";
-	}
-
-	/* Type a single role into `lineEl` (the line container). When done, call cb(). */
-	function typeRole(role, lineEl, cb, isLastRole = false) {
-		lineEl.style.position = lineEl.style.position || "relative";
-
-		const content = document.createElement("span");
-		content.className = "content";
-		lineEl.appendChild(content);
-
-		// Attach cursor (always visible)
-		lineEl.appendChild(cursor);
-		updateCursorPosition(lineEl, content);
-
-		let i = 0;
-		function step() {
-			if (i < role.length) {
-				content.textContent += role[i];
-				i++;
-
-				// Start blinking about 0.2 seconds before the last role finishes
-				if (isLastRole && i >= role.length - 2) {
-					cursor.style.animation = "blink 0.8s steps(1) infinite";
-				}
-
-				updateCursorPosition(lineEl, content);
-				setTimeout(step, typingSpeed);
-			} else {
-				cb();
-			}
+		if (!circle || !wrapper) {
+			return;
 		}
 
-		step();
-	}
+		// Usar getBoundingClientRect para obtener dimensiones precisas
+		const radius = wrapper.getBoundingClientRect().width / 2;
 
-	/* Create the new banner structure */
-	function createBannerContent() {
-		// Clear existing content
-		bannerHeader.innerHTML = "";
-		cursor.style.animation = "none";
+		circle.innerHTML = "";
 
-		// Create first line: "Hey! I'm Liam"
-		const line1 = document.createElement("div");
-		line1.className = "line static-line";
-		line1.textContent = "Hey! I'm Liam";
-		bannerHeader.appendChild(line1);
+		for (let i = 0; i < charCount; i++) {
+			const charWrapper = document.createElement("div");
+			charWrapper.className = "char";
 
-		// Create second line with dynamic content
-		const line2 = document.createElement("div");
-		line2.className = "line dynamic-line";
-		bannerHeader.appendChild(line2);
+			const span = document.createElement("span");
+			span.textContent = text[i];
 
-		// Create "a " prefix
-		const prefix = document.createElement("span");
-		prefix.textContent = "a ";
-		prefix.className = "prefix";
-		line2.appendChild(prefix);
+			const angle = i * (360 / charCount);
 
-		// Create dynamic content container
-		const content = document.createElement("span");
-		content.className = "content";
-		line2.appendChild(content);
+			// Rotar el wrapper y luego trasladar el span hacia afuera
+			charWrapper.style.transform = `rotate(${angle}deg) translateY(-${radius}px)`;
 
-		// Attach cursor to the dynamic line
-		line2.appendChild(cursor);
-		line2.style.position = "relative";
-
-		return { line2, content };
-	}
-
-	/* Animate cycling through roles */
-	function animateRoles() {
-		const { line2, content } = createBannerContent();
-		let currentRoleIndex = 0;
-
-		function typeCurrentRole() {
-			const role = roles[currentRoleIndex];
-			content.textContent = "";
-
-			updateCursorPosition(line2, content);
-
-			let i = 0;
-			function step() {
-				if (i < role.length) {
-					content.textContent += role[i];
-					i++;
-
-					updateCursorPosition(line2, content);
-					setTimeout(step, typingSpeed);
-				} else {
-					// Role fully typed, wait then erase
-					setTimeout(() => {
-						eraseCurrentRole();
-					}, 2000);
-				}
-			}
-			step();
-		}
-
-		function eraseCurrentRole() {
-			const currentText = content.textContent;
-			let i = currentText.length;
-
-			function eraseStep() {
-				if (i > 0) {
-					content.textContent = currentText.substring(0, i - 1);
-					i--;
-					updateCursorPosition(line2, content);
-					setTimeout(eraseStep, typingSpeed / 2);
-				} else {
-					// Move to next role
-					currentRoleIndex = (currentRoleIndex + 1) % roles.length;
-					setTimeout(typeCurrentRole, 500);
-				}
-			}
-			eraseStep();
-		}
-
-		// Start the animation
-		typeCurrentRole();
-
-		// Start cursor blinking
-		setTimeout(() => {
-			cursor.style.animation = "blink 0.8s steps(1) infinite";
-		}, 1000);
-	}
-
-	/* Initialize the banner */
-	function initBanner() {
-		animateRoles();
-	}
-
-	initBanner();
-
-	// Update cursor position when window resizes (for responsive font size changes)
-	let currentContentEl = null;
-	let currentLineEl = null;
-
-	// Handle resize - update cursor position
-	window.addEventListener("resize", function () {
-		const dynamicLine = document.querySelector(".dynamic-line");
-		const content = document.querySelector(".content");
-		if (dynamicLine && content && cursor.parentNode) {
-			updateCursorPosition(dynamicLine, content);
-		}
-	});
-
-	// Store references to current content and line elements
-	function storeCurrentElements() {
-		const lines = document.querySelectorAll("#banner-header .line");
-		if (lines.length > 0) {
-			currentLineEl = lines[lines.length - 1]; // Get the last line
-			currentContentEl = currentLineEl.querySelector(".content");
+			charWrapper.appendChild(span);
+			circle.appendChild(charWrapper);
 		}
 	}
+
+	// Ejecutar en carga inicial y redimensionamiento
+	document.addEventListener("DOMContentLoaded", setupCircularText);
+	window.addEventListener("load", setupCircularText);
+	window.addEventListener("resize", setupCircularText);
+</script>
+
+<script>
+	document
+		.getElementById("projects-button")
+		.addEventListener("click", function (e) {
+			e.preventDefault();
+			document.getElementById("projects").scrollIntoView({
+				behavior: "smooth",
+				block: "start",
+			});
+		});
 </script>

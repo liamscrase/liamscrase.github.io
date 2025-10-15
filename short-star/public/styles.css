@@ -10,7 +10,8 @@ html {
   --accent-color: #ffffff;
   --text-color: #ffffff;
   --text-color-alt: #dbdbdb;
-  --border-color: #1f1f1f;
+  --border-color: #3a3a3a;
+  --border-color-alt: #555555;
   --primary-blue: #a026e6;
   --blue-deep: #200936;
 }
@@ -255,7 +256,8 @@ nav.scrolled {
   font-family: "Chivo Mono", monospace;
   font-weight: 500;
   font-size: 0.875rem;
-  color: var(--primary-blue); /* Era --color-accent-blue */
+  color: var(--primary-blue);
+  /* Era --color-accent-blue */
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
@@ -332,7 +334,8 @@ nav.scrolled {
   display: block;
   font-weight: 500;
   font-size: 1.2rem;
-  color: var(--primary-blue); /* Era --color-accent-blue */
+  color: var(--primary-blue);
+  /* Era --color-accent-blue */
   font-family: "Chivo Mono", monospace;
 }
 
@@ -343,20 +346,24 @@ nav.scrolled {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 0.75rem 1.5rem;
-  border: 1px solid var(--primary-blue); /* Era --color-accent-blue */
+  border: 1px solid var(--primary-blue);
+  /* Era --color-accent-blue */
   border-radius: 0.75rem;
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.1em;
-  background-color: var(--background-color); /* Era --color-dark-bg */
+  background-color: var(--background-color);
+  /* Era --color-dark-bg */
   transition: all 0.3s ease-in-out;
   text-decoration: none;
-  color: #E5E7EB; /* Era --color-text-light */
+  color: #E5E7EB;
+  /* Era --color-text-light */
   white-space: nowrap;
 }
 
 #projects-button:hover {
-  background-color: var(--primary-blue); /* Era --color-accent-blue */
+  background-color: var(--primary-blue);
+  /* Era --color-accent-blue */
   color: white;
 }
 
@@ -397,12 +404,10 @@ nav.scrolled {
   margin-bottom: 32px;
   position: relative;
   overflow: hidden;
-  /* Base gradient (stays visible) */
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, var(--background-color) 100%);
   background: linear-gradient(180deg, color-mix(in oklch, white 8%, var(--background-color)) 0%, var(--background-color) 100%);
   border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
   transition: border-color 250ms ease;
-  /* Hover gradient overlay that fades in */
 }
 #projects #project-list .project-card::after {
   content: "";
@@ -436,14 +441,17 @@ nav.scrolled {
 }
 #projects #project-list .project-card .text {
   width: 100%;
+  margin-bottom: 1.5rem;
 }
 #projects #project-list .project-card .text h3 {
   color: var(--text-color-alt);
   font-family: "Chivo Mono";
   font-size: 18px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 #projects #project-list .project-card .text p {
   color: var(--text-color);
@@ -452,6 +460,20 @@ nav.scrolled {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  margin-bottom: 1.5rem;
+}
+#projects #project-list .project-card .text .skills span {
+  display: inline-block;
+  border: 1px solid var(--border-color-alt);
+  text-transform: uppercase;
+  color: var(--text-color-alt);
+  font-family: "Chivo Mono";
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+  margin-top: 8px;
 }
 
 @media (min-width: 1200px) {

@@ -12,7 +12,8 @@ html {
   --accent-color: #ffffff;
   --text-color: #ffffff;
   --text-color-alt: #dbdbdb;
-  --border-color: #1f1f1f;
+  --border-color: #3a3a3a;
+  --border-color-alt: #555555;
 
   // Single blue color scheme
   --primary-blue: #a026e6;
@@ -295,121 +296,141 @@ nav {
 // ====================
 // Banner Section
 // ====================
-   .hero-header {
-            text-align: center;
-            margin-top: 150px; 
-            margin-bottom: 2rem;  
-        }
+.hero-header {
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 2rem;
+}
 
-        #greeting {
-            font-family: 'Chivo Mono', monospace;
-            font-weight: 500;
-            font-size: 0.875rem;
-            color: var(--primary-blue); /* Era --color-accent-blue */
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
+#greeting {
+  font-family: 'Chivo Mono', monospace;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--primary-blue);
+  /* Era --color-accent-blue */
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
 
-        #main-title {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            font-size: 3rem;
-            letter-spacing: -0.05em;
-            margin: 0;
-            white-space: nowrap; 
-        }
+#main-title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: -0.05em;
+  margin: 0;
+  white-space: nowrap;
+}
 
-        #intro-pitch {
-            font-size: 1.125rem;
-            line-height: 1.5;
-            color: #9CA3AF;
-            font-weight: 500;
-            max-width: 40rem;
-            margin: 0.2rem auto 0;
-        }
-        
-        @media (min-width: 640px) {
-            #main-title { font-size: 4rem; }
-            #intro-pitch { font-size: 1.25rem; }
-        }
-        @media (min-width: 768px) {
-            #main-title { font-size: 5rem; }
-        }
+#intro-pitch {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #9CA3AF;
+  font-weight: 500;
+  max-width: 40rem;
+  margin: 0.2rem auto 0;
+}
+
+@media (min-width: 640px) {
+  #main-title {
+    font-size: 4rem;
+  }
+
+  #intro-pitch {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #main-title {
+    font-size: 5rem;
+  }
+}
 
 
-        /* Contenedor Circular */
-        #circular-wrapper {
-            position: relative;
-            z-index: 5;
-            width: 15rem;
-            height: 15rem;
-            margin: auto;
-        }
-        @media (min-width: 640px) {
-            #circular-wrapper {
-                width: 18rem;
-                height: 18rem;
-            }
-        }
+/* Contenedor Circular */
+#circular-wrapper {
+  position: relative;
+  z-index: 5;
+  width: 15rem;
+  height: 15rem;
+  margin: auto;
+}
 
-        .circle {
-            position: relative;
-            animation: orbit 30s linear infinite paused; 
-            transition: all 0.3s ease;
-            cursor: pointer;
-            width: 100%;
-            height: 100%;
-        }
-        
-        #circular-wrapper:hover .circle {
-            animation-play-state: running;
-        }
+@media (min-width: 640px) {
+  #circular-wrapper {
+    width: 18rem;
+    height: 18rem;
+  }
+}
 
-        .char {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform-origin: center;
-            height: 1px; 
-        }
+.circle {
+  position: relative;
+  animation: orbit 30s linear infinite paused;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
 
-        .char span {
-            display: block;
-            font-weight: 500; 
-            font-size: 1.2rem; 
-            color: var(--primary-blue); /* Era --color-accent-blue */
-            font-family: 'Chivo Mono', monospace;
-        }
+#circular-wrapper:hover .circle {
+  animation-play-state: running;
+}
 
-        /* Botón */
-        #projects-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 0.75rem 1.5rem;
-            border: 1px solid var(--primary-blue); /* Era --color-accent-blue */
-            border-radius: 0.75rem;
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            background-color: var(--background-color); /* Era --color-dark-bg */
-            transition: all 0.3s ease-in-out; 
-            text-decoration: none;
-            color: #E5E7EB; /* Era --color-text-light */
-            white-space: nowrap;
-        }
+.char {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+  height: 1px;
+}
 
-        #projects-button:hover {
-            background-color: var(--primary-blue); /* Era --color-accent-blue */
-            color: white;
-        }
+.char span {
+  display: block;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--primary-blue);
+  /* Era --color-accent-blue */
+  font-family: 'Chivo Mono', monospace;
+}
 
-        @keyframes orbit {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+/* Botón */
+#projects-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--primary-blue);
+  /* Era --color-accent-blue */
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  background-color: var(--background-color);
+  /* Era --color-dark-bg */
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: #E5E7EB;
+  /* Era --color-text-light */
+  white-space: nowrap;
+}
+
+#projects-button:hover {
+  background-color: var(--primary-blue);
+  /* Era --color-accent-blue */
+  color: white;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 // ====================
 // Projects Section
@@ -448,24 +469,22 @@ nav {
       padding: 40px 40px 0 40px;
       margin-bottom: 32px;
 
-      position: relative; // for overlay
-      overflow: hidden; // clip to radius
+      position: relative;
+      overflow: hidden;
 
-      /* Base gradient (stays visible) */
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, var(--background-color) 100%);
       background: linear-gradient(180deg,
           color-mix(in oklch, white 8%, var(--background-color)) 0%,
           var(--background-color) 100%);
       border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
-      transition: border-color 250ms ease; // background animates via ::after
+      transition: border-color 250ms ease;
 
-      /* Hover gradient overlay that fades in */
       &::after {
         content: "";
         position: absolute;
         inset: 0;
         border-radius: inherit;
-        pointer-events: none; // don't block clicks on the image link
+        pointer-events: none;
         background: linear-gradient(180deg,
             color-mix(in oklch, var(--primary-blue) 35%, var(--background-color)) 0%,
             var(--background-color) 100%);
@@ -497,14 +516,17 @@ nav {
 
       .text {
         width: 100%;
+        margin-bottom: 1.5rem;
 
         h3 {
           color: var(--text-color-alt);
           font-family: "Chivo Mono";
           font-size: 18px;
           font-style: normal;
-          font-weight: 500;
+          font-weight: 400;
           line-height: normal;
+          text-transform: uppercase;
+          letter-spacing: 2px;
         }
 
         p {
@@ -514,6 +536,23 @@ nav {
           font-style: normal;
           font-weight: 500;
           line-height: normal;
+          margin-bottom: 1.5rem;
+        }
+
+        .skills {
+          span {
+            display: inline-block;
+            border: 1px solid var(--border-color-alt);
+            text-transform: uppercase;
+            color: var(--text-color-alt);
+            font-family: "Chivo Mono";
+            font-size: 14px;
+            font-weight: 500;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-right: 8px;
+            margin-top: 8px;
+          }
         }
       }
 

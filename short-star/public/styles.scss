@@ -14,11 +14,7 @@ html {
   --text-color-alt: #dbdbdb;
   --border-color: #3a3a3a;
   --border-color-alt: #555555;
-
-  // Single blue color scheme
-  --primary-blue: #a026e6;
-  --blue-deep: #200936; // deeper, slightly more purple
-
+  --primary-blue: #0070f3;
 }
 
 // ====================
@@ -37,6 +33,12 @@ body {
   color: var(--text-color);
 }
 
+.content {
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
 .top-padding {
   padding-top: 75px;
 }
@@ -48,57 +50,6 @@ h3 {
 }
 
 // ====================
-// Components
-// ====================
-.button {
-  padding: 0.75rem 1.5rem;
-  border: 1px solid var(--primary-blue);
-  /* Era --color-accent-blue */
-  border-radius: 0.75rem;
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  font-family: 'Zalando Sans';
-  background-color: var(--background-color);
-  /* Era --color-dark-bg */
-  transition: all 0.3s ease-in-out;
-  text-decoration: none;
-  color: #E5E7EB;
-  /* Era --color-text-light */
-  white-space: nowrap;
-}
-
-
-/* Botón */
-#projects-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0.75rem 1.5rem;
-  border: 1px solid var(--primary-blue);
-  /* Era --color-accent-blue */
-  border-radius: 0.75rem;
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  font-family: 'Zalando Sans';
-  background-color: var(--background-color);
-  /* Era --color-dark-bg */
-  transition: all 0.3s ease-in-out;
-  text-decoration: none;
-  color: #E5E7EB;
-  /* Era --color-text-light */
-  white-space: nowrap;
-
-  &:hover {
-    background-color: var(--primary-blue);
-    /* Era --color-accent-blue */
-    color: white;
-  }
-}
-
-// ====================
 // Header & Navigation
 // ====================
 
@@ -107,7 +58,7 @@ nav {
   position: fixed;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--background-color);
   transition: background-color 300ms ease,
     border-bottom-color 300ms ease,
     backdrop-filter 300ms ease;
@@ -328,112 +279,28 @@ nav {
 // ====================
 // Banner Section
 // ====================
-.hero-header {
+
+#banner {
+  padding: 140px 0 60px 0;
   text-align: center;
-  margin-top: 150px;
-  margin-bottom: 2rem;
-}
 
-#greeting {
-  font-family: 'Chivo Mono', monospace;
-  font-weight: 500;
-  font-size: 0.875rem;
-  color: var(--primary-blue);
-  /* Era --color-accent-blue */
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-#main-title {
-  font-family: 'Zalando Sans', sans-serif;
-  font-weight: 700;
-  font-size: 3rem;
-  letter-spacing: -0.05em;
-  margin: 0;
-  white-space: nowrap;
-}
-
-#intro-pitch {
-  font-size: 1.125rem;
-  line-height: 1.5;
-  color: #9CA3AF;
-  font-weight: 500;
-  max-width: 40rem;
-  margin: 0.2rem auto 0;
-}
-
-@media (min-width: 640px) {
-  #main-title {
-    font-size: 4rem;
+  h1 {
+    color: var(--text-color);
+    font-family: "Chivo Mono";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 16px;
   }
 
-  #intro-pitch {
-    font-size: 1.25rem;
-  }
-}
-
-@media (min-width: 768px) {
-  #main-title {
-    font-size: 5rem;
-  }
-}
-
-
-/* Contenedor Circular */
-#circular-wrapper {
-  position: relative;
-  z-index: 5;
-  width: 15rem;
-  height: 15rem;
-  margin: auto;
-}
-
-@media (min-width: 640px) {
-  #circular-wrapper {
-    width: 18rem;
-    height: 18rem;
-  }
-}
-
-.circle {
-  position: relative;
-  animation: orbit 30s linear infinite paused;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-}
-
-#circular-wrapper:hover .circle {
-  animation-play-state: running;
-}
-
-.char {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform-origin: center;
-  height: 1px;
-}
-
-.char span {
-  display: block;
-  font-weight: 500;
-  font-size: 1.2rem;
-  color: var(--primary-blue);
-  /* Era --color-accent-blue */
-  font-family: 'Chivo Mono', monospace;
-}
-
-
-@keyframes orbit {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
+  p {
+    color: var(--text-color-alt);
+    font-family: "Zalando Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
   }
 }
 
@@ -442,9 +309,7 @@ nav {
 // ====================
 
 #projects {
-  padding: 80px 20px;
-  max-width: 1200px;
-  margin: auto;
+  padding: 80px 0;
 
   h2 {
     color: var(--text-color);
@@ -467,21 +332,23 @@ nav {
     -moz-column-gap: 24px;
     column-gap: 24px;
 
+
     .project-card {
       display: inline-block;
       width: 100%;
       border-radius: 24px;
       padding: 40px 40px 0 40px;
-      margin-bottom: 32px;
-
+      margin-bottom: 24px;
       position: relative;
       overflow: hidden;
 
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, var(--background-color) 100%);
+
       background: linear-gradient(180deg,
           color-mix(in oklch, white 8%, var(--background-color)) 0%,
           var(--background-color) 100%);
       border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
+
       transition: border-color 250ms ease;
 
       &::after {
@@ -517,6 +384,10 @@ nav {
         height: 100%;
         object-fit: contain;
         object-position: center;
+      }
+
+      a {
+        display: inline-block;
       }
 
       .text {
@@ -565,25 +436,12 @@ nav {
   .desktop-navbar {
     display: flex;
   }
+}
 
-  // Banner
-  #banner {
-    height: calc(50vh);
-    min-height: 500px;
+@media (min-width: 768px) {
 
-    #banner-header .line {
-      font-size: 48px;
-    }
-  }
-
-  .cursor {
-    font-size: 48px;
-  }
-
-  // Projects layout - 2 columns masonry on desktop
   #projects {
     #project-list {
-      // Masonry container styles
       -webkit-column-count: 2;
       -moz-column-count: 2;
       column-count: 2;
@@ -591,6 +449,14 @@ nav {
       -webkit-column-gap: 24px;
       -moz-column-gap: 24px;
       column-gap: 24px;
+
+      .project-card {
+        // Prevent cards from breaking across columns
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        margin-bottom: 24px;
+      }
     }
   }
 }

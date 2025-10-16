@@ -50,18 +50,50 @@ h3 {
 // Components
 // ====================
 .button {
-  display: inline-flex;
-  padding: 15px 24px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  background: var(--primary-blue);
-  color: var(--background-color);
-  transition: background 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--primary-blue);
+  /* Era --color-accent-blue */
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-family: 'Zalando Sans';
+  background-color: var(--background-color);
+  /* Era --color-dark-bg */
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: #E5E7EB;
+  /* Era --color-text-light */
+  white-space: nowrap;
+}
+
+
+/* Botón */
+#projects-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--primary-blue);
+  /* Era --color-accent-blue */
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-family: 'Zalando Sans';
+  background-color: var(--background-color);
+  /* Era --color-dark-bg */
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: #E5E7EB;
+  /* Era --color-text-light */
+  white-space: nowrap;
 
   &:hover {
-    filter: brightness(85%);
-    cursor: pointer;
+    background-color: var(--primary-blue);
+    /* Era --color-accent-blue */
+    color: white;
   }
 }
 
@@ -295,121 +327,114 @@ nav {
 // ====================
 // Banner Section
 // ====================
-   .hero-header {
-            text-align: center;
-            margin-top: 150px; 
-            margin-bottom: 2rem;  
-        }
+.hero-header {
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 2rem;
+}
 
-        #greeting {
-            font-family: 'Chivo Mono', monospace;
-            font-weight: 500;
-            font-size: 0.875rem;
-            color: var(--primary-blue); /* Era --color-accent-blue */
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
+#greeting {
+  font-family: 'Chivo Mono', monospace;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--primary-blue);
+  /* Era --color-accent-blue */
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
 
-        #main-title {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            font-size: 3rem;
-            letter-spacing: -0.05em;
-            margin: 0;
-            white-space: nowrap; 
-        }
+#main-title {
+  font-family: 'Zalando Sans', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: -0.05em;
+  margin: 0;
+  white-space: nowrap;
+}
 
-        #intro-pitch {
-            font-size: 1.125rem;
-            line-height: 1.5;
-            color: #9CA3AF;
-            font-weight: 500;
-            max-width: 40rem;
-            margin: 0.2rem auto 0;
-        }
-        
-        @media (min-width: 640px) {
-            #main-title { font-size: 4rem; }
-            #intro-pitch { font-size: 1.25rem; }
-        }
-        @media (min-width: 768px) {
-            #main-title { font-size: 5rem; }
-        }
+#intro-pitch {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #9CA3AF;
+  font-weight: 500;
+  max-width: 40rem;
+  margin: 0.2rem auto 0;
+}
+
+@media (min-width: 640px) {
+  #main-title {
+    font-size: 4rem;
+  }
+
+  #intro-pitch {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #main-title {
+    font-size: 5rem;
+  }
+}
 
 
-        /* Contenedor Circular */
-        #circular-wrapper {
-            position: relative;
-            z-index: 5;
-            width: 15rem;
-            height: 15rem;
-            margin: auto;
-        }
-        @media (min-width: 640px) {
-            #circular-wrapper {
-                width: 18rem;
-                height: 18rem;
-            }
-        }
+/* Contenedor Circular */
+#circular-wrapper {
+  position: relative;
+  z-index: 5;
+  width: 15rem;
+  height: 15rem;
+  margin: auto;
+}
 
-        .circle {
-            position: relative;
-            animation: orbit 30s linear infinite paused; 
-            transition: all 0.3s ease;
-            cursor: pointer;
-            width: 100%;
-            height: 100%;
-        }
-        
-        #circular-wrapper:hover .circle {
-            animation-play-state: running;
-        }
+@media (min-width: 640px) {
+  #circular-wrapper {
+    width: 18rem;
+    height: 18rem;
+  }
+}
 
-        .char {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform-origin: center;
-            height: 1px; 
-        }
+.circle {
+  position: relative;
+  animation: orbit 30s linear infinite paused;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
 
-        .char span {
-            display: block;
-            font-weight: 500; 
-            font-size: 1.2rem; 
-            color: var(--primary-blue); /* Era --color-accent-blue */
-            font-family: 'Chivo Mono', monospace;
-        }
+#circular-wrapper:hover .circle {
+  animation-play-state: running;
+}
 
-        /* Botón */
-        #projects-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 0.75rem 1.5rem;
-            border: 1px solid var(--primary-blue); /* Era --color-accent-blue */
-            border-radius: 0.75rem;
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            background-color: var(--background-color); /* Era --color-dark-bg */
-            transition: all 0.3s ease-in-out; 
-            text-decoration: none;
-            color: #E5E7EB; /* Era --color-text-light */
-            white-space: nowrap;
-        }
+.char {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+  height: 1px;
+}
 
-        #projects-button:hover {
-            background-color: var(--primary-blue); /* Era --color-accent-blue */
-            color: white;
-        }
+.char span {
+  display: block;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--primary-blue);
+  /* Era --color-accent-blue */
+  font-family: 'Chivo Mono', monospace;
+}
 
-        @keyframes orbit {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 // ====================
 // Projects Section
@@ -497,6 +522,7 @@ nav {
 
       .text {
         width: 100%;
+        margin-bottom: 50px;
 
         h3 {
           color: var(--text-color-alt);
@@ -514,6 +540,7 @@ nav {
           font-style: normal;
           font-weight: 500;
           line-height: normal;
+          margin-bottom: 28px;
         }
       }
 

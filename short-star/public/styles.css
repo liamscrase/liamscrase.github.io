@@ -39,18 +39,49 @@ h3 {
 }
 
 .button {
-  display: inline-flex;
-  padding: 15px 24px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  background: var(--primary-blue);
-  color: var(--background-color);
-  transition: background 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--primary-blue);
+  /* Era --color-accent-blue */
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-family: "Zalando Sans";
+  background-color: var(--background-color);
+  /* Era --color-dark-bg */
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: #E5E7EB;
+  /* Era --color-text-light */
+  white-space: nowrap;
 }
-.button:hover {
-  filter: brightness(85%);
-  cursor: pointer;
+
+/* Botón */
+#projects-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--primary-blue);
+  /* Era --color-accent-blue */
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-family: "Zalando Sans";
+  background-color: var(--background-color);
+  /* Era --color-dark-bg */
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: #E5E7EB;
+  /* Era --color-text-light */
+  white-space: nowrap;
+}
+#projects-button:hover {
+  background-color: var(--primary-blue);
+  /* Era --color-accent-blue */
+  color: white;
 }
 
 nav {
@@ -255,14 +286,15 @@ nav.scrolled {
   font-family: "Chivo Mono", monospace;
   font-weight: 500;
   font-size: 0.875rem;
-  color: var(--primary-blue); /* Era --color-accent-blue */
+  color: var(--primary-blue);
+  /* Era --color-accent-blue */
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
 
 #main-title {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Zalando Sans", sans-serif;
   font-weight: 700;
   font-size: 3rem;
   letter-spacing: -0.05em;
@@ -332,32 +364,9 @@ nav.scrolled {
   display: block;
   font-weight: 500;
   font-size: 1.2rem;
-  color: var(--primary-blue); /* Era --color-accent-blue */
+  color: var(--primary-blue);
+  /* Era --color-accent-blue */
   font-family: "Chivo Mono", monospace;
-}
-
-/* Botón */
-#projects-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 0.75rem 1.5rem;
-  border: 1px solid var(--primary-blue); /* Era --color-accent-blue */
-  border-radius: 0.75rem;
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  background-color: var(--background-color); /* Era --color-dark-bg */
-  transition: all 0.3s ease-in-out;
-  text-decoration: none;
-  color: #E5E7EB; /* Era --color-text-light */
-  white-space: nowrap;
-}
-
-#projects-button:hover {
-  background-color: var(--primary-blue); /* Era --color-accent-blue */
-  color: white;
 }
 
 @keyframes orbit {
@@ -436,6 +445,7 @@ nav.scrolled {
 }
 #projects #project-list .project-card .text {
   width: 100%;
+  margin-bottom: 50px;
 }
 #projects #project-list .project-card .text h3 {
   color: var(--text-color-alt);
@@ -452,6 +462,7 @@ nav.scrolled {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  margin-bottom: 28px;
 }
 
 @media (min-width: 1200px) {

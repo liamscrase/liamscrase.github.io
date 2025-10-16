@@ -100,3 +100,15 @@ import Header from "../components/header.astro";
   window.addEventListener("load", setupCircularText);
   window.addEventListener("resize", setupCircularText);
 </script>
+
+<script>
+  document
+    .getElementById("projects-button")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      document.getElementById("projects").scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+</script>

@@ -3,116 +3,100 @@ import Header from "../components/header.astro";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="stylesheet" href="/styles.css" />
-		<title>Astro</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<Header />
-		<header class="hero-header">
-			<p id="greeting">Hello, I'm</p>
-			<h1 id="main-title">Liam Scrase</h1>
-			<p id="intro-pitch">
-				A creative professional blending aesthetics with modern
-				technology to build engaging digital experiences.
-			</p>
-		</header>
-		<div id="circular-wrapper">
-			<div class="circle" id="circle">
-				<!-- Texto circular inyectado por JS -->
-			</div>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Astro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <Header />
+    <header class="hero-header">
+      <p id="greeting">Hello, I'm</p>
+      <h1 id="main-title">Liam Scrase</h1>
+      <p id="intro-pitch">
+        A creative professional blending aesthetics with modern technology to
+        build engaging digital experiences.
+      </p>
+    </header>
+    <div id="circular-wrapper">
+      <div class="circle" id="circle">
+        <!-- Texto circular inyectado por JS -->
+      </div>
 
-			<a href="#projects" id="projects-button">My Projects</a>
-		</div>
-		<section id="projects">
-			<h2>Projects</h2>
-			<section id="project-list">
-				<div class="project-card">
-					<div class="text">
-						<h3>Acme Cars Website</h3>
-						<p>
-							Elevating the standards for car dealer websites in
-							New Zealand with a modern design and cutting-edge
-							helpful AI features
-						</p>
-						<a class="button" href="https://staging.acmecars.co.nz/"
-							>View Project</a
-						>
-					</div>
-					<a
-						class="project-link"
-						href="https://staging.acmecars.co.nz/"
-						aria-label="Open Acme Cars project"
-					>
-						<img
-							src="/images/acme5/acme5.webp"
-							alt="Acme Cars website preview"
-						/>
-					</a>
-				</div>
-			</section>
-		</section>
-	</body>
+      <a href="#projects" id="projects-button">My Projects</a>
+    </div>
+    <section id="projects">
+      <h2>Projects</h2>
+      <section id="project-list">
+        <a
+          class="project-link"
+          href="https://staging.acmecars.co.nz/"
+          aria-label="Open Acme Cars project">
+        <div class="project-card">
+          <div class="text">
+            <h3>Acme Cars Website</h3>
+            <p>
+              Elevating the standards for car dealer websites in New Zealand
+              with a modern design and cutting-edge helpful AI features
+            </p>
+			<div class="skills">
+				<span>UX/UI Design</span>
+				<span>Boilerplate Design</span>
+			</div>
+          </div>
+          <img src="/images/acme5/acme5.webp" alt="Acme Cars website preview" />
+        </div>
+		</a>
+      </section>
+    </section>
+  </body>
 </html>
 
 <script>
-	function setupCircularText() {
-		const circle = document.getElementById("circle");
-		const wrapper = document.getElementById("circular-wrapper");
+  function setupCircularText() {
+    const circle = document.getElementById("circle");
+    const wrapper = document.getElementById("circular-wrapper");
 
 		const text = " UX/UI DESIGNER ◆ FRONT END DEVELOPER ◆";
 		const charCount = text.length;
 
-		if (!circle || !wrapper) {
-			return;
-		}
+    if (!circle || !wrapper) {
+      return;
+    }
 
-		// Usar getBoundingClientRect para obtener dimensiones precisas
-		const radius = wrapper.getBoundingClientRect().width / 2;
+    // Usar getBoundingClientRect para obtener dimensiones precisas
+    const radius = wrapper.getBoundingClientRect().width / 2;
 
-		circle.innerHTML = "";
+    circle.innerHTML = "";
 
-		for (let i = 0; i < charCount; i++) {
-			const charWrapper = document.createElement("div");
-			charWrapper.className = "char";
+    for (let i = 0; i < charCount; i++) {
+      const charWrapper = document.createElement("div");
+      charWrapper.className = "char";
 
-			const span = document.createElement("span");
-			span.textContent = text[i];
+      const span = document.createElement("span");
+      span.textContent = text[i];
 
-			const angle = i * (360 / charCount);
+      const angle = i * (360 / charCount);
 
-			// Rotar el wrapper y luego trasladar el span hacia afuera
-			charWrapper.style.transform = `rotate(${angle}deg) translateY(-${radius}px)`;
+      // Rotar el wrapper y luego trasladar el span hacia afuera
+      charWrapper.style.transform = `rotate(${angle}deg) translateY(-${radius}px)`;
 
-			charWrapper.appendChild(span);
-			circle.appendChild(charWrapper);
-		}
-	}
+      charWrapper.appendChild(span);
+      circle.appendChild(charWrapper);
+    }
+  }
 
-	// Ejecutar en carga inicial y redimensionamiento
-	document.addEventListener("DOMContentLoaded", setupCircularText);
-	window.addEventListener("load", setupCircularText);
-	window.addEventListener("resize", setupCircularText);
-</script>
-
-<script>
-	document
-		.getElementById("projects-button")
-		.addEventListener("click", function (e) {
-			e.preventDefault();
-			document.getElementById("projects").scrollIntoView({
-				behavior: "smooth",
-				block: "start",
-			});
-		});
+  // Ejecutar en carga inicial y redimensionamiento
+  document.addEventListener("DOMContentLoaded", setupCircularText);
+  window.addEventListener("load", setupCircularText);
+  window.addEventListener("resize", setupCircularText);
 </script>

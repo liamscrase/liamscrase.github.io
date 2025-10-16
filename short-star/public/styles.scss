@@ -12,7 +12,8 @@ html {
   --accent-color: #ffffff;
   --text-color: #ffffff;
   --text-color-alt: #dbdbdb;
-  --border-color: #1f1f1f;
+  --border-color: #3a3a3a;
+  --border-color-alt: #555555;
 
   // Single blue color scheme
   --primary-blue: #a026e6;
@@ -473,24 +474,22 @@ nav {
       padding: 40px 40px 0 40px;
       margin-bottom: 32px;
 
-      position: relative; // for overlay
-      overflow: hidden; // clip to radius
+      position: relative;
+      overflow: hidden;
 
-      /* Base gradient (stays visible) */
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, var(--background-color) 100%);
       background: linear-gradient(180deg,
           color-mix(in oklch, white 8%, var(--background-color)) 0%,
           var(--background-color) 100%);
       border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
-      transition: border-color 250ms ease; // background animates via ::after
+      transition: border-color 250ms ease;
 
-      /* Hover gradient overlay that fades in */
       &::after {
         content: "";
         position: absolute;
         inset: 0;
         border-radius: inherit;
-        pointer-events: none; // don't block clicks on the image link
+        pointer-events: none;
         background: linear-gradient(180deg,
             color-mix(in oklch, var(--primary-blue) 35%, var(--background-color)) 0%,
             var(--background-color) 100%);
@@ -529,8 +528,10 @@ nav {
           font-family: "Chivo Mono";
           font-size: 18px;
           font-style: normal;
-          font-weight: 500;
+          font-weight: 400;
           line-height: normal;
+          text-transform: uppercase;
+          letter-spacing: 2px;
         }
 
         p {

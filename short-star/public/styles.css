@@ -4,14 +4,17 @@ html {
 
 :root {
   --background-color: #181818;
-  --hover-color: #111111;
+  --hover-color: #969696;
   --hover-color-alt: #202020;
   --accent-color: #ffffff;
   --text-color: #ffffff;
-  --text-color-alt: #dbdbdb;
+  --text-color-alt: #969696;
   --border-color: #3a3a3a;
   --border-color-alt: #555555;
-  --primary-blue: #0070f3;
+  --primary-blue: #2a7ad4;
+  --primary-purple: #a855f7;
+  --primary-orange: #ff6b35;
+  --primary-green: #23c378;
 }
 
 * {
@@ -27,27 +30,37 @@ body {
   color: var(--text-color);
 }
 
+#body-wrapper {
+  margin-top: 77px;
+}
+
 .content {
   padding: 0 20px;
   max-width: 1200px;
   margin: auto;
 }
 
-.top-padding {
-  padding-top: 75px;
-}
-
 h1,
 h2,
 h3 {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+}
+
+p {
+  color: var(--text-color-alt);
+  font-family: "Chivo Mono";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin-bottom: 12px;
 }
 
 nav {
   position: fixed;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid var(--background-color);
+  border-bottom: 0px solid var(--background-color);
   transition: background-color 300ms ease, border-bottom-color 300ms ease, -webkit-backdrop-filter 300ms ease;
   transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease;
   transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease;
@@ -70,6 +83,7 @@ nav.scrolled {
   padding: 8px 20px;
   flex-direction: row;
   justify-content: space-between;
+  max-width: 1200px;
   width: 100%;
   gap: 32px;
 }
@@ -236,45 +250,41 @@ nav.scrolled {
 }
 
 #banner {
-  padding: 140px 0 60px 0;
-  text-align: center;
+  padding: 60px 0;
+  text-align: left;
+}
+#banner img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 24px;
 }
 #banner h1 {
   color: var(--text-color);
   font-family: "Chivo Mono";
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  margin-bottom: 16px;
-}
-#banner p {
-  color: var(--text-color-alt);
-  font-family: "Zalando Sans";
   font-size: 24px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   line-height: normal;
+  margin-bottom: 16px;
 }
 
 #projects {
   padding: 80px 0;
-}
-#projects h2 {
-  color: var(--text-color);
-  font-family: "Chivo Mono";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  border-top: 1px solid var(--border-color);
-  padding-top: 24px;
 }
 #projects #project-list {
   -moz-column-count: 1;
   column-count: 1;
   -moz-column-gap: 24px;
   column-gap: 24px;
+}
+#projects #project-list .acme h3 {
+  color: var(--primary-blue);
+}
+#projects #project-list .avanti h3 {
+  color: var(--primary-green);
 }
 #projects #project-list .project-card {
   display: inline-block;
@@ -288,22 +298,6 @@ nav.scrolled {
   background: linear-gradient(180deg, color-mix(in oklch, white 8%, var(--background-color)) 0%, var(--background-color) 100%);
   border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
   transition: border-color 250ms ease;
-}
-#projects #project-list .project-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: linear-gradient(180deg, color-mix(in oklch, var(--primary-blue) 35%, var(--background-color)) 0%, var(--background-color) 100%);
-  opacity: 0;
-  transition: opacity 250ms ease;
-}
-#projects #project-list .project-card:hover::after {
-  opacity: 1;
-}
-#projects #project-list .project-card:hover {
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
 }
 #projects #project-list .project-card .text,
 #projects #project-list .project-card img {
@@ -327,23 +321,73 @@ nav.scrolled {
   margin-bottom: 50px;
 }
 #projects #project-list .project-card .text h3 {
-  color: var(--text-color-alt);
   font-family: "Chivo Mono";
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   line-height: normal;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  margin-bottom: 12px;
 }
 #projects #project-list .project-card .text p {
-  color: var(--text-color);
-  font-family: "Zalando Sans";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
   margin-bottom: 28px;
+  color: var(--text-color);
+}
+#projects #project-list .project-card .skills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+#projects #project-list .project-card .skills span {
+  color: var(--text-color);
+  font-family: "Chivo Mono";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 42px;
+  padding: 0 20px;
+  border-radius: 21px;
+  border: 1px solid var(--border-color);
+  transition: border-color 250ms ease;
+}
+#projects #project-list .project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, color-mix(in oklch, var(--primary-blue) 35%, var(--background-color)) 0%, var(--background-color) 100%);
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+#projects #project-list .project-card:hover::after {
+  opacity: 1;
+}
+#projects #project-list .project-card:hover {
+  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+}
+#projects #project-list .project-card:hover .skills span {
+  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+}
+#projects #project-list .project-card.hover-green::after {
+  background: linear-gradient(180deg, color-mix(in oklch, var(--primary-green) 35%, var(--background-color)) 0%, var(--background-color) 100%);
+}
+#projects #project-list .project-card.hover-green:hover {
+  border-color: color-mix(in oklch, var(--primary-green) 40%, var(--border-color));
+}
+#projects #project-list .project-card.hover-green:hover .skills span {
+  border-color: color-mix(in oklch, var(--primary-green) 40%, var(--border-color));
+}
+#projects #project-list .project-card.hover-purple::after {
+  background: linear-gradient(180deg, color-mix(in oklch, #a855f7 35%, var(--background-color)) 0%, var(--background-color) 100%);
+}
+#projects #project-list .project-card.hover-purple:hover {
+  border-color: color-mix(in oklch, var(--primary-purple) 40%, var(--border-color));
+}
+#projects #project-list .project-card.hover-orange::after {
+  background: linear-gradient(180deg, color-mix(in oklch, #ff6b35 35%, var(--background-color)) 0%, var(--background-color) 100%);
+}
+#projects #project-list .project-card.hover-orange:hover {
+  border-color: color-mix(in oklch, var(--primary-orange) 40%, var(--border-color));
 }
 
 @media (min-width: 1200px) {
@@ -355,16 +399,20 @@ nav.scrolled {
   }
 }
 @media (min-width: 768px) {
+  #banner .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    max-width: 800px;
+  }
+  #banner .content img {
+    margin-bottom: 2px;
+  }
   #projects #project-list {
     -moz-column-count: 2;
     column-count: 2;
     -moz-column-gap: 24px;
     column-gap: 24px;
-  }
-  #projects #project-list .project-card {
-    page-break-inside: avoid;
-    -moz-column-break-inside: avoid;
-         break-inside: avoid;
-    margin-bottom: 24px;
   }
 }/*# sourceMappingURL=styles.css.map */

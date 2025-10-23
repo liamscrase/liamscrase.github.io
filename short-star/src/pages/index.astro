@@ -22,20 +22,22 @@ import Header from "../components/header.astro";
 		<section id="body-wrapper">
 			<section id="banner">
 				<div class="content">
-					<img src="images/profile.jpg" alt="" />
-					<div class="inner">
-						<h1>Hi, I'm Liam 👋</h1>
-						<p>
-							UX/UI Designer & Front End Support with 4 years of
-							experience. Currently working for Motorcentral
-							Technologies — a leading tech company based in
-							Christchurch, New Zealand.
-						</p>
-						<p>
-							Designed and refined multiple applications,
-							websites, and marketing materials.
-						</p>
-					</div>
+					<dib class="blurb">
+						<img src="images/profile.jpg" alt="" />
+						<div class="inner">
+							<h1>Hi, I'm Liam 👋</h1>
+							<p>
+								UX/UI Designer & Front End Support with 4 years of
+								experience. Currently working for Motorcentral
+								Technologies — a leading tech company based in
+								Christchurch, New Zealand.
+							</p>
+							<p>
+								Designed and refined multiple applications,
+								websites, and marketing materials.
+							</p>
+						</div>
+					</dib>
 				</div>
 			</section>
 			<section id="projects">
@@ -65,6 +67,33 @@ import Header from "../components/header.astro";
 								alt="Acme Cars website preview"
 							/>
 						</a>
+
+						<a
+							class="project-card evolution hover-yellow"
+							href="https://example.com/avanti"
+							aria-label="Open Avanti Finance App"
+						>
+							<div class="text">
+								<h3>Evolution Motors</h3>
+								<p>
+									An automotive website showcasing the latest
+									models and special offers from Evolution
+									Motors, a popular used car dealership in
+									Napier, New Zealand. Designed and built
+									based on the latest Acme template.
+								</p>
+								<div class="skills">
+									<span>Website Design</span>
+									<span>Front End Development</span>
+									<span>Visual Studio</span>
+								</div>
+							</div>
+							<img
+								src="/images/evolution/evolution.webp"
+								alt="Evolution Motors website preview"
+							/>
+						</a>
+						
 						<a
 							class="project-card avanti hover-green"
 							href="https://example.com/avanti"
@@ -87,58 +116,39 @@ import Header from "../components/header.astro";
 								alt="Avanti Finance App preview"
 							/>
 						</a>
+						
+
+
 						<a
-							class="project-card acme"
+							class="project-card simply-stunning hover-orange"
 							href="https://example.com/avanti"
 							aria-label="Open Avanti Finance App"
 						>
 							<div class="text">
-								<h3>Acme Cars Website</h3>
+								<h3>Simply Stunning Studios Website</h3>
 								<p>
-									Elevating the standards for car dealer
-									websites in New Zealand with a modern
-									website template and cutting-edge helpful AI
-									features Elevating the standards for car
-									dealer websites in New Zealand with a modern
-									website template and cutting-edge helpful AI
-									features
+									An accommodation booking website for a
+									luxury B&B based in Lake Tekapo, New
+									Zealand. Custom designed and developed with
+									WordPress and integrated with a booking
+									plugin for smooth date selection and online
+									payments.
 								</p>
 								<div class="skills">
-									<span>UX/UI Design</span>
-									<span>Boilerplate Template</span>
+									<span>Website Design</span>
+									<span>Front End Development</span>
+									<span>Visual Studio</span>
 								</div>
 							</div>
 							<img
-								src="/images/acme5/acme5.webp"
-								alt="Acme Cars website preview"
+								src="/images/simply-stunning/simplystunning.webp"
+								alt="Simply Stunning Studios website preview"
 							/>
 						</a>
-						<a
-							class="project-card acme"
-							href="https://example.com/avanti"
-							aria-label="Open Avanti Finance App"
-						>
-							<div class="text">
-								<h3>Acme Cars Website</h3>
-								<p>
-									Elevating the standards for car dealer
-									websites in New Zealand with a modern
-									website template and cutting-edge helpful AI
-									features Elevating the standards for car
-									dealer websites in New Zealand with a modern
-									website template and cutting-edge helpful AI
-									features
-								</p>
-								<div class="skills">
-									<span>UX/UI Design</span>
-									<span>Boilerplate Template</span>
-								</div>
-							</div>
-							<img
-								src="/images/acme5/acme5.webp"
-								alt="Acme Cars website preview"
-							/>
-						</a>
+
+
+
+
 					</section>
 				</div>
 			</section>

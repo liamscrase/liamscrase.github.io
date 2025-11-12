@@ -367,7 +367,7 @@ nav {
 
     }
 
-    .evolution {
+    .car-dealer {
       h3 {
         color: var(--primary-yellow)
       }
@@ -587,4 +587,17 @@ nav {
     }
   }
 
+}
+
+@media (min-width: 1650px) {
+  .content {
+    max-width: 1600px;
+  }
+
+  .desktop-navbar {
+    .desktop-navbar-container {
+      max-width: 1600px;
+    }
+
+  }
 }

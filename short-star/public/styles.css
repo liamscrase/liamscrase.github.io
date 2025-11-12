@@ -300,7 +300,7 @@ nav.scrolled {
 #projects #project-list .simply-stunning h3 {
   color: var(--primary-orange);
 }
-#projects #project-list .evolution h3 {
+#projects #project-list .car-dealer h3 {
   color: var(--primary-yellow);
 }
 #projects #project-list .project-card {
@@ -442,5 +442,13 @@ nav.scrolled {
   }
   #banner .blurb img {
     margin-bottom: 2px;
+  }
+}
+@media (min-width: 1650px) {
+  .content {
+    max-width: 1600px;
+  }
+  .desktop-navbar .desktop-navbar-container {
+    max-width: 1600px;
   }
 }/*# sourceMappingURL=styles.css.map */

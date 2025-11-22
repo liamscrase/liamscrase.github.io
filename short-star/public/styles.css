@@ -38,6 +38,7 @@ body {
   padding: 0 20px;
   max-width: 1200px;
   margin: auto;
+  width: 100%;
 }
 
 h1,
@@ -56,6 +57,24 @@ p {
   font-weight: 300;
   line-height: 20px;
   margin-bottom: 12px;
+}
+
+.skills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.skills span {
+  color: var(--text-color-alt);
+  font-family: "Chivo Mono";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 32px;
+  padding: 0 12px;
+  border-radius: 21px;
+  border: 1px solid var(--border-color-alt);
+  transition: border-color 250ms ease;
 }
 
 nav {
@@ -94,7 +113,7 @@ nav.scrolled {
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
-  padding: 20px 12px 20px 12px;
+  padding: 20px 0;
 }
 .desktop-navbar .desktop-navbar-container .nav-links {
   display: flex;
@@ -348,23 +367,6 @@ nav.scrolled {
   margin-bottom: 28px;
   color: var(--text-color-alt);
 }
-#projects #project-list .project-card .skills {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-#projects #project-list .project-card .skills span {
-  color: var(--text-color-alt);
-  font-family: "Chivo Mono";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 32px;
-  padding: 0 12px;
-  border-radius: 21px;
-  border: 1px solid var(--border-color-alt);
-  transition: border-color 250ms ease;
-}
 #projects #project-list .project-card::after {
   content: "";
   position: absolute;
@@ -410,6 +412,20 @@ nav.scrolled {
 }
 #projects #project-list .project-card.hover-orange:hover .skills span {
   border-color: color-mix(in oklch, var(--primary-orange) 40%, var(--border-color));
+}
+
+#project-header {
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48px;
+  padding: 50px 0;
+}
+#project-header .text {
+  max-width: 800px;
+}
+#project-header .skills {
+  margin-top: 32px;
 }
 
 @media (min-width: 1200px) {

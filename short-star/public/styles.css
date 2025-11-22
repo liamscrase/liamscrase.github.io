@@ -428,6 +428,21 @@ nav.scrolled {
   margin-top: 32px;
 }
 
+.split-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.split-section img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
 @media (min-width: 1200px) {
   .mobile-navbar {
     display: none;

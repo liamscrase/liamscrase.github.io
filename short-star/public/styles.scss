@@ -7,15 +7,15 @@ html {
 
 :root {
   --background-color: #181818;
+  --tint-color: rgba(255, 255, 255, 0.08);
   --hover-color: #969696;
   --hover-color-alt: #202020;
-  --accent-color: #ffffff;
   --text-color: #ffffff;
   --text-color-alt: rgba(255, 255, 255, 0.7);
   --border-color: #3a3a3a;
   --border-color-alt: #555555;
-  --primary-blue: #2a7ad4;
-  --primary-yellow: #f7ef55;
+  --primary-blue: #4b95ea;
+  --primary-yellow: #e4cc34;
   --primary-orange: #e37a54;
   --primary-green: #23c378;
 }
@@ -31,7 +31,7 @@ html {
 }
 
 body {
-  font-family: Zalando Sans;
+  font-family: "Chivo Mono", monospace;
   background-color: var(--background-color);
   color: var(--text-color);
 }
@@ -47,10 +47,17 @@ body {
   width: 100%;
 }
 
+.content-small {
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+}
+
 h1,
 h2,
 h3 {
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   font-family: "Chivo Mono";
   font-weight: 300;
 }
@@ -58,11 +65,19 @@ h3 {
 p {
   color: var(--text-color-alt);
   font-family: "Chivo Mono";
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 300;
-  line-height: 20px;
+  line-height: 140%;
   margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
 }
 
 .skills {
@@ -534,38 +549,101 @@ nav {
 
 
 // ====================
-// Projects
+// Project
 // ====================
 
 
+.sub-header {
+  display: block;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 16px;
+  color: var(--text-color-alt);
+  
+  &.blue {
+    color: var(--primary-blue);
+  }
+}
+
+
 #project-header {
-  background: rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
   margin-bottom: 48px;
   padding: 50px 0;
 
-  .text {
-    max-width: 800px;
+  h1 {
+    margin-bottom: 50px;
   }
 
-  .skills {
-    margin-top: 32px;
+  .hero-image {
+    width: 100%;
+    background-color: var(--tint-color);
+    padding: 5% 8% 0;
+    border-radius: 24px;
+    margin-bottom: 50px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+
+    }
   }
 }
 
-.split-section {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+.background {
+  margin-bottom: 32px;
 
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-    object-fit: cover;
-    object-position: center;
+  .text {
+    margin-bottom: 50px;
   }
+
+  .upgrade {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    
+    .arrow {
+      width: 32px;
+      rotate: calc(90deg);
+      margin: 0 auto;
+    }
+
+    .inner {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 32px;
+      background-color: var(--tint-color);
+      border-radius: 24px;
+      width: 100%;
+
+      .sub-header {
+        margin-bottom: 4px;
+      }
+
+      .item {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+
+        span {
+          color: var(--text-color);
+          font-family: "Chivo Mono";
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
 }
 
 
@@ -609,9 +687,33 @@ nav {
       margin: 0 0 48px 0;
     }
   }
+
+      .background {
+      .upgrade {
+        flex-direction: row;
+
+        .arrow {
+          rotate: calc(0deg);
+        }
+      }
+    }
 }
 
 @media (min-width: 848px) {
+  
+  p {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+
   #banner {
     .blurb {
       display: flex;

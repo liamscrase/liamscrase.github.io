@@ -3,46 +3,97 @@ import Header from "../components/header.astro";
 ---
 
 <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="stylesheet" href="/styles.css" />
-    <title>Astro</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
-        rel="stylesheet"
-    />
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Astro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet"
+  />
 </head>
 
 <body>
-    <Header />
-    <section id="body-wrapper">
-        <section id="project-header">
-            <div class="content">
-                <div class="text">
-                    <h1>Acme Cars Website</h1>
-                    <p>
-                        Elevating the standards for car dealer websites in New
-                        Zealand with a modern website template and cutting-edge
-                        helpful AI features
-                    </p>
+  <Header />
+  <section id="body-wrapper">
+    <div class="content-small">
+      <section id="project-header">
+        <span class="sub-header">Acme Cars, 2025</span>
+        <h1>
+          Upgrading motorcentral’s base dealership website template with a
+          modern design and fresh features
+        </h1>
+        <div class="hero-image">
+          <img src="/images/acme5/acme-hero.webp" alt="Acme Cars Hero Image" />
+        </div>
+        <h2>My role</h2>
+        <p>
+          As the digital designer on this project, I worked closely with the
+          project manager and software development team in order to create a
+          design that could work functionally at all screen sizes.
+        </p>
+      </section>
 
-                    <div class="skills">
-                        <span>UX/UI Design</span>
-                        <span>Front End Development</span>
-                        <span>AI Integration</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <section class="background">
+        <span class="sub-header blue"> Background and problem </span>
+        <div class="text">
+          <h2>
+            To be able to increase our reach, we needed an overhaul of our
+            design
+          </h2>
+          <p>
+            Motorcentral has over has designed and built over 600 websites for
+            car dealerships in New Zealand. As you might expect, there comes a
+            point where there just aren’t enough clients left locally. Moving
+            abroad is the next logical step, but in order to do that, we needed
+            to step up or game.
+          </p>
+          <p>That’s where Acme 5.0 comes in.</p>
+        </div>
+        <div class="upgrade">
+          <div class="inner">
+            <span class="sub-header">Old Acme</span>
 
-        <section class="split-section">
-            <div class="content">
-                di
+            <div class="item">
+              <img src="images/acme5/icons/x.svg" alt="" />
+              <span>Slower to load</span>
             </div>
-        </section>
-    </section>
+            <div class="item">
+              <img src="images/acme5/icons/x.svg" alt="" />
+              <span>Dated look</span>
+            </div>
+            <div class="item">
+              <img src="images/acme5/icons/x.svg" alt="" />
+              <span>Hard to find the right car</span>
+            </div>
+          </div>
+          <img class="arrow" src="images/acme5/icons/arrow.svg" alt="" />
+
+          <div class="inner">
+            <span class="sub-header blue">Acme 5.0</span>
+            <div class="item">
+              <img src="images/acme5/icons/speed.svg" alt="" />
+              <span>Optimised for faster page speeds</span>
+            </div>
+            <div class="item">
+              <img src="images/acme5/icons/design.svg" alt="" />
+              <span>Intuitive UI and fresh design</span>
+            </div>
+            <div class="item">
+              <img src="images/acme5/icons/filter.svg" alt="" />
+              <span>Specific, relevant and lifestyle-oriented search criteria</span>
+            </div>
+             <div class="item">
+              <img src="images/acme5/icons/ai.svg" alt="" />
+              <span>AI generated vehicle descriptions</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
 </body>

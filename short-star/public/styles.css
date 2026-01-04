@@ -451,8 +451,10 @@ nav.scrolled {
 }
 .image-section .image-grid {
   display: grid;
-  gap: 32px;
-  margin-top: 32px;
+  -moz-column-gap: 32px;
+       column-gap: 32px;
+  row-gap: 40px;
+  margin-bottom: 32px;
 }
 .image-section .image-grid.single-column {
   grid-template-columns: 1fr;
@@ -463,40 +465,44 @@ nav.scrolled {
 .image-section .image-grid.triple-column {
   grid-template-columns: 1fr;
 }
-.image-section .image-grid .image-container .caption {
-  display: block;
-  font-family: "Chivo Mono", monospace;
-  color: var(--text-color-alt);
-  font-size: 13px;
-  font-weight: 300;
-  margin: 16px;
-  line-height: 1.5;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.image-section .image-grid .item {
+  background-color: var(--tint-color);
+  border-radius: 24px;
+  overflow: hidden;
 }
 .image-section .image-grid .image {
   width: 100%;
-  background-color: var(--tint-color);
-  padding: 6% 6% 0;
-  border-radius: 24px;
+  background-color: var(--primary-color);
+  padding-left: 8%;
 }
 .image-section .image-grid .image img {
   display: block;
   width: 100%;
   height: auto;
   border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+}
+.image-section .image-grid .text {
+  padding: 8%;
 }
 
 .project-header {
   padding-top: 32px;
 }
-.project-header .image {
-  margin-bottom: 50px;
+.project-header h1 {
+  margin-bottom: 40px;
 }
 .project-header .skills {
   margin-top: 12px;
+}
+.project-header .image-grid {
+  margin-bottom: 40px;
+}
+.project-header .image {
+  padding: 6% 6% 0;
+}
+.project-header .image img {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .background .text {
@@ -505,34 +511,54 @@ nav.scrolled {
 .background .upgrade {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-.background .upgrade .arrow {
-  width: 32px;
-  rotate: 90deg;
-  margin: 0 auto;
+  gap: 40px;
 }
 .background .upgrade .inner {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 32px;
+  justify-content: space-between;
   background-color: var(--tint-color);
   border-radius: 24px;
+  overflow: hidden;
+}
+.background .upgrade .inner.image-left {
+  direction: rtl;
+}
+.background .upgrade .inner.image-left > * {
+  direction: ltr;
+}
+.background .upgrade .inner .text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   width: 100%;
+  padding: 32px;
 }
-.background .upgrade .inner .sub-header {
-  margin-bottom: 4px;
-}
-.background .upgrade .inner .item {
+.background .upgrade .inner .text .item {
   display: flex;
   gap: 16px;
   align-items: center;
 }
-.background .upgrade .inner .item span {
+.background .upgrade .inner .text .item img {
+  width: 24px;
+  height: 24px;
+}
+.background .upgrade .inner .text .item span {
   color: var(--text-color);
   font-size: 18px;
   font-weight: 300;
+}
+.background .upgrade .inner img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#new-features {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 .filter-features .image-grid .image {
@@ -543,7 +569,35 @@ nav.scrolled {
   border-top-right-radius: 0;
 }
 
-@media (min-width: 640px) {
+.example-websites .website-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 16px;
+  -moz-column-gap: 32px;
+       column-gap: 32px;
+  margin-top: 32px;
+}
+.example-websites .website-list a {
+  display: block;
+  padding: 20px 24px;
+  background-color: var(--tint-color);
+  border: 1px solid var(--background-color);
+  border-radius: 12px;
+  color: var(--text-color);
+  font-family: "Chivo Mono", monospace;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 250ms ease;
+}
+.example-websites .website-list a:hover {
+  background-color: color-mix(in oklch, var(--primary-blue) 10%, var(--tint-color));
+  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+  color: var(--primary-blue);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 800px) {
   p {
     font-size: 18px;
   }
@@ -577,6 +631,13 @@ nav.scrolled {
   .image-section .image-grid.triple-column {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .background .upgrade .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .example-websites .website-list {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 @media (min-width: 1200px) {
   .mobile-navbar {
@@ -596,12 +657,6 @@ nav.scrolled {
   #projects h2 {
     max-width: none;
     margin: 0 0 48px 0;
-  }
-  .background .upgrade {
-    flex-direction: row;
-  }
-  .background .upgrade .arrow {
-    rotate: 0deg;
   }
 }
 @media (min-width: 1650px) {

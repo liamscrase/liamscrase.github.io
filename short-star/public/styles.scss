@@ -580,8 +580,9 @@ nav {
 
   .image-grid {
     display: grid;
-    gap: 32px;
-    margin-top: 32px;
+    column-gap: 32px;
+    row-gap: 40px;
+    margin-bottom: 32px;
 
 
     &.single-column {
@@ -596,50 +597,61 @@ nav {
       grid-template-columns: 1fr;
     }
 
-    .image-container {
-      .caption {
-        display: block;
-        font-family: "Chivo Mono", monospace;
-        color: var(--text-color-alt);
-        font-size: 13px;
-        font-weight: 300;
-        margin: 16px;
-        line-height: 1.5;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
+    .item {
+      background-color: var(--tint-color);
+      border-radius: 24px;
+      overflow: hidden;
     }
 
     .image {
       width: 100%;
-      background-color: var(--tint-color);
-      padding: 6% 6% 0;
-      border-radius: 24px;
+      background-color: var(--primary-color);
+      padding-left: 8%;
 
       img {
         display: block;
         width: 100%;
         height: auto;
         border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
       }
     }
+
+    .text {
+      padding: 8%;
+    }
   }
+
 }
 
 .project-header {
   padding-top: 32px;
 
-  .image {
-    margin-bottom: 50px;
+  h1 {
+    margin-bottom: 40px;
   }
 
   .skills {
     margin-top: 12px;
   }
+
+  .image-grid {
+    margin-bottom: 40px;
+  }
+
+  .image {
+    padding: 6% 6% 0;
+
+    img {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+  }
 }
 
+
+// ====================
+// Case Study - Acme
+// ====================
 .background {
 
   .text {
@@ -649,45 +661,63 @@ nav {
   .upgrade {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-
-    .arrow {
-      width: 32px;
-      rotate: calc(90deg);
-      margin: 0 auto;
-    }
+    gap: 40px;
 
     .inner {
       display: flex;
       flex-direction: column;
-      gap: 24px;
-      padding: 32px;
+      justify-content: space-between;
       background-color: var(--tint-color);
       border-radius: 24px;
-      width: 100%;
+      overflow: hidden;
 
-      .sub-header {
-        margin-bottom: 4px;
+              &.image-left {
+          direction: rtl;
+          
+          > * {
+            direction: ltr;
+          }
+        }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+        padding: 32px;
+
+        .item {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+
+          span {
+            color: var(--text-color);
+            font-size: 18px;
+            font-weight: 300;
+          }
+        }
       }
 
-      .item {
-        display: flex;
-        gap: 16px;
-        align-items: center;
-
-        span {
-          color: var(--text-color);
-          font-size: 18px;
-          font-weight: 300;
-        }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
       }
     }
   }
 }
 
-// ====================
-// Case Study - Acme
-// ====================
+#new-features {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
 
 .filter-features {
   .image-grid {
@@ -702,12 +732,43 @@ nav {
   }
 }
 
+.example-websites {
+  .website-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+    column-gap: 32px;
+    margin-top: 32px;
+
+    a {
+      display: block;
+      padding: 20px 24px;
+      background-color: var(--tint-color);
+      border: 1px solid var(--background-color);
+      border-radius: 12px;
+      color: var(--text-color);
+      font-family: "Chivo Mono", monospace;
+      font-size: 16px;
+      font-weight: 400;
+      text-decoration: none;
+      transition: all 250ms ease;
+
+      &:hover {
+        background-color: color-mix(in oklch, var(--primary-blue) 10%, var(--tint-color));
+        border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+        color: var(--primary-blue);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
 
 // ====================
 // Media Queries
 // ====================
 
-@media (min-width: 640px) {
+@media (min-width: 800px) {
 
   // ====================
   // Base Styles
@@ -768,6 +829,24 @@ nav {
 
   }
 
+  // ====================
+  // Case Study - Acme
+  // ====================
+
+  .background {
+    .upgrade {
+      .inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  .example-websites {
+    .website-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 }
 
 @media (min-width: 1200px) {
@@ -814,15 +893,7 @@ nav {
   // Case Study - Templated Sections
   // ====================
 
-  .background {
-    .upgrade {
-      flex-direction: row;
 
-      .arrow {
-        rotate: calc(0deg);
-      }
-    }
-  }
 
 }
 

@@ -1,41 +1,39 @@
 ---
 import Header from "../components/header.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="generator" content={Astro.generator} />
-  <link rel="stylesheet" href="/styles.css" />
-  <title>Astro</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
-    rel="stylesheet"
-  />
-</head>
-
-<body>
+<Layout title="Acme Cars">
   <Header />
   <section id="body-wrapper">
     <div class="content-small">
-      <section id="project-header">
-        <span class="sub-header">Acme Cars, 2025</span>
-        <h1>
-          Upgrading motorcentral’s base dealership website template with a
-          modern design and fresh features
-        </h1>
-        <div class="hero-image">
-          <img src="/images/acme5/acme-hero.webp" alt="Acme Cars Hero Image" />
+      <section class="project-header">
+        <div class="image-section">
+          <span class="sub-header blue">Acme Cars, 2025</span>
+          <h1>
+            Upgrading motorcentral’s base dealership website template with a
+            modern design and fresh features
+          </h1>
+          <div class="image-grid single-column">
+            <div class="image">
+              <img
+                src="/images/acme5/acme-hero.webp"
+                alt="Acme Cars Hero Image"
+              />
+            </div>
+          </div>
+          <h2>My role</h2>
+          <p>
+            As the digital designer on this project, I worked closely with the
+            project manager and software development team in order to create a
+            design that could work functionally at all screen sizes.
+          </p>
+          <div class="skills">
+            <span>UX/UI Design</span>
+            <span>Collaboration</span>
+            <span>Prototyping</span>
+          </div>
         </div>
-        <h2>My role</h2>
-        <p>
-          As the digital designer on this project, I worked closely with the
-          project manager and software development team in order to create a
-          design that could work functionally at all screen sizes.
-        </p>
       </section>
 
       <section class="background">
@@ -85,15 +83,69 @@ import Header from "../components/header.astro";
             </div>
             <div class="item">
               <img src="/images/acme5/icons/filter.svg" alt="" />
-              <span>Specific, relevant and lifestyle-oriented search criteria</span>
+              <span
+                >Specific, relevant and lifestyle-oriented search criteria</span
+              >
             </div>
-             <div class="item">
+            <div class="item">
               <img src="/images/acme5/icons/ai.svg" alt="" />
               <span>AI generated vehicle descriptions</span>
             </div>
           </div>
         </div>
       </section>
+
+      <section class="ai-powered">
+        <div class="image-section">
+          <span class="sub-header blue">Acme Cars, 2025</span>
+          <h2>
+            Upgrading motorcentral’s base dealership website template with a
+            modern design and fresh features
+          </h2>
+              <p>
+            As the digital designer on this project, I worked closely with the
+            project manager and software development team in order to create a
+            design that could work functionally at all screen sizes.
+          </p>
+          <div class="image-grid single-column">
+            <div class="image">
+              <img
+                src="/images/acme5/ai-summary.webp"
+                alt="Acme Cars Hero Image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="filter-features">
+        <div class="image-section">
+          <span class="sub-header blue">Acme Cars, 2025</span>
+          <h2>
+            Upgrading motorcentral’s base dealership website template with a
+            modern design and fresh features
+          </h2>
+              <p>
+            As the digital designer on this project, I worked closely with the
+            project manager and software development team in order to create a
+            design that could work functionally at all screen sizes.
+          </p>
+          <div class="image-grid double-column">
+            <div class="image">
+              <img
+                src="/images/acme5/featured.webp"
+                alt="Acme Cars Hero Image"
+              />
+            </div>
+            <div class="image">
+              <img
+                src="/images/acme5/quick-filter.webp"
+                alt="Acme Cars Hero Image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </section>
-</body>
+</Layout>

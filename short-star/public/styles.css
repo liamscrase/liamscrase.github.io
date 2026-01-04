@@ -1,10 +1,6 @@
-html {
-  scroll-behavior: smooth;
-}
-
 :root {
   --background-color: #181818;
-  --tint-color: rgba(255, 255, 255, 0.08);
+  --tint-color: rgba(255, 255, 255, 0.11);
   --hover-color: #969696;
   --hover-color-alt: #202020;
   --text-color: #ffffff;
@@ -24,8 +20,12 @@ html {
   text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Chivo Mono", monospace;
+  font-family: "Zalando Sans", sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
 }
@@ -44,21 +44,15 @@ body {
 .content-small {
   padding: 0 20px;
   max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 85px;
   margin: auto;
   width: 100%;
 }
 
-h1,
-h2,
-h3 {
-  margin-bottom: 12px;
-  font-family: "Chivo Mono";
-  font-weight: 300;
-}
-
 p {
   color: var(--text-color-alt);
-  font-family: "Chivo Mono";
   font-size: 16px;
   font-style: normal;
   font-weight: 300;
@@ -67,11 +61,33 @@ p {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 28px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 24px;
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.sub-header {
+  display: block;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 16px;
+  color: var(--text-color-alt);
+  font-family: "Chivo Mono", monospace;
+}
+.sub-header.blue {
+  color: var(--primary-blue);
 }
 
 .skills {
@@ -429,47 +445,48 @@ nav.scrolled {
   border-color: color-mix(in oklch, var(--primary-orange) 40%, var(--border-color));
 }
 
-.sub-header {
-  display: block;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 500;
-  line-height: normal;
-  margin-bottom: 16px;
-  color: var(--text-color-alt);
-}
-.sub-header.blue {
-  color: var(--primary-blue);
-}
-
-#project-header {
+.image-section {
   display: flex;
   flex-direction: column;
-  margin-bottom: 48px;
-  padding: 50px 0;
 }
-#project-header h1 {
-  margin-bottom: 50px;
+.image-section .image-grid {
+  display: grid;
+  gap: 32px;
+  margin-top: 32px;
 }
-#project-header .hero-image {
+.image-section .image-grid.single-column {
+  grid-template-columns: 1fr;
+}
+.image-section .image-grid.double-column {
+  grid-template-columns: 1fr;
+}
+.image-section .image-grid.triple-column {
+  grid-template-columns: 1fr;
+}
+.image-section .image-grid .image {
   width: 100%;
   background-color: var(--tint-color);
-  padding: 5% 8% 0;
+  padding: 6% 6% 0;
   border-radius: 24px;
-  margin-bottom: 50px;
 }
-#project-header .hero-image img {
+.image-section .image-grid .image img {
   display: block;
   width: 100%;
   height: auto;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
-.background {
-  margin-bottom: 32px;
+.project-header {
+  padding-top: 32px;
 }
+.project-header .image {
+  margin-bottom: 50px;
+}
+.project-header .skills {
+  margin-top: 12px;
+}
+
 .background .text {
   margin-bottom: 50px;
 }
@@ -502,12 +519,53 @@ nav.scrolled {
 }
 .background .upgrade .inner .item span {
   color: var(--text-color);
-  font-family: "Chivo Mono";
   font-size: 18px;
-  font-style: normal;
   font-weight: 300;
 }
 
+.filter-features .image-grid .image {
+  padding: 6% 0 0 6%;
+}
+.filter-features .image-grid .image img {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 0;
+}
+
+@media (min-width: 640px) {
+  p {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 28px;
+    margin-bottom: 18px;
+  }
+  #banner .blurb {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    max-width: 800px;
+  }
+  #banner .blurb img {
+    margin-bottom: 2px;
+  }
+  .image-section .image-grid {
+    display: grid;
+    gap: 32px;
+  }
+  .image-section .image-grid.single-column {
+    grid-template-columns: 1fr;
+  }
+  .image-section .image-grid.double-column {
+    grid-template-columns: 1fr 1fr;
+  }
+  .image-section .image-grid.triple-column {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 @media (min-width: 1200px) {
   .mobile-navbar {
     display: none;
@@ -532,28 +590,6 @@ nav.scrolled {
   }
   .background .upgrade .arrow {
     rotate: 0deg;
-  }
-}
-@media (min-width: 848px) {
-  p {
-    font-size: 18px;
-  }
-  h1 {
-    font-size: 32px;
-  }
-  h2 {
-    font-size: 24px;
-    margin-bottom: 18px;
-  }
-  #banner .blurb {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 40px;
-    max-width: 800px;
-  }
-  #banner .blurb img {
-    margin-bottom: 2px;
   }
 }
 @media (min-width: 1650px) {

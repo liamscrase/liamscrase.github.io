@@ -1,68 +1,88 @@
 ---
 const siteTitle = "Liam Scrase";
 ---
-		<nav class="desktop-navbar">
-			<div class="desktop-navbar-container">
-				<a href="/">Liam Scrase</a>
-				<div class="nav-links">
-					<ul>
-						<li><a href="/about/">About</a></li>
-						<li><a href="/contact/">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		
-		<nav class="mobile-navbar">
-			<input type="checkbox" id="menu-toggle" class="menu-toggle" />
-			<div class="mobile-navbar-container">
-				<a href="/">Liam Scrase</a>
-				<label for="menu-toggle" class="hamburger">
-					<span></span>
-					<span></span>
-					<span></span>
-				</label>
-			</div>
-			<div class="offcanvas-menu">
-				<div class="menu-items">
-					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="/about/">About</a></li>
-						<li><a href="/contact/">Contact</a></li>
-					</ul>
-				</div>
-			</div>
-			<label for="menu-toggle" class="offcanvas-backdrop"></label>
-		</nav>
-<script>
-	// @ts-nocheck
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.querySelector("header");
-  const navs = document.querySelectorAll("nav"); // Select ALL nav elements
-  const texts = document.querySelectorAll("#projects .text");
 
-  // Set scroll threshold based on whether header exists
-  const stickyNav = header ? header.offsetHeight : 50; // Use small threshold (50px) if no header
+<nav>
+	<div class="inner">
+		<a class="logo" href="/">Liam Scrase</a>
+		<div class="nav-links">
+			<ul>
+				<li><a href="/#projects">Projects</a></li>
+				<li><a href="/contact/">Contact</a></li>
+			</ul>
+		</div>
 
-  window.addEventListener("scroll", () => {
-    // Apply styles immediately on scroll for all pages
-    if (window.scrollY > 10) { // Very small threshold for immediate effect
-      navs.forEach(nav => nav.classList.add("scrolled")); // Apply to all navs
-    } else {
-      navs.forEach(nav => nav.classList.remove("scrolled")); // Remove from all navs
-    }
+	</div>
 
-    // // Text reveal animation
-    // const windowBottom = window.scrollY + window.innerHeight;
-    // texts.forEach(text => {
-    //   const rect = text.getBoundingClientRect();
-    //   const top = rect.top + window.scrollY;
-    //   const bottomOfObject = top + rect.height - 100;
+</nav>
 
-    //   if (windowBottom > bottomOfObject) {
-    //     text.classList.add("text-reveal");
-    //   }
-    // });
-  });
-});
-</script>
+	<script>
+		// @ts-nocheck
+		document.addEventListener("DOMContentLoaded", () => {
+			const header = document.querySelector("header");
+			const navs = document.querySelectorAll("nav"); // Select ALL nav elements
+			const texts = document.querySelectorAll("#projects .text");
+
+			// Set scroll threshold based on whether header exists
+			const stickyNav = header ? header.offsetHeight : 50; // Use small threshold (50px) if no header
+			
+			let ticking = false;
+			let lastScrollY = window.scrollY;
+
+			// Handle scroll with requestAnimationFrame for smooth performance
+			const handleScroll = () => {
+				const currentScrollY = window.scrollY;
+				
+				// Apply or remove scrolled class based on scroll position
+				if (currentScrollY > 10) {
+					// Scrolling down or past threshold
+					navs.forEach((nav) => nav.classList.add("scrolled"));
+				} else {
+					// At the top - remove class to trigger reverse transition
+					navs.forEach((nav) => nav.classList.remove("scrolled"));
+				}
+
+				lastScrollY = currentScrollY;
+				ticking = false;
+			};
+
+			window.addEventListener("scroll", () => {
+				if (!ticking) {
+					requestAnimationFrame(handleScroll);
+					ticking = true;
+				}
+			});
+
+			// Handle smooth scrolling to #projects section
+			// If the URL contains #projects, scroll to it after page load
+			if (window.location.hash === '#projects') {
+				setTimeout(() => {
+					const projectsSection = document.getElementById('projects');
+					if (projectsSection) {
+						projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					}
+				}, 100);
+			}
+
+			// Handle clicks on links to #projects
+			document.querySelectorAll('a[href*="#projects"]').forEach(link => {
+				link.addEventListener('click', (e) => {
+					const href = link.getAttribute('href');
+					// Check if it's linking to #projects on the home page
+					if (href === '/#projects' || href === '#projects') {
+						// If we're already on the home page
+						if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+							e.preventDefault();
+							const projectsSection = document.getElementById('projects');
+							if (projectsSection) {
+								projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+								// Update URL without triggering navigation
+								history.pushState(null, '', '/#projects');
+							}
+						}
+						// If on a different page, allow default navigation (will load home page with hash)
+					}
+				});
+			});
+		});
+	</script>

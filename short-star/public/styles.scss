@@ -28,10 +28,13 @@
   text-decoration: none;
 }
 
-a, a:hover, a:visited, a:active {
+a,
+a:hover,
+a:visited,
+a:active {
   color: inherit;
   text-decoration: none;
- }
+}
 
 html {
   scroll-behavior: smooth;
@@ -161,14 +164,15 @@ nav {
     max-width: 1560px;
   }
 
-  .logo, li {
+  .logo,
+  li {
     font-weight: 500;
     font-family: "Chivo Mono", monospace;
     font-size: 13px;
     color: var(--text-color-alt);
     letter-spacing: 2px;
     text-transform: uppercase;
-          transition: color 250ms ease;
+    transition: color 250ms ease;
 
   }
 
@@ -177,6 +181,33 @@ nav {
     display: flex;
     gap: 32px;
 
+  }
+
+  a {
+    position: relative;
+    padding-bottom: 3px;
+    transition: color 200ms ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: color-mix(in srgb, var(--primary-blue) 80%, transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 200ms ease;
+    }
+
+    &:hover {
+      color: var(--primary-blue);
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
   }
 }
 
@@ -275,7 +306,7 @@ nav {
           var(--background-color) 100%);
       border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
 
-      transition: border-color 250ms ease;
+      transition: all 250ms ease;
 
 
       .text,
@@ -334,6 +365,8 @@ nav {
 
       &:hover {
         border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+        transform: translateY(-2px);
+
 
         .skills {
           span {
@@ -351,6 +384,8 @@ nav {
 
         &:hover {
           border-color: color-mix(in oklch, var(--primary-green) 40%, var(--border-color));
+          transform: translateY(-2px);
+
 
           .skills {
             span {
@@ -369,6 +404,8 @@ nav {
 
         &:hover {
           border-color: color-mix(in oklch, var(--primary-yellow) 40%, var(--border-color));
+          transform: translateY(-2px);
+
 
           .skills {
             span {
@@ -387,6 +424,9 @@ nav {
 
         &:hover {
           border-color: color-mix(in oklch, var(--primary-orange) 40%, var(--border-color));
+          transform: translateY(-2px);
+
+
 
           .skills {
             span {
@@ -394,6 +434,84 @@ nav {
             }
           }
         }
+      }
+    }
+  }
+}
+
+#more-projects {
+  padding: 64px 0 48px;
+
+  h2 {
+    margin-bottom: 48px;
+  }
+
+
+  .mini-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .mini-card {
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 18px 20px;
+    background: color-mix(in srgb, var(--tint-color) 60%, transparent);
+    transition: all 300ms ease;
+
+    h3 {
+      font-family: "Chivo Mono", monospace;
+      font-size: 15px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .meta {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      p {
+        margin-bottom: 12px;
+      }
+
+      .year {
+        font-family: "Chivo Mono", monospace;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--text-color-alt);
+      }
+
+      .skills {
+        gap: 8px;
+
+        span {
+          line-height: 28px;
+          padding: 0 10px;
+        }
+      }
+    }
+
+    p {
+      color: var(--text-color-alt);
+      font-size: 15px;
+      margin: 0;
+    }
+
+    &:hover {
+      border-color: color-mix(in srgb, var(--primary-blue) 45%, var(--border-color));
+      transform: translateY(-2px);
+    }
+
+    &.soon {
+      border-style: dashed;
+      color: var(--text-color-alt);
+
+      h3 {
+        color: var(--text-color);
       }
     }
   }
@@ -498,7 +616,7 @@ nav {
 // ====================
 // Case Study - Acme
 // ====================
-.background {
+#background-section {
 
   .text {
     margin-bottom: 50px;
@@ -510,9 +628,8 @@ nav {
     gap: 40px;
 
     .inner {
-      display: flex;
-      flex-direction: column-reverse;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr;
       background-color: var(--tint-color);
       border-radius: 24px;
       overflow: hidden;
@@ -527,7 +644,7 @@ nav {
 
       .text {
         width: 100%;
-        padding: 40px 0 40px 40px;
+        padding: 40px;
         margin-bottom: 0;
 
         .sub-header {
@@ -638,6 +755,92 @@ nav {
 
 
 // ====================
+// Footer (minimal)
+// ====================
+
+#site-footer {
+  margin-top: 64px;
+  padding: 32px 0 36px;
+  border-top: 1px solid var(--border-color);
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer-branding {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    .identity {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 6px;
+
+      strong {
+        font-weight: 600;
+        font-size: 15px;
+      }
+
+      span {
+        color: var(--text-color-alt);
+        font-size: 13px;
+      }
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-family: "Chivo Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    font-weight: 500;
+    justify-content: center;
+
+    a {
+      position: relative;
+      color: var(--text-color-alt);
+      padding-bottom: 3px;
+      transition: color 180ms ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: color-mix(in srgb, var(--primary-blue) 80%, transparent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 180ms ease;
+      }
+
+      &:hover {
+        color: var(--primary-blue);
+
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  .footer-meta {
+    color: var(--text-color-alt);
+    font-size: 13px;
+  }
+}
+
+
+// ====================
 // Media Queries
 // ====================
 
@@ -659,6 +862,7 @@ nav {
     font-size: 28px;
     margin-bottom: 18px;
   }
+
 
   // ====================
   // Home Page - Banner Section
@@ -706,11 +910,11 @@ nav {
   // Case Study - Acme
   // ====================
 
-  .background {
+  #background-section {
     .upgrade {
       .inner {
         display: grid;
-        grid-template-columns: 2fr 3fr;
+        grid-template-columns: 1fr 1fr;
 
         .image {
           padding: 40px 40px 0;
@@ -752,6 +956,12 @@ nav {
     h2 {
       max-width: none;
       margin: 0 0 48px 0;
+    }
+  }
+
+  #more-projects {
+    .mini-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 

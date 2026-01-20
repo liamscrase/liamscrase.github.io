@@ -41,6 +41,10 @@ body {
   width: 100%;
 }
 
+.text {
+  margin-bottom: 50px;
+}
+
 .content-small {
   padding: 0 20px;
   max-width: 1200px;
@@ -429,6 +433,21 @@ nav.scrolled {
   border-color: color-mix(in oklch, var(--primary-orange) 40%, var(--border-color));
 }
 
+.image-container {
+  width: 100%;
+  background-color: var(--tint-color);
+  padding: 5% 8% 0;
+  border-radius: 24px;
+  margin-bottom: 50px;
+}
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
 .sub-header {
   display: block;
   font-size: 16px;
@@ -446,44 +465,26 @@ nav.scrolled {
 #project-header {
   display: flex;
   flex-direction: column;
-  margin-bottom: 48px;
   padding: 50px 0;
 }
 #project-header h1 {
   margin-bottom: 50px;
 }
-#project-header .hero-image {
-  width: 100%;
-  background-color: var(--tint-color);
-  padding: 5% 8% 0;
-  border-radius: 24px;
-  margin-bottom: 50px;
-}
-#project-header .hero-image img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-}
 
-.background {
+#background-section {
   margin-bottom: 32px;
 }
-.background .text {
-  margin-bottom: 50px;
-}
-.background .upgrade {
+#background-section .upgrade {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-.background .upgrade .arrow {
+#background-section .upgrade .arrow {
   width: 32px;
   rotate: 90deg;
   margin: 0 auto;
 }
-.background .upgrade .inner {
+#background-section .upgrade .inner {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -492,20 +493,24 @@ nav.scrolled {
   border-radius: 24px;
   width: 100%;
 }
-.background .upgrade .inner .sub-header {
+#background-section .upgrade .inner .sub-header {
   margin-bottom: 4px;
 }
-.background .upgrade .inner .item {
+#background-section .upgrade .inner .item {
   display: flex;
   gap: 16px;
   align-items: center;
 }
-.background .upgrade .inner .item span {
+#background-section .upgrade .inner .item span {
   color: var(--text-color);
   font-family: "Chivo Mono";
   font-size: 18px;
   font-style: normal;
   font-weight: 300;
+}
+
+#feature-1-section {
+  margin-bottom: 32px;
 }
 
 @media (min-width: 1200px) {
@@ -527,10 +532,10 @@ nav.scrolled {
     max-width: none;
     margin: 0 0 48px 0;
   }
-  .background .upgrade {
+  #background-section .upgrade {
     flex-direction: row;
   }
-  .background .upgrade .arrow {
+  #background-section .upgrade .arrow {
     rotate: 0deg;
   }
 }

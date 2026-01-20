@@ -19,7 +19,7 @@ import Header from "../components/header.astro";
 
 <body>
   <Header />
-  <section id="body-wrapper">
+  <div id="body-wrapper">
     <div class="content-small">
       <section id="project-header">
         <span class="sub-header">Acme Cars, 2025</span>
@@ -27,7 +27,7 @@ import Header from "../components/header.astro";
           Upgrading motorcentral’s base dealership website template with a
           modern design and fresh features
         </h1>
-        <div class="hero-image">
+        <div class="image-container">
           <img src="/images/acme5/acme-hero.webp" alt="Acme Cars Hero Image" />
         </div>
         <h2>My role</h2>
@@ -38,7 +38,7 @@ import Header from "../components/header.astro";
         </p>
       </section>
 
-      <section class="background">
+      <section id="background-section">
         <span class="sub-header blue"> Background and problem </span>
         <div class="text">
           <h2>
@@ -85,15 +85,39 @@ import Header from "../components/header.astro";
             </div>
             <div class="item">
               <img src="/images/acme5/icons/filter.svg" alt="" />
-              <span>Specific, relevant and lifestyle-oriented search criteria</span>
+              <span
+                >Specific, relevant and lifestyle-oriented search criteria</span
+              >
             </div>
-             <div class="item">
+            <div class="item">
               <img src="/images/acme5/icons/ai.svg" alt="" />
               <span>AI generated vehicle descriptions</span>
             </div>
           </div>
         </div>
       </section>
+
+      <section class="feature-header">
+          <span class="sub-header blue"> Feature highlights </span>
+      </section>
+
+      <section class="feature-1-section">
+        <div class="text">
+          <h2>AI powered vehicle summaries</h2>
+          <p>
+            Writing unique descriptions for hundreds of vehicles can be a
+            tedious task. To help with this, we integrated an AI-powered
+            description generator that creates engaging and accurate vehicle
+            descriptions based on key features and specifications.
+          </p>
+          <div class="image-container">
+            <img
+              src="/images/acme5/ai-summary.webp"
+              alt="Acme Cars Hero Image"
+            />
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
+  </div>
 </body>

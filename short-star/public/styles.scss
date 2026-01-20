@@ -1,13 +1,10 @@
 // ====================
 // CSS Variables
 // ====================
-html {
-  scroll-behavior: smooth;
-}
 
 :root {
   --background-color: #181818;
-  --tint-color: rgba(255, 255, 255, 0.08);
+  --tint-color: rgba(255, 255, 255, 0.11);
   --hover-color: #969696;
   --hover-color-alt: #202020;
   --text-color: #ffffff;
@@ -23,6 +20,7 @@ html {
 // ====================
 // Base Styles
 // ====================
+
 * {
   margin: 0;
   padding: 0;
@@ -30,8 +28,17 @@ html {
   text-decoration: none;
 }
 
+a, a:hover, a:visited, a:active {
+  color: inherit;
+  text-decoration: none;
+ }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Chivo Mono", monospace;
+  font-family: "Zalando Sans", sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
 }
@@ -47,41 +54,61 @@ body {
   width: 100%;
 }
 
-  .text {
-    margin-bottom: 50px;
-  }
-
 .content-small {
   padding: 0 20px;
   max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 85px;
   margin: auto;
   width: 100%;
+}
+
+p {
+  color: var(--text-color-alt);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%;
+  margin-bottom: 12px;
+  max-width: 900px;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
 }
 
 h1,
 h2,
 h3 {
   margin-bottom: 12px;
-  font-family: "Chivo Mono";
-  font-weight: 300;
+  font-weight: 500;
+  max-width: 900px;
+
 }
 
-p {
-  color: var(--text-color-alt);
-  font-family: "Chivo Mono";
+
+// ====================
+// General Components
+// ====================
+.sub-header {
+  display: block;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 140%;
-  margin-bottom: 12px;
-}
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 16px;
+  color: var(--text-color-alt);
+  font-family: "Chivo Mono", monospace;
 
-h1 {
-  font-size: 24px;
-}
-
-h2 {
-  font-size: 20px;
+  &.blue {
+    color: var(--primary-blue);
+  }
 }
 
 .skills {
@@ -108,12 +135,15 @@ h2 {
 // Header & Navigation
 // ====================
 
-
 nav {
   position: fixed;
+  padding: 20px;
+  width: 100%;
   top: 0;
   z-index: 100;
-  border-bottom: 0px solid var(--background-color);
+  background: transparent;
+  backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
   transition: background-color 300ms ease,
     border-bottom-color 300ms ease,
     backdrop-filter 300ms ease;
@@ -123,217 +153,35 @@ nav {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
   }
-}
 
-.desktop-navbar {
-  width: 100%;
-  display: none;
-
-  .desktop-navbar-container {
-    margin: auto;
+  .inner {
     display: flex;
-    align-items: center;
-    padding: 8px 20px;
-    flex-direction: row;
     justify-content: space-between;
-    max-width: 1200px;
-    width: 100%;
+    margin: auto;
+    max-width: 1560px;
+  }
+
+  .logo, li {
+    font-weight: 500;
+    font-family: "Chivo Mono", monospace;
+    font-size: 13px;
+    color: var(--text-color-alt);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+          transition: color 250ms ease;
+
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
     gap: 32px;
 
-    a {
-      color: var(--text-color);
-      font-size: 16px;
-      font-weight: 500;
-      text-decoration: none;
-      padding: 20px 0;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 24px;
-
-      ul {
-        list-style: none;
-        display: flex;
-        gap: 2px;
-
-        li {
-          display: flex;
-          align-items: center;
-
-          a {
-            text-decoration: none;
-            color: var(--text-color);
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: color 0.3s ease;
-            font-size: 16px;
-            font-weight: 500;
-
-            &:hover {
-              color: var(--hover-color);
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-.mobile-navbar {
-  z-index: 1000;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 20px 8px 8px;
-
-  a {
-    color: var(--text-color);
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-    padding: 20px 12px 20px 12px;
-  }
-
-  .mobile-navbar-container {
-    display: flex;
-    align-items: center;
-    margin: auto;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .menu-toggle {
-    display: none;
-  }
-
-  .hamburger {
-    position: relative;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1100;
-
-    span {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--text-color);
-      border-radius: 2px;
-      transition: 0.3s;
-
-      &:nth-child(1) {
-        top: 6px;
-      }
-
-      &:nth-child(2) {
-        top: 15px;
-      }
-
-      &:nth-child(3) {
-        top: 24px;
-      }
-    }
-  }
-
-  // Menu toggle states
-  .menu-toggle:checked~.mobile-navbar-container .hamburger span {
-    &:nth-child(1) {
-      top: 15px;
-      transform: rotate(45deg);
-    }
-
-    &:nth-child(2) {
-      opacity: 0;
-    }
-
-    &:nth-child(3) {
-      top: 15px;
-      transform: rotate(-45deg);
-    }
-  }
-}
-
-.offcanvas-menu {
-  position: fixed;
-  top: 0;
-  right: -80vw;
-  width: 80vw;
-  max-width: 340px;
-  height: 100vh;
-  background: var(--background-color);
-  transition: right 0.3s;
-  z-index: 1050;
-
-  .menu-items {
-    margin: 80px 20px 36px 20px;
-
-    ul {
-      display: flex;
-      gap: 4px;
-      flex-direction: column;
-      align-items: flex-start;
-      list-style: none;
-
-      li {
-        width: 100%;
-        text-decoration: none;
-        padding: 18px;
-
-        a {
-          color: var(--text-color);
-          font-size: 20px;
-          font-weight: 500;
-          text-decoration: none;
-          padding: 18px;
-        }
-      }
-    }
-
-    .book-button {
-      display: flex;
-      margin: auto;
-      margin-top: 28px;
-      max-width: 90%;
-    }
-  }
-}
-
-.offcanvas-backdrop {
-  display: none;
-  position: fixed;
-  z-index: 1049;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.32);
-  transition: opacity 0.3s;
-  cursor: pointer;
-}
-
-// Menu toggle global states
-.menu-toggle:checked~ {
-  .offcanvas-backdrop {
-    display: block;
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .offcanvas-menu {
-    right: 0;
   }
 }
 
 // ====================
-// Banner Section
+// Home Page - Banner Section
 // ====================
 
 #banner {
@@ -364,7 +212,7 @@ nav {
 }
 
 // ====================
-// Projects Section
+// Home - Projects Section
 // ====================
 
 #projects {
@@ -551,9 +399,8 @@ nav {
   }
 }
 
-
 // ====================
-// Project
+// Case Study - Templated Sections
 // ====================
 
 .image-container {
@@ -573,148 +420,249 @@ nav {
   }
 }
 
-
-.sub-header {
-  display: block;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 500;
-  line-height: normal;
-  margin-bottom: 16px;
-  color: var(--text-color-alt);
-
-  &.blue {
-    color: var(--primary-blue);
-  }
-}
-
-
-#project-header {
+.image-section {
   display: flex;
   flex-direction: column;
-  padding: 50px 0;
+
+
+  .image-grid {
+    display: grid;
+    column-gap: 32px;
+    row-gap: 40px;
+    margin-bottom: 32px;
+
+
+    &.single-column {
+      grid-template-columns: 1fr;
+    }
+
+    &.double-column {
+      grid-template-columns: 1fr;
+    }
+
+    &.triple-column {
+      grid-template-columns: 1fr;
+    }
+
+    .item {
+      background-color: var(--tint-color);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .image {
+      width: 100%;
+      background-color: var(--primary-color);
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 12px;
+      }
+    }
+
+    .text {
+      padding: 40px;
+    }
+  }
+
+}
+
+.project-header {
+  padding-top: 32px;
 
   h1 {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+  }
+
+  .skills {
+    margin-top: 12px;
+  }
+
+  .image-grid {
+    margin-bottom: 40px;
+  }
+
+  .image {
+    padding: 6% 6% 0;
+
+    img {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
   }
 }
 
-#background-section {
-  margin-bottom: 32px;
+
+// ====================
+// Case Study - Acme
+// ====================
+.background {
+
+  .text {
+    margin-bottom: 50px;
+  }
 
   .upgrade {
     display: flex;
     flex-direction: column;
-    gap: 24px;
-
-    .arrow {
-      width: 32px;
-      rotate: calc(90deg);
-      margin: 0 auto;
-    }
+    gap: 40px;
 
     .inner {
       display: flex;
-      flex-direction: column;
-      gap: 24px;
-      padding: 32px;
+      flex-direction: column-reverse;
+      justify-content: space-between;
       background-color: var(--tint-color);
       border-radius: 24px;
-      width: 100%;
+      overflow: hidden;
 
-      .sub-header {
-        margin-bottom: 4px;
+      &.image-left {
+        direction: rtl;
+
+        >* {
+          direction: ltr;
+        }
       }
 
-      .item {
-        display: flex;
-        gap: 16px;
-        align-items: center;
+      .text {
+        width: 100%;
+        padding: 40px 0 40px 40px;
+        margin-bottom: 0;
 
-        span {
-          color: var(--text-color);
-          font-family: "Chivo Mono";
-          font-size: 18px;
-          font-style: normal;
-          font-weight: 300;
+        .sub-header {
+          margin-bottom: 20px;
         }
+
+        .item {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+          margin-bottom: 24px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          p {
+            margin: 0;
+            color: var(--text-color);
+          }
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+
+          span {
+            color: var(--primary-blue);
+            font-size: 24px;
+
+            &.icon-x {
+              color: var(--hover-color);
+            }
+          }
+        }
+      }
+
+      .image {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+
+        img {
+          width: 100%;
+          border-top-left-radius: 12px;
+          border-top-right-radius: 12px;
+        }
+      }
+
+    }
+  }
+}
+
+#new-features {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  .image {
+    padding-left: 40px;
+
+  }
+}
+
+.filter-features {
+  .image-grid {
+    .image {
+      padding: 6% 0 0 6%;
+
+      img {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 0;
       }
     }
   }
 }
 
-#feature-1-section {
-  margin-bottom: 32px;
-}
+.example-websites {
+  .website-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+    column-gap: 32px;
+    margin-top: 32px;
 
+    a {
+      display: block;
+      padding: 20px 24px;
+      background-color: var(--tint-color);
+      border: 1px solid var(--background-color);
+      border-radius: 12px;
+      color: var(--text-color);
+      font-family: "Chivo Mono", monospace;
+      font-size: 16px;
+      font-weight: 400;
+      text-decoration: none;
+      transition: all 250ms ease;
+
+      &:hover {
+        background-color: color-mix(in oklch, var(--primary-blue) 10%, var(--tint-color));
+        border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+        color: var(--primary-blue);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
 
 
 // ====================
 // Media Queries
 // ====================
 
+@media (min-width: 900px) {
 
-// Desktop styles
-@media (min-width: 1200px) {
-
-  // Navigation
-  .mobile-navbar {
-    display: none;
-  }
-
-  .desktop-navbar {
-    display: flex;
-  }
-
-  #projects {
-    #project-list {
-      -webkit-column-count: 2;
-      -moz-column-count: 2;
-      column-count: 2;
-
-      -webkit-column-gap: 24px;
-      -moz-column-gap: 24px;
-      column-gap: 24px;
-
-      max-width: none;
-      margin: none;
-
-    }
-  }
-
-  #projects {
-    h2 {
-      max-width: none;
-      margin: 0 0 48px 0;
-    }
-  }
-
-  #background-section {
-    .upgrade {
-      flex-direction: row;
-
-      .arrow {
-        rotate: calc(0deg);
-      }
-    }
-  }
-}
-
-@media (min-width: 848px) {
+  // ====================
+  // Base Styles
+  // ====================
 
   p {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   h1 {
-    font-size: 32px;
+    font-size: 36px;
   }
 
   h2 {
-    font-size: 24px;
+    font-size: 28px;
     margin-bottom: 18px;
   }
+
+  // ====================
+  // Home Page - Banner Section
+  // ====================
 
   #banner {
     .blurb {
@@ -730,12 +678,104 @@ nav {
     }
   }
 
+  // ====================
+  // Case Study - Templated Sections
+  // ====================
+
+  .image-section {
+    .image-grid {
+      display: grid;
+      gap: 32px;
+
+      &.single-column {
+        grid-template-columns: 1fr;
+      }
+
+      &.double-column {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      &.triple-column {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+  }
+
+  // ====================
+  // Case Study - Acme
+  // ====================
+
+  .background {
+    .upgrade {
+      .inner {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+
+        .image {
+          padding: 40px 40px 0;
+        }
+      }
+    }
+  }
+
+  .example-websites {
+    .website-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+
+@media (min-width: 1200px) {
+
+  // ====================
+  // Home - Projects Section
+  // ====================
+
+
+  #projects {
+    #project-list {
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 2;
+
+      -webkit-column-gap: 24px;
+      -moz-column-gap: 24px;
+      column-gap: 24px;
+
+      max-width: none;
+      margin: none;
+
+    }
+
+    h2 {
+      max-width: none;
+      margin: 0 0 48px 0;
+    }
+  }
+
+  // ====================
+  // Case Study - Templated Sections
+  // ====================
+
+
+
 }
 
 @media (min-width: 1650px) {
+
+  // ====================
+  // Base Styles
+  // ====================
+
   .content {
     max-width: 1600px;
   }
+
+  // ====================
+  // Header & Navigation
+  // ====================
 
   .desktop-navbar {
     .desktop-navbar-container {

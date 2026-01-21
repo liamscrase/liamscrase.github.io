@@ -229,6 +229,11 @@ nav {
 
 #banner {
   text-align: left;
+        background: linear-gradient(0deg,
+          color-mix(in oklch, white 6%, var(--background-color)) 0%,
+          var(--background-color) 100%);
+      padding: 100px 0;
+      border-bottom: 1px solid var(--border-color);
 
   .blurb {
     margin: auto;
@@ -243,13 +248,10 @@ nav {
   }
 
   h1 {
-    color: var(--text-color);
-    font-family: "Chivo Mono";
-    font-size: 24px;
+    font-family: "Zalando Sans", sans-serif;
     font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
   }
 }
 

@@ -11,6 +11,13 @@
   --primary-yellow: #e4cc34;
   --primary-orange: #e37a54;
   --primary-green: #23c378;
+  --background-nav-scrolled: rgba(24, 24, 24, 0.85);
+  --blue-underline: rgba(75, 149, 234, 0.8);
+  --white-tint-6: rgba(255, 255, 255, 0.06);
+  --white-tint-10: rgba(255, 255, 255, 0.1);
+  --blue-hover-gradient: rgba(75, 149, 234, 0.35);
+  --blue-hover-border: rgba(75, 149, 234, 0.4);
+  --blue-hover-bg: rgba(75, 149, 234, 0.1);
 }
 
 * {
@@ -132,7 +139,7 @@ nav {
   transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease;
 }
 nav.scrolled {
-  background: color-mix(in srgb, var(--background-color) 85%, transparent);
+  background: var(--background-nav-scrolled);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
@@ -170,7 +177,7 @@ nav a::after {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background: color-mix(in srgb, var(--primary-blue) 80%, transparent);
+  background: var(--blue-underline);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 200ms ease;
@@ -191,7 +198,7 @@ nav a:hover::after {
 
 #banner {
   text-align: left;
-  background: linear-gradient(0deg, color-mix(in oklch, white 6%, var(--background-color)) 0%, var(--background-color) 100%);
+  background: linear-gradient(0deg, var(--white-tint-6) 0%, var(--background-color) 100%);
   padding: 50px 0;
   border-bottom: 1px solid var(--border-color);
 }
@@ -226,8 +233,8 @@ nav a:hover::after {
   margin-bottom: 24px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(0deg, color-mix(in oklch, white 6%, var(--background-color)) 0%, var(--background-color) 100%);
-  border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
+  background: linear-gradient(0deg, var(--white-tint-6) 0%, var(--background-color) 100%);
+  border: 1px solid var(--white-tint-10);
   transition: all 250ms ease;
 }
 #projects #project-list .project-card .text,
@@ -278,7 +285,7 @@ nav a:hover::after {
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: linear-gradient(0deg, color-mix(in oklch, var(--primary-blue) 35%, var(--background-color)) 0%, var(--background-color) 100%);
+  background: linear-gradient(0deg, var(--blue-hover-gradient) 0%, var(--background-color) 100%);
   opacity: 0;
   transition: opacity 250ms ease;
 }
@@ -286,24 +293,14 @@ nav a:hover::after {
   opacity: 1;
 }
 #projects #project-list .project-card:hover {
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+  border-color: var(--blue-hover-border);
   transform: translateY(-2px);
 }
 #projects #project-list .project-card:hover h3 {
   color: var(--primary-blue);
 }
 #projects #project-list .project-card:hover .skills span {
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
-}
-#projects #project-list .project-card.hover-green::after {
-  background: linear-gradient(0deg, color-mix(in oklch, var(--primary-green) 35%, var(--background-color)) 0%, var(--background-color) 100%);
-}
-#projects #project-list .project-card.hover-green:hover {
-  border-color: color-mix(in oklch, var(--primary-green) 40%, var(--border-color));
-  transform: translateY(-2px);
-}
-#projects #project-list .project-card.hover-green:hover .skills span {
-  border-color: color-mix(in oklch, var(--primary-green) 40%, var(--border-color));
+  border-color: var(--blue-hover-border);
 }
 
 #more-projects h2 {
@@ -319,8 +316,8 @@ nav a:hover::after {
   padding: 24px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(0deg, color-mix(in oklch, white 6%, var(--background-color)) 0%, var(--background-color) 100%);
-  border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
+  background: linear-gradient(0deg, var(--white-tint-6) 0%, var(--background-color) 100%);
+  border: 1px solid var(--white-tint-10);
   transition: all 250ms ease;
 }
 #more-projects .mini-card h3,
@@ -357,7 +354,7 @@ nav a:hover::after {
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: linear-gradient(0deg, color-mix(in oklch, var(--primary-blue) 35%, var(--background-color)) 0%, var(--background-color) 100%);
+  background: linear-gradient(0deg, var(--blue-hover-gradient) 0%, var(--background-color) 100%);
   opacity: 0;
   transition: opacity 250ms ease;
 }
@@ -365,14 +362,14 @@ nav a:hover::after {
   opacity: 1;
 }
 #more-projects .mini-card:hover {
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+  border-color: var(--blue-hover-border);
   transform: translateY(-2px);
 }
 #more-projects .mini-card:hover h3 {
   color: var(--primary-blue);
 }
 #more-projects .mini-card:hover .skills span {
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+  border-color: var(--blue-hover-border);
 }
 #more-projects .mini-card.soon {
   border-style: dashed;
@@ -425,7 +422,7 @@ nav a:hover::after {
 }
 .image-section .image-grid .item {
   border: 1px solid var(--border-color);
-  background: linear-gradient(0deg, color-mix(in oklch, white 6%, var(--background-color)) 0%, var(--background-color) 100%);
+  background: linear-gradient(0deg, var(--white-tint-6) 0%, var(--background-color) 100%);
   border-radius: 24px;
   overflow: hidden;
 }
@@ -476,11 +473,11 @@ nav a:hover::after {
   border: 1px solid var(--border-color);
   border-radius: 24px;
   overflow: hidden;
-  background: linear-gradient(0deg, color-mix(in oklch, white 6%, var(--background-color)) 0%, var(--background-color) 100%);
+  background: linear-gradient(0deg, var(--white-tint-6) 0%, var(--background-color) 100%);
 }
 #background-section .upgrade .inner.acme-5 {
-  background: linear-gradient(0deg, color-mix(in oklch, var(--primary-blue) 35%, var(--background-color)) 0%, var(--background-color) 100%);
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+  background: linear-gradient(0deg, var(--blue-hover-gradient) 0%, var(--background-color) 100%);
+  border-color: var(--blue-hover-border);
 }
 #background-section .upgrade .inner .text {
   width: 100%;
@@ -564,8 +561,8 @@ nav a:hover::after {
   transition: all 250ms ease;
 }
 .example-websites .website-list a:hover {
-  background-color: color-mix(in oklch, var(--primary-blue) 10%, var(--tint-color));
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
+  background-color: var(--blue-hover-bg);
+  border-color: var(--blue-hover-border);
   color: var(--primary-blue);
   transform: translateY(-2px);
 }
@@ -624,7 +621,7 @@ nav a:hover::after {
   bottom: 0;
   width: 100%;
   height: 2px;
-  background: color-mix(in srgb, var(--primary-blue) 80%, transparent);
+  background: var(--blue-underline);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 180ms ease;

@@ -1,0 +1,167 @@
+:root {
+  --background-color: #181818;
+  --tint-color: #232323;
+  --hover-color: #969696;
+  --hover-color-alt: #202020;
+  --text-color: #ffffff;
+  --text-color-alt: rgba(255, 255, 255, 0.7);
+  --border-color: #3a3a3a;
+  --border-color-alt: #555555;
+  --border-color-blue: #475F7B;
+  --primary-blue: #4b95ea;
+  --primary-blue-tint: #2D4158;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Zalando Sans", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+#body-wrapper {
+  margin-top: 77px;
+}
+
+.content {
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+}
+
+.content-small {
+  padding: 0 20px;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin: auto;
+  width: 100%;
+}
+
+p {
+  color: var(--text-color-alt);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%;
+  margin-bottom: 12px;
+  max-width: 900px;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  max-width: 950px;
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.sub-header {
+  display: block;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 16px;
+  color: var(--text-color-alt);
+  font-family: "Chivo Mono", monospace;
+}
+.sub-header.blue {
+  color: var(--primary-blue);
+}
+
+.skills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.skills span {
+  color: var(--text-color-alt);
+  font-family: "Chivo Mono", monospace;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 32px;
+  padding: 0 12px;
+  border-radius: 21px;
+  border: 1px solid var(--border-color-alt);
+  transition: border-color 250ms ease;
+}
+
+.panel-hover {
+  background-color: var(--tint-color);
+  background: linear-gradient(0deg, var(--tint-color) 0%, var(--background-color) 100%);
+  border: 1px solid var(--border-color);
+}
+.panel-hover .text,
+.panel-hover img,
+.panel-hover p,
+.panel-hover span,
+.panel-hover h3,
+.panel-hover h2,
+.panel-hover h1,
+.panel-hover a {
+  position: relative;
+  z-index: 1;
+}
+.panel-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(0deg, var(--primary-blue-tint) 0%, var(--background-color) 100%);
+  opacity: 0;
+  transition: opacity 250ms ease;
+  z-index: 0;
+}
+.panel-hover:hover::after {
+  opacity: 1;
+}
+.panel-hover:hover {
+  border-color: var(--border-color-blue);
+  transform: translateY(-2px);
+}
+.panel-hover:hover h3 {
+  color: var(--primary-blue);
+}
+
+.panel-blue {
+  background: linear-gradient(0deg, var(--primary-blue-tint) 0%, var(--background-color) 100%);
+  border: 1px solid var(--border-color-blue);
+  border-radius: 16px;
+}
+
+.panel-grey {
+  background: linear-gradient(0deg, var(--tint-color) 0%, var(--background-color) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}/*# sourceMappingURL=general.css.map */

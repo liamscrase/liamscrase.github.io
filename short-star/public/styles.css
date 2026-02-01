@@ -1,122 +1,3 @@
-:root {
-  --background-color: #181818;
-  --tint-color: rgba(255, 255, 255, 0.11);
-  --hover-color: #969696;
-  --hover-color-alt: #202020;
-  --text-color: #ffffff;
-  --text-color-alt: rgba(255, 255, 255, 0.7);
-  --border-color: #3a3a3a;
-  --border-color-alt: #555555;
-  --primary-blue: #4b95ea;
-  --primary-yellow: #e4cc34;
-  --primary-orange: #e37a54;
-  --primary-green: #23c378;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
-a,
-a:hover,
-a:visited,
-a:active {
-  color: inherit;
-  text-decoration: none;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Zalando Sans", sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-#body-wrapper {
-  margin-top: 77px;
-}
-
-.content {
-  padding: 0 20px;
-  max-width: 1200px;
-  margin: auto;
-  width: 100%;
-}
-
-.content-small {
-  padding: 0 20px;
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-  margin: auto;
-  width: 100%;
-}
-
-p {
-  color: var(--text-color-alt);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 140%;
-  margin-bottom: 12px;
-  max-width: 900px;
-}
-
-h1 {
-  font-size: 28px;
-}
-
-h2 {
-  max-width: 950px;
-}
-
-h1,
-h2,
-h3 {
-  margin-bottom: 24px;
-  font-weight: 500;
-}
-
-.sub-header {
-  display: block;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 500;
-  line-height: normal;
-  margin-bottom: 16px;
-  color: var(--text-color-alt);
-  font-family: "Chivo Mono", monospace;
-}
-.sub-header.blue {
-  color: var(--primary-blue);
-}
-
-.skills {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.skills span {
-  color: var(--text-color-alt);
-  font-family: "Chivo Mono";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 32px;
-  padding: 0 12px;
-  border-radius: 21px;
-  border: 1px solid var(--border-color-alt);
-  transition: border-color 250ms ease;
-}
-
 nav {
   position: fixed;
   padding: 20px;
@@ -191,9 +72,6 @@ nav a:hover::after {
 
 #banner {
   text-align: left;
-  background: linear-gradient(0deg, color-mix(in oklch, white 6%, var(--background-color)) 0%, var(--background-color) 100%);
-  padding: 50px 0;
-  border-bottom: 1px solid var(--border-color);
 }
 #banner .blurb {
   margin: auto;
@@ -226,14 +104,7 @@ nav a:hover::after {
   margin-bottom: 24px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(0deg, color-mix(in oklch, white 6%, var(--background-color)) 0%, var(--background-color) 100%);
-  border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
   transition: all 250ms ease;
-}
-#projects #project-list .project-card .text,
-#projects #project-list .project-card img {
-  position: relative;
-  z-index: 1;
 }
 #projects #project-list .project-card img {
   display: block;
@@ -272,32 +143,9 @@ nav a:hover::after {
   margin-bottom: 28px;
   color: var(--text-color-alt);
 }
-#projects #project-list .project-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: linear-gradient(0deg, color-mix(in oklch, var(--primary-blue) 35%, var(--background-color)) 0%, var(--background-color) 100%);
-  opacity: 0;
-  transition: opacity 250ms ease;
-}
-#projects #project-list .project-card:hover::after {
-  opacity: 1;
-}
-#projects #project-list .project-card:hover {
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
-  transform: translateY(-2px);
-}
-#projects #project-list .project-card:hover h3 {
-  color: var(--primary-blue);
-}
-#projects #project-list .project-card:hover .skills span {
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
-}
 
 #more-projects h2 {
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 #more-projects .mini-grid {
   display: grid;
@@ -309,14 +157,20 @@ nav a:hover::after {
   padding: 24px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(0deg, color-mix(in oklch, white 6%, var(--background-color)) 0%, var(--background-color) 100%);
-  border: 1px solid color-mix(in oklch, white 10%, var(--border-color));
   transition: all 250ms ease;
 }
 #more-projects .mini-card h3,
 #more-projects .mini-card span,
 #more-projects .mini-card p {
   position: relative;
+  z-index: 1;
+}
+#more-projects .mini-card .icon-open {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-size: 16px;
+  color: var(--text-color-alt);
   z-index: 1;
 }
 #more-projects .mini-card h3 {
@@ -327,7 +181,7 @@ nav a:hover::after {
   margin-bottom: 8px;
   transition: all 250ms ease;
 }
-#more-projects .mini-card span {
+#more-projects .mini-card .year {
   font-family: "Chivo Mono", monospace;
   font-size: 12px;
   display: block;
@@ -340,42 +194,6 @@ nav a:hover::after {
   color: var(--text-color-alt);
   font-size: 15px;
   margin: 0;
-}
-#more-projects .mini-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: linear-gradient(0deg, color-mix(in oklch, var(--primary-blue) 35%, var(--background-color)) 0%, var(--background-color) 100%);
-  opacity: 0;
-  transition: opacity 250ms ease;
-}
-#more-projects .mini-card:hover::after {
-  opacity: 1;
-}
-#more-projects .mini-card:hover {
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
-  transform: translateY(-2px);
-}
-#more-projects .mini-card:hover h3 {
-  color: var(--primary-blue);
-}
-#more-projects .mini-card:hover .skills span {
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
-}
-#more-projects .mini-card.soon {
-  border-style: dashed;
-  color: var(--text-color-alt);
-}
-#more-projects .mini-card.soon::after {
-  display: none;
-}
-#more-projects .mini-card.soon h3 {
-  color: var(--text-color);
-}
-#more-projects .mini-card.soon:hover {
-  border-color: var(--border-color);
 }
 
 .image-container {
@@ -414,8 +232,6 @@ nav a:hover::after {
   grid-template-columns: 1fr;
 }
 .image-section .image-grid .item {
-  border: 1px solid var(--border-color);
-  background: linear-gradient(0deg, color-mix(in oklch, white 6%, var(--background-color)) 0%, var(--background-color) 100%);
   border-radius: 24px;
   overflow: hidden;
 }
@@ -463,14 +279,8 @@ nav a:hover::after {
 #background-section .upgrade .inner {
   display: grid;
   grid-template-columns: 1fr;
-  border: 1px solid var(--border-color);
   border-radius: 24px;
   overflow: hidden;
-  background: linear-gradient(0deg, color-mix(in oklch, white 6%, var(--background-color)) 0%, var(--background-color) 100%);
-}
-#background-section .upgrade .inner.acme-5 {
-  background: linear-gradient(0deg, color-mix(in oklch, var(--primary-blue) 35%, var(--background-color)) 0%, var(--background-color) 100%);
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
 }
 #background-section .upgrade .inner .text {
   width: 100%;
@@ -541,23 +351,24 @@ nav a:hover::after {
   margin-top: 32px;
 }
 .example-websites .website-list a {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px 24px;
-  background-color: var(--tint-color);
-  border: 1px solid var(--background-color);
   border-radius: 12px;
+  transition: all 250ms ease;
+}
+.example-websites .website-list p {
   color: var(--text-color);
   font-family: "Chivo Mono", monospace;
   font-size: 16px;
   font-weight: 400;
   text-decoration: none;
-  transition: all 250ms ease;
+  margin: 0;
 }
-.example-websites .website-list a:hover {
-  background-color: color-mix(in oklch, var(--primary-blue) 10%, var(--tint-color));
-  border-color: color-mix(in oklch, var(--primary-blue) 40%, var(--border-color));
-  color: var(--primary-blue);
-  transform: translateY(-2px);
+.example-websites .website-list span {
+  color: var(--text-color-alt);
 }
 
 #site-footer {
@@ -674,15 +485,17 @@ nav a:hover::after {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  #background-section .upgrade .inner.old-acme {
-    scale: 0.92;
+  #background-section .upgrade .inner.panel-grey {
     position: relative;
     top: 100px;
     z-index: -1;
   }
-  #background-section .upgrade .inner.old-acme img {
+  #background-section .upgrade .inner.panel-grey img {
     filter: grayscale(100%);
     opacity: 0.7;
+  }
+  #background-section .upgrade .inner.panel-blue {
+    scale: 1.08;
   }
   #background-section .upgrade .inner .image {
     padding: 40px 40px 0;

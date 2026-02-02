@@ -148,7 +148,7 @@ nav {
       .text {
         width: 100%;
         margin-bottom: 50px;
-              padding: 24px;
+        padding: 24px;
 
 
         h3 {
@@ -353,8 +353,8 @@ nav {
     gap: 40px;
 
     .inner {
-      display: grid;
-      grid-template-columns: 1fr;
+      display: flex;
+     flex-direction: column-reverse;
       border-radius: 24px;
       overflow: hidden;
 
@@ -402,6 +402,7 @@ nav {
         width: 100%;
         display: flex;
         align-items: flex-end;
+        padding: 6% 6% 0 6%;
 
         img {
           width: 100%;
@@ -418,6 +419,13 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 50px;
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
 
   .image {
     padding-left: 40px;
@@ -457,7 +465,7 @@ nav {
     }
 
     p {
-            color: var(--text-color);
+      color: var(--text-color);
       font-family: "Chivo Mono", monospace;
       font-size: 16px;
       font-weight: 400;
@@ -641,9 +649,6 @@ nav {
         grid-template-columns: 1fr 1fr;
 
         &.panel-grey {
-          position: relative;
-          top: 100px;
-          z-index: -1;
 
           img {
             filter: grayscale(100%);
@@ -651,18 +656,15 @@ nav {
           }
         }
 
-        &.panel-blue {
-          scale: 1.08;
-        }
-
         .image {
-          padding: 40px 40px 0;
+          padding: 40px;
+          align-items: center;
+
+          img {
+            border-radius: 12px;
+          }
         }
       }
-    }
-
-    .text {
-      margin-bottom: -50px;
     }
   }
 
@@ -687,6 +689,7 @@ nav {
       grid-template-columns: 1fr 1fr;
       max-width: none;
       margin: none;
+
       .project-card {
 
         .text {
@@ -706,13 +709,32 @@ nav {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+}
 
-  // ====================
-  // Case Study - Templated Sections
-  // ====================
+@media (min-width: 1350px) {
+  #background-section {
+    .upgrade {
+      .inner {
+        &.panel-blue {
+          margin-left: -40px;
+          margin-right: -40px;
+        }
 
-
-
+        &.panel-grey {
+          position: relative;
+          top: 100px;
+          z-index: -1;
+        }
+                .image {
+          padding: 40px 40px 0;
+        }
+        
+      }
+    }
+    .text {
+margin-bottom: -50px;
+}
+  }
 }
 
 @media (min-width: 1650px) {

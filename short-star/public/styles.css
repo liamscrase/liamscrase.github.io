@@ -277,8 +277,8 @@ nav a:hover::after {
   gap: 40px;
 }
 #background-section .upgrade .inner {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column-reverse;
   border-radius: 24px;
   overflow: hidden;
 }
@@ -318,6 +318,7 @@ nav a:hover::after {
   width: 100%;
   display: flex;
   align-items: flex-end;
+  padding: 6% 6% 0 6%;
 }
 #background-section .upgrade .inner .image img {
   width: 100%;
@@ -329,6 +330,12 @@ nav a:hover::after {
   display: flex;
   flex-direction: column;
   gap: 50px;
+}
+#new-features .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 #new-features .image {
   padding-left: 40px;
@@ -485,23 +492,16 @@ nav a:hover::after {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  #background-section .upgrade .inner.panel-grey {
-    position: relative;
-    top: 100px;
-    z-index: -1;
-  }
   #background-section .upgrade .inner.panel-grey img {
     filter: grayscale(100%);
     opacity: 0.7;
   }
-  #background-section .upgrade .inner.panel-blue {
-    scale: 1.08;
-  }
   #background-section .upgrade .inner .image {
-    padding: 40px 40px 0;
+    padding: 40px;
+    align-items: center;
   }
-  #background-section .text {
-    margin-bottom: -50px;
+  #background-section .upgrade .inner .image img {
+    border-radius: 12px;
   }
   .example-websites .website-list {
     grid-template-columns: 1fr 1fr;
@@ -522,6 +522,23 @@ nav a:hover::after {
   }
   #more-projects .mini-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1350px) {
+  #background-section .upgrade .inner.panel-blue {
+    margin-left: -40px;
+    margin-right: -40px;
+  }
+  #background-section .upgrade .inner.panel-grey {
+    position: relative;
+    top: 100px;
+    z-index: -1;
+  }
+  #background-section .upgrade .inner .image {
+    padding: 40px 40px 0;
+  }
+  #background-section .text {
+    margin-bottom: -50px;
   }
 }
 @media (min-width: 1650px) {

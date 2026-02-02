@@ -1,0 +1,154 @@
+nav {
+  position: fixed;
+  padding: 20px;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background: transparent;
+  backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  transition: background-color 300ms ease,
+    border-bottom-color 300ms ease,
+    backdrop-filter 300ms ease;
+
+  &.scrolled {
+    background: color-mix(in srgb, var(--background-color) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 1560px;
+  }
+
+  .logo,
+  li {
+    font-weight: 500;
+    font-family: "Chivo Mono", monospace;
+    font-size: 13px;
+    color: var(--text-color-alt);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 250ms ease;
+
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+
+  }
+
+  a {
+    position: relative;
+    padding-bottom: 3px;
+    transition: color 200ms ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: color-mix(in srgb, var(--primary-blue) 80%, transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 200ms ease;
+    }
+
+    &:hover {
+      color: var(--primary-blue);
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+
+#site-footer {
+  margin-top: 64px;
+  padding: 32px 0 36px;
+  border-top: 1px solid var(--border-color);
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer-branding {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    .identity {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 6px;
+
+      strong {
+        font-weight: 600;
+        font-size: 15px;
+      }
+
+      span {
+        color: var(--text-color-alt);
+        font-size: 13px;
+      }
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-family: "Chivo Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    font-weight: 500;
+    justify-content: center;
+
+    a {
+      position: relative;
+      color: var(--text-color-alt);
+      padding-bottom: 3px;
+      transition: color 180ms ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: color-mix(in srgb, var(--primary-blue) 80%, transparent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 180ms ease;
+      }
+
+      &:hover {
+        color: var(--primary-blue);
+
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  .footer-meta {
+    color: var(--text-color-alt);
+    font-size: 13px;
+  }
+}

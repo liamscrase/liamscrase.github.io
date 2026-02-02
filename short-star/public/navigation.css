@@ -1,0 +1,134 @@
+nav {
+  position: fixed;
+  padding: 20px;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background: transparent;
+  -webkit-backdrop-filter: blur(0px);
+          backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  transition: background-color 300ms ease, border-bottom-color 300ms ease, -webkit-backdrop-filter 300ms ease;
+  transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease;
+  transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease;
+}
+nav.scrolled {
+  background: color-mix(in srgb, var(--background-color) 85%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+}
+nav .inner {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 1560px;
+}
+nav .logo,
+nav li {
+  font-weight: 500;
+  font-family: "Chivo Mono", monospace;
+  font-size: 13px;
+  color: var(--text-color-alt);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 250ms ease;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+nav a {
+  position: relative;
+  padding-bottom: 3px;
+  transition: color 200ms ease;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: color-mix(in srgb, var(--primary-blue) 80%, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+nav a:hover {
+  color: var(--primary-blue);
+}
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+#site-footer {
+  margin-top: 64px;
+  padding: 32px 0 36px;
+  border-top: 1px solid var(--border-color);
+}
+#site-footer .content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+#site-footer .footer-branding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+#site-footer .footer-branding .identity {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 6px;
+}
+#site-footer .footer-branding .identity strong {
+  font-weight: 600;
+  font-size: 15px;
+}
+#site-footer .footer-branding .identity span {
+  color: var(--text-color-alt);
+  font-size: 13px;
+}
+#site-footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-family: "Chivo Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  font-weight: 500;
+  justify-content: center;
+}
+#site-footer .footer-links a {
+  position: relative;
+  color: var(--text-color-alt);
+  padding-bottom: 3px;
+  transition: color 180ms ease;
+}
+#site-footer .footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: color-mix(in srgb, var(--primary-blue) 80%, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+#site-footer .footer-links a:hover {
+  color: var(--primary-blue);
+}
+#site-footer .footer-links a:hover::after {
+  transform: scaleX(1);
+}
+#site-footer .footer-meta {
+  color: var(--text-color-alt);
+  font-size: 13px;
+}/*# sourceMappingURL=navigation.css.map */

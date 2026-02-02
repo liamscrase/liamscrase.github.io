@@ -100,7 +100,6 @@ nav a:hover::after {
   display: inline-block;
   width: 100%;
   border-radius: 24px;
-  padding: 24px;
   margin-bottom: 24px;
   position: relative;
   overflow: hidden;
@@ -121,6 +120,7 @@ nav a:hover::after {
 #projects #project-list .project-card .text {
   width: 100%;
   margin-bottom: 50px;
+  padding: 24px;
 }
 #projects #project-list .project-card .text h3 {
   font-family: "Chivo Mono", monospace;
@@ -514,7 +514,7 @@ nav a:hover::after {
     max-width: none;
     margin: none;
   }
-  #projects #project-list .project-card {
+  #projects #project-list .project-card .text {
     padding: 40px;
   }
   #projects h2 {

@@ -128,7 +128,6 @@ nav {
       display: inline-block;
       width: 100%;
       border-radius: 24px;
-      padding: 24px;
       margin-bottom: 24px;
       position: relative;
       overflow: hidden;
@@ -149,6 +148,7 @@ nav {
       .text {
         width: 100%;
         margin-bottom: 50px;
+              padding: 24px;
 
 
         h3 {
@@ -687,9 +687,11 @@ nav {
       grid-template-columns: 1fr 1fr;
       max-width: none;
       margin: none;
-
       .project-card {
-        padding: 40px;
+
+        .text {
+          padding: 40px;
+        }
       }
 
     }

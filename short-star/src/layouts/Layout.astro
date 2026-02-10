@@ -43,4 +43,26 @@ import Footer from "../components/footer.astro";
   }
 </style>
 
-<script src="/scroll-animate.js" defer></script>
+<script>
+  import { animate, scroll } from "motion";
+  
+  const fadeUpElements = document.querySelectorAll(".fade-up, .section");
+  
+  fadeUpElements.forEach((element) => {
+    const htmlElement = element as HTMLElement;
+    // Set initial state
+    htmlElement.style.opacity = "0";
+    htmlElement.style.transform = "translateY(40px)";
+    
+    scroll(
+      animate(htmlElement, {
+        opacity: [0, 1],
+        transform: ["translateY(40px)", "translateY(0px)"]
+      }),
+      {
+        target: htmlElement,
+        offset: ["start 0.9", "start 0.6"]
+      }
+    );
+  });
+</script>

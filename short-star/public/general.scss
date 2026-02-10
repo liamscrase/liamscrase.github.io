@@ -350,18 +350,3 @@ h3 {
 
     }
 }
-
-/* Scroll-in animation for .section */
-.section {
-    opacity: 0;
-    transition: all 500ms ease;
-    pointer-events: none;
-    position: relative;
-    top: 30px;
-
-    &.reveal {
-        opacity: 1;
-        pointer-events: auto;
-        top: 0;
-    }
-}

@@ -1,0 +1,11 @@
+#features {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+#features .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}/*# sourceMappingURL=avanti.css.map */

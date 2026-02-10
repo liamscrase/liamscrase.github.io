@@ -4,6 +4,8 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Acme Cars">
+    <link rel="stylesheet" href="/acme.css" />
+
   <div id="body-wrapper">
     <div class="content-small">
 
@@ -15,7 +17,7 @@ import Layout from "../layouts/Layout.astro";
             modern design and fresh features
           </h1>
         </div>
-        <div class="image panel-grey">
+        <div class="large-image panel-grey">
           <img src="/images/acme5/acme-hero.jpg" alt="Acme Cars Hero Image" />
         </div>
         <div class="my-role">
@@ -33,9 +35,9 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </section>
 
-      <section id="background-section">
-        <span class="sub-header blue"> Background and problem </span>
+      <section id="background" class="section">
         <div class="text">
+          <span class="sub-header blue"> Background and problem </span>
           <h2>
             To be able to increase our reach, we needed an overhaul of our
             design
@@ -105,7 +107,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </section>
 
-      <section id="new-features">
+      <section id="features" class="section">
         <div class="text">
           <span class="sub-header blue">Key innovations</span>
           <div class="inner">
@@ -201,7 +203,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </section>
 
-      <section class="example-websites">
+      <section class="example-websites section">
         <div class="text">
           <span class="sub-header blue">Acme 5.0 forks</span>
           <h2>Real dealerships using Acme 5.0 across New Zealand</h2>

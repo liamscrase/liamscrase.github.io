@@ -61,9 +61,16 @@ body {
     max-width: 1200px;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 120px;
     margin: auto;
     width: 100%;
+}
+
+.sections-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    padding: 80px 0;
 }
 
 p {
@@ -91,9 +98,6 @@ h3 {
     font-weight: 500;
 }
 
-// ====================
-// General Components
-// ====================
 .sub-header {
     display: block;
     font-size: 16px;
@@ -193,27 +197,171 @@ h3 {
     border-radius: 16px;
 }
 
-.project-header {
-  padding-top: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+.main-text {
+    margin-bottom: 50px;
+}
 
-  .skills {
-    margin-top: 12px;
-  }
-
-  .image {
+.large-image {
     padding: 40px 40px 0;
     width: 100%;
     display: flex;
     justify-content: flex-end;
 
     img {
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
-      width: 100%;
-      height: 100%;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        width: 100%;
+        height: 100%;
     }
-  }
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.image-container {
+    width: 100%;
+    background-color: var(--tint-color);
+    padding: 5% 8% 0;
+    border-radius: 24px;
+    margin-bottom: 50px;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+
+    }
+}
+
+.image-section {
+    display: flex;
+    flex-direction: column;
+
+
+    .image-grid {
+        display: grid;
+        column-gap: 32px;
+        row-gap: 40px;
+
+        &.double-column {
+            grid-template-columns: 1fr;
+        }
+
+        &.triple-column {
+            grid-template-columns: 1fr;
+        }
+
+        .item {
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .image {
+            width: 100%;
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+                border-top-left-radius: 12px;
+            }
+        }
+
+        .text {
+            padding: 24px;
+        }
+    }
+}
+
+.project-header {
+    .my-role {
+        margin-top: 32px;
+
+        .skills {
+            margin-top: 24px;
+        }
+    }
+}
+
+@media (min-width: 900px) {
+    h1 {
+        margin-bottom: 42px;
+    }
+
+    .image-section {
+        .image-grid {
+            display: grid;
+            gap: 32px;
+
+            &.single-column {
+                grid-template-columns: 1fr;
+            }
+
+            &.double-column {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            &.triple-column {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .text {
+                padding: 40px;
+            }
+        }
+
+
+    }
+
+    .large-image {
+        padding: 60px 60px 0;
+    }
+
+}
+
+
+@media (min-width: 1650px) {
+
+    // ====================
+    // Base Styles
+    // ====================
+
+    .content {
+        max-width: 1600px;
+    }
+
+    // ====================
+    // Header & Navigation
+    // ====================
+
+    .desktop-navbar {
+        .desktop-navbar-container {
+            max-width: 1600px;
+        }
+
+    }
+}
+
+/* Scroll-in animation for .section */
+.section {
+    opacity: 0;
+    transition: all 500ms ease;
+    pointer-events: none;
+    position: relative;
+    top: 30px;
+
+    &.reveal {
+        opacity: 1;
+        pointer-events: auto;
+        top: 0;
+    }
 }

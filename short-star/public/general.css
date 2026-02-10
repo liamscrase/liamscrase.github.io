@@ -286,17 +286,4 @@ h3 {
   .desktop-navbar .desktop-navbar-container {
     max-width: 1600px;
   }
-}
-/* Scroll-in animation for .section */
-.section {
-  opacity: 0;
-  transition: all 500ms ease;
-  pointer-events: none;
-  position: relative;
-  top: 30px;
-}
-.section.reveal {
-  opacity: 1;
-  pointer-events: auto;
-  top: 0;
 }/*# sourceMappingURL=general.css.map */

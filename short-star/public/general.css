@@ -190,9 +190,19 @@ h3 {
   height: 100%;
 }
 
-.section {
+.flex {
   display: flex;
+}
+
+.column {
   flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.gap-50 {
   gap: 50px;
 }
 
@@ -248,10 +258,10 @@ h3 {
   padding: 24px;
 }
 
-.project-header .my-role {
-  margin-top: 32px;
+.project-header h1 {
+  margin-bottom: 0;
 }
-.project-header .my-role .skills {
+.project-header .skills {
   margin-top: 24px;
 }
 

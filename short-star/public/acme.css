@@ -57,14 +57,6 @@
   padding-left: 40px;
 }
 
-.filter-features .image-grid .image {
-  padding: 6% 0 0 6%;
-}
-.filter-features .image-grid .image img {
-  border-top-left-radius: 12px;
-  border-top-right-radius: 0;
-}
-
 .example-websites {
   display: flex;
   flex-direction: column;

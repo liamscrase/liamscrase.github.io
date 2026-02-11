@@ -1,10 +1,11 @@
 ---
-import Header from "../components/header.astro";
 import Layout from "../layouts/Layout.astro";
+import FadeUpAnimation from '../components/FadeUpAnimation.astro';
 ---
 
+<FadeUpAnimation/>
+
 <Layout>
-  <Header />
   <section id="body-wrapper">
     <section id="banner">
       <div class="content">
@@ -28,12 +29,15 @@ import Layout from "../layouts/Layout.astro";
     </section>
     <div class="sections-wrapper">
       <section id="projects">
-        <div class="content">
-          <span class="sub-header blue">Projects</span>
-          <h2>UX/UI Design Case Studies</h2>
+        <div class="content flex column gap-50">
+          <div class="section-header fade-up">
+            <span class="sub-header blue">UX/UI Design</span>
+            <h2>Project Case Studies</h2>
+            <p>Case studies of my best UX projects, showcasing innovation, design thinking, and problem-solving approaches.</p>
+          </div>
           <section id="project-list">
             <a
-              class="project-card panel-hover acme"
+              class="project-card panel-hover acme fade-up"
               href="/acme"
               aria-label="Open Avanti Finance App"
             >
@@ -53,7 +57,7 @@ import Layout from "../layouts/Layout.astro";
             </a>
 
             <a
-              class="project-card panel-hover avanti"
+              class="project-card panel-hover avanti fade-up"
               href="/avanti"
               aria-label="Open Avanti Finance App"
             >
@@ -75,12 +79,16 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </section>
       <section id="more-projects">
-        <div class="content">
-          <h2>Website Builds</h2>
+        <div class="content flex column gap-50">
+          <div class="section-header fade-up">
+            <span class="sub-header blue">Design + Dev</span>
+            <h2>Website Projects</h2>
+            <p>Solo projects where I designed and built complete websites from concept to launch.</p>
+          </div>
 
           <div class="mini-grid">
             <a
-              class="mini-card panel-hover"
+              class="mini-card panel-hover fade-up"
               href="https://theserioussandwich.nz/"
               aria-label="Open The Serious Sandwich website"
               target="_blank"
@@ -92,7 +100,7 @@ import Layout from "../layouts/Layout.astro";
               <p>Playful brand site with a tight, clear menu layout.</p>
             </a>
             <a
-              class="mini-card panel-hover"
+              class="mini-card panel-hover fade-up"
               href="https://simplystunningstudiostekapo.nz/"
               aria-label="Open Simply Stunning Studios website"
               target="_blank"
@@ -106,7 +114,7 @@ import Layout from "../layouts/Layout.astro";
               </p>
             </a>
             <a
-              class="mini-card panel-hover"
+              class="mini-card panel-hover fade-up"
               href="https://terapacars.co.nz/"
               aria-label="Open Te Rapa Cars website"
               target="_blank"

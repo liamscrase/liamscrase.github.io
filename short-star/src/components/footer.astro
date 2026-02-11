@@ -4,44 +4,32 @@ const year = new Date().getFullYear();
 
 <footer id="site-footer">
   <div class="footer-inner">
-    <div class="footer-branding">
-      <div class="identity">
-        <strong>Liam Scrase</strong>
-        <span>UX/UI Designer · Front End Support</span>
-      </div>
-    </div>
+    <h2 class="fade-up">ᯓ➤ <br> Get in touch</h2>
+    <form id="contact-form" class="contact-form fade-up" novalidate>
+      <label>
+        Name
+        <input type="text" name="name" required />
+      </label>
 
+      <label>
+        Email
+        <input type="email" name="email" required />
+      </label>
 
-      <form id="contact-form" class="contact-form" novalidate>
-        <label>
-          Name
-          <input type="text" name="name" required />
-        </label>
+      <label>
+        Message
+        <textarea name="message" rows="6" required></textarea>
+      </label>
 
-        <label>
-          Email
-          <input type="email" name="email" required />
-        </label>
+      <input
+        type="hidden"
+        name="_subject"
+        value="New contact form submission"
+      />
 
-        <label>
-          Message
-          <textarea name="message" rows="6" required></textarea>
-        </label>
-
-        <input
-          type="hidden"
-          name="_subject"
-          value="New contact form submission"
-        />
-
-        <button type="submit" class="button">Send</button>
-      </form>
-      <div id="contact-result" aria-live="polite"></div>
-
-    <div class="footer-links" aria-label="Footer">
-      <a href="/">Home</a>
-      <a href="/#projects">Projects</a>
-    </div>
+      <button type="submit" class="button">Send</button>
+    </form>
+    <div id="contact-result" aria-live="polite"></div>
   </div>
 </footer>
 

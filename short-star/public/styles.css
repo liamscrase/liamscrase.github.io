@@ -72,9 +72,6 @@
   color: var(--text-color-alt);
 }
 
-#more-projects h2 {
-  margin-bottom: 40px;
-}
 #more-projects .mini-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -125,16 +122,6 @@
 }
 
 @media (min-width: 900px) {
-  p {
-    font-size: 16px;
-  }
-  h1 {
-    font-size: 36px;
-  }
-  h2 {
-    font-size: 28px;
-    margin-bottom: 18px;
-  }
   #banner {
     padding: 100px 0;
   }
@@ -158,9 +145,6 @@
   }
   #projects #project-list .project-card .text {
     padding: 40px;
-  }
-  #projects h2 {
-    margin-bottom: 40px;
   }
   #more-projects .mini-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));

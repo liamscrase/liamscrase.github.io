@@ -64,49 +64,34 @@ nav a:hover::after {
 }
 
 #site-footer {
-  padding: 32px 0 36px;
+  padding: 80px 20px 120px;
   border-top: 1px solid var(--border-color);
   /* Result / feedback */
+}
+#site-footer h2 {
+  text-align: center;
+  line-height: 46px;
+  margin-bottom: 40px;
 }
 #site-footer .footer-inner {
   display: flex;
   flex-direction: column;
-  gap: 32px;
   max-width: 1000px;
   margin: auto;
   justify-content: center;
   align-items: center;
 }
-#site-footer .footer-branding {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-}
-#site-footer .footer-branding .identity {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  gap: 6px;
-}
-#site-footer .footer-branding .identity strong {
-  font-weight: 600;
-  font-size: 15px;
-}
-#site-footer .footer-branding .identity span {
-  color: var(--text-color-alt);
-  font-size: 13px;
-}
 #site-footer .footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 32px;
   font-family: "Chivo Mono", monospace;
   font-size: 12px;
   letter-spacing: 1.6px;
   text-transform: uppercase;
   font-weight: 500;
   justify-content: center;
+  margin-top: 50px;
 }
 #site-footer .footer-links a {
   position: relative;
@@ -132,26 +117,22 @@ nav a:hover::after {
 #site-footer .footer-links a:hover::after {
   transform: scaleX(1);
 }
-#site-footer .footer-meta {
-  color: var(--text-color-alt);
-  font-size: 13px;
-}
 #site-footer .contact-form {
   max-width: 720px;
   width: 100%;
   display: block;
-  background: var(--white);
-  padding: 20px;
+  background: linear-gradient(0deg, var(--tint-color) 0%, var(--background-color) 100%);
+  padding: 24px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
 }
 #site-footer .contact-form label {
   display: block;
-  font-family: "Zalando Sans";
+  font-family: "Chivo Mono", monospace;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   margin-bottom: 32px;
 }
 #site-footer .contact-form .field {
@@ -164,17 +145,21 @@ nav a:hover::after {
   width: 100%;
   margin-top: 6px;
   padding: 12px 14px;
-  border-radius: 10px;
+  border-radius: 6px;
   color: var(--black);
   background-color: var(--background-color);
   font-family: inherit;
   font-size: 14px;
   resize: vertical;
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 #site-footer .contact-form textarea {
   min-height: 160px;
+}
+#site-footer .contact-form .button {
+  display: block;
+  margin: auto;
 }
 #site-footer .contact-form input:focus,
 #site-footer .contact-form textarea:focus {
@@ -200,21 +185,17 @@ nav a:hover::after {
   transform: translateY(0);
 }
 #site-footer #contact-result.success {
-  background: #e8fbef;
-  color: #0f864e;
-  border: 1px solid rgba(15, 134, 78, 0.12);
-  box-shadow: 0 8px 20px rgba(15, 134, 78, 0.06);
+  background: #0f864e;
+  color: #dfe8e3;
 }
 #site-footer #contact-result.error {
-  background: #fff0f0;
-  color: #8a1f1f;
-  border: 1px solid rgba(138, 31, 31, 0.12);
-  box-shadow: 0 8px 20px rgba(138, 31, 31, 0.04);
+  background: #8a1f1f;
+  color: #e7e1e1;
 }
 #site-footer #contact-result .result-details {
   margin-top: 8px;
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(223, 232, 227, 0.8);
 }
 #site-footer #contact-result .result-details p {
   margin: 6px 0;

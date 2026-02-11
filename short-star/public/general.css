@@ -19,11 +19,6 @@
   text-decoration: none;
 }
 
-.fade-up {
-  opacity: 0;
-  transform: translateY(60px);
-}
-
 a,
 a:hover,
 a:visited,

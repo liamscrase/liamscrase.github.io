@@ -41,22 +41,4 @@ import Footer from "../components/footer.astro";
   width: 100%;
     height: 100%;
   }
-  
 </style>
-
-<script>
-  import { animate, scroll } from "motion";
-  
-  document.querySelectorAll(".fade-up").forEach((item) => {
-    scroll(
-      animate(item, { 
-        opacity: [0, 1],
-        y: [60, 0],
-      }), 
-      {
-        target: item,
-        offset: ["start 0.9", "start 0.5"],
-      }
-    );
-  });
-</script>

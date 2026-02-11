@@ -1,0 +1,34 @@
+<script>
+  import { animate, scroll } from "motion";
+  
+  document.querySelectorAll(".fade-up").forEach((item) => {
+    scroll(
+      animate(item, { 
+        opacity: [0, 1],
+        y: [60, 0],
+      }), 
+      {
+        target: item,
+        offset: ["start 0.9", "start 0.5"],
+      }
+    );
+  });
+</script>
+
+<!-- <script>
+  import { animate, inView } from "motion";
+  
+  document.querySelectorAll<HTMLElement>(".fade-up").forEach((item) => {
+    inView(
+      item,
+      () => {
+        animate(
+          item, 
+          { opacity: [0, 1], y: [60, 0] } as any, 
+          { duration: 0.5, easing: "ease-out" } as any
+        );
+      },
+      { amount: 0.2 }
+    );
+  });
+</script> -->

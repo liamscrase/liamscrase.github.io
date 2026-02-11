@@ -32,6 +32,16 @@
   transform: translateY(60px);
 }
 
+// :global(body) {
+//     perspective: 400px;  // Much lower = more extreme distortion
+//     perspective-origin: bottom center;  // Rotate towards the viewer
+// }
+
+// .fade-up {
+//     transform-style: preserve-3d;
+//     transform-origin: center top;  // Rotate from top edge
+// }
+
 a,
 a:hover,
 a:visited,

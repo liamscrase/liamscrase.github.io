@@ -64,14 +64,18 @@ nav a:hover::after {
 }
 
 #site-footer {
-  margin-top: 64px;
   padding: 32px 0 36px;
   border-top: 1px solid var(--border-color);
+  /* Result / feedback */
 }
-#site-footer .content {
+#site-footer .footer-inner {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  max-width: 1000px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 #site-footer .footer-branding {
   display: flex;
@@ -131,4 +135,91 @@ nav a:hover::after {
 #site-footer .footer-meta {
   color: var(--text-color-alt);
   font-size: 13px;
+}
+#site-footer .contact-form {
+  max-width: 720px;
+  width: 100%;
+  display: block;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+#site-footer .contact-form label {
+  display: block;
+  font-family: "Zalando Sans";
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+}
+#site-footer .contact-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#site-footer .contact-form input,
+#site-footer .contact-form textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: var(--black);
+  background-color: var(--background-color);
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+#site-footer .contact-form textarea {
+  min-height: 160px;
+}
+#site-footer .contact-form input:focus,
+#site-footer .contact-form textarea:focus {
+  border: 1px solid var(--primary-blue);
+}
+#site-footer .contact-form.contact-sent {
+  opacity: 0.75;
+  pointer-events: none;
+  filter: grayscale(0.02);
+  transition: opacity 0.3s ease;
+}
+#site-footer #contact-result {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-top: 32px;
+  transition: all 0.25s ease;
+  opacity: 0;
+  transform: translateY(6px);
+}
+#site-footer #contact-result.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+#site-footer #contact-result.success {
+  background: #e8fbef;
+  color: #0f864e;
+  border: 1px solid rgba(15, 134, 78, 0.12);
+  box-shadow: 0 8px 20px rgba(15, 134, 78, 0.06);
+}
+#site-footer #contact-result.error {
+  background: #fff0f0;
+  color: #8a1f1f;
+  border: 1px solid rgba(138, 31, 31, 0.12);
+  box-shadow: 0 8px 20px rgba(138, 31, 31, 0.04);
+}
+#site-footer #contact-result .result-details {
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.8);
+}
+#site-footer #contact-result .result-details p {
+  margin: 6px 0;
+}
+#site-footer #contact-result .result-details strong {
+  font-weight: 700;
+  margin-right: 6px;
 }/*# sourceMappingURL=navigation.css.map */

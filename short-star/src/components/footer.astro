@@ -27,7 +27,7 @@ const year = new Date().getFullYear();
         value="New contact form submission"
       />
 
-      <button type="submit" class="button">Send</button>
+      <button type="submit" class="button primary">Send</button>
     </form>
     <div id="contact-result" aria-live="polite"></div>
   </div>
@@ -42,6 +42,10 @@ const year = new Date().getFullYear();
       "contact-result",
     ) as HTMLElement | null;
     if (!form || !result) return;
+
+    const nameInput = form.querySelector('[name="name"]') as HTMLInputElement;
+    const emailInput = form.querySelector('[name="email"]') as HTMLInputElement;
+    const messageInput = form.querySelector('[name="message"]') as HTMLTextAreaElement;
 
     function showResult(
       el: HTMLElement,
@@ -103,8 +107,76 @@ const year = new Date().getFullYear();
       if (status === "error") el.classList.add("error");
     }
 
+    function clearFieldError(input: HTMLInputElement | HTMLTextAreaElement) {
+      input.classList.remove("invalid");
+      const existingError = input.parentElement?.querySelector(".field-error");
+      if (existingError) existingError.remove();
+    }
+
+    function showFieldError(
+      input: HTMLInputElement | HTMLTextAreaElement,
+      message: string,
+    ) {
+      clearFieldError(input);
+      input.classList.add("invalid");
+      const errorSpan = document.createElement("span");
+      errorSpan.className = "field-error";
+      errorSpan.textContent = message;
+      input.parentElement?.appendChild(errorSpan);
+    }
+
+    function validateField(input: HTMLInputElement | HTMLTextAreaElement): boolean {
+      const value = input.value.trim();
+
+      if (!value) {
+        showFieldError(input, `Please enter your ${input.name}`);
+        return false;
+      }
+
+      if (input.type === "email") {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          showFieldError(input, "Please enter a valid email address");
+          return false;
+        }
+      }
+
+      clearFieldError(input);
+      return true;
+    }
+
+    // Add blur validation for real-time feedback
+    [nameInput, emailInput, messageInput].forEach((input) => {
+      input.addEventListener("blur", () => validateField(input));
+      input.addEventListener("input", () => {
+        if (input.classList.contains("invalid")) {
+          validateField(input);
+        }
+      });
+    });
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
+      // Validate all fields
+      const nameValid = validateField(nameInput);
+      const emailValid = validateField(emailInput);
+      const messageValid = validateField(messageInput);
+
+      if (!nameValid || !emailValid || !messageValid) {
+        const errors: string[] = [];
+        if (!nameValid) errors.push("name");
+        if (!emailValid) errors.push("email");
+        if (!messageValid) errors.push("message");
+
+        showResult(
+          result,
+          `Please fill in all required fields: ${errors.join(", ")}`,
+          "error",
+        );
+        return;
+      }
+
       const data = new FormData(form);
       try {
         const res = await fetch("https://formspree.io/f/xgoloyrj", {
@@ -115,15 +187,9 @@ const year = new Date().getFullYear();
         if (res.ok) {
           // capture submitted values before resetting the form
           const submitted = {
-            name:
-              (form.querySelector('[name="name"]') as HTMLInputElement)
-                ?.value || "",
-            email:
-              (form.querySelector('[name="email"]') as HTMLInputElement)
-                ?.value || "",
-            message:
-              (form.querySelector('[name="message"]') as HTMLTextAreaElement)
-                ?.value || "",
+            name: nameInput.value,
+            email: emailInput.value,
+            message: messageInput.value,
           };
           showResult(
             result,
@@ -133,6 +199,8 @@ const year = new Date().getFullYear();
           );
           form.classList.add("contact-sent");
           form.reset();
+          // Clear any validation states
+          [nameInput, emailInput, messageInput].forEach(clearFieldError);
         } else {
           showResult(result, "Send failed. Please try again.", "error");
         }

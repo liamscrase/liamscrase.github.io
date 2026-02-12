@@ -20,11 +20,13 @@ nav {
   .inner {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: auto;
     max-width: 1560px;
+    height: fit-content;
   }
 
-  .logo,
+
   li {
     font-weight: 500;
     font-family: "Chivo Mono", monospace;
@@ -40,35 +42,31 @@ nav {
     list-style: none;
     display: flex;
     gap: 32px;
+    height: fit-content;
 
   }
-
   a {
-    position: relative;
-    padding-bottom: 3px;
-    transition: color 200ms ease;
+    display: flex;
+    align-items: center;
+  }
 
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 2px;
-      background: color-mix(in srgb, var(--primary-blue) 80%, transparent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 200ms ease;
-    }
+  .logo {
+    font-family: "Chivo Mono", monospace;
+    font-size: 12px;
+    color: var(--text-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 250ms ease;
+    padding: 3px 6px;
+    border: 3px solid;
+    border-image: linear-gradient(to bottom, var(--text-color), var(--primary-blue)) 1;
+    border-radius: 4px;
+  } 
 
     &:hover {
       color: var(--primary-blue);
-
-      &::after {
-        transform: scaleX(1);
-      }
     }
-  }
 }
 
 
@@ -159,6 +157,22 @@ nav {
       gap: 8px;
     }
 
+    .field-error {
+      display: block;
+      margin-top: 6px;
+      font-family: "Zalando Sans", sans-serif;
+      text-transform: none;
+      letter-spacing: normal;
+      color: var(--red);
+
+    }
+
+      .contact-form input.invalid,
+  .contact-form textarea.invalid {
+    border-color: var(--red) ;
+    outline-color: var(--red) ;
+  }
+
     input,
     textarea {
       width: 100%;
@@ -219,7 +233,7 @@ nav {
   }
 
   #contact-result.error {
-    background: #8a1f1f;
+    background: var(--red);
     color: #e7e1e1;
   }
 

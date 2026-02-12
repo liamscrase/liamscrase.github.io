@@ -25,7 +25,8 @@
   gap: 24px;
 }
 #projects #project-list .project-card {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   border-radius: 24px;
   margin-bottom: 24px;
@@ -90,14 +91,6 @@
   position: relative;
   z-index: 1;
 }
-#more-projects .mini-card .icon-open {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  font-size: 16px;
-  color: var(--text-color-alt);
-  z-index: 1;
-}
 #more-projects .mini-card h3 {
   font-family: "Chivo Mono", monospace;
   font-size: 16px;
@@ -118,7 +111,7 @@
 #more-projects .mini-card p {
   color: var(--text-color-alt);
   font-size: 15px;
-  margin: 0;
+  margin-bottom: 24px;
 }
 
 @media (min-width: 900px) {
@@ -149,4 +142,4 @@
   #more-projects .mini-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=home.css.map */

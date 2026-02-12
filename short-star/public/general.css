@@ -2,14 +2,16 @@
   --background-color: #151515;
   --tint-color: #1f1f1f;
   --hover-color: #969696;
-  --hover-color-alt: #202020;
+  --hover-color-alt: #3c3c3c;
   --text-color: #ffffff;
   --text-color-alt: rgba(255, 255, 255, 0.7);
   --border-color: #414141;
   --border-color-alt: #555555;
   --border-color-blue: #475F7B;
   --primary-blue: #4b95ea;
+  --primary-blue-light: #a9cef9;
   --primary-blue-tint: #2D4158;
+  --red: #ff6f6f;
 }
 
 * {
@@ -90,57 +92,6 @@ h3 {
   font-weight: 500;
 }
 
-.button {
-  display: inline-block;
-  padding: 12px 24px;
-  background: var(--text-color);
-  color: var(--background-color);
-  border-radius: 8px;
-  border: none;
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 250ms ease;
-}
-.button:hover {
-  background-color: var(--primary-blue);
-  transform: translateY(-2px);
-}
-
-.sub-header {
-  display: block;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 500;
-  line-height: normal;
-  margin-bottom: 18px;
-  color: var(--text-color-alt);
-  font-family: "Chivo Mono", monospace;
-}
-.sub-header.blue {
-  color: var(--primary-blue);
-}
-
-.skills {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.skills span {
-  color: var(--text-color-alt);
-  font-family: "Chivo Mono", monospace;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 32px;
-  padding: 0 12px;
-  border-radius: 21px;
-  border: 1px solid var(--border-color-alt);
-  transition: border-color 250ms ease;
-}
-
 .panel-hover {
   background-color: var(--tint-color);
   background: linear-gradient(0deg, var(--tint-color) 0%, var(--background-color) 100%);
@@ -149,11 +100,13 @@ h3 {
 .panel-hover .text,
 .panel-hover img,
 .panel-hover p,
-.panel-hover span,
+.panel-hover i,
 .panel-hover h3,
 .panel-hover h2,
 .panel-hover h1,
-.panel-hover a {
+.panel-hover a,
+.panel-hover span,
+.panel-hover .button {
   position: relative;
   z-index: 1;
 }
@@ -189,6 +142,105 @@ h3 {
   background: linear-gradient(0deg, var(--tint-color) 0%, var(--background-color) 100%);
   border: 1px solid var(--border-color);
   border-radius: 16px;
+}
+
+.button {
+  display: block;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+.button i {
+  position: relative;
+  top: 1px;
+  margin-left: 6px;
+}
+.button:hover {
+  background-color: var(--primary-blue);
+  transform: translateY(-2px);
+}
+.button.primary {
+  background: linear-gradient(0deg, var(--text-color) 0%, var(--text-color-alt) 100%);
+  color: var(--background-color);
+}
+.button.primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(0deg, var(--primary-blue-light) 0%, var(--primary-blue) 100%);
+  opacity: 0;
+  transition: opacity 250ms ease;
+  z-index: -1;
+}
+.button.primary:hover {
+  background-color: transparent;
+  color: var(--background-color);
+  transform: translateY(-2px);
+}
+.button.primary:hover::before {
+  opacity: 1;
+}
+.button.secondary {
+  background: linear-gradient(0deg, var(--tint-color) 0%, var(--background-color) 100%);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+.button.secondary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(0deg, var(--hover-color-alt) 0%, var(--tint-color) 100%);
+  opacity: 0;
+  transition: opacity 250ms ease;
+  z-index: -1;
+}
+.button.secondary:hover {
+  transform: translateY(-2px);
+}
+.button.secondary:hover::before {
+  opacity: 1;
+}
+
+.sub-header {
+  display: block;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 18px;
+  color: var(--text-color-alt);
+  font-family: "Chivo Mono", monospace;
+}
+.sub-header.blue {
+  color: var(--primary-blue);
+}
+
+.skills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.skills span {
+  color: var(--text-color-alt);
+  font-family: "Chivo Mono", monospace;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 32px;
+  padding: 0 12px;
+  border-radius: 21px;
+  border: 1px solid var(--border-color-alt);
+  transition: border-color 250ms ease;
 }
 
 .main-text {
@@ -281,6 +333,13 @@ h3 {
 }
 .project-header .skills {
   margin-top: 24px;
+}
+.project-header .button-container {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 @media (min-width: 900px) {

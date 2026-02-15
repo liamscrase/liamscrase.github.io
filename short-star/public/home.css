@@ -33,6 +33,7 @@
   position: relative;
   overflow: hidden;
   transition: all 250ms ease;
+  justify-content: space-between;
 }
 #projects #project-list .project-card img {
   display: block;

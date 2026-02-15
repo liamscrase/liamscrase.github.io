@@ -5,17 +5,13 @@ nav {
   top: 0;
   z-index: 100;
   background: transparent;
-  -webkit-backdrop-filter: blur(0px);
-          backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
   border-bottom: 1px solid transparent;
-  transition: background-color 300ms ease, border-bottom-color 300ms ease, -webkit-backdrop-filter 300ms ease;
   transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease;
-  transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease;
 }
 nav.scrolled {
   background: color-mix(in srgb, var(--background-color) 85%, transparent);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
 }
 nav .inner {
@@ -68,7 +64,6 @@ nav:hover {
 #site-footer {
   padding: 80px 20px 120px;
   border-top: 1px solid var(--border-color);
-  /* Result / feedback */
 }
 #site-footer h2 {
   text-align: center;
@@ -185,6 +180,9 @@ nav:hover {
   pointer-events: none;
   filter: grayscale(0.02);
   transition: opacity 0.3s ease;
+}
+#site-footer {
+  /* Result / feedback */
 }
 #site-footer #contact-result {
   display: inline-block;

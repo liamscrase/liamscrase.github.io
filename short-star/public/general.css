@@ -171,6 +171,7 @@ h3 {
   border-radius: inherit;
   background-image: url("/images/acme5/dither-blue2.svg");
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: bottom;
   z-index: -1;
   opacity: 1;
@@ -207,6 +208,7 @@ h3 {
   border-radius: inherit;
   background-image: url("/images/avanti-app/dither-green2.svg");
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: bottom;
   z-index: -1;
   opacity: 1;
@@ -455,4 +457,27 @@ h3 {
     display: grid;
     gap: 32px;
   }
-  .image-sect
+  .image-section .image-grid.single-column {
+    grid-template-columns: 1fr;
+  }
+  .image-section .image-grid.double-column {
+    grid-template-columns: 1fr 1fr;
+  }
+  .image-section .image-grid.triple-column {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .image-section .image-grid .text {
+    padding: 40px;
+  }
+  .large-image {
+    padding: 60px 60px 0;
+  }
+}
+@media (min-width: 1650px) {
+  .content {
+    max-width: 1600px;
+  }
+  .desktop-navbar .desktop-navbar-container {
+    max-width: 1600px;
+  }
+}/*# sourceMappingURL=general.css.map */

@@ -164,7 +164,7 @@ h3 {
     background-position: bottom;
     border: 1px solid var(--border-color);
     border-radius: 16px;
-    // box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.9);
+    box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.9);
 
     &:before {
         content: "";
@@ -184,6 +184,8 @@ h3 {
     }
 
     @media (min-width: 900px) {
+    box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.0);
+
         background: radial-gradient(circle at 100% 100%,
                 rgba(255, 255, 255, 0.9) 0%,
                 rgba(0, 94, 255, 1) 30%,
@@ -221,7 +223,7 @@ h3 {
     background-position: bottom;
     border: 1px solid var(--border-color);
     border-radius: 16px;
-    // box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.9);
+    box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.9);
 
     &:before {
         content: "";
@@ -241,6 +243,8 @@ h3 {
     }
 
     @media (min-width: 900px) {
+    box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.0);
+
         background: radial-gradient(circle at 100% 100%,
                 rgba(255, 255, 255, 0.9) 0%,
                 rgba(0, 165, 66, 1) 25%,

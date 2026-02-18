@@ -131,6 +131,7 @@ h3 {
   background-position: bottom;
   border: 1px solid var(--border-color);
   border-radius: 16px;
+  box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.9);
 }
 .panel-blue-pixel:before {
   content: "";
@@ -150,6 +151,7 @@ h3 {
 }
 @media (min-width: 900px) {
   .panel-blue-pixel {
+    box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0);
     background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 94, 255) 30%, rgb(4, 4, 4) 70%);
   }
   .panel-blue-pixel:before {
@@ -177,6 +179,7 @@ h3 {
   background-position: bottom;
   border: 1px solid var(--border-color);
   border-radius: 16px;
+  box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.9);
 }
 .panel-green-pixel:before {
   content: "";
@@ -196,6 +199,7 @@ h3 {
 }
 @media (min-width: 900px) {
   .panel-green-pixel {
+    box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0);
     background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 165, 66) 25%, rgb(4, 4, 4) 70%);
   }
   .panel-green-pixel:before {

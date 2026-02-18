@@ -143,40 +143,25 @@ h3 {
 
 .panel-blue-pixel {
   position: relative;
-  background: radial-gradient(circle at 50% 100%, rgb(39, 117, 249) 0%, rgba(39, 117, 249, 0.25) 37%, rgb(0, 0, 0) 50%);
+  background: radial-gradient(circle at 50% 100%, rgb(255, 255, 255) 0%, rgb(39, 117, 249) 25%, rgb(0, 0, 0) 70%);
   background-size: cover;
   background-position: bottom;
   border: 1px solid var(--border-color);
   border-radius: 16px;
   box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.9);
 }
-@media (min-width: 700px) {
-  .panel-blue-pixel {
-    background: radial-gradient(circle at 50% 100%, rgb(7, 98, 203) 0%, rgba(7, 98, 203, 0.25) 37%, rgb(0, 0, 0) 60%);
-  }
-}
-@media (min-width: 900px) {
-  .panel-blue-pixel {
-    background: radial-gradient(circle at 50% 100%, rgb(7, 98, 203) 0%, rgba(7, 98, 203, 0.25) 37%, rgb(0, 0, 0) 50%);
-  }
-}
-@media (min-width: 1650px) {
-  .panel-blue-pixel {
-    background: radial-gradient(circle at 50% 100%, rgb(7, 98, 203) 0%, rgba(7, 98, 203, 0.25) 37%, rgb(0, 0, 0) 60%);
-  }
-}
 .panel-blue-pixel:before {
   content: "";
   position: absolute;
   bottom: 0;
-  top: 5px;
+  top: 0;
   left: 0;
   right: 0;
   border-radius: inherit;
-  background-image: url("/images/acme5/dither-blue2.svg");
-  background-size: cover;
+  background-image: url("/images/acme5/dither-blue6.svg");
+  background-size: 100% auto;
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: center;
   z-index: -1;
   opacity: 1;
   pointer-events: none;
@@ -215,7 +200,7 @@ h3 {
   right: 0;
   border-radius: inherit;
   background-image: url("/images/avanti-app/dither-green2.svg");
-  background-size: cover;
+  background-size: auto 100%;
   background-position: center;
   z-index: -1;
   opacity: 1;

@@ -40,8 +40,10 @@
   height: auto;
   -o-object-fit: contain;
      object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
+  -o-object-position: bottom;
+     object-position: bottom;
+  position: relative;
+  top: 2px;
 }
 #projects #project-list .project-card a {
   display: inline-block;

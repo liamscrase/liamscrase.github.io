@@ -19,7 +19,7 @@ nav .inner {
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  max-width: 1560px;
+  max-width: 1200px;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -180,9 +180,6 @@ nav:hover {
   pointer-events: none;
   filter: grayscale(0.02);
   transition: opacity 0.3s ease;
-}
-#site-footer {
-  /* Result / feedback */
 }
 #site-footer #contact-result {
   display: inline-block;

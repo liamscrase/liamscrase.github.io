@@ -60,27 +60,10 @@ body {
 }
 
 .content {
-    padding: 0 20px;
-    max-width: 1200px;
+    padding: 60px 20px;
+    max-width: 500px;
     margin: auto;
     width: 100%;
-}
-
-.content-small {
-    padding: 50px 20px;
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    gap: 120px;
-    margin: auto;
-    width: 100%;
-}
-
-.sections-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 120px;
-    padding: 80px 0;
 }
 
 p {
@@ -236,28 +219,6 @@ h3 {
     border-radius: 16px;
     box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.9);
 
-    // @media (min-width: 700px) {
-    //     background: radial-gradient(circle at 50% 100%,
-    //             rgb(255, 255, 255) 0%,
-    //             rgba(7, 98, 203, 0.90) 37%,
-    //             rgba(0, 0, 0, 1.0) 60%);
-    // }
-
-    // @media (min-width: 900px) {
-    //     background: radial-gradient(circle at 50% 100%,
-    //             rgba(7, 98, 203, 1) 0%,
-    //             rgba(7, 98, 203, 0.25) 37%,
-    //             rgba(0, 0, 0, 1.0) 50%);
-    // }
-
-    // @media (min-width: 1650px) {
-    //     background: radial-gradient(circle at 50% 100%,
-    //             rgba(7, 98, 203, 1) 0%,
-    //             rgba(7, 98, 203, 0.25) 37%,
-    //             rgba(0, 0, 0, 1.0) 60%);
-    // }
-
-
     &:before {
         content: "";
         position: absolute;
@@ -282,46 +243,26 @@ h3 {
 .panel-green-pixel {
     position: relative;
     background: radial-gradient(circle at 50% 100%,
-            rgba(27, 173, 85, 1) 0%,
-            rgba(27, 173, 85, 0.25) 30%,
-            rgb(0, 0, 0) 50%);
+            rgb(255, 255, 255) 0%,
+            rgb(19, 151, 71) 30%,
+            rgb(0, 0, 0) 70%);
     background-size: cover;
     background-position: bottom;
     border: 1px solid var(--border-color);
     border-radius: 16px;
     box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.9);
 
-    @media (min-width: 700px) {
-        background: radial-gradient(circle at 50% 100%,
-                rgba(27, 173, 85, 1) 0%,
-                rgba(27, 173, 85, 0.25) 37%,
-                rgb(0, 0, 0) 60%);
-    }
-
-    @media (min-width: 900px) {
-        background: radial-gradient(circle at 50% 100%,
-                rgba(27, 173, 85, 1) 0%,
-                rgba(27, 173, 85, 0.25) 30%,
-                rgb(0, 0, 0) 50%);
-    }
-
-    @media (min-width: 1650px) {
-        background: radial-gradient(circle at 50% 100%,
-                rgba(27, 173, 85, 1) 0%,
-                rgba(27, 173, 85, 0.25) 37%,
-                rgb(0, 0, 0) 60%);
-    }
-
     &:before {
         content: "";
         position: absolute;
         bottom: 0;
-        top: 5px;
+        top: 0;
         left: 0;
         right: 0;
         border-radius: inherit;
-        background-image: url("/images/avanti-app/dither-green2.svg");
-        background-size: auto 100%;
+        background-image: url("/images/avanti-app/dither-green3.svg");
+        background-size: 100% auto;
+        background-repeat: no-repeat;
         background-position: center;
         z-index: -1;
         opacity: 1;
@@ -550,8 +491,16 @@ h3 {
     flex-direction: row;
 }
 
-.gap-50 {
+.gap-small {
+    gap: 32px;
+}
+
+.gap-medium {
     gap: 50px;
+}
+
+.gap-large {
+    gap: 100px;
 }
 
 .image-container {
@@ -634,6 +583,11 @@ h3 {
 }
 
 @media (min-width: 900px) {
+    .content {
+        max-width: 1200px;
+        padding: 90px 20px;
+    }
+
     h1 {
         font-size: 40px;
         margin-bottom: 42px;
@@ -676,27 +630,4 @@ h3 {
         padding: 60px 60px 0;
     }
 
-}
-
-
-@media (min-width: 1650px) {
-
-    // ====================
-    // Base Styles
-    // ====================
-
-    .content {
-        max-width: 1600px;
-    }
-
-    // ====================
-    // Header & Navigation
-    // ====================
-
-    .desktop-navbar {
-        .desktop-navbar-container {
-            max-width: 1600px;
-        }
-
-    }
 }

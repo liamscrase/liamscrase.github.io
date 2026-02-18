@@ -115,9 +115,6 @@
 }
 
 @media (min-width: 900px) {
-  #banner {
-    padding: 100px 0;
-  }
   #banner .blurb {
     display: flex;
     flex-direction: row;

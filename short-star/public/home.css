@@ -29,7 +29,6 @@
   flex-direction: column;
   width: 100%;
   border-radius: 24px;
-  margin-bottom: 24px;
   position: relative;
   overflow: hidden;
   transition: all 250ms ease;
@@ -115,6 +114,11 @@
 }
 
 @media (min-width: 900px) {
+  #projects #project-list .project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
   #banner .blurb {
     display: flex;
     flex-direction: row;
@@ -127,7 +131,7 @@
   }
   #projects #project-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     max-width: none;
     margin: none;
   }

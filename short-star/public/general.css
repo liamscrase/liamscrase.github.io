@@ -142,41 +142,75 @@ h3 {
 }
 
 .panel-blue-pixel {
-  background: radial-gradient(circle at 50% 100%, rgba(75, 149, 234, 0.47) 0%, rgb(0, 0, 0) 85%);
+  position: relative;
+  background: radial-gradient(circle at 50% 100%, rgb(39, 117, 249) 0%, rgba(39, 117, 249, 0.25) 37%, rgb(0, 0, 0) 50%);
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   border: 1px solid var(--border-color);
   border-radius: 16px;
+}
+@media (min-width: 700px) {
+  .panel-blue-pixel {
+    background: radial-gradient(circle at 50% 100%, rgb(7, 98, 203) 0%, rgba(7, 98, 203, 0.25) 37%, rgb(0, 0, 0) 60%);
+  }
+}
+@media (min-width: 900px) {
+  .panel-blue-pixel {
+    background: radial-gradient(circle at 50% 100%, rgb(7, 98, 203) 0%, rgba(7, 98, 203, 0.25) 37%, rgb(0, 0, 0) 50%);
+  }
+}
+@media (min-width: 1650px) {
+  .panel-blue-pixel {
+    background: radial-gradient(circle at 50% 100%, rgb(7, 98, 203) 0%, rgba(7, 98, 203, 0.25) 37%, rgb(0, 0, 0) 60%);
+  }
 }
 .panel-blue-pixel:before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background-image: url("/images/acme5/dither-blue.svg");
+  background-image: url("/images/acme5/dither-blue2.svg");
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   z-index: -1;
-  opacity: 0.25;
+  opacity: 1;
+  pointer-events: none;
 }
 
 .panel-green-pixel {
-  background: radial-gradient(circle at 50% 100%, rgba(59, 199, 122, 0.47) 0%, rgb(0, 0, 0) 85%);
+  position: relative;
+  background: radial-gradient(circle at 50% 100%, rgb(27, 173, 85) 0%, rgba(27, 173, 85, 0.35) 30%, rgb(0, 0, 0) 50%);
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   border: 1px solid var(--border-color);
   border-radius: 16px;
+}
+@media (min-width: 700px) {
+  .panel-green-pixel {
+    background: radial-gradient(circle at 50% 100%, rgb(27, 173, 85) 0%, rgba(27, 173, 85, 0.4) 37%, rgb(0, 0, 0) 60%);
+  }
+}
+@media (min-width: 900px) {
+  .panel-green-pixel {
+    background: radial-gradient(circle at 50% 100%, rgb(27, 173, 85) 0%, rgba(27, 173, 85, 0.35) 30%, rgb(0, 0, 0) 50%);
+  }
+}
+@media (min-width: 1650px) {
+  .panel-green-pixel {
+    background: radial-gradient(circle at 50% 100%, rgb(27, 173, 85) 0%, rgba(27, 173, 85, 0.4) 37%, rgb(0, 0, 0) 60%);
+  }
 }
 .panel-green-pixel:before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background-image: url("/images/avanti-app/dither-green.svg");
+  background-image: url("/images/avanti-app/dither-green2.svg");
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   z-index: -1;
-  opacity: 0.5;
+  opacity: 1;
+  pointer-events: none;
 }
 
 .panel-grey {
@@ -421,27 +455,4 @@ h3 {
     display: grid;
     gap: 32px;
   }
-  .image-section .image-grid.single-column {
-    grid-template-columns: 1fr;
-  }
-  .image-section .image-grid.double-column {
-    grid-template-columns: 1fr 1fr;
-  }
-  .image-section .image-grid.triple-column {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  .image-section .image-grid .text {
-    padding: 40px;
-  }
-  .large-image {
-    padding: 60px 60px 0;
-  }
-}
-@media (min-width: 1650px) {
-  .content {
-    max-width: 1600px;
-  }
-  .desktop-navbar .desktop-navbar-container {
-    max-width: 1600px;
-  }
-}/*# sourceMappingURL=general.css.map */
+  .image-sect

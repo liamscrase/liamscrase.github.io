@@ -128,8 +128,6 @@
   #banner .blurb img {
     margin-bottom: 2px;
   }
-}
-@media (min-width: 1200px) {
   #projects #project-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -140,6 +138,11 @@
     padding: 40px;
   }
   #more-projects .mini-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1200px) {
+  #more-projects .mini-grid {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }/*# sourceMappingURL=home.css.map */

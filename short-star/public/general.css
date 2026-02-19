@@ -1,5 +1,5 @@
 :root {
-  --background-color-dark: rgba(2, 2, 2, 1);
+  --background-color-dark: rgb(0, 0, 0);
   --background-color: rgba(4, 4, 4, 1);
   --tint-color: #1f1f1f;
   --hover-color: #969696;
@@ -11,7 +11,7 @@
   --border-color-blue: #475F7B;
   --primary-blue: #4b95ea;
   --primary-blue-light: #a9cef9;
-  --primary-blue-tint: #2D4158;
+  --primary-blue-tint: #002042;
   --primary-green: #3cd870;
   --primary-green-light: #a9f9c9;
   --red: #ff6f6f;
@@ -38,7 +38,7 @@ html {
 
 body {
   font-family: "Zalando Sans", sans-serif;
-  background-color: var(--background-color);
+  background-color: var(--background-color-dark);
   color: var(--text-color);
 }
 
@@ -119,21 +119,18 @@ h3 {
 }
 
 .panel-blue {
-  background: linear-gradient(0deg, var(--primary-blue-tint) 0%, var(--background-color) 100%);
+  background: var(--primary-blue-tint);
   border: 1px solid var(--border-color-blue);
   border-radius: 16px;
 }
 
-.panel-green-pixel {
+.panel-blue-pixel {
   position: relative;
-  background: radial-gradient(circle at 105% 105%, rgb(255, 255, 255) 0%, rgb(0, 165, 66) 30%, rgb(4, 4, 4) 70%);
-  background-size: cover;
-  background-position: bottom;
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.9);
+  background: radial-gradient(circle at 105% 105%, rgb(255, 255, 255) 0%, rgb(0, 94, 255) 30%, rgb(4, 4, 4) 70%);
+  height: 550px;
+  box-shadow: 0 0 0 1px var(--border-color);
 }
-.panel-green-pixel:before {
+.panel-blue-pixel::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -141,34 +138,82 @@ h3 {
   left: 0;
   right: 0;
   border-radius: inherit;
-  background-image: url("/images/dither-green-large.svg");
-  background-size: 100% auto;
+  background-image: url("/images/dither-blue.svg");
+  background-size: auto 100%;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: bottom right;
   z-index: -1;
-  opacity: 1;
   pointer-events: none;
+}
+@media (min-width: 700px) {
+  .panel-blue-pixel {
+    overflow: hidden;
+    height: 700px;
+    background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 94, 255) 30%, rgb(4, 4, 4) 70%);
+  }
+  .panel-blue-pixel::before {
+    background-image: url("/images/dither-blue-large.svg");
+    background-size: auto 100%;
+    background-position: bottom right;
+  }
+}
+@media (min-width: 1200px) {
+  .panel-blue-pixel {
+    overflow: hidden;
+    height: 425px;
+    background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 94, 255) 30%, rgb(4, 4, 4) 70%);
+  }
+  .panel-blue-pixel::before {
+    background-image: url("/images/dither-blue-horizontal.svg");
+    background-size: auto 100%;
+    background-position: bottom right;
+  }
+}
+
+.panel-green-pixel {
+  position: relative;
+  background: radial-gradient(circle at 105% 105%, rgb(255, 255, 255) 0%, rgb(0, 165, 66) 30%, rgb(4, 4, 4) 70%);
+  background-size: cover;
+  background-position: bottom;
+  box-shadow: 0 0 0 1px var(--border-color);
+  height: 550px;
+}
+.panel-green-pixel::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-radius: inherit;
+  background-image: url("/images/dither-green.svg");
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  z-index: -1;
+  pointer-events: none;
+}
+@media (min-width: 700px) {
+  .panel-green-pixel {
+    overflow: hidden;
+    height: 700px;
+    background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 165, 66) 25%, rgb(4, 4, 4) 70%);
+  }
+  .panel-green-pixel::before {
+    background-image: url("/images/dither-green-large.svg");
+    background-size: auto 100%;
+    background-position: bottom right;
+  }
 }
 @media (min-width: 1200px) {
   .panel-green-pixel {
-    box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0);
+    height: 425px;
     background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 165, 66) 25%, rgb(4, 4, 4) 70%);
   }
-  .panel-green-pixel:before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    border-radius: inherit;
-    background-image: url("/images/dither-green-horizontal-large.svg");
+  .panel-green-pixel::before {
+    background-image: url("/images/dither-green-horizontal.svg");
     background-size: auto 100%;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    z-index: -1;
-    opacity: 1;
-    pointer-events: none;
+    background-position: bottom right;
   }
 }
 

@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-radius: 24px;
+  border-radius: 16px;
   position: relative;
   overflow: hidden;
   transition: all 250ms ease;
@@ -73,104 +73,6 @@
 #projects #project-list .project-card .text p {
   margin-bottom: 28px;
   color: var(--text-color-alt);
-}
-
-.panel-blue-pixel {
-  position: relative;
-  background: radial-gradient(circle at 105% 105%, rgb(255, 255, 255) 0%, rgb(0, 94, 255) 30%, rgb(4, 4, 4) 70%);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  height: 550px;
-}
-.panel-blue-pixel::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-radius: inherit;
-  background-image: url("/images/dither-blue.svg");
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  z-index: -1;
-  pointer-events: none;
-}
-@media (min-width: 700px) {
-  .panel-blue-pixel {
-    overflow: hidden;
-    height: 700px;
-    box-shadow: none;
-    background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 94, 255) 30%, rgb(4, 4, 4) 70%);
-  }
-  .panel-blue-pixel::before {
-    background-image: url("/images/dither-blue-large.svg");
-    background-size: auto 100%;
-    background-position: bottom right;
-  }
-}
-@media (min-width: 1200px) {
-  .panel-blue-pixel {
-    overflow: hidden;
-    height: 425px;
-    box-shadow: none;
-    background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 94, 255) 30%, rgb(4, 4, 4) 70%);
-  }
-  .panel-blue-pixel::before {
-    background-image: url("/images/dither-blue-horizontal.svg");
-    background-size: auto 100%;
-    background-position: bottom right;
-  }
-}
-
-.panel-green-pixel {
-  position: relative;
-  background: radial-gradient(circle at 105% 105%, rgb(255, 255, 255) 0%, rgb(0, 165, 66) 30%, rgb(4, 4, 4) 70%);
-  background-size: cover;
-  background-position: bottom;
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  height: 550px;
-}
-.panel-green-pixel::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-radius: inherit;
-  background-image: url("/images/dither-green.svg");
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  z-index: -1;
-  pointer-events: none;
-}
-@media (min-width: 700px) {
-  .panel-green-pixel {
-    overflow: hidden;
-    height: 700px;
-    box-shadow: none;
-    background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 165, 66) 25%, rgb(4, 4, 4) 70%);
-  }
-  .panel-green-pixel::before {
-    background-image: url("/images/dither-green-large.svg");
-    background-size: auto 100%;
-    background-position: bottom right;
-  }
-}
-@media (min-width: 1200px) {
-  .panel-green-pixel {
-    height: 425px;
-    background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 165, 66) 25%, rgb(4, 4, 4) 70%);
-  }
-  .panel-green-pixel::before {
-    background-image: url("/images/dither-green-horizontal.svg");
-    background-size: auto 100%;
-    background-position: bottom right;
-  }
 }
 
 #more-projects .mini-grid {

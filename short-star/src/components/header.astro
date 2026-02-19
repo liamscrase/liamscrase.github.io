@@ -1,85 +1,66 @@
 ---
-const siteTitle = "Liam Scrase";
+const currentPath = Astro.url.pathname;
 ---
 
 <nav>
-	<div class="inner">
-		<a class="logo" href="/">LIAM</a>
-			<ul>
-				<li><a href="/#projects">Projects</a></li>
-				<li><a href="/#site-footer">Contact</a></li>
-			</ul>
-	</div>
-
+  <div class="inner">
+    <a class="logo" href="/">LIAM</a>
+    <ul>
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/#site-footer">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
-	<script>
-		// @ts-nocheck
-		document.addEventListener("DOMContentLoaded", () => {
-			const header = document.querySelector("header");
-			const navs = document.querySelectorAll("nav"); // Select ALL nav elements
-			const texts = document.querySelectorAll("#projects .text");
+<script>
+  // @ts-nocheck
+  document.addEventListener("DOMContentLoaded", () => {
+    const nav = document.querySelector("nav");
+    let ticking = false;
+    let isScrolled = false;
 
-			// Set scroll threshold based on whether header exists
-			const stickyNav = header ? header.offsetHeight : 50; // Use small threshold (50px) if no header
-			
-			let ticking = false;
-			let lastScrollY = window.scrollY;
+    const scrollToElement = (el, offset = 0) => {
+      const y = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    };
 
-			// Handle scroll with requestAnimationFrame for smooth performance
-			const handleScroll = () => {
-				const currentScrollY = window.scrollY;
-				
-				// Apply or remove scrolled class based on scroll position
-				if (currentScrollY > 10) {
-					// Scrolling down or past threshold
-					navs.forEach((nav) => nav.classList.add("scrolled"));
-				} else {
-					// At the top - remove class to trigger reverse transition
-					navs.forEach((nav) => nav.classList.remove("scrolled"));
-				}
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const shouldBeScrolled = window.scrollY > 10;
+          if (shouldBeScrolled !== isScrolled) {
+            isScrolled = shouldBeScrolled;
+            nav?.classList.toggle("scrolled", isScrolled);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
 
-				lastScrollY = currentScrollY;
-				ticking = false;
-			};
+    // Smooth scroll on load if hash present
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      setTimeout(() => {
+        const target = document.getElementById(hash);
+        if (target) scrollToElement(target, hash === "projects" ? 100 : 0);
+      }, 100);
+    }
 
-			window.addEventListener("scroll", () => {
-				if (!ticking) {
-					requestAnimationFrame(handleScroll);
-					ticking = true;
-				}
-			});
+    // Smooth scroll on hash link click (same-page only)
+    document.querySelectorAll('a[href*="#"]').forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        const hash = href?.split("#")[1];
+        if (!hash) return;
 
-			// Handle smooth scrolling to #projects section
-			// If the URL contains #projects, scroll to it after page load
-			if (window.location.hash === '#projects') {
-				setTimeout(() => {
-					const projectsSection = document.getElementById('projects');
-					if (projectsSection) {
-						projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-					}
-				}, 100);
-			}
+        const target = document.getElementById(hash);
+        if (!target) return; // let browser handle cross-page navigation
 
-			// Handle clicks on links to #projects
-			document.querySelectorAll('a[href*="#projects"]').forEach(link => {
-				link.addEventListener('click', (e) => {
-					const href = link.getAttribute('href');
-					// Check if it's linking to #projects on the home page
-					if (href === '/#projects' || href === '#projects') {
-						// If we're already on the home page
-						if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-							e.preventDefault();
-							const projectsSection = document.getElementById('projects');
-							if (projectsSection) {
-								projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-								// Update URL without triggering navigation
-								history.pushState(null, '', '/#projects');
-							}
-						}
-						// If on a different page, allow default navigation (will load home page with hash)
-					}
-				});
-			});
-		});
-	</script>
+        e.preventDefault();
+        scrollToElement(target, hash === "projects" ? 100 : 0);
+        history.pushState(null, "", href);
+      });
+    });
+  });
+</script>

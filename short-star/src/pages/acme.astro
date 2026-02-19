@@ -1,31 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import FadeUpAnimation from '../components/FadeUpAnimation.astro';
+import FadeUpAnimation from "../components/FadeUpAnimation.astro";
 ---
 
-<FadeUpAnimation/>
+<FadeUpAnimation />
 
 <Layout title="Acme Cars">
-    <link rel="stylesheet" href="/acme.css" />
+  <link rel="stylesheet" href="/acme.css" />
 
   <div id="body-wrapper">
     <div class="content flex column gap-large">
-
-      <section class="project-header flex column gap-small">
+      <section class="project-header flex column gap-medium">
         <div class="section-header fade-up">
           <span class="sub-header blue">Acme Cars, 2025</span>
           <h1>
             Upgrading motorcentral’s base dealership website template with a
             modern design and fresh features
           </h1>
-                    <div class="button-container">
-            <a target="_blank" href="https://acmecars.co.nz/" class="button blue">Go to App</a>
-            <a target="_blank" href="https://www.avantifinance.app/" class="button grey">Visit Website</a>
+          <div class="button-container">
+            <a
+              target="_blank"
+              href="https://acmecars.co.nz/"
+              class="button blue">Visit Live Demo</a
+            >
+            <a
+              target="_blank"
+              href="https://www.motorcentral.co.nz/dealer-websites"
+              class="button grey">Find out more</a
+            >
           </div>
         </div>
-        <div class="large-image panel-grey fade-up">
-          <img src="/images/acme5/acme-hero.jpg" alt="Acme Cars Hero Image" />
-        </div>
+        <img
+          class="fade-up"
+          src="/images/acme5/acme-hero.jpg"
+          alt="Acme Cars Hero Image"
+        />
         <div class="my-role">
           <h2>My role</h2>
           <p>
@@ -225,7 +234,7 @@ import FadeUpAnimation from '../components/FadeUpAnimation.astro';
             href="https://feildingmotorgroup.co.nz"
             target="_blank"
             rel="noopener noreferrer"
-            class="panel-hover"
+            class="panel-grey"
           >
             <p>feildingmotorgroup.co.nz</p>
             <span class="icon-open"></span>
@@ -234,7 +243,7 @@ import FadeUpAnimation from '../components/FadeUpAnimation.astro';
             href="https://autolinecars.co.nz"
             target="_blank"
             rel="noopener noreferrer"
-            class="panel-hover"
+            class="panel-grey"
           >
             <p>autolinecars.co.nz</p>
             <span class="icon-open"></span>
@@ -243,7 +252,7 @@ import FadeUpAnimation from '../components/FadeUpAnimation.astro';
             href="https://wiltoncars.co.nz"
             target="_blank"
             rel="noopener noreferrer"
-            class="panel-hover"
+            class="panel-grey"
           >
             <p>wiltoncars.co.nz</p>
             <span class="icon-open"></span>
@@ -252,7 +261,7 @@ import FadeUpAnimation from '../components/FadeUpAnimation.astro';
             href="https://shoreprestige.co.nz"
             target="_blank"
             rel="noopener noreferrer"
-            class="panel-hover"
+            class="panel-grey"
           >
             <p>shoreprestige.co.nz</p>
             <span class="icon-open"></span>
@@ -261,7 +270,7 @@ import FadeUpAnimation from '../components/FadeUpAnimation.astro';
             href="https://clickcars.co.nz"
             target="_blank"
             rel="noopener noreferrer"
-            class="panel-hover"
+            class="panel-grey"
           >
             <p>clickcars.co.nz</p>
             <span class="icon-open"></span>
@@ -270,7 +279,7 @@ import FadeUpAnimation from '../components/FadeUpAnimation.astro';
             href="https://futuremotors.co.nz"
             target="_blank"
             rel="noopener noreferrer"
-            class="panel-hover"
+            class="panel-grey"
           >
             <p>futuremotors.co.nz</p>
             <span class="icon-open"></span>
@@ -279,7 +288,7 @@ import FadeUpAnimation from '../components/FadeUpAnimation.astro';
             href="https://planetcars.co.nz"
             target="_blank"
             rel="noopener noreferrer"
-            class="panel-hover"
+            class="panel-grey"
           >
             <p>planetcars.co.nz</p>
             <span class="icon-open"></span>
@@ -288,14 +297,13 @@ import FadeUpAnimation from '../components/FadeUpAnimation.astro';
             href="https://kiwiaffordablecars.co.nz"
             target="_blank"
             rel="noopener noreferrer"
-            class="panel-hover"
+            class="panel-grey"
           >
             <p>kiwiaffordablecars.co.nz</p>
             <span class="icon-open"></span>
           </a>
         </div>
       </section>
-
     </div>
   </div>
 </Layout>

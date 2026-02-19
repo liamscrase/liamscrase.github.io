@@ -11,20 +11,19 @@
 }
 #background .upgrade .inner .text {
   width: 100%;
-  padding: 40px;
+  padding: 24px;
   margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 #background .upgrade .inner .text .sub-header {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 #background .upgrade .inner .text .item {
   display: flex;
   gap: 16px;
   align-items: center;
-  margin-bottom: 24px;
-}
-#background .upgrade .inner .text .item:last-child {
-  margin-bottom: 0;
 }
 #background .upgrade .inner .text .item p {
   margin: 0;
@@ -45,7 +44,7 @@
   width: 100%;
   display: flex;
   align-items: flex-end;
-  padding: 6% 6% 0 6%;
+  padding: 24px 24px 0 24px;
 }
 #background .upgrade .inner .image img {
   width: 100%;
@@ -54,7 +53,7 @@
 }
 
 #features .image {
-  padding-left: 40px;
+  padding-left: 24px;
 }
 
 .example-websites {
@@ -99,8 +98,11 @@
     filter: grayscale(100%);
     opacity: 0.7;
   }
-  #background .upgrade .inner .image {
+  #background .upgrade .inner .text {
     padding: 40px;
+  }
+  #background .upgrade .inner .image {
+    padding: 24px;
     align-items: center;
   }
   #background .upgrade .inner .image img {
@@ -130,7 +132,15 @@
   #background .upgrade .inner .image {
     padding: 40px 40px 0;
   }
+  #background .upgrade .inner .image img {
+    border-radius: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
   #background .text {
     margin-bottom: -50px;
+  }
+  #features .image {
+    padding-left: 40px;
   }
 }/*# sourceMappingURL=acme.css.map */

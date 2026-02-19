@@ -13,22 +13,21 @@
 
       .text {
         width: 100%;
-        padding: 40px;
+        padding: 24px;
         margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
 
         .sub-header {
-          margin-bottom: 20px;
+          margin-bottom: 0;
         }
 
         .item {
           display: flex;
           gap: 16px;
           align-items: center;
-          margin-bottom: 24px;
-
-          &:last-child {
-            margin-bottom: 0;
-          }
 
           p {
             margin: 0;
@@ -55,7 +54,7 @@
         width: 100%;
         display: flex;
         align-items: flex-end;
-        padding: 6% 6% 0 6%;
+        padding: 24px 24px 0 24px;
 
         img {
           width: 100%;
@@ -70,7 +69,7 @@
 
 #features {
   .image {
-    padding-left: 40px;
+    padding-left: 24px;
   }
 }
 
@@ -126,8 +125,12 @@
           }
         }
 
-        .image {
+        .text {
           padding: 40px;
+        }
+
+        .image {
+          padding: 24px;
           align-items: center;
 
           img {
@@ -148,9 +151,11 @@
 @media (min-width: 1350px) {
   #background {
     margin-bottom: -50px;
+
     .upgrade {
       top: -50px;
-            position: relative;
+      position: relative;
+
       .inner {
         &.panel-blue {
           margin-left: -40px;
@@ -165,6 +170,12 @@
 
         .image {
           padding: 40px 40px 0;
+
+          img {
+            border-radius: 0;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+          }
         }
 
       }
@@ -174,4 +185,11 @@
       margin-bottom: -50px;
     }
   }
+
+  #features {
+  .image {
+    padding-left: 40px;
+  }
+}
+
 }

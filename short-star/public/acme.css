@@ -90,7 +90,7 @@
   color: var(--text-color-alt);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1200px) {
   #background .upgrade .inner {
     display: grid;
     grid-template-columns: 1fr 1fr;

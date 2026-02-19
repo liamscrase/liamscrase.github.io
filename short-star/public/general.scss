@@ -10,7 +10,7 @@
     --hover-color-alt: #3c3c3c;
     --text-color: #ffffff;
     --text-color-alt: rgba(255, 255, 255, 0.7);
-    --border-color: #282828;
+    --border-color: #313131;
     --border-color-alt: #555555;
     --border-color-blue: #475F7B;
     --primary-blue: #4b95ea;
@@ -61,7 +61,7 @@ body {
 
 .content {
     padding: 60px 20px;
-    max-width: 500px;
+    max-width: 430px;
     margin: auto;
     width: 100%;
 }
@@ -73,7 +73,7 @@ p {
     font-weight: 300;
     line-height: 140%;
     margin-bottom: 12px;
-    max-width: 900px;
+    max-width: 1200px;
 }
 
 h1 {
@@ -153,63 +153,6 @@ h3 {
     border-radius: 16px;
 }
 
-.panel-blue-pixel {
-    position: relative;
-    background: radial-gradient(circle at 105% 105%,
-            rgb(255, 255, 255) 0%,
-            rgb(0, 94, 255) 30%,
-            rgba(4, 4, 4, 1.0) 70%);
-
-    background-size: cover;
-    background-position: bottom;
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.9);
-
-    &:before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        top: 0;
-        left: 0;
-        right: 0;
-        border-radius: inherit;
-        background-image: url("/images/acme5/dither-blue10.svg");
-        background-size: 100% auto;
-        background-repeat: no-repeat;
-        background-position: center;
-        z-index: -1;
-        opacity: 1;
-        pointer-events: none;
-    }
-
-    @media (min-width: 900px) {
-    box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.0);
-
-        background: radial-gradient(circle at 100% 100%,
-                rgba(255, 255, 255, 0.9) 0%,
-                rgba(0, 94, 255, 1) 30%,
-                rgb(4, 4, 4) 70%);
-
-        &:before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            top: 0;
-            left: 0;
-            right: 0;
-            border-radius: inherit;
-            background-image: url("/images/acme5/dither-blue-horizontal2.svg");
-            background-size: auto 100%;
-            background-repeat: no-repeat;
-            background-position: bottom;
-            z-index: -1;
-            opacity: 1;
-            pointer-events: none;
-        }
-    }
-}
-
 
 
 
@@ -233,7 +176,7 @@ h3 {
         left: 0;
         right: 0;
         border-radius: inherit;
-        background-image: url("/images/avanti-app/dither-green4.svg");
+        background-image: url("/images/dither-green-large.svg");
         background-size: 100% auto;
         background-repeat: no-repeat;
         background-position: center;
@@ -242,7 +185,7 @@ h3 {
         pointer-events: none;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 1200px) {
     box-shadow: inset 0 50px 30px -20px rgba(0, 0, 0, 0.0);
 
         background: radial-gradient(circle at 100% 100%,
@@ -258,7 +201,7 @@ h3 {
             left: 0;
             right: 0;
             border-radius: inherit;
-            background-image: url("/images/avanti-app/dither-green-horizontal2.svg");
+            background-image: url("/images/dither-green-horizontal-large.svg");
             background-size: auto 100%;
             background-repeat: no-repeat;
             background-position: bottom;
@@ -580,11 +523,20 @@ h3 {
         gap: 16px;
     }
 }
+@media (min-width: 700px) {
+    .content {
+        padding: 60px 20px;
+        max-width: 700px;
+        margin: auto;
+        width: 100%;
+    }
+}
 
-@media (min-width: 900px) {
+
+@media (min-width: 1200px) {
     .content {
         max-width: 1200px;
-        padding: 90px 20px;
+        padding: 90px 40px;
     }
 
     h1 {
@@ -594,10 +546,6 @@ h3 {
 
     h2 {
         font-size: 32px;
-    }
-
-    .content-small {
-        padding: 60px 20px 120px;
     }
 
     .image-section {

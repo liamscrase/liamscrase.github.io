@@ -8,7 +8,7 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
 <Layout>
   <section id="body-wrapper">
     <div class="content flex column gap-large">
-        <section id="banner">
+      <section id="banner">
         <div class="blurb">
           <img src="images/profile.jpg" alt="" />
           <div class="inner">
@@ -25,134 +25,135 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
             </p>
           </div>
         </div>
+      </section>
+      <div class="flex column gap-large">
+        <section id="projects">
+          <div class="flex column gap-small">
+            <div class="section-header fade-up">
+              <span class="sub-header">UX/UI Design</span>
+              <h2>Project Case Studies</h2>
+              <p>
+                Case studies of my best UX projects, showcasing innovation,
+                design thinking, and problem-solving approaches.
+              </p>
+            </div>
+            <section id="project-list">
+              <div class="project-card panel-blue-pixel acme fade-up">
+                <div class="text">
+                  <h3>Acme Website Template</h3>
+                  <span>2025</span>
+                  <p>
+                    Elevating the standards for car dealer websites in New
+                    Zealand with a modern website template and cutting-edge
+                    helpful AI features
+                  </p>
+                  <a
+                    class="button blue"
+                    href="/acme"
+                    aria-label="View Acme Website Template project details"
+                  >
+                    View project <i class="icon-arrow"></i>
+                  </a>
+                </div>
+                <img
+                  class="project-image"
+                  src="/images/acme5/acme5_graphic.webp"
+                  alt="Acme Cars website preview"
+                />
+              </div>
+
+              <div class="project-card panel-green-pixel avanti fade-up">
+                <div class="text">
+                  <h3>Avanti Finance App</h3>
+                  <span>2025</span>
+
+                  <p>
+                    A convenient mobile and web app for customers to view where
+                    they’re at with their loan repayments.
+                  </p>
+                  <a
+                    class="button green"
+                    href="/avanti"
+                    aria-label="View Avanti Finance App project details"
+                  >
+                    View project <i class="icon-arrow"></i>
+                  </a>
+                </div>
+                <img
+                class="project-image"
+                  src="/images/avanti-app/avanti_graphic.webp"
+                  alt="Avanti Finance App preview"
+                />
+              </div>
             </section>
-        <div class="flex column gap-large">
-          <section id="projects">
-            <div class="flex column gap-small">
-              <div class="section-header fade-up">
-                <span class="sub-header">UX/UI Design</span>
-                <h2>Project Case Studies</h2>
-                <p>
-                  Case studies of my best UX projects, showcasing innovation,
-                  design thinking, and problem-solving approaches.
-                </p>
-              </div>
-              <section id="project-list">
-                <div class="project-card panel-blue-pixel acme fade-up">
-                  <div class="text">
-                    <h3>Acme Website Template</h3>
-                    <span>2025</span>
-                    <p>
-                      Elevating the standards for car dealer websites in New
-                      Zealand with a modern website template and cutting-edge
-                      helpful AI features
-                    </p>
-                    <a
-                      class="button blue"
-                      href="/acme"
-                      aria-label="View Acme Website Template project details"
-                    >
-                      View project <i class="icon-arrow"></i>
-                    </a>
-                  </div>
-                  <img
-                    src="/images/acme5/acme5_graphic.webp"
-                    alt="Acme Cars website preview"
-                  />
-                </div>
-
-                <div class="project-card panel-green-pixel avanti fade-up">
-                  <div class="text">
-                    <h3>Avanti Finance App</h3>
-                    <span>2025</span>
-
-                    <p>
-                      A convenient mobile and web app for customers to view
-                      where they’re at with their loan repayments.
-                    </p>
-                    <a
-                      class="button green"
-                      href="/avanti"
-                      aria-label="View Avanti Finance App project details"
-                    >
-                      View project <i class="icon-arrow"></i>
-                    </a>
-                  </div>
-                  <img
-                    src="/images/avanti-app/avanti_graphic.webp"
-                    alt="Avanti Finance App preview"
-                  />
-                </div>
-              </section>
+          </div>
+        </section>
+        <section id="more-projects">
+          <div class="flex column gap-small">
+            <div class="section-header fade-up">
+              <span class="sub-header">Design + Dev</span>
+              <h2>Website Projects</h2>
+              <p>
+                Solo projects where I designed and built complete websites from
+                concept to launch.
+              </p>
             </div>
-          </section>
-          <section id="more-projects">
-            <div class="flex column gap-small">
-              <div class="section-header fade-up">
-                <span class="sub-header">Design + Dev</span>
-                <h2>Website Projects</h2>
+
+            <div class="mini-grid">
+              <a
+                class="mini-card panel-grey fade-up"
+                href="https://theserioussandwich.nz/"
+                aria-label="Open The Serious Sandwich website"
+                target="_blank"
+              >
+                <h3>The Serious Sandwich</h3>
+
+                <span class="year">2025</span>
+                <p>Playful brand site with a tight, clear menu layout.</p>
+                <div class="button grey">
+                  Visit website
+                  <i class="icon-open"></i>
+                </div>
+              </a>
+              <a
+                class="mini-card panel-grey fade-up"
+                href="https://simplystunningstudiostekapo.nz/"
+                aria-label="Open Simply Stunning Studios website"
+                target="_blank"
+              >
+                <h3>Simply Stunning Studios</h3>
+
+                <span class="year">2025</span>
                 <p>
-                  Solo projects where I designed and built complete websites
-                  from concept to launch.
+                  Lake Tekapo accommodation site with streamlined booking flow.
                 </p>
-              </div>
+                <div class="button grey">
+                  Visit website
+                  <i class="icon-open"></i>
+                </div>
+              </a>
+              <a
+                class="mini-card panel-grey fade-up"
+                href="https://terapacars.co.nz/"
+                aria-label="Open Te Rapa Cars website"
+                target="_blank"
+              >
+                <h3>Te Rapa Cars</h3>
 
-              <div class="mini-grid">
-                <a
-                  class="mini-card panel-grey fade-up"
-                  href="https://theserioussandwich.nz/"
-                  aria-label="Open The Serious Sandwich website"
-                  target="_blank"
-                >
-                  <h3>The Serious Sandwich</h3>
-
-                  <span class="year">2025</span>
-                  <p>Playful brand site with a tight, clear menu layout.</p>
-                  <div class="button grey">
-                    Visit website
-                    <i class="icon-open"></i>
-                  </div>
-                </a>
-                <a
-                  class="mini-card panel-grey fade-up"
-                  href="https://simplystunningstudiostekapo.nz/"
-                  aria-label="Open Simply Stunning Studios website"
-                  target="_blank"
-                >
-                  <h3>Simply Stunning Studios</h3>
-
-                  <span class="year">2025</span>
-                  <p>
-                    Lake Tekapo accommodation site with streamlined booking
-                    flow.
-                  </p>
-                  <div class="button grey">
-                    Visit website
-                    <i class="icon-open"></i>
-                  </div>
-                </a>
-                <a
-                  class="mini-card panel-grey fade-up"
-                  href="https://terapacars.co.nz/"
-                  aria-label="Open Te Rapa Cars website"
-                  target="_blank"
-                >
-                  <h3>Te Rapa Cars</h3>
-
-                  <span class="year">2026</span>
-                  <p>
-                    Modern used car dealership site showcasing inventory with
-                    advanced search.
-                  </p>
-                  <div class="button grey">
-                    Visit website
-                    <i class="icon-open"></i>
-                  </div>
-                </a>
-              </div>
+                <span class="year">2026</span>
+                <p>
+                  Modern used car dealership site showcasing inventory with
+                  advanced search.
+                </p>
+                <div class="button grey">
+                  Visit website
+                  <i class="icon-open"></i>
+                </div>
+              </a>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
+    </div>
   </section>
 </Layout>

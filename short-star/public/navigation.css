@@ -5,13 +5,17 @@ nav {
   top: 0;
   z-index: 100;
   background: transparent;
-  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+          backdrop-filter: blur(0px);
   border-bottom: 1px solid transparent;
+  transition: background-color 300ms ease, border-bottom-color 300ms ease, -webkit-backdrop-filter 300ms ease;
   transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease;
+  transition: background-color 300ms ease, border-bottom-color 300ms ease, backdrop-filter 300ms ease, -webkit-backdrop-filter 300ms ease;
 }
 nav.scrolled {
   background: color-mix(in srgb, var(--background-color) 85%, transparent);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
 }
 nav .inner {
@@ -62,21 +66,13 @@ nav:hover {
 }
 
 #site-footer {
-  padding: 80px 20px 120px;
   border-top: 1px solid var(--border-color);
 }
 #site-footer h2 {
   text-align: center;
-  line-height: 46px;
+  line-height: 140%;
   margin-bottom: 40px;
-}
-#site-footer .footer-inner {
-  display: flex;
-  flex-direction: column;
-  max-width: 1000px;
-  margin: auto;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto 32px;
 }
 #site-footer .footer-links {
   display: flex;
@@ -115,7 +111,8 @@ nav:hover {
   transform: scaleX(1);
 }
 #site-footer .contact-form {
-  max-width: 720px;
+  max-width: 700px;
+  margin: 0 auto;
   width: 100%;
   display: block;
   background: linear-gradient(0deg, var(--tint-color) 0%, var(--background-color) 100%);

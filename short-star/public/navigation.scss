@@ -45,6 +45,7 @@ nav {
     height: fit-content;
 
   }
+
   a {
     display: flex;
     align-items: center;
@@ -62,31 +63,22 @@ nav {
     border: 3px solid;
     border-image: linear-gradient(to bottom, var(--text-color), var(--primary-blue)) 1;
     border-radius: 4px;
-  } 
+  }
 
-    &:hover {
-      color: var(--primary-blue);
-    }
+  &:hover {
+    color: var(--primary-blue);
+  }
 }
 
 
 #site-footer {
-  padding: 80px 20px 120px;
   border-top: 1px solid var(--border-color);
 
   h2 {
     text-align: center;
-    line-height: 46px;
+    line-height: 140%;
     margin-bottom: 40px;
-  }
-
-  .footer-inner {
-    display: flex;
-    flex-direction: column;
-    max-width: 1000px;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto 32px;
   }
 
   .footer-links {
@@ -131,7 +123,8 @@ nav {
   }
 
   .contact-form {
-    max-width: 720px;
+    max-width: 700px;
+    margin: 0 auto;
     width: 100%;
     display: block;
     background: linear-gradient(0deg,
@@ -167,11 +160,11 @@ nav {
 
     }
 
-      .contact-form input.invalid,
-  .contact-form textarea.invalid {
-    border-color: var(--red) ;
-    outline-color: var(--red) ;
-  }
+    .contact-form input.invalid,
+    .contact-form textarea.invalid {
+      border-color: var(--red);
+      outline-color: var(--red);
+    }
 
     input,
     textarea {

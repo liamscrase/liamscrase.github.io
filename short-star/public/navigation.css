@@ -1,6 +1,5 @@
 nav {
   position: fixed;
-  padding: 20px;
   width: 100%;
   top: 0;
   z-index: 100;
@@ -26,6 +25,7 @@ nav .inner {
   max-width: 1200px;
   height: -moz-fit-content;
   height: fit-content;
+  padding: 20px;
 }
 nav li {
   font-weight: 500;
@@ -115,7 +115,7 @@ nav:hover {
   margin: 0 auto;
   width: 100%;
   display: block;
-  background: linear-gradient(0deg, var(--tint-color) 0%, var(--background-color) 100%);
+  background: var(--tint-color);
   padding: 24px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
@@ -210,4 +210,10 @@ nav:hover {
 #site-footer #contact-result .result-details strong {
   font-weight: 700;
   margin-right: 6px;
+}
+
+@media (min-width: 1200px) {
+  nav .inner {
+    padding: 20px 40px;
+  }
 }/*# sourceMappingURL=navigation.css.map */

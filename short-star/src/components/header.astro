@@ -38,6 +38,11 @@ const currentPath = Astro.url.pathname;
       }
     }, { passive: true });
 
+    // Invert nav only when process section is fully expanded
+    window.addEventListener('process:fullscreen', (e) => {
+      nav?.classList.toggle('theme-light', e.detail.active)
+    })
+
     // Smooth scroll on load if hash present
     const hash = window.location.hash.slice(1);
     if (hash) {

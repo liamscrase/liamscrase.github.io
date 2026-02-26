@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="process-flow.css">
 
-<div id="process-scroll-container" class="theme-light">
+<div id="process-scroll-container">
   <div class="process-sticky-wrap">
     <section id="process">
       <div class="process-inner">
@@ -17,11 +17,6 @@
 
         <div class="process-cards-outer">
           <div class="process-cards" id="cards-list"></div>
-        </div>
-
-        <div class="process-nav">
-          <button class="process-nav-btn" id="process-prev">← Prev</button>
-          <button class="process-nav-btn" id="process-next">Next →</button>
         </div>
 
       </div>
@@ -57,8 +52,6 @@ const stickyWrap = document.querySelector('.process-sticky-wrap')
 const stepsRow   = document.getElementById('steps-row')
 const cardsList  = document.getElementById('cards-list')
 const bar        = document.getElementById('prog-bar')
-const prevBtn    = document.getElementById('process-prev')
-const nextBtn    = document.getElementById('process-next')
 const container  = document.getElementById('process-scroll-container')
 
 // ── BUILD DOM ─────────────────────────────────────────
@@ -146,8 +139,6 @@ function goTo(index) {
 
   bar.style.setProperty('--step-color', STEPS[index].color)
   bar.classList.toggle('live', index > 0 && index < TOTAL - 1)
-  prevBtn.disabled = index === 0
-  nextBtn.disabled = index === TOTAL - 1
 }
 
 // ── EXPAND ────────────────────────────────────────────
@@ -172,6 +163,8 @@ function setExpand(value) {
 
   stickyWrap.style.clipPath  = `inset(${vInset}% ${hInset}% round ${radius}px)`
   stickyWrap.style.boxShadow = `0 24px 80px rgba(0,0,0,${shadow})`
+
+  window.dispatchEvent(new CustomEvent('process:fullscreen', { detail: { active: value === 1 } }))
 }
 
 // ── SCROLL ────────────────────────────────────────────
@@ -220,17 +213,6 @@ window.addEventListener('resize', () => {
     onScroll()
   }, 150)
 })
-
-// ── NAV ───────────────────────────────────────────────
-function navClick(index) {
-  ignoreScroll = true
-  goTo(index)
-  setTimeout(() => { ignoreScroll = false }, 600)
-}
-
-stepBtns.forEach((btn, i) => btn.addEventListener('click', () => navClick(i)))
-prevBtn.addEventListener('click', () => navClick(current - 1))
-nextBtn.addEventListener('click', () => navClick(current + 1))
 
 // ── INIT ─────────────────────────────────────────────
 setExpand(0)

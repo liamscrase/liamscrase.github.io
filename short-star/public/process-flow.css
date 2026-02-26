@@ -1,0 +1,210 @@
+@media (min-width: 1200px) {
+  #process-scroll-container {
+    height: 300vh;
+  }
+}
+
+#process {
+  background: var(--background-color);
+}
+@media (min-width: 1200px) {
+  #process {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+@media (min-width: 1200px) {
+  #process .process-sticky {
+    width: 100%;
+  }
+}
+#process .process-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#process .process-steps {
+  display: flex;
+  align-items: flex-start;
+}
+#process .process-steps .process-step-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+#process .process-steps .process-step-wrapper:last-child {
+  flex: none;
+}
+#process .process-steps .process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+#process .process-steps .process-step .process-node {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 250ms ease, background 250ms ease;
+}
+@media (min-width: 1200px) {
+  #process .process-steps .process-step .process-node {
+    width: 42px;
+    height: 42px;
+  }
+}
+#process .process-steps .process-step .process-number {
+  font-family: "Chivo Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--text-color);
+  transition: color 250ms ease;
+}
+@media (min-width: 1200px) {
+  #process .process-steps .process-step .process-number {
+    font-size: 12px;
+  }
+}
+#process .process-steps .process-step .process-label {
+  font-family: "Chivo Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-color-alt);
+  white-space: nowrap;
+  transition: color 250ms ease;
+}
+@media (max-width: 600px) {
+  #process .process-steps .process-step .process-label {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  #process .process-steps .process-step .process-label {
+    font-size: 11px;
+  }
+}
+#process .process-steps .process-step.active .process-node {
+  border-color: var(--step-color);
+  background: color-mix(in srgb, var(--step-color) 12%, transparent);
+}
+#process .process-steps .process-step.active .process-number {
+  color: var(--step-color);
+}
+#process .process-steps .process-step.active .process-label {
+  color: var(--text-color);
+}
+#process .process-steps .process-step.past .process-node {
+  border-color: var(--border-color-alt);
+}
+#process .process-steps .process-connector {
+  flex: 1;
+  height: 1px;
+  margin: 0 8px;
+  margin-bottom: 26px;
+  background: var(--border-color);
+  transition: background 250ms ease;
+}
+#process .process-steps .process-connector.past {
+  background: var(--border-color-alt);
+}
+#process .process-cards .process-card {
+  display: none;
+  flex-direction: column;
+  border-radius: 16px;
+  border: 1px solid color-mix(in srgb, var(--step-color) 22%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--step-color) 6%, transparent) 0%, var(--background-color) 60%);
+  padding: 28px;
+}
+@media (min-width: 1200px) {
+  #process .process-cards .process-card {
+    padding: 36px;
+  }
+}
+#process .process-cards .process-card.active {
+  display: flex;
+}
+#process .process-cards .process-card .process-card-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+#process .process-cards .process-card .process-card-header .process-card-number {
+  font-family: "Chivo Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--step-color);
+}
+#process .process-cards .process-card .process-card-header h3 {
+  font-family: "Chivo Mono", monospace;
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 0;
+  color: var(--text-color);
+}
+#process .process-cards .process-card p {
+  color: var(--text-color-alt);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 170%;
+  margin-bottom: 22px;
+}
+#process .process-cards .process-card .process-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#process .process-cards .process-card .process-tools .process-tool {
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--step-color) 35%, transparent);
+  color: var(--step-color);
+  font-family: "Chivo Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--step-color) 7%, transparent);
+}
+#process .process-nav {
+  display: flex;
+  justify-content: space-between;
+}
+#process .process-nav .process-nav-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 20px;
+  color: var(--text-color-alt);
+  font-family: "Chivo Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+#process .process-nav .process-nav-btn:hover {
+  border-color: var(--border-color-alt);
+  color: var(--text-color);
+  transform: translateY(-2px);
+}
+#process .process-nav .process-nav-btn:disabled {
+  opacity: 0.2;
+  cursor: default;
+  transform: none;
+}/*# sourceMappingURL=process-flow.css.map */

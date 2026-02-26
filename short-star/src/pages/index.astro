@@ -1,11 +1,68 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import FadeUpAnimation from "../components/FadeUpAnimation.astro";
+import Ticker from "../components/Ticker.astro";
+import ProcessFlow from "../components/ProcessFlow.astro";
+
+const tools = [
+  { name: "Figma", src: "/images/logos/figma.svg" },
+  { name: "Adobe CC", src: "/images/logos/adobe.svg" },
+  { name: "Astro", src: "/images/logos/astro.svg" },
+  { name: "Figma", src: "/images/logos/figma.svg" },
+  { name: "Adobe CC", src: "/images/logos/adobe.svg" },
+  { name: "Astro", src: "/images/logos/astro.svg" },
+];
 ---
 
+<link rel="stylesheet" href="/process-flow.css" />
 <FadeUpAnimation />
+<Ticker />
 
 <Layout>
+  <Fragment slot="head">
+    <link
+      rel="preload"
+      href="/images/dither-blue-horizontal.svg"
+      as="image"
+      media="(min-width: 1200px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="/images/dither-blue-large.svg"
+      as="image"
+      media="(min-width: 700px) and (max-width: 1199px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="/images/dither-blue.svg"
+      as="image"
+      media="(max-width: 699px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="/images/dither-green-horizontal.svg"
+      as="image"
+      media="(min-width: 1200px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="/images/dither-green-large.svg"
+      as="image"
+      media="(min-width: 700px) and (max-width: 1199px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="/images/dither-green.svg"
+      as="image"
+      media="(max-width: 699px)"
+      fetchpriority="high"
+    />
+  </Fragment>
   <section id="body-wrapper">
     <div class="content flex column gap-large">
       <section id="banner">
@@ -55,11 +112,29 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
                     View project <i class="icon-arrow"></i>
                   </a>
                 </div>
-                <img
-                  class="project-image"
-                  src="/images/acme5/acme5_graphic.webp"
-                  alt="Acme Cars website preview"
-                />
+                <div class="project-image-container">
+                  <img
+                    class="project-image"
+                    src="/images/acme5/acme5_graphic.webp"
+                    alt="Acme Cars website preview"
+                  />
+                </div>
+                <picture>
+                  <source
+                    media="(min-width: 1200px)"
+                    srcset="/images/dither-blue-horizontal.svg"
+                  />
+                  <source
+                    media="(min-width: 700px)"
+                    srcset="/images/dither-blue-large.svg"
+                  />
+                  <img
+                    class="dither"
+                    src="/images/dither-blue.svg"
+                    alt="Blue dither"
+                    fetchpriority="high"
+                  />
+                </picture>
               </div>
 
               <div class="project-card panel-green-pixel avanti fade-up">
@@ -79,81 +154,131 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
                     View project <i class="icon-arrow"></i>
                   </a>
                 </div>
-                <img
-                class="project-image"
-                  src="/images/avanti-app/avanti_graphic.webp"
-                  alt="Avanti Finance App preview"
-                />
+                <div class="project-image-container">
+                  <img
+                    class="project-image"
+                    src="/images/avanti-app/avanti_graphic.webp"
+                    alt="Avanti Finance App preview"
+                  />
+                </div>
+                <picture>
+                  <source
+                    media="(min-width: 1200px)"
+                    srcset="/images/dither-green-horizontal.svg"
+                  />
+                  <source
+                    media="(min-width: 700px)"
+                    srcset="/images/dither-green-large.svg"
+                  />
+                  <img
+                    class="dither"
+                    src="/images/dither-green.svg"
+                    alt="Green dither"
+                    fetchpriority="high"
+                  />
+                </picture>
               </div>
             </section>
           </div>
         </section>
-        <section id="more-projects">
-          <div class="flex column gap-small">
-            <div class="section-header fade-up">
-              <span class="sub-header">Design + Dev</span>
-              <h2>Website Projects</h2>
+        <section id="more-projects" class="flex column gap-small">
+          <div class="section-header fade-up">
+            <span class="sub-header">Design + Dev</span>
+            <h2>Website Projects</h2>
+            <p>
+              Solo projects where I designed and built complete websites from
+              concept to launch.
+            </p>
+          </div>
+
+          <div class="mini-grid">
+            <a
+              class="mini-card panel-grey fade-up"
+              href="https://theserioussandwich.nz/"
+              aria-label="Open The Serious Sandwich website"
+              target="_blank"
+            >
+              <h3>The Serious Sandwich</h3>
+
+              <span class="year">2025</span>
+              <p>Playful brand site with a tight, clear menu layout.</p>
+              <div class="button grey">
+                Visit website
+                <i class="icon-open"></i>
+              </div>
+            </a>
+            <a
+              class="mini-card panel-grey fade-up"
+              href="https://simplystunningstudiostekapo.nz/"
+              aria-label="Open Simply Stunning Studios website"
+              target="_blank"
+            >
+              <h3>Simply Stunning Studios</h3>
+
+              <span class="year">2025</span>
               <p>
-                Solo projects where I designed and built complete websites from
-                concept to launch.
+                Lake Tekapo accommodation site with streamlined booking flow.
               </p>
-            </div>
+              <div class="button grey">
+                Visit website
+                <i class="icon-open"></i>
+              </div>
+            </a>
+            <a
+              class="mini-card panel-grey fade-up"
+              href="https://terapacars.co.nz/"
+              aria-label="Open Te Rapa Cars website"
+              target="_blank"
+            >
+              <h3>Te Rapa Cars</h3>
 
-            <div class="mini-grid">
-              <a
-                class="mini-card panel-grey fade-up"
-                href="https://theserioussandwich.nz/"
-                aria-label="Open The Serious Sandwich website"
-                target="_blank"
-              >
-                <h3>The Serious Sandwich</h3>
-
-                <span class="year">2025</span>
-                <p>Playful brand site with a tight, clear menu layout.</p>
-                <div class="button grey">
-                  Visit website
-                  <i class="icon-open"></i>
-                </div>
-              </a>
-              <a
-                class="mini-card panel-grey fade-up"
-                href="https://simplystunningstudiostekapo.nz/"
-                aria-label="Open Simply Stunning Studios website"
-                target="_blank"
-              >
-                <h3>Simply Stunning Studios</h3>
-
-                <span class="year">2025</span>
-                <p>
-                  Lake Tekapo accommodation site with streamlined booking flow.
-                </p>
-                <div class="button grey">
-                  Visit website
-                  <i class="icon-open"></i>
-                </div>
-              </a>
-              <a
-                class="mini-card panel-grey fade-up"
-                href="https://terapacars.co.nz/"
-                aria-label="Open Te Rapa Cars website"
-                target="_blank"
-              >
-                <h3>Te Rapa Cars</h3>
-
-                <span class="year">2026</span>
-                <p>
-                  Modern used car dealership site showcasing inventory with
-                  advanced search.
-                </p>
-                <div class="button grey">
-                  Visit website
-                  <i class="icon-open"></i>
-                </div>
-              </a>
+              <span class="year">2026</span>
+              <p>
+                Modern used car dealership site showcasing inventory with
+                advanced search.
+              </p>
+              <div class="button grey">
+                Visit website
+                <i class="icon-open"></i>
+              </div>
+            </a>
+          </div>
+        </section>
+        <section id="toolbox" class="flex column gap-small">
+          <div class="text">
+                          <span class="sub-header">My toolbox</span>
+            <h2>Taking projects from design to development</h2>
+            <p>
+              I use a variety of design and development tools to create
+              engaging digital experiences. My toolbox includes:
+            </p>
+          </div>
+          <div class="ticker-wrapper">
+            <div class="ticker-track" id="ticker-track">
+              {
+                [0, 1].map(() => (
+                  <ul class="ticker-list" aria-hidden="true">
+                    {tools.map((tool) => (
+                      <li class="ticker-item">
+                        <img
+                          src={tool.src}
+                          alt={tool.name}
+                          width="20"
+                          height="20"
+                        />
+                        <span>{tool.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ))
+              }
             </div>
           </div>
         </section>
       </div>
     </div>
+    <section class="process-section">
+      <ProcessFlow />
+    </section>
   </section>
 </Layout>

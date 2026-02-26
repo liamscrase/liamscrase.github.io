@@ -1,0 +1,262 @@
+// ========================
+// SCROLL CONTAINER + STICKY
+// ========================
+
+#process-scroll-container {
+    // Mobile: normal flow — sticky enabled at desktop breakpoint
+
+    @media (min-width: 1200px) {
+        height: 300vh;
+    }
+}
+
+// ========================
+// SECTION
+// ========================
+
+#process {
+    background: var(--background-color);
+
+    @media (min-width: 1200px) {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .process-sticky {
+        @media (min-width: 1200px) {
+            width: 100%;
+        }
+    }
+
+    .process-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    // ========================
+    // STEP NODES
+    // ========================
+
+    .process-steps {
+        display: flex;
+        align-items: flex-start;
+
+        .process-step-wrapper {
+            display: flex;
+            align-items: center;
+            flex: 1;
+
+            &:last-child {
+                flex: none;
+            }
+        }
+
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            flex-shrink: 0;
+
+            .process-node {
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                border: 1px solid var(--border-color);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: border-color 250ms ease, background 250ms ease;
+
+                @media (min-width: 1200px) {
+                    width: 42px;
+                    height: 42px;
+                }
+            }
+
+            .process-number {
+                font-family: "Chivo Mono", monospace;
+                font-size: 11px;
+                letter-spacing: 1px;
+                color: var(--text-color);
+                transition: color 250ms ease;
+
+                @media (min-width: 1200px) {
+                    font-size: 12px;
+                }
+            }
+
+            .process-label {
+                font-family: "Chivo Mono", monospace;
+                font-size: 10px;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                color: var(--text-color-alt);
+                white-space: nowrap;
+                transition: color 250ms ease;
+
+                @media (max-width: 600px) {
+                    display: none;
+                }
+
+                @media (min-width: 1200px) {
+                    font-size: 11px;
+                }
+            }
+
+            &.active {
+                .process-node {
+                    border-color: var(--step-color);
+                    background: color-mix(in srgb, var(--step-color) 12%, transparent);
+                }
+
+                .process-number {
+                    color: var(--step-color);
+                }
+
+                .process-label {
+                    color: var(--text-color);
+                }
+            }
+
+            &.past {
+                .process-node {
+                    border-color: var(--border-color-alt);
+                }
+            }
+        }
+
+        .process-connector {
+            flex: 1;
+            height: 1px;
+            margin: 0 8px;
+            margin-bottom: 26px;
+            background: var(--border-color);
+            transition: background 250ms ease;
+
+            &.past {
+                background: var(--border-color-alt);
+            }
+        }
+    }
+
+    // ========================
+    // DETAIL CARDS
+    // opacity/transform controlled by motion.dev — no CSS animation
+    // ========================
+
+    .process-cards {
+        .process-card {
+            display: none;
+            flex-direction: column;
+            border-radius: 16px;
+            border: 1px solid color-mix(in srgb, var(--step-color) 22%, transparent);
+            background: linear-gradient(135deg,
+                    color-mix(in srgb, var(--step-color) 6%, transparent) 0%,
+                    var(--background-color) 60%);
+            padding: 28px;
+
+            @media (min-width: 1200px) {
+                padding: 36px;
+            }
+
+            &.active {
+                display: flex;
+            }
+
+            .process-card-header {
+                display: flex;
+                align-items: baseline;
+                gap: 14px;
+                margin-bottom: 14px;
+
+                .process-card-number {
+                    font-family: "Chivo Mono", monospace;
+                    font-size: 11px;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+                    color: var(--step-color);
+                }
+
+                h3 {
+                    font-family: "Chivo Mono", monospace;
+                    font-size: 19px;
+                    font-weight: 500;
+                    margin-bottom: 0;
+                    color: var(--text-color);
+                }
+            }
+
+            p {
+                color: var(--text-color-alt);
+                font-size: 14px;
+                font-weight: 300;
+                line-height: 170%;
+                margin-bottom: 22px;
+            }
+
+            .process-tools {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+
+                .process-tool {
+                    padding: 5px 14px;
+                    border-radius: 999px;
+                    border: 1px solid color-mix(in srgb, var(--step-color) 35%, transparent);
+                    color: var(--step-color);
+                    font-family: "Chivo Mono", monospace;
+                    font-size: 11px;
+                    letter-spacing: 1.2px;
+                    text-transform: uppercase;
+                    background: color-mix(in srgb, var(--step-color) 7%, transparent);
+                }
+            }
+        }
+    }
+
+    // ========================
+    // NAV
+    // ========================
+
+    .process-nav {
+        display: flex;
+        justify-content: space-between;
+
+        .process-nav-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 20px;
+            color: var(--text-color-alt);
+            font-family: "Chivo Mono", monospace;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 250ms ease;
+
+            &:hover {
+                border-color: var(--border-color-alt);
+                color: var(--text-color);
+                transform: translateY(-2px);
+            }
+
+            &:disabled {
+                opacity: 0.2;
+                cursor: default;
+                transform: none;
+            }
+        }
+    }
+}

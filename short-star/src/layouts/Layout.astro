@@ -26,11 +26,12 @@ import Footer from "../components/footer.astro";
       href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
+    <slot name="head" />
   </head>
   <body>
-    <div id="loading-screen">
+    <!-- <div id="loading-screen">
       <div class="loader"></div>
-    </div>
+    </div> -->
     <div id="main-content">
       <Header />
       <slot />
@@ -38,29 +39,29 @@ import Footer from "../components/footer.astro";
     </div>
     <script>
       let loaderShown = false;
-      
+
       // Show loader after 300ms delay
       const loaderTimeout = setTimeout(() => {
-        const loader = document.querySelector('.loader') as HTMLElement;
+        const loader = document.querySelector(".loader") as HTMLElement;
         if (loader) {
-          console.log('Showing loader');
-          loader.style.opacity = '1';
+          console.log("Showing loader");
+          loader.style.opacity = "1";
           loaderShown = true;
         }
       }, 300);
-      
-      window.addEventListener('load', () => {
-        console.log('Page loaded');
+
+      window.addEventListener("load", () => {
+        console.log("Page loaded");
         clearTimeout(loaderTimeout);
-        const loadingScreen = document.getElementById('loading-screen');
-        const mainContent = document.getElementById('main-content');
-        
+        const loadingScreen = document.getElementById("loading-screen");
+        const mainContent = document.getElementById("main-content");
+
         if (loadingScreen && mainContent) {
-          loadingScreen.style.opacity = '0';
-          mainContent.style.opacity = '1';
-          
+          loadingScreen.style.opacity = "0";
+          mainContent.style.opacity = "1";
+
           setTimeout(() => {
-            loadingScreen.style.display = 'none';
+            loadingScreen.style.display = "none";
           }, 300);
         }
       });
@@ -91,10 +92,10 @@ import Footer from "../components/footer.astro";
     transition: opacity 0.3s ease-out;
   }
 
-  #main-content {
+  /* #main-content {
     opacity: 0;
     transition: opacity 0.3s ease-in;
-  }
+  } */
 
   .loader {
     width: 40px;
@@ -108,7 +109,11 @@ import Footer from "../components/footer.astro";
   }
 
   @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
   }
 </style>

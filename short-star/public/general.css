@@ -17,6 +17,18 @@
   --red: #ff6f6f;
 }
 
+.theme-light {
+  --background-color-dark: rgb(235, 235, 235);
+  --background-color: rgba(245, 245, 245, 1);
+  --tint-color: rgb(255, 255, 255);
+  --hover-color: #4a4a4a;
+  --hover-color-alt: #c8c8c8;
+  --text-color: #111111;
+  --text-color-alt: rgba(0, 0, 0, 0.6);
+  --border-color: rgba(0, 0, 0, 0.12);
+  --border-color-alt: #aaaaaa;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -76,6 +88,7 @@ h2,
 h3 {
   margin-bottom: 18px;
   font-weight: 500;
+  color: var(--text-color);
 }
 
 .panel-blue-pixel {
@@ -85,31 +98,11 @@ h3 {
   z-index: 0;
   box-shadow: 0 0 0 1px #262626;
 }
-.panel-blue-pixel::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-radius: inherit;
-  background-image: url("/images/dither-blue.svg");
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  z-index: -2;
-  pointer-events: none;
-}
 @media (min-width: 700px) {
   .panel-blue-pixel {
     overflow: hidden;
     height: 700px;
     background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 94, 255) 30%, rgb(4, 4, 4) 70%);
-  }
-  .panel-blue-pixel::before {
-    background-image: url("/images/dither-blue-large.svg");
-    background-size: auto 100%;
-    background-position: bottom right;
   }
 }
 @media (min-width: 1200px) {
@@ -117,11 +110,6 @@ h3 {
     overflow: hidden;
     height: 425px;
     background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 94, 255) 30%, rgb(4, 4, 4) 70%);
-  }
-  .panel-blue-pixel::before {
-    background-image: url("/images/dither-blue-horizontal.svg");
-    background-size: auto 100%;
-    background-position: bottom right;
   }
 }
 
@@ -133,31 +121,11 @@ h3 {
   box-shadow: 0 0 0 1px #262626;
   height: 550px;
 }
-.panel-green-pixel::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-radius: inherit;
-  background-image: url("/images/dither-green.svg");
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-position: bottom right;
-  z-index: -1;
-  pointer-events: none;
-}
 @media (min-width: 700px) {
   .panel-green-pixel {
     overflow: hidden;
     height: 700px;
     background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 165, 66) 25%, rgb(4, 4, 4) 70%);
-  }
-  .panel-green-pixel::before {
-    background-image: url("/images/dither-green-large.svg");
-    background-size: auto 100%;
-    background-position: bottom right;
   }
 }
 @media (min-width: 1200px) {
@@ -165,11 +133,15 @@ h3 {
     height: 425px;
     background: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.9) 0%, rgb(0, 165, 66) 25%, rgb(4, 4, 4) 70%);
   }
-  .panel-green-pixel::before {
-    background-image: url("/images/dither-green-horizontal.svg");
-    background-size: auto 100%;
-    background-position: bottom right;
-  }
+}
+
+.dither {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: 100%;
+  z-index: -1;
 }
 
 .panel-blue {
@@ -345,6 +317,10 @@ h3 {
   gap: 100px;
 }
 
+.section-header {
+  position: relative;
+}
+
 .image-container {
   width: 100%;
   background-color: var(--tint-color);
@@ -428,7 +404,7 @@ h3 {
 @media (min-width: 1200px) {
   .content {
     max-width: 1200px;
-    padding: 90px 40px;
+    padding: 120px 40px;
   }
   h1 {
     font-size: 40px;
@@ -436,6 +412,15 @@ h3 {
   }
   h2 {
     font-size: 32px;
+  }
+  .gap-small {
+    gap: 50px;
+  }
+  .gap-medium {
+    gap: 70px;
+  }
+  .gap-large {
+    gap: 140px;
   }
   .image-section .image-grid {
     display: grid;

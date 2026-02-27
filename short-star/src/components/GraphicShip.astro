@@ -1,0 +1,98 @@
+---
+// GraphicShip.astro — Terminal window with deploy log
+---
+
+<div class="gs-wrap" aria-hidden="true">
+  <svg class="gs-svg" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="9">
+
+    <!-- Terminal window -->
+    <rect x="30" y="16" width="340" height="228" rx="6" fill="#0a0a0a" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+    <!-- Title bar -->
+    <rect x="30" y="16" width="340" height="26" rx="6" fill="#1a1a1a"/>
+    <rect x="30" y="29" width="340" height="13" fill="#1a1a1a"/>
+    <circle cx="48" cy="29" r="4" fill="#ff5f57"/>
+    <circle cx="62" cy="29" r="4" fill="#febc2e"/>
+    <circle cx="76" cy="29" r="4" fill="#28c840"/>
+    <text x="200" y="33" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="8">zsh — deploy</text>
+
+    <!-- Terminal lines -->
+    <g font-size="9">
+
+      <!-- Prompt + command -->
+      <text x="46" y="60">
+        <tspan fill="#3cd870">➜ </tspan>
+        <tspan fill="#4b95ea">~/project </tspan>
+        <tspan fill="rgba(255,255,255,0.6)">git push origin main</tspan>
+      </text>
+
+      <text x="46" y="75" fill="rgba(255,255,255,0.3)">Enumerating objects: 24, done.</text>
+      <text x="46" y="88" fill="rgba(255,255,255,0.3)">Counting objects: 100% (24/24), done.</text>
+      <text x="46" y="101" fill="rgba(255,255,255,0.3)">Writing objects: 100% (13/13), 4.21 KiB</text>
+
+      <text x="46" y="116">
+        <tspan fill="rgba(255,255,255,0.2)">remote: </tspan>
+        <tspan fill="rgba(255,255,255,0.4)">Resolving deltas: 100% (8/8)</tspan>
+      </text>
+
+      <!-- Divider -->
+      <line x1="46" y1="124" x2="354" y2="124" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+      <text x="46" y="137">
+        <tspan fill="rgba(255,255,255,0.2)">▸ </tspan>
+        <tspan fill="#7b7bea">Vercel </tspan>
+        <tspan fill="rgba(255,255,255,0.4)">triggered deployment...</tspan>
+      </text>
+
+      <text x="46" y="151" fill="rgba(255,255,255,0.3)">  Installing dependencies</text>
+
+      <!-- Progress bar -->
+      <rect x="46" y="158" width="240" height="6" rx="3" fill="rgba(255,255,255,0.06)"/>
+      <rect x="46" y="158" width="240" height="6" rx="3" fill="#3cd870" opacity="0.7">
+        <animate attributeName="width" values="0;240" dur="2s" fill="freeze" repeatCount="1"/>
+      </rect>
+
+      <text x="46" y="177" fill="rgba(255,255,255,0.3)">  Building application...</text>
+      <text x="46" y="190" fill="rgba(255,255,255,0.3)">  Running checks</text>
+      <text x="46" y="203">
+        <tspan fill="rgba(255,255,255,0.3)">  Performance score: </tspan>
+        <tspan fill="#3cd870">98</tspan>
+        <tspan fill="rgba(255,255,255,0.3)"> / 100</tspan>
+      </text>
+
+      <!-- Divider -->
+      <line x1="46" y1="211" x2="354" y2="211" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+      <!-- Success -->
+      <text x="46" y="225">
+        <tspan fill="#3cd870">✓ </tspan>
+        <tspan fill="#3cd8b0">Deployed to production</tspan>
+        <tspan fill="rgba(255,255,255,0.25)"> · 12s</tspan>
+      </text>
+
+      <!-- Blinking cursor -->
+      <text x="46" y="240">
+        <tspan fill="#3cd870">➜ </tspan>
+        <tspan fill="#4b95ea">~/project </tspan>
+      </text>
+      <rect x="110" y="230" width="1.5" height="10" fill="rgba(255,255,255,0.7)">
+        <animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/>
+      </rect>
+
+    </g>
+  </svg>
+</div>
+
+<style>
+  .gs-wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gs-svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>

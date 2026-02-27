@@ -254,10 +254,8 @@
 
 .pv2-card-image {
   border-radius: 0 0 13px 13px;
-  background: var(--background-color);
-  background-size: cover;
-  background-position: center;
-  border-top: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
 }
 
 .pv2-card-header {

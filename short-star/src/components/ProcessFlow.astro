@@ -192,8 +192,11 @@ function onPointerMove(clientX) {
   const dx = pointerStartX - clientX
   const scrollRange = container.offsetHeight - window.innerHeight
   const scrollPerSlide = scrollRange / (TOTAL - 1)
+  const targetY = pointerStartScrollY + (dx / window.innerWidth) * scrollPerSlide * 4
+  const minY = container.offsetTop
+  const maxY = container.offsetTop + scrollRange
   window.scrollTo({
-    top: pointerStartScrollY + (dx / window.innerWidth) * scrollPerSlide * 2,
+    top: Math.min(Math.max(targetY, minY), maxY),
     behavior: 'instant'
   })
 }

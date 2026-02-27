@@ -222,6 +222,8 @@
 .pv2-card-image {
   border-radius: 0 13px 13px 0;
   background: var(--background-color);
+  background-size: cover;
+  background-position: center;
   border-left: 1px solid var(--border-color);
 }
 @media (max-width: 600px) {

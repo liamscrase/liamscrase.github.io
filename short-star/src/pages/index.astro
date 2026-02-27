@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import FadeUpAnimation from "../components/FadeUpAnimation.astro";
 import Ticker from "../components/Ticker.astro";
 import ProcessFlow from "../components/ProcessFlow.astro";
+import ProcessFlowVertical from "../components/ProcessFlowVertical.astro";
 
 const tools = [
   { name: "Figma", src: "/images/logos/figma.svg" },
@@ -15,6 +16,7 @@ const tools = [
 ---
 
 <link rel="stylesheet" href="/process-flow.css" />
+<link rel="stylesheet" href="/process-flow-vertical.css" />
 <FadeUpAnimation />
 <Ticker />
 
@@ -247,7 +249,7 @@ const tools = [
       </div>
     </div>
     <section class="process-section">
-      <ProcessFlow />
+      <ProcessFlowVertical />
     </section>
   </section>
 </Layout>

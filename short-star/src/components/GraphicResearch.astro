@@ -13,7 +13,7 @@
           <span class="dot"></span>
           <span class="dot"></span>
         </div>
-        <div class="filename">affinity-board.fig</div>
+        <div class="filename">research.fig</div>
       </div>
 
       <div class="board-body">
@@ -111,7 +111,7 @@
   .filename {
     position: absolute;
     left: 0; right: 0; text-align: center; pointer-events: none;
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 7px;
     color: rgba(255,255,255,0.2);
   }
@@ -134,7 +134,7 @@
   }
 
   .cluster-label {
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 6px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -155,25 +155,10 @@
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 2px;
     background: #161616;
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 6.5px;
     color: rgba(255,255,255,0.35);
     white-space: nowrap;
     line-height: 1;
   }
 </style>
-
-<script is:inline>
-  (() => {
-    function scale(frame) {
-      const canvas = frame.querySelector('.canvas');
-      if (!canvas) return;
-      const s = Math.min(frame.clientWidth / 400, frame.clientHeight / 225);
-      canvas.style.transform = `scale(${s})`;
-      canvas.style.left = `${(frame.clientWidth  - 400 * s) / 2}px`;
-      canvas.style.top  = `${(frame.clientHeight - 225 * s) / 2}px`;
-    }
-    const ro = new ResizeObserver(entries => entries.forEach(e => scale(e.target)));
-    document.querySelectorAll('.scale-target').forEach(f => { scale(f); ro.observe(f); });
-  })();
-</script>

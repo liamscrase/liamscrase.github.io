@@ -4,7 +4,9 @@
 
 <div class="frame scale-target">
   <div class="canvas">
+
     <div class="browser">
+
       <div class="titlebar">
         <div class="dots">
           <span class="dot"></span>
@@ -26,10 +28,8 @@
 
       <div class="hero">
         <div class="hero-text">
-          <h2 class="heading">Lorem ipsum<br />dolor sit amet</h2>
-          <p class="subtext">
-            Consectetur adipiscing elit, sed do eiusmod tempor.
-          </p>
+          <h2 class="heading">Lorem ipsum<br>dolor sit amet</h2>
+          <p class="subtext">Consectetur adipiscing elit, sed do eiusmod tempor.</p>
           <div class="hero-buttons">
             <div class="btn btn--primary">GET STARTED</div>
             <div class="btn btn--outline">LEARN MORE</div>
@@ -63,7 +63,9 @@
           <div class="card-cta">VIEW →</div>
         </div>
       </div>
+
     </div>
+
   </div>
 </div>
 
@@ -77,8 +79,7 @@
 
   .canvas {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     width: 400px;
     height: 225px;
     transform-origin: top left;
@@ -89,7 +90,7 @@
     width: 400px;
     height: 225px;
     background: #0a0a0a;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255,255,255,0.12);
     border-radius: 6px;
     overflow: hidden;
     display: flex;
@@ -102,7 +103,7 @@
     position: relative;
     height: 26px;
     background: #1a1a1a;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     display: flex;
     align-items: center;
     gap: 8px;
@@ -110,17 +111,9 @@
     flex-shrink: 0;
   }
 
-  .dots {
-    display: flex;
-    gap: 4px;
-  }
+  .dots { display: flex; gap: 4px; }
 
-  .dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.15); }
 
   .urlbar {
     position: absolute;
@@ -128,15 +121,15 @@
     transform: translateX(-50%);
     width: 35%;
     height: 13px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 7px;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255,255,255,0.3);
     letter-spacing: 0.03em;
     pointer-events: none;
   }
@@ -145,7 +138,7 @@
   .navbar {
     height: 26px;
     background: #111;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -154,31 +147,27 @@
   }
 
   .logo {
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 7px;
     letter-spacing: 0.15em;
-    color: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.35);
     padding: 2px 5px;
     border-radius: 2px;
     flex-shrink: 0;
   }
 
-  .nav-links {
-    display: flex;
-    gap: 10px;
-    flex: 1;
-  }
+  .nav-links { display: flex; gap: 10px; flex: 1; }
 
   .nav-link {
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 6px;
     letter-spacing: 0.08em;
-    color: rgba(255, 255, 255, 0.38);
+    color: rgba(255,255,255,0.38);
   }
 
   .nav-cta {
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 6px;
     letter-spacing: 0.07em;
     color: white;
@@ -207,19 +196,19 @@
   }
 
   .heading {
-    font-family: Georgia, serif;
+    font-family: "Zalando Sans", sans-serif;
     font-size: 14px;
     font-weight: 300;
     letter-spacing: -0.02em;
-    color: rgba(255, 255, 255, 0.88);
+    color: rgba(255,255,255,0.88);
     line-height: 1.2;
     margin: 0;
   }
 
   .subtext {
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 6px;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255,255,255,0.3);
     letter-spacing: 0.01em;
     margin: 0;
   }
@@ -231,7 +220,7 @@
   }
 
   .btn {
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 6px;
     letter-spacing: 0.07em;
     padding: 4px 8px;
@@ -239,21 +228,14 @@
     flex-shrink: 0;
   }
 
-  .btn--primary {
-    background: #a45bea;
-    color: white;
-  }
-  .btn--outline {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    color: rgba(255, 255, 255, 0.45);
-  }
+  .btn--primary { background: #a45bea; color: white; }
+  .btn--outline { background: transparent; border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.45); }
 
   /* ── Hero image placeholder ── */
   .hero-img {
     width: 28%;
     height: 80%;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: 4px;
     flex-shrink: 0;
     background: #111;
@@ -272,26 +254,10 @@
     transform: translate(-50%, -50%);
   }
 
-  .orb--4 {
-    width: 82%;
-    height: 82%;
-    border: 1px solid rgba(164, 91, 234, 0.15);
-  }
-  .orb--3 {
-    width: 56%;
-    height: 56%;
-    border: 1px solid rgba(164, 91, 234, 0.22);
-  }
-  .orb--2 {
-    width: 30%;
-    height: 30%;
-    background: rgba(164, 91, 234, 0.2);
-  }
-  .orb--1 {
-    width: 10%;
-    height: 10%;
-    background: rgba(164, 91, 234, 0.7);
-  }
+  .orb--4 { width: 82%; height: 82%; border: 1px solid rgba(164,91,234,0.15); }
+  .orb--3 { width: 56%; height: 56%; border: 1px solid rgba(164,91,234,0.22); }
+  .orb--2 { width: 30%; height: 30%; background: rgba(164,91,234,0.2); }
+  .orb--1 { width: 10%; height: 10%; background: rgba(164,91,234,0.7); }
 
   /* ── Cards row ── */
   .cards {
@@ -300,13 +266,13 @@
     padding: 7px 10px;
     flex-shrink: 0;
     background: #0a0a0a;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-top: 1px solid rgba(255,255,255,0.06);
   }
 
   .card {
     flex: 1;
     background: #111;
-    border: 1px solid rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255,255,255,0.09);
     border-radius: 4px;
     padding: 8px 7px 6px;
     display: flex;
@@ -317,32 +283,30 @@
 
   .card-accent {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     height: 2px;
     background: #a45bea;
     border-radius: 4px 4px 0 0;
   }
 
   .card-title {
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 7px;
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255,255,255,0.75);
     margin-bottom: 3px;
     margin-top: 2px;
   }
 
   .card-body {
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 6px;
-    color: rgba(255, 255, 255, 0.28);
+    color: rgba(255,255,255,0.28);
     line-height: 1.5;
     flex: 1;
   }
 
   .card-cta {
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 5.5px;
     letter-spacing: 0.05em;
     padding: 3px 5px;
@@ -350,27 +314,7 @@
     margin-top: 5px;
     width: fit-content;
     color: #a45bea;
-    border: 1px solid rgba(164, 91, 234, 0.35);
-    background: rgba(164, 91, 234, 0.08);
+    border: 1px solid rgba(164,91,234,0.35);
+    background: rgba(164,91,234,0.08);
   }
 </style>
-
-<script is:inline>
-  (() => {
-    function scale(frame) {
-      const canvas = frame.querySelector(".canvas");
-      if (!canvas) return;
-      const s = Math.min(frame.clientWidth / 400, frame.clientHeight / 225);
-      canvas.style.transform = `scale(${s})`;
-      canvas.style.left = `${(frame.clientWidth - 400 * s) / 2}px`;
-      canvas.style.top = `${(frame.clientHeight - 225 * s) / 2}px`;
-    }
-    const ro = new ResizeObserver((entries) =>
-      entries.forEach((e) => scale(e.target)),
-    );
-    document.querySelectorAll(".scale-target").forEach((f) => {
-      scale(f);
-      ro.observe(f);
-    });
-  })();
-</script>

@@ -13,36 +13,25 @@
           <span class="dot"></span>
           <span class="dot"></span>
         </div>
-        <div class="filename">Component.astro</div>
+        <div class="filename">index.astro</div>
       </div>
 
       <div class="body">
-
-        <div class="gutter">
-          <span>1</span><span>2</span><span>3</span>
-          <span>4</span><span>5</span><span>6</span>
-          <span>7</span><span>8</span><span>9</span>
-          <span>10</span><span>11</span><span>12</span>
-          <span>13</span>
-        </div>
-
-        <div class="code">
-          <div class="line"><span class="dim">---</span></div>
-          <div class="line"><span class="purple">const </span><span class="muted">&#123; title, href &#125; = </span><span class="blue">Astro</span><span class="dim2">.props</span></div>
-          <div class="line"><span class="dim">---</span></div>
-          <div class="line">&nbsp;</div>
-          <div class="line"><span class="dim2">&lt;</span><span class="green">section </span><span class="violet">class</span><span class="dim2">="</span><span class="teal">card</span><span class="dim2">"&gt;</span></div>
-          <div class="line"><span class="indent1"></span><span class="dim2">&lt;</span><span class="green">h2</span><span class="dim2">&gt;</span><span class="muted">&#123;</span><span class="blue">title</span><span class="muted">&#125;</span><span class="dim2">&lt;/</span><span class="green">h2</span><span class="dim2">&gt;</span></div>
-          <div class="line"><span class="indent1"></span><span class="dim2">&lt;</span><span class="green">a </span><span class="violet">href</span><span class="dim2">=&#123;</span><span class="blue">href</span><span class="dim2">&#125;&gt;</span></div>
-          <div class="line"><span class="indent2"></span><span class="dim2">&lt;</span><span class="purple">slot </span><span class="dim2">/&gt;</span></div>
-          <div class="line"><span class="indent1"></span><span class="dim2">&lt;/</span><span class="green">a</span><span class="dim2">&gt;</span></div>
-          <div class="line active"><span class="dim2">&lt;/</span><span class="green">section</span><span class="dim2">&gt;</span></div>
-          <div class="line">&nbsp;</div>
-          <div class="line"><span class="dim2">&lt;</span><span class="green">style</span><span class="dim2">&gt;</span></div>
-          <div class="line"><span class="violet">.card </span><span class="dim2">&#123;</span><span class="cursor"></span></div>
-        </div>
-
+        <div class="line"><span class="ln">1</span><span class="dim">---</span></div>
+        <div class="line"><span class="ln">2</span><span class="purple">const</span><span class="dim2">&nbsp;&#123;&nbsp;</span><span class="muted">title,&nbsp;href</span><span class="dim2">&nbsp;&#125;&nbsp;=&nbsp;</span><span class="blue">Astro</span><span class="dim2">.props</span></div>
+        <div class="line"><span class="ln">3</span><span class="dim">---</span></div>
+        <div class="line"><span class="ln">4</span></div>
+        <div class="line"><span class="ln">5</span><span class="dim2">&lt;</span><span class="green">section</span><span class="dim2">&nbsp;</span><span class="violet">class</span><span class="dim2">="</span><span class="teal">card</span><span class="dim2">"&gt;</span></div>
+        <div class="line"><span class="ln">6</span><span class="i1"></span><span class="dim2">&lt;</span><span class="green">h2</span><span class="dim2">&gt;</span><span class="muted">&#123;</span><span class="blue">title</span><span class="muted">&#125;</span><span class="dim2">&lt;/</span><span class="green">h2</span><span class="dim2">&gt;</span></div>
+        <div class="line"><span class="ln">7</span><span class="i1"></span><span class="dim2">&lt;</span><span class="green">a</span><span class="dim2">&nbsp;</span><span class="violet">href</span><span class="dim2">=&#123;</span><span class="blue">href</span><span class="dim2">&#125;&gt;</span></div>
+        <div class="line"><span class="ln">8</span><span class="i2"></span><span class="dim2">&lt;</span><span class="purple">slot </span><span class="dim2">/&gt;</span></div>
+        <div class="line"><span class="ln">9</span><span class="i1"></span><span class="dim2">&lt;/</span><span class="green">a</span><span class="dim2">&gt;</span></div>
+        <div class="line active"><span class="ln">10</span><span class="dim2">&lt;/</span><span class="green">section</span><span class="dim2">&gt;</span></div>
+        <div class="line"><span class="ln">11</span></div>
+        <div class="line"><span class="ln">12</span><span class="dim2">&lt;</span><span class="green">style</span><span class="dim2">&gt;</span></div>
+        <div class="line"><span class="ln">13</span><span class="violet">.card</span><span class="dim2">&nbsp;&#123;</span><span class="cursor"></span></div>
       </div>
+
     </div>
 
   </div>
@@ -92,53 +81,36 @@
 
   .dots { display: flex; gap: 4px; }
 
-  .dot { width: 7px; height: 7px; border-radius: 50%;   background: rgba(255,255,255,0.15);
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
   }
+
   .filename {
     position: absolute;
-    left: 0; right: 0; text-align: center; pointer-events: none;
-    font-family: monospace;
+    left: 0; right: 0;
+    text-align: center;
+    pointer-events: none;
+    font-family: "Chivo Mono", monospace;
     font-size: 7px;
     color: rgba(255,255,255,0.2);
   }
 
-  /* ── Editor body ── */
+  /* ── Body ── */
   .body {
     flex: 1;
     min-height: 0;
     display: flex;
-  }
-
-  /* ── Line numbers ── */
-  .gutter {
-    background: #111;
-    border-right: 1px solid rgba(255,255,255,0.05);
-    display: flex;
     flex-direction: column;
-    padding: 7px 6px 7px 4px;
-    flex-shrink: 0;
-  }
-
-  .gutter span {
-    font-family: monospace;
-    font-size: 7px;
-    line-height: 1.85;
-    color: rgba(255,255,255,0.16);
-    text-align: right;
-    display: block;
-  }
-
-  /* ── Code area ── */
-  .code {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 7px 10px;
+    padding: 7px 10px 7px 0;
     overflow: hidden;
   }
 
+  /* ── Lines ── */
   .line {
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 7.5px;
     line-height: 1.85;
     white-space: nowrap;
@@ -149,13 +121,27 @@
   .line.active {
     background: rgba(255,255,255,0.04);
     border-radius: 2px;
-    margin: 0 -10px;
-    padding: 0 10px;
+    margin: 0 -10px 0 0;
+    padding: 0 10px 0 0;
+  }
+
+  /* ── Line number ── */
+  .ln {
+    display: inline-block;
+    width: 28px;
+    padding-right: 10px;
+    text-align: right;
+    font-family: "Chivo Mono", monospace;
+    font-size: 7px;
+    color: rgba(255,255,255,0.16);
+    flex-shrink: 0;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    margin-right: 10px;
   }
 
   /* ── Indent helpers ── */
-  .indent1 { display: inline-block; width: 14px; }
-  .indent2 { display: inline-block; width: 28px; }
+  .i1 { display: inline-block; width: 14px; flex-shrink: 0; }
+  .i2 { display: inline-block; width: 28px; flex-shrink: 0; }
 
   /* ── Syntax colors ── */
   .dim    { color: rgba(255,255,255,0.22); }
@@ -183,18 +169,3 @@
     50%       { opacity: 0; }
   }
 </style>
-
-<script is:inline>
-  (() => {
-    function scale(frame) {
-      const canvas = frame.querySelector('.canvas');
-      if (!canvas) return;
-      const s = Math.min(frame.clientWidth / 400, frame.clientHeight / 225);
-      canvas.style.transform = `scale(${s})`;
-      canvas.style.left = `${(frame.clientWidth  - 400 * s) / 2}px`;
-      canvas.style.top  = `${(frame.clientHeight - 225 * s) / 2}px`;
-    }
-    const ro = new ResizeObserver(entries => entries.forEach(e => scale(e.target)));
-    document.querySelectorAll('.scale-target').forEach(f => { scale(f); ro.observe(f); });
-  })();
-</script>

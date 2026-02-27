@@ -165,7 +165,6 @@ const graphics = [GraphicResearch, GraphicWireframe, GraphicDesign, GraphicBuild
       if (i > 0) {
         const eased = easeInOut(clamp((p - (i - 1) / N) * N, 0, 1))
         card.style.transform = `translateY(${(1 - eased) * 100}%)`
-        card.style.opacity   = String(clamp(eased * 3, 0, 1))
       }
       card.style.setProperty('--cover-dark', String(easeInOut(clamp((p - i / N) * N, 0, 1)) * 0.45))
     })
@@ -176,7 +175,7 @@ const graphics = [GraphicResearch, GraphicWireframe, GraphicDesign, GraphicBuild
     goTo(0)
     cardEls.forEach((card, i) => {
       if (i > 0) card.style.transform = 'translateY(100%)'
-      card.style.opacity = i === 0 ? '1' : '0'
+      card.style.opacity = '1'
       card.style.setProperty('--cover-dark', '0')
     })
     window.addEventListener('scroll', onScroll, { passive: true })

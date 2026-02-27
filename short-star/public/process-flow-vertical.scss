@@ -16,6 +16,8 @@
   --text-color-alt:        rgba(255, 255, 255, 0.7);
   --border-color:          rgba(255, 255, 255, 0.15);
   --ease:                  cubic-bezier(0.16, 1, 0.3, 1);
+  --font-sans:             "Zalando Sans", sans-serif;
+  --font-mono:             "Chivo Mono", monospace;
 }
 
 // ── Scroll container ──────────────────────────────────
@@ -27,13 +29,7 @@
 // DESKTOP — sticky scroll experience
 // ─────────────────────────────────────────────────────
 
-@media (min-width: 700px) and (min-height: 500px) {
-
-  .content {
-    display: flex;
-    justify-content: center;
-    padding: 0;;
-  }
+@media (min-width: 700px) and (min-height: 1000px) {
 
   // Container drives the scrollable distance (3 viewport heights)
   #process-v2-container {
@@ -154,7 +150,7 @@
       position: absolute;
       bottom: -3px;
       left: 50%;
-      translate: -50% 0;
+      transform: translateX(-50%);
       width: 5px;
       height: 5px;
       border-radius: 50%;
@@ -180,10 +176,10 @@
 
 // ─────────────────────────────────────────────────────
 // MOBILE / SHORT VIEWPORT — plain stacked cards, no scroll effect
-// Triggers when width < 700px OR height < 500px
+// Triggers when width < 700px OR height < 1000px
 // ─────────────────────────────────────────────────────
 
-@media (max-width: 699px), (max-height: 499px) {
+@media (max-width: 699px), (max-height: 999px) {
 
   // Disable the tall scroll container
   #process-v2-container {
@@ -257,7 +253,7 @@
 
 .pv2-header {
   h2 {
-    font-family: var(--font-family);
+    font-family: var(--font-sans);
     font-size: 2rem;
     font-weight: 300;
     letter-spacing: -0.02em;
@@ -288,20 +284,20 @@
   transition:
     border-color 400ms var(--ease),
     background   400ms var(--ease),
-    transform    400ms var(--ease);
+    box-shadow   400ms var(--ease);
 
   &-number {
     font-size: 8px;
     letter-spacing: 1px;
     color: var(--text-color-alt);
-    font-family: var(--font-family);
+    font-family: var(--font-mono);
     transition: color 400ms var(--ease);
   }
 
   &.active {
     border-color: var(--step-color);
     background: color-mix(in srgb, var(--step-color) 10%, var(--background-color));
-    transform: scale(1.15);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--step-color) 20%, transparent);
 
     .pv2-node-number {
       color: var(--step-color);
@@ -343,11 +339,11 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--step-color);
-  font-family: var(--font-family);
+  font-family: var(--font-mono);
 }
 
 .pv2-card-header h3 {
-  font-family: var(--font-family);
+  font-family: var(--font-sans);
   font-size: 1.45rem;
   font-weight: 300;
   letter-spacing: -0.01em;
@@ -377,5 +373,5 @@
   font-size: 9px;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  font-family: var(--font-family);
+  font-family: var(--font-mono);
 }

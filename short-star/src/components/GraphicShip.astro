@@ -93,7 +93,7 @@
     position: absolute;
     left: 0; right: 0;
     text-align: center;
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 7px;
     color: rgba(255,255,255,0.2);
     pointer-events: none;
@@ -111,7 +111,7 @@
   }
 
   .line {
-    font-family: monospace;
+    font-family: "Chivo Mono", monospace;
     font-size: 7.5px;
     line-height: 1.7;
     white-space: nowrap;
@@ -172,18 +172,3 @@
     50%       { opacity: 0; }
   }
 </style>
-
-<script is:inline>
-  (() => {
-    function scale(frame) {
-      const canvas = frame.querySelector('.canvas');
-      if (!canvas) return;
-      const s = Math.min(frame.clientWidth / 400, frame.clientHeight / 225);
-      canvas.style.transform = `scale(${s})`;
-      canvas.style.left = `${(frame.clientWidth  - 400 * s) / 2}px`;
-      canvas.style.top  = `${(frame.clientHeight - 225 * s) / 2}px`;
-    }
-    const ro = new ResizeObserver(entries => entries.forEach(e => scale(e.target)));
-    document.querySelectorAll('.scale-target').forEach(f => { scale(f); ro.observe(f); });
-  })();
-</script>

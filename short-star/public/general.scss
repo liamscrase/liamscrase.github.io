@@ -59,13 +59,13 @@ a:active {
 
 html {
     scroll-behavior: smooth;
+        overflow-x: hidden;
 }
 
 body {
     font-family: "Zalando Sans", sans-serif;
     background-color: var(--background-color-dark);
     color: var(--text-color);
-    overflow-x: hidden;
 }
 
 #body-wrapper {
@@ -493,7 +493,7 @@ h3 {
 }
 
 .gap-large {
-    gap: 100px;
+    gap: 20vh;
 }
 
 .section-header {
@@ -620,9 +620,9 @@ h3 {
     gap: 70px;
 }
 
-.gap-large {
-    gap: 140px;
-}
+// .gap-large {
+//     gap: 140px;
+// }
 
     .image-section {
         .image-grid {

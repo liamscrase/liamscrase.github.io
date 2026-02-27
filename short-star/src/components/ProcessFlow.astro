@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="process-flow.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide-core.min.css">
 
 <div id="process-scroll-container">
-  <div class="process-sticky-wrap">
+  <div class="process-sticky-wrap theme-light">
     <section id="process">
       <div class="process-inner">
 
@@ -16,7 +17,11 @@
         </div>
 
         <div class="process-cards-outer">
-          <div class="process-cards" id="cards-list"></div>
+          <div id="process-splide" class="splide">
+            <div class="splide__track">
+              <ul class="splide__list" id="cards-list"></ul>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -26,6 +31,7 @@
 
 <script type="module">
 import { animate } from "https://cdn.jsdelivr.net/npm/motion@11/+esm"
+import Splide from "https://cdn.jsdelivr.net/npm/@splidejs/splide@4/+esm"
 
 // ── DATA ─────────────────────────────────────────────
 const STEPS = [
@@ -55,12 +61,11 @@ const bar        = document.getElementById('prog-bar')
 const container  = document.getElementById('process-scroll-container')
 
 // ── BUILD DOM ─────────────────────────────────────────
-const cardEls  = []
 const stepBtns = []
-
 const progressTrack = stepsRow.querySelector('.process-progress-track')
 
 STEPS.forEach((step, i) => {
+  // Step node buttons
   const btn = document.createElement('button')
   btn.className = 'process-step'
   btn.style.setProperty('--step-color', step.color)
@@ -72,10 +77,11 @@ STEPS.forEach((step, i) => {
   stepsRow.insertBefore(btn, progressTrack)
   stepBtns.push(btn)
 
-  const card = document.createElement('div')
-  card.className = 'process-card'
-  card.style.setProperty('--step-color', step.color)
-  card.innerHTML = `
+  // Splide slides
+  const li = document.createElement('li')
+  li.className = 'splide__slide process-card'
+  li.style.setProperty('--step-color', step.color)
+  li.innerHTML = `
     <div class="process-card-content">
       <div class="process-card-text">
         <div class="process-card-header">
@@ -89,34 +95,33 @@ STEPS.forEach((step, i) => {
       <div class="process-card-image"></div>
     </div>
   `
-  cardsList.appendChild(card)
-  cardEls.push(card)
+  cardsList.appendChild(li)
 })
+
+// ── SPLIDE ────────────────────────────────────────────
+const splide = new Splide('#process-splide', {
+  type:        'slide',
+  perPage:     1,
+  perMove:     1,
+  gap:         '16px',
+  arrows:      false,
+  pagination:  false,
+  drag:        false,
+  touch:       false,
+  speed:       600,
+  easing:      'cubic-bezier(0.16, 1, 0.3, 1)',
+})
+
+splide.on('move', (newIndex) => {
+  goTo(newIndex)
+})
+
+splide.mount()
 
 // ── STATE ─────────────────────────────────────────────
 let current = 0
 let currentExpand = 0
-
-// ── CARD ANIMATION ────────────────────────────────────
-const INACTIVE_OPACITY = 0.35
-const INACTIVE_SCALE   = 0.94
-const GAP_PX           = 16
-
-function setCardStates(activeIndex, instant = false) {
-  const cardWidth  = cardsList.parentElement.offsetWidth
-  const fullStep   = cardWidth + GAP_PX
-  const trackShift = -(activeIndex * fullStep)
-  const opts       = instant ? { duration: 0 } : { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
-
-  animate(cardsList, { x: trackShift }, opts)
-
-  cardEls.forEach((card, i) => {
-    animate(card, {
-      opacity: i === activeIndex ? 1 : INACTIVE_OPACITY,
-      scale:   i === activeIndex ? 1 : INACTIVE_SCALE,
-    }, opts)
-  })
-}
+let sequenceDone = false
 
 // ── GOTO ──────────────────────────────────────────────
 function goTo(index) {
@@ -135,11 +140,15 @@ function goTo(index) {
     }
   })
 
-  setCardStates(index)
+  if (splide.index !== index) splide.go(index)
 
   bar.style.setProperty('--step-color', STEPS[index].color)
-  bar.classList.toggle('live', index > 0 && index < TOTAL - 1)
 }
+
+// Step node clicks
+stepBtns.forEach((btn, i) => btn.addEventListener('click', () => {
+  goTo(i)
+}))
 
 // ── EXPAND ────────────────────────────────────────────
 const EXPAND_END   = 0.15
@@ -154,24 +163,94 @@ function easeInOut(t) {
 function setExpand(value) {
   currentExpand = value
   const isNarrow = window.innerWidth < 1200
-  const maxV = isNarrow ? 10 : 22
-  const maxH = isNarrow ? 0  : 9
-  const vInset = ((1 - value) * maxV).toFixed(2)
-  const hInset = ((1 - value) * maxH).toFixed(2)
+  const vMax = isNarrow ? window.innerHeight * 0.10 : window.innerHeight * 0.22
+  const hMax = isNarrow ? 0 : window.innerWidth * 0.09
+  const vInset = ((1 - value) * vMax).toFixed(1)
+  const hInset = ((1 - value) * hMax).toFixed(1)
   const radius = ((1 - value) * 18).toFixed(2)
   const shadow = (0.5 * (1 - value)).toFixed(3)
 
-  stickyWrap.style.clipPath  = `inset(${vInset}% ${hInset}% round ${radius}px)`
+  stickyWrap.style.clipPath  = `inset(${vInset}px ${hInset}px round ${radius}px)`
   stickyWrap.style.boxShadow = `0 24px 80px rgba(0,0,0,${shadow})`
 
   window.dispatchEvent(new CustomEvent('process:fullscreen', { detail: { active: value === 1 } }))
 }
 
+// ── SWIPE / DRAG TO SCROLL ────────────────────────────
+let pointerStartX = 0
+let pointerStartScrollY = 0
+let isDragging = false
+
+function onPointerStart(clientX) {
+  pointerStartX = clientX
+  pointerStartScrollY = window.scrollY
+  isDragging = true
+}
+
+function onPointerMove(clientX) {
+  if (!isDragging) return
+  const dx = pointerStartX - clientX
+  const scrollRange = container.offsetHeight - window.innerHeight
+  const scrollPerSlide = scrollRange / (TOTAL - 1)
+  window.scrollTo({
+    top: pointerStartScrollY + (dx / window.innerWidth) * scrollPerSlide * 2,
+    behavior: 'instant'
+  })
+}
+
+function onPointerEnd() {
+  isDragging = false
+}
+
+// Touch
+let touchStartY = 0
+container.addEventListener('touchstart', (e) => {
+  touchStartY = e.touches[0].clientY
+  onPointerStart(e.touches[0].clientX)
+}, { passive: true })
+
+container.addEventListener('touchmove', (e) => {
+  const dy = touchStartY - e.touches[0].clientY
+  const dx = pointerStartX - e.touches[0].clientX
+  // Only hijack if swipe is more horizontal than vertical
+  if (Math.abs(dx) <= Math.abs(dy)) { isDragging = false; return }
+  onPointerMove(e.touches[0].clientX)
+}, { passive: true })
+
+container.addEventListener('touchend', onPointerEnd, { passive: true })
+
+// Mouse
+container.addEventListener('mousedown', (e) => {
+  e.preventDefault()
+  onPointerStart(e.clientX)
+  container.style.cursor = 'grabbing'
+  document.body.style.userSelect = 'none'
+})
+
+window.addEventListener('mousemove', (e) => {
+  if (!isDragging) return
+  onPointerMove(e.clientX)
+})
+
+window.addEventListener('mouseup', () => {
+  onPointerEnd()
+  container.style.cursor = ''
+  document.body.style.userSelect = ''
+})
+
 // ── SCROLL ────────────────────────────────────────────
 let ignoreScroll = false
+let lastScrollY = window.scrollY
 
 function onScroll() {
   if (ignoreScroll) return
+
+  const scrollY = window.scrollY
+  const scrollingDown = scrollY >= lastScrollY
+  lastScrollY = scrollY
+
+  if (sequenceDone && !scrollingDown) return
+
   const rect        = container.getBoundingClientRect()
   const scrolled    = -rect.top
   const scrollRange = container.offsetHeight - window.innerHeight
@@ -199,23 +278,38 @@ function onScroll() {
     if (innerP >= nodePositions[i]) targetIndex = i
   }
   if (targetIndex !== current) goTo(targetIndex)
+
+  if (p >= 1 && !sequenceDone) {
+    sequenceDone = true
+    stickyWrap.style.position = 'relative'
+  }
 }
 
 window.addEventListener('scroll', onScroll, { passive: true })
 
 // ── RESIZE ────────────────────────────────────────────
 let resizeTimer
+let lastVh = window.innerHeight
+
 window.addEventListener('resize', () => {
+  const delta = Math.abs(window.innerHeight - lastVh)
+  if (delta < 100) return
+  lastVh = window.innerHeight
+  setVh()
+  container.style.height = `${window.innerHeight * 6}px`
   setExpand(currentExpand)
-  setCardStates(current, true)
+  splide.refresh()
   clearTimeout(resizeTimer)
-  resizeTimer = setTimeout(() => {
-    onScroll()
-  }, 150)
+  resizeTimer = setTimeout(() => { onScroll() }, 150)
 })
 
 // ── INIT ─────────────────────────────────────────────
+function setVh() {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
+}
+setVh()
+container.style.height = `${window.innerHeight * 6}px`
+
 setExpand(0)
 goTo(0)
-setCardStates(0, true)
 </script>

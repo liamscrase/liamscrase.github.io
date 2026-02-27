@@ -6,8 +6,8 @@ const currentPath = Astro.url.pathname;
   <div class="inner">
     <a class="logo" href="/">LIAM</a>
     <ul>
-      <li><a href="/#projects">Projects</a></li>
-      <li><a href="/#site-footer">Contact</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -19,11 +19,7 @@ const currentPath = Astro.url.pathname;
     let ticking = false;
     let isScrolled = false;
 
-    const scrollToElement = (el, offset = 0) => {
-      const y = el.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    };
-
+    // ── SCROLLED STATE ────────────────────────────────
     window.addEventListener("scroll", () => {
       if (!ticking) {
         requestAnimationFrame(() => {
@@ -38,34 +34,9 @@ const currentPath = Astro.url.pathname;
       }
     }, { passive: true });
 
-    // Invert nav only when process section is fully expanded
+    // ── THEME INVERSION ───────────────────────────────
     window.addEventListener('process:fullscreen', (e) => {
       nav?.classList.toggle('theme-light', e.detail.active)
     })
-
-    // Smooth scroll on load if hash present
-    const hash = window.location.hash.slice(1);
-    if (hash) {
-      setTimeout(() => {
-        const target = document.getElementById(hash);
-        if (target) scrollToElement(target, hash === "projects" ? 100 : 0);
-      }, 100);
-    }
-
-    // Smooth scroll on hash link click (same-page only)
-    document.querySelectorAll('a[href*="#"]').forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const href = link.getAttribute("href");
-        const hash = href?.split("#")[1];
-        if (!hash) return;
-
-        const target = document.getElementById(hash);
-        if (!target) return; // let browser handle cross-page navigation
-
-        e.preventDefault();
-        scrollToElement(target, hash === "projects" ? 100 : 0);
-        history.pushState(null, "", href);
-      });
-    });
   });
 </script>

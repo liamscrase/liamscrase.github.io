@@ -244,37 +244,6 @@ const tools = [
             </a>
           </div>
         </section>
-        <section id="toolbox" class="flex column gap-small">
-          <div class="text">
-                          <span class="sub-header">My toolbox</span>
-            <h2>Taking projects from design to development</h2>
-            <p>
-              I use a variety of design and development tools to create
-              engaging digital experiences. My toolbox includes:
-            </p>
-          </div>
-          <div class="ticker-wrapper">
-            <div class="ticker-track" id="ticker-track">
-              {
-                [0, 1].map(() => (
-                  <ul class="ticker-list" aria-hidden="true">
-                    {tools.map((tool) => (
-                      <li class="ticker-item">
-                        <img
-                          src={tool.src}
-                          alt={tool.name}
-                          width="20"
-                          height="20"
-                        />
-                        <span>{tool.name}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ))
-              }
-            </div>
-          </div>
-        </section>
       </div>
     </div>
     <section class="process-section">

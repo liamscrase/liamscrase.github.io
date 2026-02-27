@@ -121,28 +121,21 @@ const graphics = [GraphicResearch, GraphicWireframe, GraphicDesign, GraphicBuild
 </div>
 
 <script>
-  // ── STEPS data (mirrors frontmatter) ─────────────────
-  // Kept in sync with the frontmatter array above.
-  // Color is read directly from the rendered --step-color
-  // CSS var on each node via STEPS, so no duplication needed.
-  const STEPS = Array.from(
-    document.querySelectorAll<HTMLElement>('.pv2-node')
-  ).map(node => ({
-    color: node.style.getPropertyValue('--step-color'),
-  }))
+  const STEPS = Array.from(document.querySelectorAll<HTMLElement>('.pv2-node'))
+    .map(node => ({ color: node.style.getPropertyValue('--step-color') }))
 
   const TOTAL = STEPS.length
   const N     = TOTAL - 1
-  const clamp    = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v))
-  const easeInOut = (t: number) => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2
 
-  // ── Elements ─────────────────────────────────────────
+  const clamp     = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v))
+  const easeInOut = (t: number) => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2
+  const scrollRange = () => container.offsetHeight - window.innerHeight
+
   const container = document.getElementById('process-v2-container')!
   const bar       = document.getElementById('pv2-bar')!
   const cardEls   = Array.from(document.querySelectorAll<HTMLElement>('.pv2-card'))
   const nodeEls   = Array.from(document.querySelectorAll<HTMLElement>('.pv2-node'))
 
-  // ── goTo ─────────────────────────────────────────────
   let current = -1
   function goTo(index: number) {
     if (index === current) return
@@ -154,78 +147,36 @@ const graphics = [GraphicResearch, GraphicWireframe, GraphicDesign, GraphicBuild
     bar.style.setProperty('--step-color', STEPS[index].color)
   }
 
-  // ── Node clicks ───────────────────────────────────────
   nodeEls.forEach((node, i) => {
     node.addEventListener('click', () => {
-      const scrollRange = container.offsetHeight - window.innerHeight
-      window.scrollTo({ top: container.offsetTop + (i / N) * scrollRange, behavior: 'smooth' })
+      window.scrollTo({ top: container.offsetTop + (i / N) * scrollRange(), behavior: 'smooth' })
     })
   })
 
-  // ── Scroll handler ────────────────────────────────────
   function onScroll() {
-    const scrolled    = -container.getBoundingClientRect().top
-    const scrollRange = container.offsetHeight - window.innerHeight
-    if (scrolled < 0 || scrolled > scrollRange) return
+    const p = clamp(-container.getBoundingClientRect().top / scrollRange(), 0, 1)
 
-    const p = clamp(scrolled / scrollRange, 0, 1)
+    goTo(Math.min(Math.floor(p * N + 0.01), N))
 
-    // Active node
-    let targetIndex = 0
-    for (let i = 0; i < TOTAL; i++) {
-      if (p >= (i / N) - 0.01) targetIndex = i
-    }
-    goTo(targetIndex)
-
-    // Progress bar
     bar.style.height = `${p * 100}%`
     bar.classList.toggle('live', p > 0.01 && p < 0.99)
 
-    // Cards
     cardEls.forEach((card, i) => {
       if (i > 0) {
-        const eased = easeInOut(clamp((p - (i - 1) / N) / (1 / N), 0, 1))
+        const eased = easeInOut(clamp((p - (i - 1) / N) * N, 0, 1))
         card.style.transform = `translateY(${(1 - eased) * 100}%)`
         card.style.opacity   = String(clamp(eased * 3, 0, 1))
       }
-      const dark = easeInOut(clamp((p - i / N) / (1 / N), 0, 1)) * 0.45
-      card.style.setProperty('--cover-dark', String(dark))
+      card.style.setProperty('--cover-dark', String(easeInOut(clamp((p - i / N) * N, 0, 1)) * 0.45))
     })
   }
 
-  // ── Init ─────────────────────────────────────────────
-  const isMobile = () => window.innerWidth < 700
-
-  const setVh = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
-  const setH  = () => { container.style.height = isMobile() ? '' : `${window.innerHeight * 3}px` }
-  setVh(); setH()
-
-  let lastVh = window.innerHeight
-  let resizeTimer: ReturnType<typeof setTimeout>
-  window.addEventListener('resize', () => {
-    const delta = Math.abs(window.innerHeight - lastVh)
-    if (delta < 100) return
-    lastVh = window.innerHeight
-    setVh(); setH()
-    clearTimeout(resizeTimer)
-    if (!isMobile()) resizeTimer = setTimeout(onScroll, 150)
-  })
-
-  if (isMobile()) {
-    // Mobile: all cards visible, no scroll effect
-    cardEls.forEach(card => {
-      card.style.transform = ''
-      card.style.opacity   = '1'
-      card.style.setProperty('--cover-dark', '0')
-    })
-  } else {
-    // Desktop: hide cards 2–5 below fold, start scroll listener
+  // Full experience requires enough width and height — otherwise CSS handles it as stacked cards
+  if (window.matchMedia('(min-width: 700px) and (min-height: 500px)').matches) {
     goTo(0)
     cardEls.forEach((card, i) => {
-      if (i > 0) {
-        card.style.transform = 'translateY(100%)'
-        card.style.opacity   = '0'
-      }
+      if (i > 0) card.style.transform = 'translateY(100%)'
+      card.style.opacity = i === 0 ? '1' : '0'
       card.style.setProperty('--cover-dark', '0')
     })
     window.addEventListener('scroll', onScroll, { passive: true })

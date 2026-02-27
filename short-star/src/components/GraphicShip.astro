@@ -2,97 +2,188 @@
 // GraphicShip.astro — Terminal window with deploy log
 ---
 
-<div class="gs-wrap" aria-hidden="true">
-  <svg class="gs-svg" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="9">
+<div class="frame scale-target">
+  <div class="canvas">
 
-    <!-- Terminal window -->
-    <rect x="30" y="16" width="340" height="228" rx="6" fill="#0a0a0a" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <div class="terminal">
 
-    <!-- Title bar -->
-    <rect x="30" y="16" width="340" height="26" rx="6" fill="#1a1a1a"/>
-    <rect x="30" y="29" width="340" height="13" fill="#1a1a1a"/>
-    <circle cx="48" cy="29" r="4" fill="#ff5f57"/>
-    <circle cx="62" cy="29" r="4" fill="#febc2e"/>
-    <circle cx="76" cy="29" r="4" fill="#28c840"/>
-    <text x="200" y="33" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="8">zsh — deploy</text>
+      <div class="titlebar">
+        <div class="dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="title">zsh — deploy</div>
+      </div>
 
-    <!-- Terminal lines -->
-    <g font-size="9">
+      <div class="body">
+        <div class="line"><span class="green">➜ </span><span class="blue">~/project </span><span class="muted">git push origin main</span></div>
+        <div class="line dim">Enumerating objects: 24, done.</div>
+        <div class="line dim">Counting objects: 100% (24/24), done.</div>
+        <div class="line dim">Writing objects: 100% (13/13), 4.21 KiB</div>
+        <div class="line"><span class="dimmer">remote: </span><span class="dim">Resolving deltas: 100% (8/8)</span></div>
+        <div class="divider"></div>
+        <div class="line"><span class="dimmer">▸ </span><span class="purple">Vercel </span><span class="dim">triggered deployment...</span></div>
+        <div class="line dim">Installing dependencies</div>
+        <div class="progress-wrap">
+          <div class="progress-track">
+            <div class="progress-bar"></div>
+          </div>
+        </div>
+        <div class="line dim">Building application...</div>
+        <div class="line dim">Running checks</div>
+        <div class="line"><span class="dim">Performance score: </span><span class="green">98</span><span class="dim"> / 100</span></div>
+        <div class="divider"></div>
+        <div class="line"><span class="green">✓ </span><span class="teal">Deployed to production</span><span class="dimmer"> · 12s</span></div>
+        <div class="line"><span class="green">➜ </span><span class="blue">~/project </span><span class="cursor"></span></div>
+      </div>
 
-      <!-- Prompt + command -->
-      <text x="46" y="60">
-        <tspan fill="#3cd870">➜ </tspan>
-        <tspan fill="#4b95ea">~/project </tspan>
-        <tspan fill="rgba(255,255,255,0.6)">git push origin main</tspan>
-      </text>
+    </div>
 
-      <text x="46" y="75" fill="rgba(255,255,255,0.3)">Enumerating objects: 24, done.</text>
-      <text x="46" y="88" fill="rgba(255,255,255,0.3)">Counting objects: 100% (24/24), done.</text>
-      <text x="46" y="101" fill="rgba(255,255,255,0.3)">Writing objects: 100% (13/13), 4.21 KiB</text>
-
-      <text x="46" y="116">
-        <tspan fill="rgba(255,255,255,0.2)">remote: </tspan>
-        <tspan fill="rgba(255,255,255,0.4)">Resolving deltas: 100% (8/8)</tspan>
-      </text>
-
-      <!-- Divider -->
-      <line x1="46" y1="124" x2="354" y2="124" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-
-      <text x="46" y="137">
-        <tspan fill="rgba(255,255,255,0.2)">▸ </tspan>
-        <tspan fill="#7b7bea">Vercel </tspan>
-        <tspan fill="rgba(255,255,255,0.4)">triggered deployment...</tspan>
-      </text>
-
-      <text x="46" y="151" fill="rgba(255,255,255,0.3)">  Installing dependencies</text>
-
-      <!-- Progress bar -->
-      <rect x="46" y="158" width="240" height="6" rx="3" fill="rgba(255,255,255,0.06)"/>
-      <rect x="46" y="158" width="240" height="6" rx="3" fill="#3cd870" opacity="0.7">
-        <animate attributeName="width" values="0;240" dur="2s" fill="freeze" repeatCount="1"/>
-      </rect>
-
-      <text x="46" y="177" fill="rgba(255,255,255,0.3)">  Building application...</text>
-      <text x="46" y="190" fill="rgba(255,255,255,0.3)">  Running checks</text>
-      <text x="46" y="203">
-        <tspan fill="rgba(255,255,255,0.3)">  Performance score: </tspan>
-        <tspan fill="#3cd870">98</tspan>
-        <tspan fill="rgba(255,255,255,0.3)"> / 100</tspan>
-      </text>
-
-      <!-- Divider -->
-      <line x1="46" y1="211" x2="354" y2="211" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-
-      <!-- Success -->
-      <text x="46" y="225">
-        <tspan fill="#3cd870">✓ </tspan>
-        <tspan fill="#3cd8b0">Deployed to production</tspan>
-        <tspan fill="rgba(255,255,255,0.25)"> · 12s</tspan>
-      </text>
-
-      <!-- Blinking cursor -->
-      <text x="46" y="240">
-        <tspan fill="#3cd870">➜ </tspan>
-        <tspan fill="#4b95ea">~/project </tspan>
-      </text>
-      <rect x="110" y="230" width="1.5" height="10" fill="rgba(255,255,255,0.7)">
-        <animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/>
-      </rect>
-
-    </g>
-  </svg>
+  </div>
 </div>
 
 <style>
-  .gs-wrap {
+  .frame {
     width: 100%;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 400px;
+    height: 225px;
+    transform-origin: top left;
+  }
+
+  /* ── Terminal shell ── */
+  .terminal {
+    width: 400px;
+    height: 225px;
+    background: #0a0a0a;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  /* ── Title bar ── */
+  .titlebar {
+    position: relative;
+    height: 26px;
+    background: #1a1a1a;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
+    padding: 0 10px;
+    flex-shrink: 0;
   }
-  .gs-svg {
-    width: 100%;
+
+  .dots { display: flex; gap: 4px; }
+
+  .dot { width: 7px; height: 7px; border-radius: 50%;   background: rgba(255,255,255,0.15);
+  }
+  .title {
+    position: absolute;
+    left: 0; right: 0;
+    text-align: center;
+    font-family: monospace;
+    font-size: 7px;
+    color: rgba(255,255,255,0.2);
+    pointer-events: none;
+  }
+
+  /* ── Body ── */
+  .body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px 12px;
+    overflow: hidden;
+  }
+
+  .line {
+    font-family: monospace;
+    font-size: 7.5px;
+    line-height: 1.7;
+    white-space: nowrap;
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+    margin: 1px 0;
+    flex-shrink: 0;
+  }
+
+  /* ── Progress bar ── */
+  .progress-wrap { padding: 2px 0; }
+
+  .progress-track {
+    height: 5px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
     height: 100%;
+    width: 0;
+    background: #3cd870;
+    border-radius: 99px;
+    opacity: 0.85;
+    animation: fill 2s ease-out 0.5s forwards;
+  }
+
+  @keyframes fill {
+    from { width: 0; }
+    to   { width: 100%; }
+  }
+
+  /* ── Syntax colors ── */
+  .dim    { color: rgba(255,255,255,0.35); }
+  .dimmer { color: rgba(255,255,255,0.18); }
+  .muted  { color: rgba(255,255,255,0.65); }
+  .green  { color: #3cd870; }
+  .teal   { color: #3cd8b0; }
+  .blue   { color: #4b95ea; }
+  .purple { color: #7b7bea; }
+
+  /* ── Blinking cursor ── */
+  .cursor {
+    display: inline-block;
+    width: 1.5px;
+    height: 9px;
+    background: rgba(255,255,255,0.7);
+    vertical-align: middle;
+    animation: blink 1.1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
   }
 </style>
+
+<script is:inline>
+  (() => {
+    function scale(frame) {
+      const canvas = frame.querySelector('.canvas');
+      if (!canvas) return;
+      const s = Math.min(frame.clientWidth / 400, frame.clientHeight / 225);
+      canvas.style.transform = `scale(${s})`;
+      canvas.style.left = `${(frame.clientWidth  - 400 * s) / 2}px`;
+      canvas.style.top  = `${(frame.clientHeight - 225 * s) / 2}px`;
+    }
+    const ro = new ResizeObserver(entries => entries.forEach(e => scale(e.target)));
+    document.querySelectorAll('.scale-target').forEach(f => { scale(f); ro.observe(f); });
+  })();
+</script>

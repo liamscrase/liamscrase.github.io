@@ -2,151 +2,199 @@
 // GraphicBuild.astro — Code editor with syntax highlighting
 ---
 
-<div class="gb-wrap" aria-hidden="true">
-  <svg class="gb-svg" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" font-family="monospace" font-size="9.5">
+<div class="frame scale-target">
+  <div class="canvas">
 
-    <!-- Editor window -->
-    <rect x="30" y="16" width="340" height="228" rx="6" fill="#0d0d0d" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <div class="editor">
 
-    <!-- Title bar -->
-    <rect x="30" y="16" width="340" height="26" rx="6" fill="#161616"/>
-    <rect x="30" y="29"  width="340" height="13" fill="#161616"/>
-    <circle cx="48" cy="29" r="4" fill="rgba(255,255,255,0.12)"/>
-    <circle cx="62" cy="29" r="4" fill="rgba(255,255,255,0.12)"/>
-    <circle cx="76" cy="29" r="4" fill="rgba(255,255,255,0.12)"/>
-    <text x="200" y="33" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="8">Component.astro</text>
+      <div class="titlebar">
+        <div class="dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="filename">Component.astro</div>
+      </div>
 
-    <!-- Gutter -->
-    <rect x="30" y="42" width="28" height="202" fill="#111" rx="0"/>
+      <div class="body">
 
-    <!-- Line numbers -->
-    <g fill="rgba(255,255,255,0.18)" font-size="8.5">
-      <text x="51" y="57"  text-anchor="end">1</text>
-      <text x="51" y="71"  text-anchor="end">2</text>
-      <text x="51" y="85"  text-anchor="end">3</text>
-      <text x="51" y="99"  text-anchor="end">4</text>
-      <text x="51" y="113" text-anchor="end">5</text>
-      <text x="51" y="127" text-anchor="end">6</text>
-      <text x="51" y="141" text-anchor="end">7</text>
-      <text x="51" y="155" text-anchor="end">8</text>
-      <text x="51" y="169" text-anchor="end">9</text>
-      <text x="51" y="183" text-anchor="end">10</text>
-      <text x="51" y="197" text-anchor="end">11</text>
-      <text x="51" y="211" text-anchor="end">12</text>
-      <text x="51" y="225" text-anchor="end">13</text>
-    </g>
+        <div class="gutter">
+          <span>1</span><span>2</span><span>3</span>
+          <span>4</span><span>5</span><span>6</span>
+          <span>7</span><span>8</span><span>9</span>
+          <span>10</span><span>11</span><span>12</span>
+          <span>13</span>
+        </div>
 
-    <!-- Active line highlight -->
-    <rect x="58" y="176" width="304" height="13" fill="rgba(255,255,255,0.04)" rx="1"/>
+        <div class="code">
+          <div class="line"><span class="dim">---</span></div>
+          <div class="line"><span class="purple">const </span><span class="muted">&#123; title, href &#125; = </span><span class="blue">Astro</span><span class="dim2">.props</span></div>
+          <div class="line"><span class="dim">---</span></div>
+          <div class="line">&nbsp;</div>
+          <div class="line"><span class="dim2">&lt;</span><span class="green">section </span><span class="violet">class</span><span class="dim2">="</span><span class="teal">card</span><span class="dim2">"&gt;</span></div>
+          <div class="line"><span class="indent1"></span><span class="dim2">&lt;</span><span class="green">h2</span><span class="dim2">&gt;</span><span class="muted">&#123;</span><span class="blue">title</span><span class="muted">&#125;</span><span class="dim2">&lt;/</span><span class="green">h2</span><span class="dim2">&gt;</span></div>
+          <div class="line"><span class="indent1"></span><span class="dim2">&lt;</span><span class="green">a </span><span class="violet">href</span><span class="dim2">=&#123;</span><span class="blue">href</span><span class="dim2">&#125;&gt;</span></div>
+          <div class="line"><span class="indent2"></span><span class="dim2">&lt;</span><span class="purple">slot </span><span class="dim2">/&gt;</span></div>
+          <div class="line"><span class="indent1"></span><span class="dim2">&lt;/</span><span class="green">a</span><span class="dim2">&gt;</span></div>
+          <div class="line active"><span class="dim2">&lt;/</span><span class="green">section</span><span class="dim2">&gt;</span></div>
+          <div class="line">&nbsp;</div>
+          <div class="line"><span class="dim2">&lt;</span><span class="green">style</span><span class="dim2">&gt;</span></div>
+          <div class="line"><span class="violet">.card </span><span class="dim2">&#123;</span><span class="cursor"></span></div>
+        </div>
 
-    <!-- Code lines — syntax coloured -->
-    <!-- Line 1: --- -->
-    <text x="64" y="57" fill="rgba(255,255,255,0.25)">---</text>
+      </div>
+    </div>
 
-    <!-- Line 2: const { title } = Astro.props -->
-    <text x="64" y="71">
-      <tspan fill="#7b7bea">const </tspan>
-      <tspan fill="rgba(255,255,255,0.7)">&#123; title, href &#125; = </tspan>
-      <tspan fill="#4b95ea">Astro</tspan>
-      <tspan fill="rgba(255,255,255,0.5)">.props</tspan>
-    </text>
-
-    <!-- Line 3: --- -->
-    <text x="64" y="85" fill="rgba(255,255,255,0.25)">---</text>
-
-    <!-- Line 4: blank -->
-
-    <!-- Line 5: <section class= -->
-    <text x="64" y="113">
-      <tspan fill="rgba(255,255,255,0.3)">&lt;</tspan>
-      <tspan fill="#3cd870">section</tspan>
-      <tspan fill="#a45bea"> class</tspan>
-      <tspan fill="rgba(255,255,255,0.5)">=</tspan>
-      <tspan fill="#3cd8b0">"card"</tspan>
-      <tspan fill="rgba(255,255,255,0.3)">&gt;</tspan>
-    </text>
-
-    <!-- Line 6:   <h2>{title}</h2> -->
-    <text x="64" y="127">
-      <tspan fill="rgba(255,255,255,0.2)">  </tspan>
-      <tspan fill="rgba(255,255,255,0.3)">&lt;</tspan>
-      <tspan fill="#3cd870">h2</tspan>
-      <tspan fill="rgba(255,255,255,0.3)">&gt;</tspan>
-      <tspan fill="rgba(255,255,255,0.6)">&#123;</tspan>
-      <tspan fill="#4b95ea">title</tspan>
-      <tspan fill="rgba(255,255,255,0.6)">&#125;</tspan>
-      <tspan fill="rgba(255,255,255,0.3)">&lt;/</tspan>
-      <tspan fill="#3cd870">h2</tspan>
-      <tspan fill="rgba(255,255,255,0.3)">&gt;</tspan>
-    </text>
-
-    <!-- Line 7:   <a href={href}> -->
-    <text x="64" y="141">
-      <tspan fill="rgba(255,255,255,0.2)">  </tspan>
-      <tspan fill="rgba(255,255,255,0.3)">&lt;</tspan>
-      <tspan fill="#3cd870">a </tspan>
-      <tspan fill="#a45bea">href</tspan>
-      <tspan fill="rgba(255,255,255,0.5)">=&#123;</tspan>
-      <tspan fill="#4b95ea">href</tspan>
-      <tspan fill="rgba(255,255,255,0.5)">&#125;</tspan>
-      <tspan fill="rgba(255,255,255,0.3)">&gt;</tspan>
-    </text>
-
-    <!-- Line 8:     <slot /> -->
-    <text x="64" y="155">
-      <tspan fill="rgba(255,255,255,0.2)">    </tspan>
-      <tspan fill="rgba(255,255,255,0.3)">&lt;</tspan>
-      <tspan fill="#7b7bea">slot </tspan>
-      <tspan fill="rgba(255,255,255,0.3)">/&gt;</tspan>
-    </text>
-
-    <!-- Line 9:   </a> -->
-    <text x="64" y="169">
-      <tspan fill="rgba(255,255,255,0.2)">  </tspan>
-      <tspan fill="rgba(255,255,255,0.3)">&lt;/</tspan>
-      <tspan fill="#3cd870">a</tspan>
-      <tspan fill="rgba(255,255,255,0.3)">&gt;</tspan>
-    </text>
-
-    <!-- Line 10: </section> — active line -->
-    <text x="64" y="183">
-      <tspan fill="rgba(255,255,255,0.3)">&lt;/</tspan>
-      <tspan fill="#3cd870">section</tspan>
-      <tspan fill="rgba(255,255,255,0.3)">&gt;</tspan>
-    </text>
-
-    <!-- Line 11: blank -->
-
-    <!-- Line 12: <style> -->
-    <text x="64" y="211">
-      <tspan fill="rgba(255,255,255,0.3)">&lt;</tspan>
-      <tspan fill="#3cd870">style</tspan>
-      <tspan fill="rgba(255,255,255,0.3)">&gt;</tspan>
-    </text>
-
-    <!-- Line 13: .card { — with blinking cursor -->
-    <text x="64" y="225">
-      <tspan fill="#a45bea">.card </tspan>
-      <tspan fill="rgba(255,255,255,0.5)">&#123;</tspan>
-    </text>
-    <!-- Cursor -->
-    <rect x="112" y="215" width="1.5" height="11" fill="#4b95ea">
-      <animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/>
-    </rect>
-
-  </svg>
+  </div>
 </div>
 
 <style>
-  .gb-wrap {
+  .frame {
     width: 100%;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 400px;
+    height: 225px;
+    transform-origin: top left;
+  }
+
+  /* ── Editor shell ── */
+  .editor {
+    width: 400px;
+    height: 225px;
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  /* ── Title bar ── */
+  .titlebar {
+    position: relative;
+    height: 26px;
+    background: #161616;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
+    padding: 0 10px;
+    flex-shrink: 0;
   }
-  .gb-svg {
-    width: 100%;
-    height: 100%;
+
+  .dots { display: flex; gap: 4px; }
+
+  .dot { width: 7px; height: 7px; border-radius: 50%;   background: rgba(255,255,255,0.15);
+  }
+  .filename {
+    position: absolute;
+    left: 0; right: 0; text-align: center; pointer-events: none;
+    font-family: monospace;
+    font-size: 7px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ── Editor body ── */
+  .body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+  }
+
+  /* ── Line numbers ── */
+  .gutter {
+    background: #111;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    padding: 7px 6px 7px 4px;
+    flex-shrink: 0;
+  }
+
+  .gutter span {
+    font-family: monospace;
+    font-size: 7px;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.16);
+    text-align: right;
+    display: block;
+  }
+
+  /* ── Code area ── */
+  .code {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 7px 10px;
+    overflow: hidden;
+  }
+
+  .line {
+    font-family: monospace;
+    font-size: 7.5px;
+    line-height: 1.85;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+
+  .line.active {
+    background: rgba(255,255,255,0.04);
+    border-radius: 2px;
+    margin: 0 -10px;
+    padding: 0 10px;
+  }
+
+  /* ── Indent helpers ── */
+  .indent1 { display: inline-block; width: 14px; }
+  .indent2 { display: inline-block; width: 28px; }
+
+  /* ── Syntax colors ── */
+  .dim    { color: rgba(255,255,255,0.22); }
+  .dim2   { color: rgba(255,255,255,0.32); }
+  .muted  { color: rgba(255,255,255,0.65); }
+  .blue   { color: #4b95ea; }
+  .purple { color: #7b7bea; }
+  .green  { color: #3cd870; }
+  .violet { color: #a45bea; }
+  .teal   { color: #3cd8b0; }
+
+  /* ── Blinking cursor ── */
+  .cursor {
+    display: inline-block;
+    width: 1.5px;
+    height: 10px;
+    background: #4b95ea;
+    margin-left: 1px;
+    vertical-align: middle;
+    animation: blink 1.1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
   }
 </style>
+
+<script is:inline>
+  (() => {
+    function scale(frame) {
+      const canvas = frame.querySelector('.canvas');
+      if (!canvas) return;
+      const s = Math.min(frame.clientWidth / 400, frame.clientHeight / 225);
+      canvas.style.transform = `scale(${s})`;
+      canvas.style.left = `${(frame.clientWidth  - 400 * s) / 2}px`;
+      canvas.style.top  = `${(frame.clientHeight - 225 * s) / 2}px`;
+    }
+    const ro = new ResizeObserver(entries => entries.forEach(e => scale(e.target)));
+    document.querySelectorAll('.scale-target').forEach(f => { scale(f); ro.observe(f); });
+  })();
+</script>

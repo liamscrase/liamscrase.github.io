@@ -1,157 +1,376 @@
 ---
-// GraphicDesign.astro — Figma canvas animation: cursor draws a card component
+// GraphicDesign.astro — High-fidelity browser mockup, generic with purple accents
 ---
 
-<div class="gd-wrap" aria-hidden="true">
-  <svg class="gd-svg" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" font-family="monospace">
+<div class="frame scale-target">
+  <div class="canvas">
+    <div class="browser">
+      <div class="titlebar">
+        <div class="dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="urlbar">lorem.ipsum</div>
+      </div>
 
-    <!-- ── Figma chrome ── -->
-    <!-- Toolbar -->
-    <rect x="0" y="0" width="400" height="260" fill="#1e1e1e"/>
-    <rect x="0" y="0" width="400" height="32" fill="#2c2c2c"/>
+      <div class="navbar">
+        <div class="logo">LOREM</div>
+        <div class="nav-links">
+          <span class="nav-link">HOME</span>
+          <span class="nav-link">WORK</span>
+          <span class="nav-link">ABOUT</span>
+        </div>
+        <div class="nav-cta">CONTACT</div>
+      </div>
 
-    <!-- Figma logo mark -->
-    <rect x="10" y="8" width="16" height="16" rx="2" fill="#ff7262"/>
-    <text x="18" y="20" text-anchor="middle" fill="white" font-size="9" font-weight="bold">F</text>
+      <div class="hero">
+        <div class="hero-text">
+          <h2 class="heading">Lorem ipsum<br />dolor sit amet</h2>
+          <p class="subtext">
+            Consectetur adipiscing elit, sed do eiusmod tempor.
+          </p>
+          <div class="hero-buttons">
+            <div class="btn btn--primary">GET STARTED</div>
+            <div class="btn btn--outline">LEARN MORE</div>
+          </div>
+        </div>
+        <div class="hero-img">
+          <div class="orb orb--4"></div>
+          <div class="orb orb--3"></div>
+          <div class="orb orb--2"></div>
+          <div class="orb orb--1"></div>
+        </div>
+      </div>
 
-    <!-- Tool icons -->
-    <g fill="rgba(255,255,255,0.35)" font-size="8" text-anchor="middle">
-      <rect x="34" y="9" width="14" height="14" rx="2" fill="rgba(255,255,255,0.15)"/>
-      <text x="41" y="19">V</text>
-      <rect x="52" y="9" width="14" height="14" rx="2" fill="rgba(255,255,255,0.08)"/>
-      <text x="59" y="19">F</text>
-      <rect x="70" y="9" width="14" height="14" rx="2" fill="rgba(255,255,255,0.08)"/>
-      <text x="77" y="19">R</text>
-      <rect x="88" y="9" width="14" height="14" rx="2" fill="rgba(255,255,255,0.08)"/>
-      <text x="95" y="19">T</text>
-    </g>
-
-    <!-- Share / Present buttons -->
-    <rect x="290" y="8" width="50" height="16" rx="3" fill="#0d99ff"/>
-    <text x="315" y="19" text-anchor="middle" fill="white" font-size="7">Share</text>
-    <rect x="346" y="8" width="44" height="16" rx="3" fill="rgba(255,255,255,0.1)"/>
-    <text x="368" y="19" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="7">Present</text>
-
-    <!-- Left panel -->
-    <rect x="0" y="32" width="56" height="228" fill="#252525"/>
-    <text x="28" y="50" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7">Layers</text>
-    <line x1="8" y1="56" x2="48" y2="56" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-    <!-- Layer items -->
-    <g fill="rgba(255,255,255,0.2)" font-size="7">
-      <rect x="8" y="62" width="6" height="6" rx="1" fill="rgba(255,255,255,0.15)"/>
-      <text x="18" y="69">Card</text>
-      <rect x="12" y="74" width="5" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
-      <text x="20" y="80">Header</text>
-      <rect x="12" y="85" width="5" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
-      <text x="20" y="91">Body</text>
-      <rect x="12" y="96" width="5" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
-      <text x="20" y="102">Button</text>
-    </g>
-
-    <!-- Right panel -->
-    <rect x="320" y="32" width="80" height="228" fill="#252525"/>
-    <text x="360" y="50" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="7">Design</text>
-    <line x1="326" y1="56" x2="394" y2="56" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-    <g fill="rgba(255,255,255,0.2)" font-size="7">
-      <text x="328" y="68">W</text><rect x="342" y="60" width="44" height="11" rx="2" fill="rgba(255,255,255,0.08)"/><text x="364" y="69" text-anchor="middle" fill="rgba(255,255,255,0.4)">240</text>
-      <text x="328" y="82">H</text><rect x="342" y="74" width="44" height="11" rx="2" fill="rgba(255,255,255,0.08)"/><text x="364" y="83" text-anchor="middle" fill="rgba(255,255,255,0.4)">140</text>
-      <text x="328" y="96">R</text><rect x="342" y="88" width="44" height="11" rx="2" fill="rgba(255,255,255,0.08)"/><text x="364" y="97" text-anchor="middle" fill="rgba(255,255,255,0.4)">8</text>
-      <line x1="326" y1="106" x2="394" y2="106" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-      <text x="328" y="118">Fill</text>
-      <rect x="342" y="110" width="12" height="11" rx="2" fill="#a45bea"/>
-      <rect x="358" y="110" width="28" height="11" rx="2" fill="rgba(255,255,255,0.08)"/>
-      <text x="372" y="119" text-anchor="middle" fill="rgba(255,255,255,0.4)">A45BEA</text>
-    </g>
-
-    <!-- Canvas area -->
-    <rect x="56" y="32" width="264" height="228" fill="#1e1e1e"/>
-
-    <!-- Dot grid -->
-    <pattern id="dots" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
-      <circle cx="8" cy="8" r="0.6" fill="rgba(255,255,255,0.08)"/>
-    </pattern>
-    <rect x="56" y="32" width="264" height="228" fill="url(#dots)"/>
-
-    <!-- ── The card being drawn ── -->
-
-    <!-- Card outline appears (stroke-dasharray animation) -->
-    <rect x="110" y="70" width="180" height="120" rx="8"
-          fill="rgba(30,30,30,0.9)" stroke="#a45bea" stroke-width="1.5"
-          stroke-dasharray="600" stroke-dashoffset="600">
-      <animate attributeName="stroke-dashoffset" values="600;0" dur="1.2s" begin="0.3s" fill="freeze" calcMode="easeOut"/>
-    </rect>
-
-    <!-- Selection handles appear after card is drawn -->
-    <g opacity="0">
-      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="1.5s" fill="freeze"/>
-      <!-- Corner handles -->
-      <rect x="106" y="66"  width="7" height="7" rx="1" fill="white" stroke="#0d99ff" stroke-width="1"/>
-      <rect x="283" y="66"  width="7" height="7" rx="1" fill="white" stroke="#0d99ff" stroke-width="1"/>
-      <rect x="106" y="183" width="7" height="7" rx="1" fill="white" stroke="#0d99ff" stroke-width="1"/>
-      <rect x="283" y="183" width="7" height="7" rx="1" fill="white" stroke="#0d99ff" stroke-width="1"/>
-      <!-- Mid handles -->
-      <rect x="195" y="66"  width="7" height="7" rx="1" fill="white" stroke="#0d99ff" stroke-width="1"/>
-      <rect x="195" y="183" width="7" height="7" rx="1" fill="white" stroke="#0d99ff" stroke-width="1"/>
-      <rect x="106" y="125" width="7" height="7" rx="1" fill="white" stroke="#0d99ff" stroke-width="1"/>
-      <rect x="283" y="125" width="7" height="7" rx="1" fill="white" stroke="#0d99ff" stroke-width="1"/>
-      <!-- Selection border -->
-      <rect x="106" y="66" width="190" height="130" rx="0" fill="none" stroke="#0d99ff" stroke-width="1" stroke-dasharray="4 2"/>
-    </g>
-
-    <!-- Card inner content fades in -->
-    <g opacity="0">
-      <animate attributeName="opacity" values="0;1" dur="0.4s" begin="1.8s" fill="freeze"/>
-      <!-- Header bar -->
-      <rect x="118" y="78" width="164" height="8" rx="2" fill="rgba(164,91,234,0.3)"/>
-      <!-- Title text placeholder -->
-      <rect x="118" y="94" width="120" height="7" rx="2" fill="rgba(255,255,255,0.25)"/>
-      <!-- Body text lines -->
-      <rect x="118" y="107" width="148" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
-      <rect x="118" y="116" width="136" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
-      <rect x="118" y="125" width="110" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
-      <!-- Button -->
-      <rect x="118" y="140" width="60" height="20" rx="4" fill="#a45bea"/>
-      <rect x="118" y="140" width="60" height="20" rx="4" fill="rgba(255,255,255,0.0)"/>
-      <text x="148" y="153" text-anchor="middle" fill="white" font-size="7">View more</text>
-    </g>
-
-    <!-- ── Cursor ── -->
-    <!-- Cursor moves: start off-canvas → drag draw position → settle at card → move to button -->
-    <g>
-      <!-- Cursor arrow -->
-      <polygon points="0,0 0,14 4,10 7,16 9,15 6,9 11,9" fill="white" stroke="#333" stroke-width="0.5">
-        <!-- Move to draw start -->
-        <animateTransform attributeName="transform" type="translate"
-          values="220,180; 110,70; 110,70; 200,130; 148,148"
-          keyTimes="0; 0.25; 0.55; 0.75; 1"
-          dur="4s" repeatCount="indefinite" calcMode="spline"
-          keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"/>
-      </polygon>
-      <!-- Click dot — flashes at draw start and at button -->
-      <circle cx="0" cy="0" r="5" fill="rgba(13,153,255,0.4)" stroke="none">
-        <animateTransform attributeName="transform" type="translate"
-          values="220,180; 110,70; 110,70; 200,130; 148,148"
-          keyTimes="0; 0.25; 0.55; 0.75; 1"
-          dur="4s" repeatCount="indefinite" calcMode="spline"
-          keySplines="0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1; 0.4 0 0.2 1"/>
-        <animate attributeName="opacity" values="0;0;1;0;0;1;0" keyTimes="0;0.24;0.25;0.3;0.74;0.75;0.8" dur="4s" repeatCount="indefinite"/>
-        <animate attributeName="r" values="5;12;5" dur="0.4s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-
-  </svg>
+      <div class="cards">
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-title">Lorem ipsum</div>
+          <div class="card-body">Ut enim ad minim veniam quis.</div>
+          <div class="card-cta">VIEW →</div>
+        </div>
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-title">Dolor sit amet</div>
+          <div class="card-body">Duis aute irure dolor in reprehenderit.</div>
+          <div class="card-cta">VIEW →</div>
+        </div>
+        <div class="card">
+          <div class="card-accent"></div>
+          <div class="card-title">Consectetur</div>
+          <div class="card-body">Excepteur sint occaecat cupidatat.</div>
+          <div class="card-cta">VIEW →</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
-  .gd-wrap {
+  .frame {
     width: 100%;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 225px;
+    transform-origin: top left;
+  }
+
+  /* ── Browser shell ── */
+  .browser {
+    width: 400px;
+    height: 225px;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+
+  /* ── Title bar ── */
+  .titlebar {
+    position: relative;
+    height: 26px;
+    background: #1a1a1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 10px;
+    flex-shrink: 0;
+  }
+
+  .dots {
+    display: flex;
+    gap: 4px;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .urlbar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35%;
+    height: 13px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: monospace;
+    font-size: 7px;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.03em;
+    pointer-events: none;
   }
-  .gd-svg {
-    width: 100%;
-    height: 100%;
+
+  /* ── Nav bar ── */
+  .navbar {
+    height: 26px;
+    background: #111;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 12px;
+    flex-shrink: 0;
+  }
+
+  .logo {
+    font-family: monospace;
+    font-size: 7px;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 2px 5px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .nav-link {
+    font-family: monospace;
+    font-size: 6px;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.38);
+  }
+
+  .nav-cta {
+    font-family: monospace;
+    font-size: 6px;
+    letter-spacing: 0.07em;
+    color: white;
+    background: #a45bea;
+    padding: 3px 8px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: #0d0d0d;
+  }
+
+  .hero-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .heading {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .subtext {
+    font-family: monospace;
+    font-size: 6px;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 5px;
+    margin-top: 6px;
+  }
+
+  .btn {
+    font-family: monospace;
+    font-size: 6px;
+    letter-spacing: 0.07em;
+    padding: 4px 8px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .btn--primary {
+    background: #a45bea;
+    color: white;
+  }
+  .btn--outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  /* ── Hero image placeholder ── */
+  .hero-img {
+    width: 28%;
+    height: 80%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    flex-shrink: 0;
+    background: #111;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .orb--4 {
+    width: 82%;
+    height: 82%;
+    border: 1px solid rgba(164, 91, 234, 0.15);
+  }
+  .orb--3 {
+    width: 56%;
+    height: 56%;
+    border: 1px solid rgba(164, 91, 234, 0.22);
+  }
+  .orb--2 {
+    width: 30%;
+    height: 30%;
+    background: rgba(164, 91, 234, 0.2);
+  }
+  .orb--1 {
+    width: 10%;
+    height: 10%;
+    background: rgba(164, 91, 234, 0.7);
+  }
+
+  /* ── Cards row ── */
+  .cards {
+    display: flex;
+    gap: 7px;
+    padding: 7px 10px;
+    flex-shrink: 0;
+    background: #0a0a0a;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .card {
+    flex: 1;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 4px;
+    padding: 8px 7px 6px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #a45bea;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .card-title {
+    font-family: monospace;
+    font-size: 7px;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 3px;
+    margin-top: 2px;
+  }
+
+  .card-body {
+    font-family: monospace;
+    font-size: 6px;
+    color: rgba(255, 255, 255, 0.28);
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .card-cta {
+    font-family: monospace;
+    font-size: 5.5px;
+    letter-spacing: 0.05em;
+    padding: 3px 5px;
+    border-radius: 2px;
+    margin-top: 5px;
+    width: fit-content;
+    color: #a45bea;
+    border: 1px solid rgba(164, 91, 234, 0.35);
+    background: rgba(164, 91, 234, 0.08);
   }
 </style>
+
+<script is:inline>
+  (() => {
+    function scale(frame) {
+      const canvas = frame.querySelector(".canvas");
+      if (!canvas) return;
+      const s = Math.min(frame.clientWidth / 400, frame.clientHeight / 225);
+      canvas.style.transform = `scale(${s})`;
+      canvas.style.left = `${(frame.clientWidth - 400 * s) / 2}px`;
+      canvas.style.top = `${(frame.clientHeight - 225 * s) / 2}px`;
+    }
+    const ro = new ResizeObserver((entries) =>
+      entries.forEach((e) => scale(e.target)),
+    );
+    document.querySelectorAll(".scale-target").forEach((f) => {
+      scale(f);
+      ro.observe(f);
+    });
+  })();
+</script>

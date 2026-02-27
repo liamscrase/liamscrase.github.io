@@ -1,9 +1,64 @@
-<link rel="stylesheet" href="process-flow-v2.css">
+---
+// ProcessFlowVertical.astro
+// Depends on: process-flow-vertical.scss
+
+interface Step {
+  number: string
+  phase: string
+  color: string
+  image: string
+  description: string
+  tools: string[]
+}
+
+const steps: Step[] = [
+  {
+    number: "01",
+    phase: "Research",
+    color: "#4b95ea",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    description: "Understanding the problem space. Stakeholder interviews, competitor analysis, and defining user needs before a single frame is drawn.",
+    tools: ["User Interviews", "Competitor Analysis", "User Flows"],
+  },
+  {
+    number: "02",
+    phase: "Wireframe",
+    color: "#7b7bea",
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=80",
+    description: "Rough structure before polish. Low-fidelity layouts that map out hierarchy, flow, and interaction patterns quickly.",
+    tools: ["Figma", "Whiteboarding"],
+  },
+  {
+    number: "03",
+    phase: "Design",
+    color: "#a45bea",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+    description: "High-fidelity visuals, component libraries, and interactive prototypes. Every detail considered — spacing, type, colour, motion.",
+    tools: ["Figma", "Adobe CC"],
+  },
+  {
+    number: "04",
+    phase: "Build",
+    color: "#3cd870",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
+    description: "Translating designs into production-ready code. Clean, semantic HTML and SCSS with a focus on performance and accessibility.",
+    tools: ["Astro", "HTML", "SCSS", "TypeScript"],
+  },
+  {
+    number: "05",
+    phase: "Ship",
+    color: "#3cd8b0",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
+    description: "Tested, optimised, and launched. Handoff documentation, performance checks, and making sure everything holds up in the real world.",
+    tools: ["Git", "Performance Audit"],
+  },
+]
+---
 
 <div id="process-v2-container">
   <div class="pv2-sticky-wrap">
     <section id="process-v2">
-      <div class="pv2-inner">
+      <div class="content pv2-inner">
 
         <div class="pv2-header">
           <h2>How I work</h2>
@@ -11,155 +66,168 @@
         </div>
 
         <div class="pv2-body">
-          <div class="pv2-cards" id="pv2-cards"></div>
+
+          <div class="pv2-cards">
+            {steps.map((step, i) => (
+              <div
+                class="pv2-card"
+                style={`--step-color:${step.color}; z-index:${i + 1}`}
+              >
+                <div class="pv2-card-content">
+                  <div class="pv2-card-text">
+                    <div class="pv2-card-header">
+                      <span class="pv2-card-number">{step.number}</span>
+                      <h3>{step.phase}</h3>
+                    </div>
+                    <p>{step.description}</p>
+                    <div class="pv2-tools">
+                      {step.tools.map(tool => (
+                        <span class="pv2-tool">{tool}</span>
+                      ))}
+                    </div>
+                  </div>
+                  <div
+                    class="pv2-card-image"
+                    style={`background-image:url('${step.image}')`}
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div class="pv2-progress">
             <div class="pv2-progress-track">
               <div class="pv2-progress-bar" id="pv2-bar"></div>
             </div>
-            <div class="pv2-step-nodes" id="pv2-nodes"></div>
+            <div class="pv2-step-nodes">
+              {steps.map((step, i) => (
+                <button
+                  class="pv2-node"
+                  style={`--step-color:${step.color}`}
+                  aria-label={`View ${step.phase} step`}
+                  data-index={String(i)}
+                >
+                  <span class="pv2-node-number">{step.number}</span>
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   </div>
 </div>
 
-<script type="module">
-const STEPS = [
-  { number: "01", phase: "Research",  color: "#4b95ea",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
-    description: "Understanding the problem space. Stakeholder interviews, competitor analysis, and defining user needs before a single frame is drawn.",
-    tools: ["User Interviews", "Competitor Analysis", "User Flows"] },
-  { number: "02", phase: "Wireframe", color: "#7b7bea",
-    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&q=80",
-    description: "Rough structure before polish. Low-fidelity layouts that map out hierarchy, flow, and interaction patterns quickly.",
-    tools: ["Figma", "Whiteboarding"] },
-  { number: "03", phase: "Design",    color: "#a45bea",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
-    description: "High-fidelity visuals, component libraries, and interactive prototypes. Every detail considered — spacing, type, colour, motion.",
-    tools: ["Figma", "Adobe CC"] },
-  { number: "04", phase: "Build",     color: "#3cd870",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
-    description: "Translating designs into production-ready code. Clean, semantic HTML and SCSS with a focus on performance and accessibility.",
-    tools: ["Astro", "HTML", "SCSS", "TypeScript"] },
-  { number: "05", phase: "Ship",      color: "#3cd8b0",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80",
-    description: "Tested, optimised, and launched. Handoff documentation, performance checks, and making sure everything holds up in the real world.",
-    tools: ["Git", "Performance Audit"] },
-]
-const TOTAL = STEPS.length
-const N     = TOTAL - 1
+<script>
+  // ── STEPS data (mirrors frontmatter) ─────────────────
+  // Kept in sync with the frontmatter array above.
+  // Color is read directly from the rendered --step-color
+  // CSS var on each node via STEPS, so no duplication needed.
+  const STEPS = Array.from(
+    document.querySelectorAll<HTMLElement>('.pv2-node')
+  ).map(node => ({
+    color: node.style.getPropertyValue('--step-color'),
+  }))
 
-// ── ELEMENTS ─────────────────────────────────────────
-const container = document.getElementById('process-v2-container')
-const bar       = document.getElementById('pv2-bar')
-const nodesWrap = document.getElementById('pv2-nodes')
-const cardsWrap = document.getElementById('pv2-cards')
-const cardEls   = []
-const nodeEls   = []
+  const TOTAL = STEPS.length
+  const N     = TOTAL - 1
+  const clamp    = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v))
+  const easeInOut = (t: number) => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2
 
-// ── BUILD DOM ─────────────────────────────────────────
-STEPS.forEach((step, i) => {
-  const node = document.createElement('button')
-  node.className = 'pv2-node'
-  node.style.setProperty('--step-color', step.color)
-  node.setAttribute('aria-label', `View ${step.phase} step`)
-  node.innerHTML = `<span class="pv2-node-number">${step.number}</span>`
-  nodesWrap.appendChild(node)
-  nodeEls.push(node)
+  // ── Elements ─────────────────────────────────────────
+  const container = document.getElementById('process-v2-container')!
+  const bar       = document.getElementById('pv2-bar')!
+  const cardEls   = Array.from(document.querySelectorAll<HTMLElement>('.pv2-card'))
+  const nodeEls   = Array.from(document.querySelectorAll<HTMLElement>('.pv2-node'))
 
-  const card = document.createElement('div')
-  card.className = 'pv2-card'
-  card.style.setProperty('--step-color', step.color)
-  card.style.zIndex = i + 1
-  card.innerHTML = `
-    <div class="pv2-card-content">
-      <div class="pv2-card-text">
-        <div class="pv2-card-header">
-          <span class="pv2-card-number">${step.number}</span>
-          <h3>${step.phase}</h3>
-        </div>
-        <p>${step.description}</p>
-        <div class="pv2-tools">
-          ${step.tools.map(t => `<span class="pv2-tool">${t}</span>`).join('')}
-        </div>
-      </div>
-      <div class="pv2-card-image" style="background-image:url('${step.image}')"></div>
-    </div>`
-  cardsWrap.appendChild(card)
-  cardEls.push(card)
-})
-
-// ── HELPERS ───────────────────────────────────────────
-const clamp    = (v, lo, hi) => Math.min(hi, Math.max(lo, v))
-const easeInOut = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2
-
-// ── GOTO ──────────────────────────────────────────────
-let current = 0
-function goTo(index) {
-  if (index === current) return
-  current = index
-  nodeEls.forEach((node, i) => {
-    node.classList.toggle('active', i === index)
-    node.classList.toggle('past',   i < index)
-  })
-  bar.style.setProperty('--step-color', STEPS[index].color)
-}
-
-// Node clicks
-nodeEls.forEach((node, i) => node.addEventListener('click', () => {
-  const scrollRange = container.offsetHeight - window.innerHeight
-  window.scrollTo({ top: container.offsetTop + (i / N) * scrollRange, behavior: 'smooth' })
-}))
-
-// ── SCROLL ────────────────────────────────────────────
-function onScroll() {
-  const scrolled    = -container.getBoundingClientRect().top
-  const scrollRange = container.offsetHeight - window.innerHeight
-  if (scrolled < 0 || scrolled > scrollRange) return
-
-  const p = clamp(scrolled / scrollRange, 0, 1)
-
-  // Active node
-  let targetIndex = 0
-  for (let i = 0; i < TOTAL; i++) {
-    if (p >= (i / N) - 0.01) targetIndex = i
+  // ── goTo ─────────────────────────────────────────────
+  let current = -1
+  function goTo(index: number) {
+    if (index === current) return
+    current = index
+    nodeEls.forEach((node, i) => {
+      node.classList.toggle('active', i === index)
+      node.classList.toggle('past',   i < index)
+    })
+    bar.style.setProperty('--step-color', STEPS[index].color)
   }
-  goTo(targetIndex)
 
-  // Progress bar
-  bar.style.height = `${p * 100}%`
-  bar.classList.toggle('live', p > 0.01 && p < 0.99)
-
-  // Cards
-  cardEls.forEach((card, i) => {
-    if (i > 0) {
-      const eased = easeInOut(clamp((p - (i-1)/N) / (1/N), 0, 1))
-      card.style.transform = `translateY(${(1 - eased) * 100}%)`
-      card.style.opacity   = clamp(eased * 3, 0, 1)
-    }
-    const dark = easeInOut(clamp((p - i/N) / (1/N), 0, 1)) * 0.45
-    card.style.setProperty('--cover-dark', dark)
+  // ── Node clicks ───────────────────────────────────────
+  nodeEls.forEach((node, i) => {
+    node.addEventListener('click', () => {
+      const scrollRange = container.offsetHeight - window.innerHeight
+      window.scrollTo({ top: container.offsetTop + (i / N) * scrollRange, behavior: 'smooth' })
+    })
   })
-}
 
-window.addEventListener('scroll', onScroll, { passive: true })
+  // ── Scroll handler ────────────────────────────────────
+  function onScroll() {
+    const scrolled    = -container.getBoundingClientRect().top
+    const scrollRange = container.offsetHeight - window.innerHeight
+    if (scrolled < 0 || scrolled > scrollRange) return
 
-// ── INIT ─────────────────────────────────────────────
-const setVh = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
-const setH  = () => container.style.height = `${window.innerHeight * 6}px`
-setVh(); setH()
+    const p = clamp(scrolled / scrollRange, 0, 1)
 
-let lastVh = window.innerHeight, resizeTimer
-window.addEventListener('resize', () => {
-  const delta = Math.abs(window.innerHeight - lastVh)
-  if (delta < 100) return
-  lastVh = window.innerHeight
+    // Active node
+    let targetIndex = 0
+    for (let i = 0; i < TOTAL; i++) {
+      if (p >= (i / N) - 0.01) targetIndex = i
+    }
+    goTo(targetIndex)
+
+    // Progress bar
+    bar.style.height = `${p * 100}%`
+    bar.classList.toggle('live', p > 0.01 && p < 0.99)
+
+    // Cards
+    cardEls.forEach((card, i) => {
+      if (i > 0) {
+        const eased = easeInOut(clamp((p - (i - 1) / N) / (1 / N), 0, 1))
+        card.style.transform = `translateY(${(1 - eased) * 100}%)`
+        card.style.opacity   = String(clamp(eased * 3, 0, 1))
+      }
+      const dark = easeInOut(clamp((p - i / N) / (1 / N), 0, 1)) * 0.45
+      card.style.setProperty('--cover-dark', String(dark))
+    })
+  }
+
+  // ── Init ─────────────────────────────────────────────
+  const isMobile = () => window.innerWidth < 700
+
+  const setVh = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`)
+  const setH  = () => { container.style.height = isMobile() ? '' : `${window.innerHeight * 6}px` }
   setVh(); setH()
-  clearTimeout(resizeTimer)
-  resizeTimer = setTimeout(onScroll, 150)
-})
 
-goTo(0)
+  let lastVh = window.innerHeight
+  let resizeTimer: ReturnType<typeof setTimeout>
+  window.addEventListener('resize', () => {
+    const delta = Math.abs(window.innerHeight - lastVh)
+    if (delta < 100) return
+    lastVh = window.innerHeight
+    setVh(); setH()
+    clearTimeout(resizeTimer)
+    if (!isMobile()) resizeTimer = setTimeout(onScroll, 150)
+  })
+
+  if (isMobile()) {
+    // Mobile: all cards visible, no scroll effect
+    cardEls.forEach(card => {
+      card.style.transform = ''
+      card.style.opacity   = '1'
+      card.style.setProperty('--cover-dark', '0')
+    })
+  } else {
+    // Desktop: hide cards 2–5 below fold, start scroll listener
+    goTo(0)
+    cardEls.forEach((card, i) => {
+      if (i > 0) {
+        card.style.transform = 'translateY(100%)'
+        card.style.opacity   = '0'
+      }
+      card.style.setProperty('--cover-dark', '0')
+    })
+    window.addEventListener('scroll', onScroll, { passive: true })
+  }
 </script>

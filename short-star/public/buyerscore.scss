@@ -1,0 +1,19 @@
+#features {
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+}
+
+#dealership-profile,
+#awards {
+  .large-image {
+    padding: 24px;
+  }
+}
+
+#latest-reviews .latest-reviews-panel {
+  padding: 24px;
+}

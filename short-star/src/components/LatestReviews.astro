@@ -1,0 +1,293 @@
+---
+interface Props {
+  showTitle?: boolean;
+}
+const { showTitle = true } = Astro.props;
+const reviews = [
+  {
+    name: "Sarah M.",
+    initial: "S",
+    businessName: "City Toyota",
+    stars: 5,
+    timeAgo: "2 days ago",
+    excerpt: "Fantastic experience from start to finish. The team was transparent about pricing and found exactly the car I was looking for.",
+  },
+  {
+    name: "James K.",
+    initial: "J",
+    businessName: "Northgate Motors",
+    stars: 5,
+    timeAgo: "1 week ago",
+    excerpt: "Very professional and no pressure. Would definitely recommend to anyone in the market for a used car.",
+  },
+  {
+    name: "Emma L.",
+    initial: "E",
+    businessName: "Coastal Auto Group",
+    stars: 4,
+    timeAgo: "3 days ago",
+    excerpt: "Good selection and fair trade-in value. The process was straightforward and the staff were helpful.",
+  },
+  {
+    name: "Michael T.",
+    initial: "M",
+    businessName: "Valley View Cars",
+    stars: 5,
+    timeAgo: "5 days ago",
+    excerpt: "Best dealership experience I've had. They went above and beyond to get the finance sorted quickly.",
+  },
+  {
+    name: "Rachel P.",
+    initial: "R",
+    businessName: "Metro Nissan",
+    stars: 5,
+    timeAgo: "1 day ago",
+    excerpt: "From the first test drive to picking up the keys, everything was smooth. Highly recommend.",
+  },
+  {
+    name: "David W.",
+    initial: "D",
+    businessName: "Summit Honda",
+    stars: 4,
+    timeAgo: "4 days ago",
+    excerpt: "Great communication and the car was exactly as described. Happy with my purchase.",
+  },
+  {
+    name: "Olivia H.",
+    initial: "O",
+    businessName: "Riverside Mazda",
+    stars: 5,
+    timeAgo: "6 days ago",
+    excerpt: "Friendly team and no hidden fees. The car has been running perfectly since I drove it home.",
+  },
+  {
+    name: "Chris B.",
+    initial: "C",
+    businessName: "Lakeside Motors",
+    stars: 5,
+    timeAgo: "2 weeks ago",
+    excerpt: "Second car I've bought from them. Consistently excellent service and honest advice.",
+  },
+];
+---
+
+<div class="latest-reviews theme-light">
+  <section class="latest-reviews-section" aria-label="Latest reviews">
+    {showTitle && <h2 class="latest-reviews-title">Latest reviews</h2>}
+    <div class="latest-reviews-wrapper">
+      <div class="latest-reviews-track" id="latest-reviews-track">
+        <div class="latest-reviews-list">
+          {reviews.map((review) => (
+            <article class="review-card">
+              <div class="review-card-header">
+                <div class="review-avatar" aria-hidden="true">{review.initial}</div>
+                <div class="review-meta">
+                  <span class="reviewer-name">{review.name}</span>
+                  <span class="reviewed-business">Reviewed {review.businessName}</span>
+                </div>
+              </div>
+              <div class="review-rating-row">
+                <div class="review-stars" aria-label={`${review.stars} out of 5 stars`}>
+                  {Array.from({ length: review.stars }).map((_, i) => (
+                    <span class="star">★</span>
+                  ))}
+                </div>
+                <span class="review-time">{review.timeAgo}</span>
+              </div>
+              <p class="review-excerpt">{review.excerpt}</p>
+            </article>
+          ))}
+        </div>
+        <div class="latest-reviews-list" aria-hidden="true">
+          {reviews.map((review) => (
+            <article class="review-card">
+              <div class="review-card-header">
+                <div class="review-avatar" aria-hidden="true">{review.initial}</div>
+                <div class="review-meta">
+                  <span class="reviewer-name">{review.name}</span>
+                  <span class="reviewed-business">Reviewed {review.businessName}</span>
+                </div>
+              </div>
+              <div class="review-rating-row">
+                <div class="review-stars" aria-label={`${review.stars} out of 5 stars`}>
+                  {Array.from({ length: review.stars }).map((_, i) => (
+                    <span class="star">★</span>
+                  ))}
+                </div>
+                <span class="review-time">{review.timeAgo}</span>
+              </div>
+              <p class="review-excerpt">{review.excerpt}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  import { animate } from "motion";
+
+  const track = document.getElementById("latest-reviews-track") as HTMLElement;
+  if (track) {
+    const player = animate(
+      track,
+      { x: ["0%", "-50%"] },
+      {
+        duration: 35,
+        repeat: Infinity,
+        ease: "linear",
+      }
+    );
+
+    track.addEventListener("mouseenter", () => player.pause());
+    track.addEventListener("mouseleave", () => player.play());
+  }
+</script>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap");
+
+  .latest-reviews.theme-light {
+    /* Use theme-light variables where applicable; override for light strip */
+    --lr-text: var(--text-color);
+    --lr-text-alt: var(--text-color-alt);
+    --lr-border: var(--border-color);
+    --lr-card-bg: #ffffff;
+    --lr-card-border: rgba(0, 0, 0, 0.08);
+    --lr-avatar-bg: #1a2744;
+    --lr-star-color: #d4a017;
+    font-family: "Outfit", sans-serif;
+    color: var(--lr-text);
+    padding: 2rem 0;
+  }
+
+  .latest-reviews-section {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .latest-reviews-title {
+    font-family: "Outfit", sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    padding-left: 1.25rem;
+    color: var(--lr-text);
+  }
+
+  .latest-reviews-wrapper {
+    overflow: hidden;
+  }
+
+  .latest-reviews-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    gap: 1rem;
+  }
+
+  .latest-reviews-list {
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+  }
+
+  .latest-reviews-list:first-child {
+    padding-left: 1.25rem;
+  }
+
+  .latest-reviews-list:last-child {
+    padding-right: 1.25rem;
+  }
+
+  .review-card {
+    flex-shrink: 0;
+    width: 280px;
+    min-height: 180px;
+    background: var(--lr-card-bg);
+    border: 1px solid var(--lr-card-border);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+
+  .review-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--lr-avatar-bg);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .review-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+  }
+
+  .reviewer-name {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: #1a1a1a;
+  }
+
+  .reviewed-business {
+    font-size: 0.8125rem;
+    color: #6b7280;
+  }
+
+  .review-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .review-stars {
+    display: flex;
+    gap: 0.125rem;
+  }
+
+  .review-stars .star {
+    color: var(--lr-star-color);
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .review-time {
+    font-size: 0.75rem;
+    color: #9ca3af;
+  }
+
+  .review-excerpt {
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: #4b5563;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+</style>

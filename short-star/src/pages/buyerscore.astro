@@ -1,0 +1,102 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FadeUpAnimation from "../components/FadeUpAnimation.astro";
+import LatestReviews from "../components/LatestReviews.astro";
+---
+
+<FadeUpAnimation />
+
+<Layout title="BuyerScore">
+  <link rel="stylesheet" href="/buyerscore.css" />
+
+  <div id="body-wrapper">
+    <div class="content flex column gap-large">
+      <section class="project-header flex column gap-medium">
+        <div class="section-header fade-up">
+          <span class="sub-header blue">BuyerScore</span>
+          <h1>
+            Building a buyer-focused platform for car dealerships to showcase
+            trust and transparency
+          </h1>
+          <div class="button-container">
+            <a
+              target="_blank"
+              href="https://buyerscore.co.nz/"
+              class="button blue">Visit BuyerScore</a
+            >
+          </div>
+        </div>
+        <img
+          class="fade-up"
+          src="/images/buyerscore/home_page.webp"
+          alt="BuyerScore home page"
+        />
+        <div class="my-role fade-up">
+          <h2>My role</h2>
+          <p>
+            Designed and helped deliver the BuyerScore experience so dealerships
+            can display verified buyer reviews, awards and credentials — giving
+            car buyers more confidence when choosing where to buy.
+          </p>
+          <div class="skills">
+            <span>Product Design</span>
+            <span>UX/UI</span>
+            <span>Front-end</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="dealership-profile" class="flex column gap-small">
+        <div class="section-header fade-up">
+          <span class="sub-header blue">Dealership profile</span>
+          <h2>Clear, credible dealership profiles for buyers</h2>
+          <p>
+            Each dealership gets a dedicated profile showing their BuyerScore
+            rating, verified reviews and key information. Buyers can quickly see
+            how a dealership performs and what past customers say before
+            visiting.
+          </p>
+        </div>
+        <div class="large-image panel-grey fade-up">
+          <img
+            src="/images/buyerscore/dealership_profile.webp"
+            alt="BuyerScore dealership profile"
+          />
+        </div>
+      </section>
+
+      <section id="latest-reviews" class="flex column gap-small">
+        <div class="section-header fade-up">
+          <span class="sub-header blue">Latest reviews</span>
+          <h2>What buyers are saying about dealerships</h2>
+          <p>
+            Real reviews from car buyers help others choose where to buy. The
+            ticker below shows a sample of recent feedback displayed on
+            BuyerScore.
+          </p>
+        </div>
+        <div class="latest-reviews-panel panel-grey fade-up">
+          <LatestReviews showTitle={false} />
+        </div>
+      </section>
+
+      <section id="awards" class="flex column gap-small">
+        <div class="section-header fade-up">
+          <span class="sub-header blue">Awards & recognition</span>
+          <h2>Highlighting top-performing dealerships</h2>
+          <p>
+            BuyerScore awards help standout dealerships get the recognition they
+            deserve. Badges and awards are displayed on profiles and listings,
+            making it easier for buyers to identify trusted sellers.
+          </p>
+        </div>
+        <div class="large-image panel-grey fade-up">
+          <img
+            src="/images/buyerscore/bs_awards.webp"
+            alt="BuyerScore awards"
+          />
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>

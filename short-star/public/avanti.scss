@@ -7,8 +7,31 @@
     height: 100%;
   }
 }
+
 #sitemap {
   .large-image {
     padding: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      border-radius: 12px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+#late-fees {
+  .large-image {
+    padding: 60px 60px 0;
+    border-radius: 24px;
+
+    img {
+      border-radius: 0;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
   }
 }

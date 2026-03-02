@@ -1,70 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import FadeUpAnimation from "../components/FadeUpAnimation.astro";
-import Ticker from "../components/Ticker.astro";
-import ProcessFlow from "../components/ProcessFlow.astro";
-import ProcessFlowVertical from "../components/ProcessFlowVertical.astro";
-
-const tools = [
-  { name: "Figma", src: "/images/logos/figma.svg" },
-  { name: "Adobe CC", src: "/images/logos/adobe.svg" },
-  { name: "Astro", src: "/images/logos/astro.svg" },
-  { name: "Figma", src: "/images/logos/figma.svg" },
-  { name: "Adobe CC", src: "/images/logos/adobe.svg" },
-  { name: "Astro", src: "/images/logos/astro.svg" },
-];
 ---
 
-<link rel="stylesheet" href="/process-flow.css" />
-<link rel="stylesheet" href="/process-flow-vertical.css" />
 <FadeUpAnimation />
-<Ticker />
 
 <Layout>
-  <Fragment slot="head">
-    <link
-      rel="preload"
-      href="/images/dither-blue-horizontal.svg"
-      as="image"
-      media="(min-width: 1200px)"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
-      href="/images/dither-blue-large.svg"
-      as="image"
-      media="(min-width: 700px) and (max-width: 1199px)"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
-      href="/images/dither-blue.svg"
-      as="image"
-      media="(max-width: 699px)"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
-      href="/images/dither-green-horizontal.svg"
-      as="image"
-      media="(min-width: 1200px)"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
-      href="/images/dither-green-large.svg"
-      as="image"
-      media="(min-width: 700px) and (max-width: 1199px)"
-      fetchpriority="high"
-    />
-    <link
-      rel="preload"
-      href="/images/dither-green.svg"
-      as="image"
-      media="(max-width: 699px)"
-      fetchpriority="high"
-    />
-  </Fragment>
   <section id="body-wrapper">
     <div class="content flex column gap-large">
       <section id="banner">
@@ -85,186 +26,122 @@ const tools = [
           </div>
         </div>
       </section>
-      <div class="flex column gap-large">
-        <section id="projects">
-          <div class="flex column gap-small">
-            <div class="section-header fade-up">
-              <span class="sub-header">UX/UI Design</span>
-              <h2>Project Case Studies</h2>
+
+      <section id="projects">
+        <h2>Featured Projects</h2>
+        <div id="project-list">
+          <div class="project-card fade-up">
+            <img
+              class="project-image"
+              src="/images/acme5/websites-home.webp"
+              alt="White label website template for car dealerships"
+            />
+            <div class="text">
+              <h3>White label car dealership template</h3>
+              <span>2025</span>
               <p>
-                Case studies of my best UX projects, showcasing innovation,
-                design thinking, and problem-solving approaches.
+                Elevating the standards for car dealer websites in New Zealand
+                with a modern website template and cutting-edge helpful AI
+                features
               </p>
+              <a
+                class="button grey"
+                href="/dealer-websites"
+                aria-label="View Acme Website Template project details"
+              >
+                View project <i class="icon-arrow"></i>
+              </a>
             </div>
-            <section id="project-list">
-              <div class="project-card panel-blue-pixel acme fade-up">
-                <div class="text">
-                  <h3>Acme Website Template</h3>
-                  <span>2025</span>
-                  <p>
-                    Elevating the standards for car dealer websites in New
-                    Zealand with a modern website template and cutting-edge
-                    helpful AI features
-                  </p>
-                  <a
-                    class="button blue"
-                    href="/acme"
-                    aria-label="View Acme Website Template project details"
-                  >
-                    View project <i class="icon-arrow"></i>
-                  </a>
-                </div>
-                <div class="project-image-container">
-                  <img
-                    class="project-image"
-                    src="/images/acme5/acme5_graphic.webp"
-                    alt="Acme Cars website preview"
-                  />
-                </div>
-                <picture>
-                  <source
-                    media="(min-width: 1200px)"
-                    srcset="/images/dither-blue-horizontal.svg"
-                  />
-                  <source
-                    media="(min-width: 700px)"
-                    srcset="/images/dither-blue-large.svg"
-                  />
-                  <img
-                    class="dither"
-                    src="/images/dither-blue.svg"
-                    alt="Blue dither"
-                    fetchpriority="high"
-                  />
-                </picture>
-              </div>
-
-              <div class="project-card panel-green-pixel avanti fade-up">
-                <div class="text">
-                  <h3>Avanti Finance App</h3>
-                  <span>2025</span>
-
-                  <p>
-                    A convenient mobile and web app for customers to view where
-                    they’re at with their loan repayments.
-                  </p>
-                  <a
-                    class="button green"
-                    href="/avanti"
-                    aria-label="View Avanti Finance App project details"
-                  >
-                    View project <i class="icon-arrow"></i>
-                  </a>
-                </div>
-                <div class="project-image-container">
-                  <img
-                    class="project-image"
-                    src="/images/avanti-app/avanti_graphic.webp"
-                    alt="Avanti Finance App preview"
-                  />
-                </div>
-                <picture>
-                  <source
-                    media="(min-width: 1200px)"
-                    srcset="/images/dither-green-horizontal.svg"
-                  />
-                  <source
-                    media="(min-width: 700px)"
-                    srcset="/images/dither-green-large.svg"
-                  />
-                  <img
-                    class="dither"
-                    src="/images/dither-green.svg"
-                    alt="Green dither"
-                    fetchpriority="high"
-                  />
-                </picture>
-              </div>
-            </section>
           </div>
-        </section>
+
+          <div class="project-card fade-up reverse">
+            <div class="text">
+              <h3>Avanti Finance App</h3>
+              <span>2025</span>
+
+              <p>
+                A convenient mobile and web app for customers to view where
+                they’re at with their loan repayments.
+              </p>
+              <a
+                class="button grey"
+                href="/avanti"
+                aria-label="View Avanti Finance App project details"
+              >
+                View project <i class="icon-arrow"></i>
+              </a>
+            </div>
+            <img
+              class="project-image"
+              src="/images/avanti-app/avanti-home.webp"
+              alt="Avanti Finance App preview"
+            />
+          </div>
+
+          <div class="project-card fade-up">
+            <img
+              class="project-image"
+              src="/images/buyerscore/buyerscore-home.webp"
+              alt="BuyerScore Website Redesign preview"
+            />
+            <div class="text">
+              <h3>BuyerScore Website Redesign</h3>
+              <span>2025</span>
+
+              <p>
+                Redesigned the BuyerScore website to improve the user experience
+                and improve brand awareness.
+              </p>
+              <a
+                class="button grey"
+                href="/avanti"
+                aria-label="View Avanti Finance App project details"
+              >
+                View project <i class="icon-arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <h2>Website Builds</h2>
         <section id="more-projects" class="flex column gap-small">
-          <div class="section-header fade-up">
-            <span class="sub-header">Design + Dev</span>
-            <h2>Website Projects</h2>
-            <p>
-              Solo projects where I designed and built complete websites from
-              concept to launch.
-            </p>
-          </div>
+          <div class="grid double-column">
+            <div class="item">
+              <img
+                src="/images/the-serious-sandwich/the-serious-sandwich-home.webp"
+                alt="The Serious Sandwich website"
+              />
+              <div class="text">
+                <h3>The Serious Sandwich</h3>
 
-          <div class="mini-grid">
-            <a
-              class="mini-card panel-grey fade-up"
-              href="https://theserioussandwich.nz/"
-              aria-label="Open The Serious Sandwich website"
-              target="_blank"
-            >
-              <h3>The Serious Sandwich</h3>
-
-              <span class="year">2025</span>
-              <p>Playful brand site with a tight, clear menu layout.</p>
-              <div class="button grey">
-                Visit website
-                <i class="icon-open"></i>
+                <span class="year">2025</span>
+                <p>Playful brand site with a tight, clear menu layout.</p>
+                <div class="button grey">
+                  Visit website
+                  <i class="icon-open"></i>
+                </div>
               </div>
-            </a>
-            <a
-              class="mini-card panel-grey fade-up"
-              href="https://simplystunningstudiostekapo.nz/"
-              aria-label="Open Simply Stunning Studios website"
-              target="_blank"
-            >
-              <h3>Simply Stunning Studios</h3>
-
-              <span class="year">2025</span>
-              <p>
-                Lake Tekapo accommodation site with streamlined booking flow.
-              </p>
-              <div class="button grey">
-                Visit website
-                <i class="icon-open"></i>
+            </div>
+            <div class="item">
+              <img
+                src="/images/te-rapa/te-rapa-home.webp"
+                alt="Te Rapa Cars website"
+              />
+              <div class="text">
+                <h3>Te Rapa Cars</h3>
+                <span class="year">2026</span>
+                <p>
+                  Modern used car dealership site showcasing inventory with
+                  advanced search.
+                </p>
+                <div class="button grey">
+                  Visit website
+                  <i class="icon-open"></i>
+                </div>
               </div>
-            </a>
-            <a
-              class="mini-card panel-grey fade-up"
-              href="https://terapacars.co.nz/"
-              aria-label="Open Te Rapa Cars website"
-              target="_blank"
-            >
-              <h3>Te Rapa Cars</h3>
-
-              <span class="year">2026</span>
-              <p>
-                Modern used car dealership site showcasing inventory with
-                advanced search.
-              </p>
-              <div class="button grey">
-                Visit website
-                <i class="icon-open"></i>
-              </div>
-            </a>
+            </div>
           </div>
         </section>
-      </div>
+      </section>
     </div>
-    <section class="process-section">
-      <ProcessFlowVertical />
-    </section>
   </section>
 </Layout>
-
-<script is:inline>
-  (() => {
-    function scale(frame) {
-      const canvas = frame.querySelector('.canvas');
-      if (!canvas) return;
-      const s = Math.min(frame.clientWidth / 400, frame.clientHeight / 225);
-      canvas.style.transform = `scale(${s})`;
-      canvas.style.left = `${(frame.clientWidth  - 400 * s) / 2}px`;
-      canvas.style.top  = `${(frame.clientHeight - 225 * s) / 2}px`;
-    }
-    const ro = new ResizeObserver(entries => entries.forEach(e => scale(e.target)));
-    document.querySelectorAll('.scale-target').forEach(f => { scale(f); ro.observe(f); });
-  })();
-</script>

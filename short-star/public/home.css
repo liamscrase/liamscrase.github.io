@@ -1,3 +1,7 @@
+#body-wrapper {
+  margin-top: 0;
+}
+
 h2 {
   display: block;
   width: 100%;
@@ -28,24 +32,24 @@ h2 {
 }
 
 #banner {
-  text-align: left;
+  background-color: var(--tint-color);
 }
-#banner .blurb {
-  margin: auto;
+#banner .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
 }
-#banner img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  margin-bottom: 24px;
+#banner .content .banner-illustration {
+  width: 400px;
+  height: 400px;
 }
-#banner h1 {
-  font-family: "Zalando Sans", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  margin-bottom: 20px;
+#banner .content .text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 300px;
 }
 
 #projects {
@@ -95,14 +99,7 @@ h2 {
   #projects #project-list .project-card.reverse {
     grid-template-columns: 2fr 3fr;
   }
-  #banner .blurb {
-    display: flex;
+  #banner .content {
     flex-direction: row;
-    align-items: center;
-    gap: 40px;
-    max-width: 800px;
-  }
-  #banner .blurb img {
-    margin-bottom: 2px;
   }
 }/*# sourceMappingURL=home.css.map */

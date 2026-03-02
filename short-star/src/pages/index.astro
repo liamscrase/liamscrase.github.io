@@ -7,26 +7,25 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
 
 <Layout>
   <section id="body-wrapper">
-    <div class="content flex column gap-large">
-      <section id="banner">
-        <div class="blurb">
-          <img src="images/profile.jpg" alt="" />
-          <div class="inner">
-            <h1>Hi, I'm Liam 👋</h1>
-            <p>
-              UX/UI Designer & Front End Support with 4 years of experience.
-              Currently working for Motorcentral Technologies — a leading tech
-              company based in Christchurch, New Zealand.
-            </p>
-            <p>
-              Experience in digital design and front end development, with a
-              passion for creating user-friendly, accessible, and visually
-              appealing digital experiences.
-            </p>
-          </div>
+    <section id="banner">
+      <div class="content">
+        <div class="text">
+          <span class="sub-header green">UX/UI Designer & Front End</span>
+          <h1>
+            Hi, I'm Liam, I design digital products that are user-friendly and
+            accessible
+          </h1>
         </div>
-      </section>
-
+        <img
+          class="banner-illustration"
+          src="/images/profile.svg"
+          alt=""
+          width="200"
+          height="200"
+        />
+      </div>
+    </section>
+    <div class="content flex column gap-large">
       <section id="projects">
         <h2>Featured Projects</h2>
         <div id="project-list">
@@ -40,9 +39,8 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
               <h3>White label car dealership template</h3>
               <span>2025</span>
               <p>
-                Elevating the standards for car dealer websites in New Zealand
-                with a modern website template and cutting-edge helpful AI
-                features
+                Elevating the standards for car dealer websites in New Zealand with
+                a modern website template and cutting-edge helpful AI features
               </p>
               <a
                 class="button grey"
@@ -53,15 +51,15 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
               </a>
             </div>
           </div>
-
+    
           <div class="project-card fade-up reverse">
             <div class="text">
               <h3>Avanti Finance App</h3>
               <span>2025</span>
-
+    
               <p>
-                A convenient mobile and web app for customers to view where
-                they’re at with their loan repayments.
+                A convenient mobile and web app for customers to view where they’re
+                at with their loan repayments.
               </p>
               <a
                 class="button grey"
@@ -77,7 +75,7 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
               alt="Avanti Finance App preview"
             />
           </div>
-
+    
           <div class="project-card fade-up">
             <img
               class="project-image"
@@ -87,10 +85,10 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
             <div class="text">
               <h3>BuyerScore Website Redesign</h3>
               <span>2025</span>
-
+    
               <p>
-                Redesigned the BuyerScore website to improve the user experience
-                and improve brand awareness.
+                Redesigned the BuyerScore website to improve the user experience and
+                improve brand awareness.
               </p>
               <a
                 class="button grey"
@@ -112,7 +110,7 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
               />
               <div class="text">
                 <h3>The Serious Sandwich</h3>
-
+    
                 <span class="year">2025</span>
                 <p>Playful brand site with a tight, clear menu layout.</p>
                 <div class="button grey">
@@ -130,8 +128,8 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
                 <h3>Te Rapa Cars</h3>
                 <span class="year">2026</span>
                 <p>
-                  Modern used car dealership site showcasing inventory with
-                  advanced search.
+                  Modern used car dealership site showcasing inventory with advanced
+                  search.
                 </p>
                 <div class="button grey">
                   Visit website
@@ -145,3 +143,4 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
     </div>
   </section>
 </Layout>
+

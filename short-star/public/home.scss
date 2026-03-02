@@ -1,3 +1,7 @@
+#body-wrapper {
+  margin-top: 0;
+}
+
 h2 {
   display: block;
   width: 100%;
@@ -6,6 +10,7 @@ h2 {
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 40px;
 }
+
 .text {
   width: 100%;
 
@@ -31,26 +36,28 @@ h2 {
 
 
 #banner {
-  text-align: left;
+  background-color: var(--tint-color);
 
-  .blurb {
-    margin: auto;
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+
+    .banner-illustration {
+      width: 400px;
+      height: 400px;
+    }
+
+    .text {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 300px;
+    }
   }
 
-  img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 24px;
-  }
-
-  h1 {
-    font-family: "Zalando Sans", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    margin-bottom: 20px;
-  }
 }
 
 #projects {
@@ -70,17 +77,17 @@ h2 {
       overflow: hidden;
       gap: 40px;
 
-        img {
-          display: block;
-          width: 100%;
-          height: auto;
-          border-radius: 16px;
-          overflow: hidden;
-        }
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        overflow: hidden;
+      }
 
-        &.reverse {
-          flex-direction: column-reverse;
-        }
+      &.reverse {
+        flex-direction: column-reverse;
+      }
 
     }
   }
@@ -97,6 +104,7 @@ h2 {
 @media (min-width: 1100px) {
   #projects {
     width: 100%;
+
     #project-list {
       .project-card {
         display: grid;
@@ -112,16 +120,8 @@ h2 {
   }
 
   #banner {
-    .blurb {
-      display: flex;
+    .content {
       flex-direction: row;
-      align-items: center;
-      gap: 40px;
-      max-width: 800px;
-
-      img {
-        margin-bottom: 2px;
-      }
     }
   }
 }

@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import FadeUpAnimation from "../components/FadeUpAnimation.astro";
-import LatestReviews from "../components/LatestReviews.astro";
 ---
 
 <FadeUpAnimation />
@@ -10,93 +9,137 @@ import LatestReviews from "../components/LatestReviews.astro";
   <link rel="stylesheet" href="/buyerscore.css" />
 
   <div id="body-wrapper">
-    <div class="content flex column gap-large">
-      <section class="project-header flex column gap-medium">
-        <div class="section-header fade-up">
-          <span class="sub-header blue">BuyerScore</span>
-          <h1>
-            Building a buyer-focused platform for car dealerships to showcase
-            trust and transparency
-          </h1>
-          <div class="button-container">
-            <a
-              target="_blank"
-              href="https://buyerscore.co.nz/"
-              class="button blue">Visit BuyerScore</a
-            >
-          </div>
-        </div>
-        <img
-          class="fade-up"
-          src="/images/buyerscore/home_page.webp"
-          alt="BuyerScore home page"
-        />
-        <div class="my-role fade-up">
-          <h2>My role</h2>
-          <p>
-            Designed and helped deliver the BuyerScore experience so dealerships
-            can display verified buyer reviews, awards and credentials — giving
-            car buyers more confidence when choosing where to buy.
-          </p>
-          <div class="skills">
-            <span>Product Design</span>
-            <span>UX/UI</span>
-            <span>Front-end</span>
-          </div>
-        </div>
-      </section>
+    <article class="case-study content">
+      <header class="header">
+        <h1 class="title">BuyerScore</h1>
+        <hr class="divider" aria-hidden="true" />
+      </header>
 
-      <section id="dealership-profile" class="flex column gap-small">
-        <div class="section-header fade-up">
-          <span class="sub-header blue">Dealership profile</span>
-          <h2>Clear, credible dealership profiles for buyers</h2>
-          <p>
-            Each dealership gets a dedicated profile showing their BuyerScore
-            rating, verified reviews and key information. Buyers can quickly see
-            how a dealership performs and what past customers say before
-            visiting.
-          </p>
+      <div class="main">
+        <div class="info">
+          <section class="section">
+            <h3 class="section-title">Overview</h3>
+            <div class="section-body">
+              <p>BuyerScore is a New Zealand platform that helps car buyers find and compare dealerships through verified customer reviews and an annual awards programme.</p>
+              <p>The project involved a full redesign of the platform, focusing on improving how trust signals and award recognition are communicated to buyers.</p>
+            </div>
+          </section>
+
+          <div class="meta">
+            <section class="section">
+              <h3 class="section-title">My Role</h3>
+              <ul class="section-body list">
+                <li>UI Design</li>
+                <li>Visual Design</li>
+                <li>Prototyping</li>
+              </ul>
+            </section>
+            <section class="section">
+              <h3 class="section-title">Year</h3>
+              <p class="section-body">2026</p>
+            </section>
+          </div>
+
+          <a
+            href="https://www.buyerscore.co.nz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta"
+          >
+            Visit live site <i class="icon-arrow"></i>
+          </a>
         </div>
-        <div class="large-image panel-grey fade-up">
+
+        <div class="hero">
           <img
-            src="/images/buyerscore/dealership_profile.webp"
-            alt="BuyerScore dealership profile"
+            src="/images/buyerscore/buyerscore_hero.webp"
+            alt="BuyerScore website homepage"
           />
         </div>
-      </section>
+      </div>
 
-      <section id="latest-reviews" class="flex column gap-small">
-        <div class="section-header fade-up">
-          <span class="sub-header blue">Latest reviews</span>
-          <h2>What buyers are saying about dealerships</h2>
-          <p>
-            Real reviews from car buyers help others choose where to buy. The
-            ticker below shows a sample of recent feedback displayed on
-            BuyerScore.
-          </p>
+      <section class="comparison">
+        <div class="intro">
+          <h2>Dealership profile page</h2>
+          <p>Discover ratings &amp; reviews for your chosen dealership. See rating subcategories, awards and customer reviews.</p>
         </div>
-        <div class="latest-reviews-panel panel-grey fade-up">
-          <LatestReviews showTitle={false} />
-        </div>
-      </section>
 
-      <section id="awards" class="flex column gap-small">
-        <div class="section-header fade-up">
-          <span class="sub-header blue">Awards & recognition</span>
-          <h2>Highlighting top-performing dealerships</h2>
-          <p>
-            BuyerScore awards help standout dealerships get the recognition they
-            deserve. Badges and awards are displayed on profiles and listings,
-            making it easier for buyers to identify trusted sellers.
-          </p>
+        <div class="row">
+          <div class="col">
+            <h3>Previous intro section</h3>
+            <ul>
+              <li>Decorative hero image added no informational value</li>
+              <li>Recommendation rate and award status buried below the fold</li>
+              <li>Rating breakdown in a dense table, difficult to scan</li>
+            </ul>
+            <div class="image">
+              <img src="/images/buyerscore/dealership-section/intro-old.webp" alt="Previous intro section" />
+            </div>
+          </div>
+          <span class="arrow" aria-hidden="true"></span>
+          <div class="col">
+            <h3>Current intro section</h3>
+            <ul>
+              <li>Key trust signals surfaced in the header</li>
+              <li>Recommendation rate promoted to a prominent visual pill</li>
+              <li>Rating categories icon-led and easier to scan</li>
+            </ul>
+            <div class="image">
+              <img src="/images/buyerscore/dealership-section/intro-new.webp" alt="Current intro section" />
+            </div>
+          </div>
         </div>
-        <div class="large-image panel-grey fade-up">
-          <img
-            src="/images/buyerscore/bs_awards.webp"
-            alt="BuyerScore awards"
-          />
+
+        <div class="row">
+          <div class="col">
+            <h3>Previous awards</h3>
+            <ul>
+              <li>Badges were visually garish and difficult to read</li>
+              <li>Fragmented layout</li>
+            </ul>
+            <div class="image">
+              <img src="/images/buyerscore/dealership-section/awards-old.webp" alt="Previous awards" />
+            </div>
+          </div>
+          <span class="arrow" aria-hidden="true"></span>
+          <div class="col">
+            <h3>Current awards</h3>
+            <ul>
+              <li>Fresh badge design with more contrast for better legibility</li>
+              <li>Cohesive, symmetrical design with highlighted background</li>
+            </ul>
+            <div class="image">
+              <img src="/images/buyerscore/dealership-section/awards-new.webp" alt="Current awards" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <h3>Previous reviews</h3>
+            <ul>
+              <li>Two basic dropdowns for sorting and filtering</li>
+              <li>No way to search for specific topics or keywords</li>
+              <li>No indication of how the dealership handles negative feedback</li>
+            </ul>
+            <div class="image">
+              <img src="/images/buyerscore/dealership-section/reviews-old.webp" alt="Previous reviews" />
+            </div>
+          </div>
+          <span class="arrow" aria-hidden="true"></span>
+          <div class="col">
+            <h3>Current reviews</h3>
+            <ul>
+              <li>Keyword search lets buyers find relevant reviews quickly</li>
+              <li>Star rating filter shows percentage breakdown at a glance</li>
+              <li>Response rate shown upfront as an accountability signal</li>
+            </ul>
+            <div class="image">
+              <img src="/images/buyerscore/dealership-section/reviews-new.webp" alt="Current reviews" />
+            </div>
+          </div>
         </div>
       </section>
-    </div>
+    </article>
   </div>
 </Layout>

@@ -1,19 +1,272 @@
-#features {
-  .item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-  }
-}
+// Case study template – generic classes for reuse across case studies.
+// Parent .case-study only; children are unscoped names, nested in SCSS.
 
-#dealership-profile,
-#awards {
-  .large-image {
-    padding: 24px;
-  }
-}
+.case-study {
+    padding-top: 48px;
+    padding-bottom: 80px;
 
-#latest-reviews .latest-reviews-panel {
-  padding: 24px 0;
+    .header {
+        margin-bottom: 48px;
+    }
+
+    .title {
+        // font-size, weight, color from global h1
+        margin-bottom: 0;
+        letter-spacing: -0.02em;
+    }
+
+    .divider {
+        margin-top: 36px;
+        border: none;
+        height: 1px;
+        background: var(--border-color);
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        align-items: stretch;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        min-width: 0;
+    }
+
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .section-title {
+        margin: 0;
+    }
+
+    .section-body {
+        // font-size, weight, color, line-height from global p
+        margin: 0;
+
+        p {
+            max-width: none;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .list {
+        list-style: none;
+        padding-left: 0;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 140%;
+        color: var(--text-color-alt);
+
+        li {
+            margin-bottom: 8px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        @media(min-width: 1100px) {
+            font-size: 20px;
+        }
+    }
+
+    .meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px 48px;
+        max-width: 520px;
+    }
+
+    .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 16px;
+        border-radius: 8px;
+        background: color-mix(in srgb, var(--primary-green) 12%, transparent);
+        color: var(--primary-green);
+        font-weight: 600;
+        font-size: 16px;
+        width: max-content;
+        transition: background 0.2s ease, color 0.2s ease, transform 0.25s ease;
+
+        .icon-arrow {
+            font-size: 0.85em;
+        }
+
+        &:hover {
+            background: color-mix(in srgb, var(--primary-green) 20%, transparent);
+            transform: translateY(-2px);
+        }
+    }
+
+    .hero {
+        width: 100%;
+        border-radius: 16px;
+        overflow: hidden;
+        background: var(--tint-color);
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+    }
+
+    .comparison {
+        margin-top: 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 85px;
+
+        .intro {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 700px;
+
+            h2 {
+                // font-size, weight, color from global h2
+                margin: 0;
+            }
+
+            p {
+                // font-size, weight, color, line-height from global p
+                margin: 0;
+                max-width: none;
+            }
+        }
+
+        .row {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 32px;
+            width: 100%;
+
+            @media(min-width: 1100px) {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 32px 50px;
+            }
+        }
+
+        .col {
+            flex: 1 1 0;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            h3 {
+                // font-size, weight, color from global h3
+                margin: 0;
+            }
+
+            ul {
+                // match global p: 16px → 20px at 1100px, weight 300, line-height 140%
+                font-size: 16px;
+                font-weight: 300;
+                line-height: 140%;
+                color: var(--text-color-alt);
+                margin: 0;
+                padding-left: 24px;
+                list-style: disc;
+
+                li {
+                    margin-bottom: 8px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                @media(min-width: 1100px) {
+                    font-size: 20px;
+                }
+            }
+
+            .image {
+                margin-top: 20px;
+                width: 100%;
+                border-radius: 24px;
+                overflow: hidden;
+                border: 1px solid var(--border-color);
+                background: var(--tint-color);
+
+                img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    object-fit: contain;
+                    object-position: center;
+                    vertical-align: top;
+                }
+            }
+        }
+
+        .arrow {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color-alt);
+
+            &::after {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 28px;
+                background-color: currentColor;
+                clip-path: polygon(35% 0%, 65% 0%, 65% 55%, 85% 55%, 50% 100%, 15% 55%, 35% 55%);
+            }
+
+            @media(min-width: 1100px) {
+                &::after {
+                    width: 28px;
+                    height: 20px;
+                    clip-path: polygon(0% 35%, 0% 65%, 55% 65%, 55% 85%, 100% 50%, 55% 15%, 55% 35%);
+                }
+            }
+        }
+    }
+
+    // Desktop: two columns, info left / hero right
+    @media(min-width: 900px) {
+        .main {
+            flex-direction: row;
+            gap: 50px 70px;
+            align-items: flex-start;
+        }
+
+        .info {
+            flex: 1 1 0;
+            min-width: 320px;
+            max-width: 560px;
+        }
+
+        .hero {
+            flex: 1 1 0;
+            min-width: 320px;
+            border-radius: 24px;
+        }
+    }
+
+    @media(min-width: 1100px) {
+        .main {
+            gap: 70px;
+        }
+    }
 }

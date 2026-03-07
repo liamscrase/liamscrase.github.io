@@ -1,15 +1,227 @@
-#features .item {
+.case-study {
+  padding-top: 48px;
+  padding-bottom: 80px;
+}
+.case-study .header {
+  margin-bottom: 48px;
+}
+.case-study .title {
+  margin-bottom: 0;
+  letter-spacing: -0.02em;
+}
+.case-study .divider {
+  margin-top: 36px;
+  border: none;
+  height: 1px;
+  background: var(--border-color);
+}
+.case-study .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  gap: 48px;
+  align-items: stretch;
 }
-
-#dealership-profile .large-image,
-#awards .large-image {
-  padding: 24px;
+.case-study .info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-width: 0;
 }
-
-#latest-reviews .latest-reviews-panel {
-  padding: 24px 0;
-}/*# sourceMappingURL=buyerscore.css.map */
+.case-study .section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.case-study .section-title {
+  margin: 0;
+}
+.case-study .section-body {
+  margin: 0;
+}
+.case-study .section-body p {
+  max-width: none;
+}
+.case-study .section-body p:last-child {
+  margin-bottom: 0;
+}
+.case-study .list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 140%;
+  color: var(--text-color-alt);
+}
+.case-study .list li {
+  margin-bottom: 8px;
+}
+.case-study .list li:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 1100px) {
+  .case-study .list {
+    font-size: 20px;
+  }
+}
+.case-study .meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 48px;
+  max-width: 520px;
+}
+.case-study .cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--primary-green) 12%, transparent);
+  color: var(--primary-green);
+  font-weight: 600;
+  font-size: 16px;
+  width: max-content;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.25s ease;
+}
+.case-study .cta .icon-arrow {
+  font-size: 0.85em;
+}
+.case-study .cta:hover {
+  background: color-mix(in srgb, var(--primary-green) 20%, transparent);
+  transform: translateY(-2px);
+}
+.case-study .hero {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--tint-color);
+}
+.case-study .hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+.case-study .comparison {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 85px;
+}
+.case-study .comparison .intro {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
+}
+.case-study .comparison .intro h2 {
+  margin: 0;
+}
+.case-study .comparison .intro p {
+  margin: 0;
+  max-width: none;
+}
+.case-study .comparison .row {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
+  width: 100%;
+}
+@media (min-width: 1100px) {
+  .case-study .comparison .row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 32px 50px;
+  }
+}
+.case-study .comparison .col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.case-study .comparison .col h3 {
+  margin: 0;
+}
+.case-study .comparison .col ul {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 140%;
+  color: var(--text-color-alt);
+  margin: 0;
+  padding-left: 24px;
+  list-style: disc;
+}
+.case-study .comparison .col ul li {
+  margin-bottom: 8px;
+}
+.case-study .comparison .col ul li:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 1100px) {
+  .case-study .comparison .col ul {
+    font-size: 20px;
+  }
+}
+.case-study .comparison .col .image {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: var(--tint-color);
+}
+.case-study .comparison .col .image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  vertical-align: top;
+}
+.case-study .comparison .arrow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-alt);
+}
+.case-study .comparison .arrow::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 28px;
+  background-color: currentColor;
+  clip-path: polygon(35% 0%, 65% 0%, 65% 55%, 85% 55%, 50% 100%, 15% 55%, 35% 55%);
+}
+@media (min-width: 1100px) {
+  .case-study .comparison .arrow::after {
+    width: 28px;
+    height: 20px;
+    clip-path: polygon(0% 35%, 0% 65%, 55% 65%, 55% 85%, 100% 50%, 55% 15%, 55% 35%);
+  }
+}
+@media (min-width: 900px) {
+  .case-study .main {
+    flex-direction: row;
+    gap: 50px 70px;
+    align-items: flex-start;
+  }
+  .case-study .info {
+    flex: 1 1 0;
+    min-width: 320px;
+    max-width: 560px;
+  }
+  .case-study .hero {
+    flex: 1 1 0;
+    min-width: 320px;
+    border-radius: 24px;
+  }
+}
+@media (min-width: 1100px) {
+  .case-study .main {
+    gap: 70px;
+  }
+}

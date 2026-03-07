@@ -17,13 +17,14 @@ import Footer from "../components/footer.astro";
     <meta name="generator" content={Astro.generator} />
     <link rel="stylesheet" href="/general.css" />
     <link rel="stylesheet" href="/navigation.css" />
+    <link rel="stylesheet" href="/footer.css" />
     <link rel="stylesheet" href="/home.css" />
     <link rel="stylesheet" href="/style.css" />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Manrope:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -33,35 +34,6 @@ import Footer from "../components/footer.astro";
       <slot />
       <Footer />
     </div>
-    <script>
-      let loaderShown = false;
-
-      // Show loader after 300ms delay
-      const loaderTimeout = setTimeout(() => {
-        const loader = document.querySelector(".loader") as HTMLElement;
-        if (loader) {
-          console.log("Showing loader");
-          loader.style.opacity = "1";
-          loaderShown = true;
-        }
-      }, 300);
-
-      window.addEventListener("load", () => {
-        console.log("Page loaded");
-        clearTimeout(loaderTimeout);
-        const loadingScreen = document.getElementById("loading-screen");
-        const mainContent = document.getElementById("main-content");
-
-        if (loadingScreen && mainContent) {
-          loadingScreen.style.opacity = "0";
-          mainContent.style.opacity = "1";
-
-          setTimeout(() => {
-            loadingScreen.style.display = "none";
-          }, 300);
-        }
-      });
-    </script>
   </body>
 </html>
 

@@ -3,37 +3,28 @@ nav {
   width: 100%;
   top: 0;
   z-index: 100;
-  background: transparent;
+  background: var(--liam-brand);
   backdrop-filter: blur(0px);
   border-bottom: 1px solid transparent;
-  transition: background-color 300ms ease,
-    border-bottom-color 300ms ease,
-    backdrop-filter 300ms ease;
+  transition: all 300ms ease;
 
   &.scrolled {
-    background: color-mix(in srgb, var(--background-color) 85%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   }
 
-  .inner {
+  .content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: auto;
-    max-width: 1200px;
-    height: fit-content;
-    padding: 20px;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 
 
   li {
-    font-weight: 500;
-    font-family: "Chivo Mono", monospace;
-    font-size: 13px;
-    color: var(--text-color-alt);
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 18px;
     transition: color 250ms ease;
 
   }
@@ -52,17 +43,9 @@ nav {
   }
 
   .logo {
-    font-family: "Chivo Mono", monospace;
-    font-size: 12px;
-    color: var(--text-color);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 800;
+    font-size: 18px;
     transition: color 250ms ease;
-    padding: 3px 6px;
-    border: 3px solid;
-    border-image: linear-gradient(to bottom, var(--text-color), var(--primary-blue)) 1;
-    border-radius: 4px;
   }
 
   &:hover {

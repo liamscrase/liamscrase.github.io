@@ -1,127 +1,171 @@
-#body-wrapper {
-  margin-top: 0;
-}
-
-h2 {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border-color);
-  margin-bottom: 40px;
-}
-
-.text {
-  width: 100%;
-
-  h3 {
-    margin-bottom: 8px;
-  }
-
-  span {
-    display: block;
-    font-family: "Chivo Mono", monospace;
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    color: var(--text-color-alt);
-  }
-
-  p {
-    margin-bottom: 28px;
-    color: var(--text-color-alt);
-  }
-}
-
-
 #banner {
-  background-color: var(--tint-color);
+    background-color: var(--liam-brand);
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(20px, 4vw, 100px);
+        padding-bottom: 0;
+    }
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 60px;
+    h1 {
+        font-size: clamp(40px, 4vw, 60px);
+        span {
+            opacity: 0.5;
+        }
+    }
 
     .banner-illustration {
-      width: 400px;
-      height: 400px;
+        width: 400px;
+        height: 400px;
+        position: relative;
+        top: 29px;
     }
 
     .text {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      min-width: 300px;
-    }
-  }
-
-}
-
-#projects {
-  width: 100%;
-
-  #project-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 60px;
-    margin-bottom: 100px;
-
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-      gap: 40px;
-
-      img {
-        display: block;
         width: 100%;
-        height: auto;
-        border-radius: 16px;
-        overflow: hidden;
-      }
-
-      &.reverse {
-        flex-direction: column-reverse;
-      }
-
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        min-width: 300px;
     }
-  }
+
+
 }
 
-#more-projects {
-  .item {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-}
-
-@media (min-width: 1100px) {
-  #projects {
+#case-studies {
     width: 100%;
 
-    #project-list {
-      .project-card {
+    .project-list {
         display: grid;
-        grid-template-columns: 3fr 2fr;
-        align-items: center;
+        grid-template-columns: 1fr;
         gap: 60px;
+        margin-bottom: 100px;
 
-        &.reverse {
-          grid-template-columns: 2fr 3fr;
+        .content {
+            padding: 100px 20px 50px;
         }
-      }
-    }
-  }
 
-  #banner {
-    .content {
-      flex-direction: row;
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            gap: 40px;
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+                border-radius: 16px;
+                overflow: hidden;
+            }
+
+            span {
+                display: block;
+                margin-bottom: 12px;
+            }
+
+            p {
+                margin-bottom: 24px;
+            }
+
+        }
     }
-  }
+}
+
+#website-builds {
+
+    .website-builds-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .website-builds-card {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        span {
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-bottom: 24px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+        }
+    }
+
+}
+
+@media(min-width: 1200px) {
+    #banner {
+        .content {
+
+            flex-direction: row;
+            align-items: flex-end;
+
+        }
+
+        h1 {
+            margin-bottom: 80px;
+        }
+
+        .banner-illustration {
+            width: 500px;
+            height: 500px;
+            top: 38px;
+        }
+    }
+
+    #website-builds .website-builds-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+
+    #case-studies {
+        .project-list {
+            .project-card {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 60px;
+                img {
+                    flex: 3 1 0;
+                }
+                .text {
+                    flex: 2 1 0;
+                }
+
+                &.reverse {
+                    flex-direction: row-reverse;
+                }
+
+
+            }
+        }
+    }
+}
+
+@media(min-width: 1600px) {
+    #banner {
+        h1 {
+            font-size: 64px;
+        }
+        .banner-illustration {
+            width: 600px;
+            height: 600px;
+            top: 42px;
+        }
+    }
+
 }

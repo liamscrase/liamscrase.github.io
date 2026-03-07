@@ -1,6 +1,63 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import FadeUpAnimation from "../components/FadeUpAnimation.astro";
+
+const featuredProjects = [
+  {
+    title: "White label car dealership template",
+    year: "2025",
+    description:
+      "Elevating the standards for car dealer websites in New Zealand with a modern website template and cutting-edge helpful AI features",
+    href: "/dealer-websites",
+    image: "/images/acme5/websites-home.webp",
+    imageAlt: "White label website template for car dealerships",
+    ariaLabel: "View Acme Website Template project details",
+  },
+  {
+    title: "Avanti Finance App",
+    year: "2025",
+    description:
+      "A convenient mobile and web app for customers to view where they're at with their loan repayments.",
+    href: "/avanti",
+    image: "/images/avanti-app/avanti-home.webp",
+    imageAlt: "Avanti Finance App preview",
+    ariaLabel: "View Avanti Finance App project details",
+  },
+  {
+    title: "BuyerScore Website Redesign",
+    year: "2025",
+    description:
+      "Redesigned the BuyerScore website to improve the user experience and improve brand awareness.",
+    href: "/buyerscore",
+    image: "/images/buyerscore/buyerscore-home.webp",
+    imageAlt: "BuyerScore Website Redesign preview",
+    ariaLabel: "View BuyerScore Website Redesign project details",
+  },
+];
+
+const websiteBuilds = [
+  {
+    title: "The Serious Sandwich",
+    year: "2025",
+    description: "Food ordering website that is guaranteed to make you hungry",
+    image: "https://picsum.photos/seed/sandwich/600/400",
+    href: "#",
+  },
+  {
+    title: "St. Nicholas Orthodox Church",
+    year: "2025",
+    description: "Elegant yet modern with integrated CMS",
+    image: "https://picsum.photos/seed/church/600/400",
+    href: "#",
+  },
+  {
+    title: "Simply Stunning Studios Tekapo",
+    year: "2025",
+    description: "Lakeside holiday studios with seamless online booking",
+    image: "https://picsum.photos/seed/studio/600/400",
+    href: "#",
+  },
+];
 ---
 
 <FadeUpAnimation />
@@ -10,137 +67,73 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
     <section id="banner">
       <div class="content">
         <div class="text">
-          <span class="sub-header green">UX/UI Designer & Front End</span>
           <h1>
-            Hi, I'm Liam, I design digital products that are user-friendly and
-            accessible
+            I design and build digital products that provide delightful
+            experiences.
+            <br /><span>(After my coffee, of course)</span>
           </h1>
         </div>
+  
         <img
           class="banner-illustration"
-          src="/images/profile.svg"
+          src="/images/liam-cartoon.svg"
           alt=""
           width="200"
           height="200"
         />
+
       </div>
     </section>
-    <div class="content flex column gap-large">
-      <section id="projects">
-        <h2>Featured Projects</h2>
-        <div id="project-list">
-          <div class="project-card fade-up">
-            <img
-              class="project-image"
-              src="/images/acme5/websites-home.webp"
-              alt="White label website template for car dealerships"
-            />
-            <div class="text">
-              <h3>White label car dealership template</h3>
-              <span>2025</span>
-              <p>
-                Elevating the standards for car dealer websites in New Zealand with
-                a modern website template and cutting-edge helpful AI features
-              </p>
-              <a
-                class="button grey"
-                href="/dealer-websites"
-                aria-label="View Acme Website Template project details"
-              >
-                View project <i class="icon-arrow"></i>
-              </a>
-            </div>
-          </div>
-    
-          <div class="project-card fade-up reverse">
-            <div class="text">
-              <h3>Avanti Finance App</h3>
-              <span>2025</span>
-    
-              <p>
-                A convenient mobile and web app for customers to view where they’re
-                at with their loan repayments.
-              </p>
-              <a
-                class="button grey"
-                href="/avanti"
-                aria-label="View Avanti Finance App project details"
-              >
-                View project <i class="icon-arrow"></i>
-              </a>
-            </div>
-            <img
-              class="project-image"
-              src="/images/avanti-app/avanti-home.webp"
-              alt="Avanti Finance App preview"
-            />
-          </div>
-    
-          <div class="project-card fade-up">
-            <img
-              class="project-image"
-              src="/images/buyerscore/buyerscore-home.webp"
-              alt="BuyerScore Website Redesign preview"
-            />
-            <div class="text">
-              <h3>BuyerScore Website Redesign</h3>
-              <span>2025</span>
-    
-              <p>
-                Redesigned the BuyerScore website to improve the user experience and
-                improve brand awareness.
-              </p>
-              <a
-                class="button grey"
-                href="/avanti"
-                aria-label="View Avanti Finance App project details"
-              >
-                View project <i class="icon-arrow"></i>
-              </a>
-            </div>
-          </div>
+    <div id="main" class="content">
+      <div id="case-studies">
+        <div class="section-header">
+          <h2>Featured Projects</h2>
+          <p>Some of my favorite projects that I've worked on.</p>
         </div>
-        <h2>Website Builds</h2>
-        <section id="more-projects" class="flex column gap-small">
-          <div class="grid double-column">
-            <div class="item">
-              <img
-                src="/images/the-serious-sandwich/the-serious-sandwich-home.webp"
-                alt="The Serious Sandwich website"
-              />
+        <div class="project-list">
+          {featuredProjects.map((project, index) => (
+            <div class={`project-card fade-up${index % 2 === 1 ? " reverse" : ""}`}>
+              <img class="project-image" src={project.image} alt={project.imageAlt} />
               <div class="text">
-                <h3>The Serious Sandwich</h3>
-    
-                <span class="year">2025</span>
-                <p>Playful brand site with a tight, clear menu layout.</p>
-                <div class="button grey">
-                  Visit website
-                  <i class="icon-open"></i>
-                </div>
+                <h3>{project.title}</h3>
+                <span>{project.year}</span>
+                <p>{project.description}</p>
+                <a class="button grey" href={project.href} aria-label={project.ariaLabel}>
+                  View project <i class="icon-arrow"></i>
+                </a>
               </div>
             </div>
-            <div class="item">
+          ))}
+        </div>
+      </div>
+
+      <div id="website-builds">
+        <div class="section-header">
+          <h2>Website builds</h2>
+          <p>Websites designed, built, and launched for real clients.</p>
+        </div>
+        <div class="website-builds-grid">
+          {websiteBuilds.map((site) => (
+            <article class="website-builds-card">
               <img
-                src="/images/te-rapa/te-rapa-home.webp"
-                alt="Te Rapa Cars website"
+                src={site.image}
+                alt=""
+                width="600"
+                height="400"
+                class="website-builds-card-image"
               />
-              <div class="text">
-                <h3>Te Rapa Cars</h3>
-                <span class="year">2026</span>
-                <p>
-                  Modern used car dealership site showcasing inventory with advanced
-                  search.
-                </p>
-                <div class="button grey">
-                  Visit website
-                  <i class="icon-open"></i>
-                </div>
+              <div class="website-builds-card-body">
+                <h3>{site.title}</h3>
+                <span>{site.year}</span>
+                <p>{site.description}</p>
+                <a href={site.href} class="button grey">
+                  Visit live site <i class="icon-arrow"></i>
+                </a>
               </div>
-            </div>
-          </div>
-        </section>
-      </section>
+            </article>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 </Layout>
-

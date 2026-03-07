@@ -1,0 +1,54 @@
+#site-footer {
+  color: var(--text-color-alt);
+  border-top: 1px solid var(--border-color);
+}
+#site-footer .content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+#site-footer p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-color-alt);
+  line-height: 1.5;
+  font-weight: 500;
+}
+#site-footer a {
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+#site-footer a:hover {
+  color: var(--text-color);
+}
+#site-footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px 32px;
+  font-size: 14px;
+}
+#site-footer .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+#site-footer .footer-links .icon-linkedin,
+#site-footer .footer-links .icon-email {
+  flex-shrink: 0;
+}
+#site-footer .footer-meta {
+  font-size: 14px;
+  color: var(--text-color-alt);
+}
+
+@media (min-width: 600px) {
+  #site-footer .content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+}/*# sourceMappingURL=footer.css.map */

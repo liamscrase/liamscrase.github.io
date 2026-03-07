@@ -1,163 +1,122 @@
-
+// Contact form – matches site design system (Manrope, tokens, spacing)
 #contact-form-wrapper {
-
-  h2 {
-    text-align: center;
-    line-height: 140%;
-    margin-bottom: 40px;
-    margin: 0 auto 32px;
+  .content {
+    max-width: 640px;
+    margin: 0 auto;
   }
 
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    font-family: "Chivo Mono", monospace;
-    font-size: 12px;
-    letter-spacing: 1.6px;
-    text-transform: uppercase;
-    font-weight: 500;
-    justify-content: center;
-    margin-top: 50px;
-
-    a {
-      position: relative;
-      color: var(--text-color-alt);
-      padding-bottom: 3px;
-      transition: color 180ms ease;
-
-      &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 2px;
-        background: color-mix(in srgb, var(--primary-blue) 80%, transparent);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 180ms ease;
-      }
-
-      &:hover {
-        color: var(--primary-blue);
-
-        &::after {
-          transform: scaleX(1);
-        }
-      }
-    }
+  h2 {
+    margin-bottom: 40px;
   }
 
   .contact-form {
-    max-width: 700px;
-    margin: 0 auto;
     width: 100%;
-    display: block;
-    background: var(--tint-color);
-    padding: 24px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
 
     label {
-      display: block;
-      font-family: "Chivo Mono", monospace;
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 32px;
-    }
-
-    .field {
       display: flex;
       flex-direction: column;
       gap: 8px;
-    }
-
-    .field-error {
-      display: block;
-      margin-top: 6px;
-      font-family: "Zalando Sans", sans-serif;
-      text-transform: none;
-      letter-spacing: normal;
-      color: var(--red);
-
-    }
-
-    .contact-form input.invalid,
-    .contact-form textarea.invalid {
-      border-color: var(--red);
-      outline-color: var(--red);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-color);
+      margin: 0;
     }
 
     input,
     textarea {
       width: 100%;
-      margin-top: 6px;
-      padding: 12px 14px;
-      border-radius: 6px;
-      color: var(--black);
-      background-color: var(--background-color);
-      font-family: inherit;
-      font-size: 14px;
-      resize: vertical;
+      padding: 14px 16px;
+      border-radius: 8px;
       border: 1px solid var(--border-color);
-      transition: border-color 0.3s ease;
+      background: var(--background-color);
+      color: var(--text-color);
+      font-family: inherit;
+      font-size: 16px;
+      line-height: 1.4;
+      resize: vertical;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+      &::placeholder {
+        color: var(--text-color-alt);
+        opacity: 0.7;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var(--liam-brand);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--liam-brand) 25%, transparent);
+      }
     }
 
     textarea {
       min-height: 160px;
     }
 
-    .button {
-      display: block;
-      margin: auto;
+    .field-error {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--red);
+      margin-top: 2px;
     }
 
-    input:focus,
-    textarea:focus {
-      border: 1px solid var(--primary-blue);
+    input.invalid,
+    textarea.invalid {
+      border-color: var(--red);
+
+      &:focus {
+        border-color: var(--red);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--red) 20%, transparent);
+      }
+    }
+
+    .button {
+      margin-top: 8px;
+      align-self: flex-start;
     }
 
     &.contact-sent {
-      opacity: 0.75;
+      opacity: 0.6;
       pointer-events: none;
-      filter: grayscale(0.02);
       transition: opacity 0.3s ease;
     }
-
   }
 
   #contact-result {
-    display: inline-block;
-    padding: 12px 16px;
-    border-radius: 10px;
     margin-top: 32px;
-    transition: all 0.25s ease;
+    padding: 20px 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+    transition: opacity 0.25s ease, transform 0.25s ease;
     opacity: 0;
-    transform: translateY(6px);
-  }
+    transform: translateY(8px);
 
-  #contact-result.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    &.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-  #contact-result.success {
-    background: #0f864e;
-    color: #dfe8e3;
-  }
+    &.success {
+      background: var(--primary-green-light);
+      color: var(--text-color);
+      border: 1px solid color-mix(in srgb, var(--primary-green) 40%, transparent);
+    }
 
-  #contact-result.error {
-    background: var(--red);
-    color: #e7e1e1;
+    &.error {
+      background: color-mix(in srgb, var(--red) 12%, transparent);
+      color: var(--text-color);
+      border: 1px solid color-mix(in srgb, var(--red) 35%, transparent);
+    }
   }
 
   #contact-result .result-details {
-    margin-top: 8px;
-    font-size: 13px;
-    color: rgba(223, 232, 227, 0.8);
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--text-color-alt);
   }
 
   #contact-result .result-details p {
@@ -165,7 +124,28 @@
   }
 
   #contact-result .result-details strong {
-    font-weight: 700;
-    margin-right: 6px;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  // Footer links on contact page (if used)
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    margin-top: 48px;
+
+    a {
+      color: var(--text-color-alt);
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--liam-brand);
+      }
+    }
   }
 }

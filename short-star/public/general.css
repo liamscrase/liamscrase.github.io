@@ -39,7 +39,7 @@ body {
 }
 
 #body-wrapper {
-  margin-top: 89px;
+  margin-top: 69px;
 }
 
 .content {
@@ -110,7 +110,7 @@ h3 {
   border: none;
   font-family: inherit;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 250ms ease;
 }

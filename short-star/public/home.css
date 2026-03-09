@@ -73,18 +73,19 @@
   flex-direction: column;
   gap: 40px;
 }
+#website-builds .website-builds-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(17, 24, 39, 0.14);
+}
 #website-builds .website-builds-card span {
   display: block;
   margin-bottom: 12px;
 }
 #website-builds .website-builds-card p {
   margin-bottom: 24px;
-}
-#website-builds .website-builds-card img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
 }
 
 @media (min-width: 1200px) {

@@ -4,58 +4,64 @@ import FadeUpAnimation from "../components/FadeUpAnimation.astro";
 
 const featuredProjects = [
   {
-    title: "White label car dealership template",
-    year: "2025",
+    title: "BuyerScore Website Redesign (In development)",
+    year: "2026",
     description:
-      "Elevating the standards for car dealer websites in New Zealand with a modern website template and cutting-edge helpful AI features",
-    href: "/dealer-websites",
-    image: "/images/acme5/websites-home.webp",
-    imageAlt: "White label website template for car dealerships",
-    ariaLabel: "View Acme Website Template project details",
+      "Redesigned the BuyerScore website to improve the user experience and improve brand awareness.",
+    href: "https://buyerscore-co-nz-2-temp.azurewebsites.net/",
+    image: "/images/buyerscore/buyerscore-home.webp",
+    imageAlt: "BuyerScore Website Redesign preview",
+    ariaLabel: "View BuyerScore Website Redesign project details",
+    buttonText: "Visit staging site",
   },
   {
     title: "Avanti Finance App",
     year: "2025",
     description:
-      "A convenient mobile and web app for customers to view where they're at with their loan repayments.",
-    href: "/avanti",
+    "A convenient mobile and web app for customers to view where they're at with their loan repayments.",
+    href: "https://www.avantifinance.app/",
     image: "/images/avanti-app/avanti-home.webp",
     imageAlt: "Avanti Finance App preview",
     ariaLabel: "View Avanti Finance App project details",
+    buttonText: "Find out more",
   },
   {
-    title: "BuyerScore Website Redesign",
-    year: "2025",
+    title: "White label car dealership template",
+    year: "2024",
     description:
-      "Redesigned the BuyerScore website to improve the user experience and improve brand awareness.",
-    href: "/buyerscore",
-    image: "/images/buyerscore/buyerscore-home.webp",
-    imageAlt: "BuyerScore Website Redesign preview",
-    ariaLabel: "View BuyerScore Website Redesign project details",
+      "Elevating the standards for car dealer websites in New Zealand with a modern website template and cutting-edge helpful AI features",
+    href: "https://acmecars.co.nz",
+    image: "/images/acme5/websites-home.webp",
+    imageAlt: "White label website template for car dealerships",
+    ariaLabel: "View Acme Website Template project details",
+    buttonText: "See demo site",
   },
 ];
 
 const websiteBuilds = [
   {
     title: "The Serious Sandwich",
-    year: "2025",
+    year: "2026",
     description: "Food ordering website that is guaranteed to make you hungry",
-    image: "https://picsum.photos/seed/sandwich/600/400",
-    href: "#",
+    image: "/images/the-serious-sandwich/the-serious-sandwich-home.webp",
+    href: "https://theserioussandwich.nz",
+    buttonText: "Visit live website",
   },
   {
-    title: "St. Nicholas Orthodox Church",
+    title: "Te Rapa Tavern",
     year: "2025",
-    description: "Elegant yet modern with integrated CMS",
-    image: "https://picsum.photos/seed/church/600/400",
-    href: "#",
+    description: "A clean and modern hospitality website focused on local dining.",
+    image: "/images/te-rapa/te-rapa-home.webp",
+    href: "https://terapacars.co.nz",
+    buttonText: "Visit live website",
   },
   {
     title: "Simply Stunning Studios Tekapo",
     year: "2025",
     description: "Lakeside holiday studios with seamless online booking",
-    image: "https://picsum.photos/seed/studio/600/400",
-    href: "#",
+    image: "/images/simply-stunning/simply-stunning-home.webp",
+    href: "https://simplystunningstudiostekapo.nz",
+    buttonText: "Visit live website",
   },
 ];
 ---
@@ -98,8 +104,8 @@ const websiteBuilds = [
                 <h3>{project.title}</h3>
                 <span>{project.year}</span>
                 <p>{project.description}</p>
-                <a class="button grey" href={project.href} aria-label={project.ariaLabel}>
-                  View project <i class="icon-arrow"></i>
+                <a target="_blank" class="button grey" href={project.href} aria-label={project.ariaLabel}>
+                  {project.buttonText} <i class="icon-arrow"></i>
                 </a>
               </div>
             </div>
@@ -126,8 +132,8 @@ const websiteBuilds = [
                 <h3>{site.title}</h3>
                 <span>{site.year}</span>
                 <p>{site.description}</p>
-                <a href={site.href} class="button grey">
-                  Visit live site <i class="icon-arrow"></i>
+                <a target="_blank" href={site.href} class="button grey">
+                  {site.buttonText} <i class="icon-arrow"></i>
                 </a>
               </div>
             </article>

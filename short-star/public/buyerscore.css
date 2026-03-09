@@ -79,6 +79,7 @@
   color: var(--primary-green);
   font-weight: 600;
   font-size: 16px;
+  width: -moz-max-content;
   width: max-content;
   transition: background 0.2s ease, color 0.2s ease, transform 0.25s ease;
 }
@@ -177,8 +178,10 @@
   display: block;
   width: 100%;
   height: auto;
-  object-fit: contain;
-  object-position: center;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
   vertical-align: top;
 }
 .case-study .comparison .arrow {
@@ -224,4 +227,4 @@
   .case-study .main {
     gap: 70px;
   }
-}
+}/*# sourceMappingURL=buyerscore.css.map */

@@ -38,21 +38,43 @@ nav {
   }
 
   li a {
+    position: relative;
     display: flex;
     align-items: center;
-    font-weight: 500;
-    font-size: 15px;
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
     padding: 6px 12px;
     border-radius: 6px;
-    transition: background 200ms ease, opacity 200ms ease;
+    transition: opacity 200ms ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 6px;
+      height: 2px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 250ms ease;
+    }
 
     &:hover {
-      background: rgba(0, 0, 0, 0.07);
+      opacity: 0.9;
+
+      &::after {
+        transform: scaleX(1);
+      }
     }
 
     &.active {
       font-weight: 700;
-      background: rgba(0, 0, 0, 0.1);
+
+      &::after {
+        transform: scaleX(1);
+      }
     }
   }
 }

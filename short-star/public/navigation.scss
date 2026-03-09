@@ -5,10 +5,10 @@ nav {
   z-index: 100;
   background: var(--liam-brand);
   border-bottom: 1px solid transparent;
-  transition: all 300ms ease;
+  transition: all 400ms ease;
 
   &.scrolled {
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.07);
   }
 
   .content {
@@ -21,16 +21,34 @@ nav {
   }
 
   .logo {
+    position: relative;
     display: inline-flex;
     align-items: center;
+    padding: 6px 0;
+    border-radius: 6px;
     font-weight: 800;
     font-size: 18px;
     line-height: 1;
     color: var(--text-color);
     transition: opacity 200ms ease;
 
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 3px;
+      height: 2px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 250ms ease;
+    }
+
     &:hover {
-      opacity: 0.6;
+      &::after {
+        transform: scaleX(1);
+      }
     }
   }
 
@@ -40,34 +58,35 @@ nav {
     padding: 0;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 40px;
   }
 
   li {
     margin: 0;
     display: flex;
     align-items: center;
+    color: var(--text-color);
   }
 
   li a {
     position: relative;
     display: flex;
     align-items: center;
-    line-height: 1;
     color: var(--text-color);
     font-family: "Manrope", sans-serif;
-    font-weight: 600;
+    font-weight: 800;
     font-size: 18px;
-    padding: 6px 12px;
+    line-height: 1;
+    padding: 6px 0;
     border-radius: 6px;
     transition: opacity 200ms ease;
 
     &::after {
       content: "";
       position: absolute;
-      left: 12px;
-      right: 12px;
-      bottom: 6px;
+      left: 0;
+      right: 0;
+      bottom: 3px;
       height: 2px;
       background: currentColor;
       transform: scaleX(0);
@@ -76,11 +95,14 @@ nav {
     }
 
     &:hover {
-      opacity: 0.9;
-
       &::after {
         transform: scaleX(1);
       }
+    }
+
+    &:visited,
+    &:active {
+      color: var(--text-color);
     }
 
   }
